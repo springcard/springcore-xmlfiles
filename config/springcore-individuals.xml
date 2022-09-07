@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<springcard-multiconf-individuals
+	title="SpringCore Individual Registers"
+	firmware="springcore/*"
+>
+	<devices>
+		<device title="Crazy UHF Net"
+			firmware="springcore/e993/crazyuhf"
+			hardware="EAN18036"
+			implements="usb,network,serial,rdr,uhf"
+			individuals="0201,0202,0209,020A,0280,0281,02FE,02FF"
+			/>
+		<device title="Crazy UHF USB"
+			firmware="springcore/h993/crazyuhf"
+			hardware="EAN18035"
+			implements="usb,serial,rdr,uhf"
+			individuals="0201,0202,0209,020A,02FE,02FF"
+			/>
+		<device title="AFCare Two"
+			firmware="springcore/h518/afcare-two"
+			hardware="FSE18283"
+			implements="usb,ble,ccid,7816,7816_id1_x2,ataes,battery"
+			individuals="0201,0202,0209,020A,0244"
+			/>
+		<device title="Socket Mobile S550"
+			firmware="springcore/h518/s550"
+			hardware="*"
+			implements="usb,ble,ccid,rdr,micore,7816,7816_sam,samav,atecc,battery"
+			individuals="0201,0202,0209,020A,0244"
+			/>
+		<device title="Evaluation kit Net"
+			firmware="springcore/e518/reference"
+			hardware="EAN18090"
+			implements="usb,network,ccid,rdr,micore,7816,7816_id1,7816_sam_x4,samav,atecc"
+			individuals="0201,0202,0209,020A,0280,0281,02FE,02FF"
+			/>
+		<device title="Evaluation kit USB"
+			firmware="springcore/h518/reference"
+			hardware="EAN17115"
+			implements="usb,ccid,rdr,micore,7816,7816_id1,7816_sam_x4,samav,atecc"
+			individuals="0201,0202,0209,020A"
+			/>
+		<device title="SpringPark"
+			firmware="springcore/e518/springpark"
+			hardware="EAN19217"
+			implements="usb,serial,network,ccid,rdr,micore,7816,7816_id1,7816_sam_x4,samav,atecc,vegas"
+			individuals="0201,0202,0209,020A,0280,0281,02FE,02FF"
+			/>
+		<device title="Puck"
+			firmware="springcore/h518/puck"
+			hardware=""
+			implements="usb,ble,ccid,rdr,micore,7816,7816_sam,samav,atecc,vegas,battery"
+			individuals="0201,0202,0209,020A,0244"
+			/>
+		<device title="Puck Base"
+			firmware="springcore/h518/puck"
+			hardware="FPF18175"
+			implements="usb,ccid,rdr,micore,7816,samav,atecc,vegas"
+			individuals="0201,0202,0209,020A"
+			/>
+		<device title="Puck Blue"
+			firmware="springcore/h518/puck"
+			hardware="FPF18176"
+			implements="usb,ble,ccid,rdr,micore,7816,samav,atecc,vegas"
+			individuals="0201,0202,0209,020A,0244"
+			/>
+		<device title="Puck One"
+			firmware="springcore/h518/puck"
+			hardware="FPF18177"
+			implements="usb,ccid,rdr,micore,7816,7816_sam,samav,atecc,vegas"
+			individuals="0201,0202,0209,020A"
+			/>
+		<device title="Puck Point"
+			firmware="springcore/h518/puck"
+			hardware="FPF18178"
+			implements="usb,ble,ccid,rdr,micore,7816,samav,atecc,vegas,battery"
+			individuals="0201,0202,0209,020A,0244"
+			/>
+		<device title="Puck Ultimate"
+			firmware="springcore/h518/puck"
+			hardware="FPF18170"
+			implements="usb,ble,ccid,rdr,micore,7816,7816_sam,samav,atecc,vegas,battery"
+			individuals="0201,0202,0209,020A,0244"
+			/>
+	</devices>
+	<tree>
+	<!-- Empty node Constants, title=Constants, type=SpringCoreMeta.NodeRegisters -->
+		<!-- Empty node Main configuration, title=Main configuration, type=SpringCoreMeta.NodeRegisters -->
+		<node title="Inventory data">
+			<!-- Hiding Configuration GUID (not an individual register) -->
+			<register id="0201" size="16" default="" individual="true">
+				<title>Inventory number</title>
+				<description>
+A free-use string to store the product&apos;s ID in your inventory database.
+				</description>
+				<field type="textbox" id="5420A708" maxlength="16" title="Inventory number" default="" individual="true"/>
+			</register>
+			<register id="0202" size="16" default="" individual="true">
+				<title>Location</title>
+				<description>
+A free-use string to store the product&apos;s location.
+				</description>
+				<field type="textbox" id="2327979E" maxlength="16" title="Location" default="" individual="true"/>
+			</register>
+			<!-- Hiding Rfu3 (not an individual register) -->
+			<!-- Hiding Rfu4 (not an individual register) -->
+			<!-- Hiding Rfu5 (not an individual register) -->
+			<!-- Hiding Rfu6 (not an individual register) -->
+			<!-- Hiding Rfu7 (not an individual register) -->
+		</node>
+		<node title="Integrator's license">
+			<!-- Hiding Application name (not an individual register) -->
+			<register id="0209" size="32" default="" individual="true">
+				<title>License key</title>
+				<description>
+This register is available to store an application-specific license key or license number. See the [license cryptogram](License_cryptogram) paragraph for details.
+				</description>
+				<field type="textbox" id="BA2EC624" maxlength="32" title="License key" default="" individual="true"/>
+			</register>
+			<register id="020A" size="32" default="" dynamic="true" individual="true">
+				<title>License cryptogram</title>
+				<description>
+This register is available to store a proof that the [Application name](Application_name) and [License key](License_key) are genuine.
+				</description>
+				<remark>
+Integrators and solution providers are welcomed to create a bundle tying the product to an accompanying software. This register may store a proof that the product has been personalized by the provider of the software. An easy way to do so is to compute an HMAC over the product&apos;s serial number, the Application Name and the Application License. The application may verify the HMAC (provided that it knows the secret key used to compute it). This register has a size of 32 bytes, which allows to use HMAC-SHA256.
+				</remark>
+				<field type="raw" id="CD29F6B2" minlength="0" maxlength="32" title="License cryptogram" dynamic="true" individual="true"/>
+				<note>
+Pay attention that this register may normally be updated by the user. Set appropriate values in the [Access Conditions](../Security/Access_Conditions) register to protect it against unwanted changes.
+				</note>
+			</register>
+			<!-- Hiding RfuB (not an individual register) -->
+			<!-- Hiding RfuC (not an individual register) -->
+			<!-- Hiding RfuD (not an individual register) -->
+			<!-- Hiding RfuE (not an individual register) -->
+			<!-- Hiding RfuF (not an individual register) -->
+		</node>
+		<node title="Configuration of the network interface">
+			<register id="0280" size="20" default="0000000000000000000000000000000000000000" individual="true" ipconfiguration="true">
+				<title>IPv4 Settings</title>
+				<description>
+Defines the product&apos;s IPv4 address, network mask, gateway and dns, or enables DHCP.
+				</description>
+				<field type="ip" id="534D6311" title="Network address (`00000000` to enable DHCP)" name="Address" bitmap="FFFFFFFF00000000000000000000000000000000" />
+				<field type="ip" id="244A5387" title="Network mask  (`FFFFFF00` for a class C subnet)" name="Netmask" bitmap="00000000FFFFFFFF000000000000000000000000" />
+				<field type="ip" id="BD43023D" title="Default gateway (`00000000` to disable routing)" name="Gateway" bitmap="0000000000000000FFFFFFFF0000000000000000" />
+				<field type="ip" id="CA4432AB" title="1st name server" name="Nameserver1" bitmap="000000000000000000000000FFFFFFFF00000000" />
+				<field type="ip" id="5AFB2F3A" title="2nd name server" name="Nameserver2" bitmap="00000000000000000000000000000000FFFFFFFF" />
+			</register>
+			<register id="0281" size="16" default="00000000000000000000000000000000" individual="true" ipv6configuration="true">
+				<title>IPv6 Settings</title>
+				<description>
+Defines the product&apos;s IPv6 address, DHCPv6.
+				</description>
+				<field type="raw" id="2DFC1FAC" minlength="16" maxlength="16" title="IPv6 Settings" individual="true" ipv6configuration="true"/>
+			</register>
+			<!-- Hiding Network options (not an individual register) -->
+			<!-- Hiding Network services options (not an individual register) -->
+			<!-- Hiding Network ports (not an individual register) -->
+		</node>
+		<!-- Empty node MQTT Client, title=Configuration of the product as an MQTT client, type=SpringCoreMeta.NodeRegisters -->
+		<!-- Empty node HTTP Client, title=Configuration of the product as an HTTP client, type=SpringCoreMeta.NodeRegisters -->
+		<!-- Empty node User interface, title=Configuration of the user interface, type=SpringCoreMeta.NodeRegisters -->
+		<!-- Empty node Smart Reader, title=Configuration for Smart Reader operation, type=SpringCoreMeta.NodeRegisters -->
+		<node title="Security-related configuration">
+			<!-- Hiding Access Conditions (not an individual register) -->
+			<!-- Hiding Authentication counters (not an individual register) -->
+			<!-- Hiding Master Options (not an individual register) -->
+			<!-- Hiding Master Key ID (not an individual register) -->
+			<!-- Hiding Master Auth Key (not an individual register) -->
+			<!-- Hiding Master Public Key (not an individual register) -->
+			<!-- Hiding ECC device Key and Options (not an individual register) -->
+			<!-- Hiding ECC User Key (not an individual register) -->
+			<!-- Hiding ECC Admin Key (not an individual register) -->
+			<register id="02FE" size="16" default="737072696E6763617264" individual="true">
+				<title>User password</title>
+				<description>
+User password to protect console (serial and telnet) accesses to the product. See [Access Conditions](Access_Conditions).
+				</description>
+				<remark>
+If both User Password and [Admin Password](Admin_Password) have the same value, the product assumes that [Admin Password](Admin_Password) is entered.
+				</remark>
+				<field type="textbox" id="B4F54E16" maxlength="16" title="User password" default="springcard" individual="true"/>
+			</register>
+			<register id="02FF" size="16" default="737072696E67636172646D6173746572" individual="true">
+				<title>Admin password</title>
+				<description>
+Admin password to protect console (serial and telnet) accesses to the product. See [Access Conditions](Access_Conditions).
+				</description>
+				<remark>
+If both [User Password](User_Password) and Admin Password have the same value, the product assumes that Admin Password is entered.
+				</remark>
+				<field type="textbox" id="C3F27E80" maxlength="16" title="Admin password" default="springcardmaster" individual="true"/>
+			</register>
+		</node>
+		<!-- Empty node Contactless, title=Configuration of the Contactless (NFC) interface in poller (reader) mode, type=SpringCoreMeta.NodeRegisters -->
+		<node title="Configuration of the Bluetooth interface" visibleif="REGBIT(0x02C2, 7) is 0">
+			<!-- Hiding TxPower (not an individual register) -->
+			<!-- Hiding Timings (not an individual register) -->
+			<!-- Hiding Notifications Registration Timeout (not an individual register) -->
+			<!-- Hiding Extra options (not an individual register) -->
+			<register id="0244" size="29" default="" visibleif="REGBIT(0x02C2, 7) is 0" individual="true">
+				<title>User Device Name</title>
+				<description>
+A user-defined name to override the default Device Name used for BLE advertising.
+				</description>
+				<field type="textbox" id="5D96EB23" maxlength="29" title="User Device Name" default="" visibleif="REGBIT(0x02C2, 7) is 0" individual="true"/>
+			</register>
+			<!-- Hiding Advertising Channel Map (not an individual register) -->
+			<!-- Hiding iBeacon ID (not an individual register) -->
+		</node>
+		<!-- Empty node UHF, title=Configuration of the RFID UHF (868/910MHz) reader, type=SpringCoreMeta.NodeRegisters -->
+		<!-- Empty node Barcode, title=Configuration of the Barcode scanner, type=SpringCoreMeta.NodeRegisters -->
+		<!-- Empty node Smartcards, title=Configuration of the smartcard interface(s), type=SpringCoreMeta.NodeRegisters -->
+		<!-- Empty node UDP Server, title=UDP Server Configuration, type=SpringCoreMeta.NodeRegisters -->
+		<!-- Empty node WiFi settings, title=WiFi interface Configuration, type=SpringCoreMeta.NodeRegisters -->
+		<!-- Empty node Serial, title=Configuration of the serial interface, type=SpringCoreMeta.NodeRegisters -->
+		<!-- Empty node PC SC, title=Configuration for PC/SC (CCID) operation, type=SpringCoreMeta.NodeRegisters -->
+		<!-- Empty node NFC Emulation and P2P, title=Configuration of the NFC interface in listener mode, type=SpringCoreMeta.NodeRegisters -->
+	<!-- Empty node Templates, title=Templates, type=SpringCoreMeta.NodeRegisters -->
+	<!-- Empty node Statistics, title=Statistics, type=SpringCoreMeta.NodeRegisters -->
+	</tree>
+</springcard-multiconf-individuals>
