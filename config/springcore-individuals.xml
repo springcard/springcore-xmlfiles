@@ -93,14 +93,14 @@
 				<description>
 A free-use string to store the product&apos;s ID in your inventory database.
 				</description>
-				<field type="textbox" id="5420A708" maxlength="16" title="Inventory number" default="" individual="true"/>
+				<field type="textbox" id="config0201" maxlength="16" title="Inventory number" default="" individual="true"/>
 			</register>
 			<register id="0202" size="16" default="" individual="true">
 				<title>Location</title>
 				<description>
 A free-use string to store the product&apos;s location.
 				</description>
-				<field type="textbox" id="2327979E" maxlength="16" title="Location" default="" individual="true"/>
+				<field type="textbox" id="config0202" maxlength="16" title="Location" default="" individual="true"/>
 			</register>
 			<!-- Hiding Rfu3 (not an individual register) -->
 			<!-- Hiding Rfu4 (not an individual register) -->
@@ -115,7 +115,7 @@ A free-use string to store the product&apos;s location.
 				<description>
 This register is available to store an application-specific license key or license number. See the [license cryptogram](License_cryptogram) paragraph for details.
 				</description>
-				<field type="textbox" id="BA2EC624" maxlength="32" title="License key" default="" individual="true"/>
+				<field type="textbox" id="config0209" maxlength="32" title="License key" default="" individual="true"/>
 			</register>
 			<register id="020A" size="32" default="" dynamic="true" individual="true">
 				<title>License cryptogram</title>
@@ -125,7 +125,7 @@ This register is available to store a proof that the [Application name](Applicat
 				<remark>
 Integrators and solution providers are welcomed to create a bundle tying the product to an accompanying software. This register may store a proof that the product has been personalized by the provider of the software. An easy way to do so is to compute an HMAC over the product&apos;s serial number, the Application Name and the Application License. The application may verify the HMAC (provided that it knows the secret key used to compute it). This register has a size of 32 bytes, which allows to use HMAC-SHA256.
 				</remark>
-				<field type="raw" id="CD29F6B2" minlength="0" maxlength="32" title="License cryptogram" dynamic="true" individual="true"/>
+				<field type="raw" id="config020a" minlength="0" maxlength="32" title="License cryptogram" dynamic="true" individual="true"/>
 				<note>
 Pay attention that this register may normally be updated by the user. Set appropriate values in the [Access Conditions](../Security/Access_Conditions) register to protect it against unwanted changes.
 				</note>
@@ -142,18 +142,18 @@ Pay attention that this register may normally be updated by the user. Set approp
 				<description>
 Defines the product&apos;s IPv4 address, network mask, gateway and dns, or enables DHCP.
 				</description>
-				<field type="ip" id="534D6311" title="Network address (`00000000` to enable DHCP)" name="Address" bitmap="FFFFFFFF00000000000000000000000000000000" />
-				<field type="ip" id="244A5387" title="Network mask  (`FFFFFF00` for a class C subnet)" name="Netmask" bitmap="00000000FFFFFFFF000000000000000000000000" />
-				<field type="ip" id="BD43023D" title="Default gateway (`00000000` to disable routing)" name="Gateway" bitmap="0000000000000000FFFFFFFF0000000000000000" />
-				<field type="ip" id="CA4432AB" title="1st name server" name="Nameserver1" bitmap="000000000000000000000000FFFFFFFF00000000" />
-				<field type="ip" id="5AFB2F3A" title="2nd name server" name="Nameserver2" bitmap="00000000000000000000000000000000FFFFFFFF" />
+				<field type="ip" id="config0280_555555y" title="Network address (`00000000` to enable DHCP)" name="Address" bitmap="FFFFFFFF00000000000000000000000000000000" />
+				<field type="ip" id="config0280_vqlq6ky" title="Network mask  (`FFFFFF00` for a class C subnet)" name="Netmask" bitmap="00000000FFFFFFFF000000000000000000000000" />
+				<field type="ip" id="config0280_s25rcml" title="Default gateway (`00000000` to disable routing)" name="Gateway" bitmap="0000000000000000FFFFFFFF0000000000000000" />
+				<field type="ip" id="config0280_qocj7wy" title="1st name server" name="Nameserver1" bitmap="000000000000000000000000FFFFFFFF00000000" />
+				<field type="ip" id="config0280_rxuj7ed" title="2nd name server" name="Nameserver2" bitmap="00000000000000000000000000000000FFFFFFFF" />
 			</register>
 			<register id="0281" size="16" default="00000000000000000000000000000000" individual="true" ipv6configuration="true">
 				<title>IPv6 Settings</title>
 				<description>
 Defines the product&apos;s IPv6 address, DHCPv6.
 				</description>
-				<field type="raw" id="2DFC1FAC" minlength="16" maxlength="16" title="IPv6 Settings" individual="true" ipv6configuration="true"/>
+				<field type="raw" id="config0281" minlength="16" maxlength="16" title="IPv6 Settings" individual="true" ipv6configuration="true"/>
 			</register>
 			<!-- Hiding Network options (not an individual register) -->
 			<!-- Hiding Network services options (not an individual register) -->
@@ -181,7 +181,7 @@ User password to protect console (serial and telnet) accesses to the product. Se
 				<remark>
 If both User Password and [Admin Password](Admin_Password) have the same value, the product assumes that [Admin Password](Admin_Password) is entered.
 				</remark>
-				<field type="textbox" id="B4F54E16" maxlength="16" title="User password" default="springcard" individual="true"/>
+				<field type="textbox" id="config02fe" maxlength="16" title="User password" default="springcard" individual="true"/>
 			</register>
 			<register id="02FF" size="16" default="737072696E67636172646D6173746572" individual="true">
 				<title>Admin password</title>
@@ -191,7 +191,7 @@ Admin password to protect console (serial and telnet) accesses to the product. S
 				<remark>
 If both [User Password](User_Password) and Admin Password have the same value, the product assumes that Admin Password is entered.
 				</remark>
-				<field type="textbox" id="C3F27E80" maxlength="16" title="Admin password" default="springcardmaster" individual="true"/>
+				<field type="textbox" id="config02ff" maxlength="16" title="Admin password" default="springcardmaster" individual="true"/>
 			</register>
 		</node>
 		<!-- Empty node Contactless, title=Configuration of the Contactless (NFC) interface in poller (reader) mode, type=SpringCoreMeta.NodeRegisters -->
@@ -205,7 +205,7 @@ If both [User Password](User_Password) and Admin Password have the same value, t
 				<description>
 A user-defined name to override the default Device Name used for BLE advertising.
 				</description>
-				<field type="textbox" id="5D96EB23" maxlength="29" title="User Device Name" default="" visibleif="REGBIT(0x02C2, 7) is 0" individual="true"/>
+				<field type="textbox" id="config0244" maxlength="29" title="User Device Name" default="" visibleif="REGBIT(0x02C2, 7) is 0" individual="true"/>
 			</register>
 			<!-- Hiding Advertising Channel Map (not an individual register) -->
 			<!-- Hiding iBeacon ID (not an individual register) -->

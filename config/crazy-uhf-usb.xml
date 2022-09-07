@@ -18,10 +18,10 @@
 				<description>
 This register defines how the product is seen by the hosts: USB or BLE profile, primary interface, primary communication protocol. It implicitly activates either [Operating mode](../../../Introduction/Operating_Modes).
 				</description>
-				<field type="hidden" id="48421DE2" name="rfu0" bitmap="80" value="0" />
+				<field type="hidden" id="config02c0_m6awtjl" name="rfu0" bitmap="80" value="0" />
 				<!-- Ignoring Network (no network) -->
-				<field type="hidden" id="D6268841" name="rfu0" bitmap="08" value="0" />
-				<field type="radios" id="A121B8D7" title="Primary profile" name="Select" bitmap="07">
+				<field type="hidden" id="config02c0_eph722y" name="rfu0" bitmap="08" value="0" />
+				<field type="radios" id="config02c0_kspmojd" title="Primary profile" name="Select" bitmap="07">
 					<option value="0" title="SpringCore Direct"/>
 					<option value="1" title="SpringProx Legacy mode, Serial or CDC"/>
 					<option value="2" title="CCID (PC/SC or PC/SC-Like)"/>
@@ -40,31 +40,31 @@ Control various options related to the USB interface.
 				<remark>
 If the product has no USB interface, this register is ignored.
 				</remark>
-				<field type="radios" id="3828E96D" title="Disable USB" name="Disabled" bitmap="80">
+				<field type="radios" id="config02c1_m6awtjl" title="Disable USB" name="Disabled" bitmap="80">
 					<option value="0" title="USB is enabled"/>
 					<option value="1" title="USB is disabled, all the other settings are ignored"/>
 				</field>
-				<field type="radios" id="4F2FD9FB" title="Disable serial number" name="No Serno" bitmap="40" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0">
+				<field type="radios" id="config02c1_op23zml" title="Disable serial number" name="No Serno" bitmap="40" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0">
 					<option value="0" title="The actual serial number of the product is provided in the USB descriptor" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0"/>
 					<option value="1" title="A constant serial number is provided in the USB descriptor" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0"/>
 				</field>
-				<field type="radios" id="DF90C46A" title="On USB bus reset event, does the product fully reset?" name="Reset on bus reset" bitmap="20" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0" remark="Standard behaviour is no, but this does help putting back a battery-powered or externaly-powered product that was connected through Bluetooth or Network to the &apos;ready for USB operation&apos; state">
+				<field type="radios" id="config02c1_ax7h6sl" title="On USB bus reset event, does the product fully reset?" name="Reset on bus reset" bitmap="20" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0" remark="Standard behaviour is no, but this does help putting back a battery-powered or externaly-powered product that was connected through Bluetooth or Network to the &apos;ready for USB operation&apos; state">
 					<option value="0" title="Don&apos;t reset" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0"/>
 					<option value="1" title="Do reset upon Bus reset" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0"/>
 				</field>
-				<field type="radios" id="A897F4FC" title="On USB bus resume event, does the product fully reset?" name="Reset on bus resume" bitmap="10" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0" remark="Standard behaviour is no, but this does help putting back a battery-powered or externaly-powered product that was connected through Bluetooth or Network to the &apos;ready for USB operation&apos; state">
+				<field type="radios" id="config02c1_t6r55rl" title="On USB bus resume event, does the product fully reset?" name="Reset on bus resume" bitmap="10" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0" remark="Standard behaviour is no, but this does help putting back a battery-powered or externaly-powered product that was connected through Bluetooth or Network to the &apos;ready for USB operation&apos; state">
 					<option value="0" title="Don&apos;t reset" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0"/>
 					<option value="1" title="Do reset upon Bus resume" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0"/>
 				</field>
-				<field type="radios" id="319EA546" title="Disable SpringCore direct as secondary USB interface." name="No Direct" bitmap="08" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0" remark="If [Primary profile](Profile) is set to `0` (SpringCore Direct only), this setting is ignored.">
+				<field type="radios" id="config02c1_eph722y" title="Disable SpringCore direct as secondary USB interface." name="No Direct" bitmap="08" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0" remark="If [Primary profile](Profile) is set to `0` (SpringCore Direct only), this setting is ignored.">
 					<option value="0" title="SpringCore Direct is announced in the USB profile" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0"/>
 					<option value="1" title="SpringCore Direct is not announced in the USB profile" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0"/>
 				</field>
-				<field type="radios" id="469995D0" title="Behaviour of the product when USB VBUS is lost and the product is not allowed to keep running" name="VBUS down stop action" bitmap="04" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C1, 0, 2) is 0">
+				<field type="radios" id="config02c1_riuquxn" title="Behaviour of the product when USB VBUS is lost and the product is not allowed to keep running" name="VBUS down stop action" bitmap="04" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C1, 0, 2) is 0">
 					<option value="0" title="Reset" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C1, 0, 2) is 0"/>
 					<option value="1" title="Shutdown" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C1, 0, 2) is 0"/>
 				</field>
-				<field type="radios" id="D8FD0073" title="Behaviour of the product when USB VBUS is lost" name="VBUS down behaviour" bitmap="03" visibleif="REGBIT(0x02C1, 7) is 0">
+				<field type="radios" id="config02c1_khxezgy" title="Behaviour of the product when USB VBUS is lost" name="VBUS down behaviour" bitmap="03" visibleif="REGBIT(0x02C1, 7) is 0">
 					<option value="0" title="Stop - reset or shutdown" visibleif="REGBIT(0x02C1, 7) is 0"/>
 					<option value="1" title="Keep running on external power" visibleif="REGBIT(0x02C1, 7) is 0"/>
 					<option value="2" title="Keep running on battery" visibleif="REGBIT(0x02C1, 7) is 0"/>
@@ -78,8 +78,8 @@ If the product has no USB interface, this register is ignored.
 				<description>
 Control various options related to the current profile.
 				</description>
-				<field type="hidden" id="AFFA30E5" name="rfu0" bitmap="FE" value="00" />
-				<field type="radios" id="36F3615F" title="Enable HID Ringer addon used by Telephony services (experimental)." name="Enable Ringer" bitmap="01" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3">
+				<field type="hidden" id="config02c4_snvp4xd" name="rfu0" bitmap="FE" value="00" />
+				<field type="radios" id="config02c4_ooba6wy" title="Enable HID Ringer addon used by Telephony services (experimental)." name="Enable Ringer" bitmap="01" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3">
 					<option value="0" title="HID Ringer is enabled" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3"/>
 					<option value="1" title="HID Ringer is disabled" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3"/>
 				</field>
@@ -90,23 +90,23 @@ Control various options related to the current profile.
 				<remark>
 This register is available only in debug builds of the firmware.
 				</remark>
-				<field type="number-h" id="41F451C9" minlength="4" maxlength="4" title="Trace level" hint="dword"  advanced="true"/>
+				<field type="number-h" id="config02cd" minlength="4" maxlength="4" title="Trace level" hint="dword"  advanced="true"/>
 			</register>
 			<register id="02CE" size="1" default="00" advanced="true" visibleif="REGVAL(0x02CD) is not 0">
 				<title>Trace options</title>
 				<remark>
 This register is available only in debug builds of the firmware.
 				</remark>
-				<field type="hidden" id="F7927CF4" name="rfu0" bitmap="C0" value="0" />
-				<field type="radios" id="80954C62" title="Use Syslog" name="Use Syslog" bitmap="20" advanced="true" visibleif="REGVAL(0x02CD) is not 0">
+				<field type="hidden" id="config02ce_kxpbr2l" name="rfu0" bitmap="C0" value="0" />
+				<field type="radios" id="config02ce_ax7h6sl" title="Use Syslog" name="Use Syslog" bitmap="20" advanced="true" visibleif="REGVAL(0x02CD) is not 0">
 					<option value="0" title="Don&apos;t use syslog" advanced="true" visibleif="REGVAL(0x02CD) is not 0"/>
 					<option value="1" title="Send traces to syslog" advanced="true" visibleif="REGVAL(0x02CD) is not 0"/>
 				</field>
-				<field type="radios" id="199C1DD8" title="Show uptime" name="Show uptime" bitmap="10" advanced="true" visibleif="REGVAL(0x02CD) is not 0">
+				<field type="radios" id="config02ce_t6r55rl" title="Show uptime" name="Show uptime" bitmap="10" advanced="true" visibleif="REGVAL(0x02CD) is not 0">
 					<option value="0" title="Don&apos;t show uptime" advanced="true" visibleif="REGVAL(0x02CD) is not 0"/>
 					<option value="1" title="Show uptime" advanced="true" visibleif="REGVAL(0x02CD) is not 0"/>
 				</field>
-				<field type="hidden" id="6E9B2D4E" name="rfu0" bitmap="0F" value="0" />
+				<field type="hidden" id="config02ce_l365cmn" name="rfu0" bitmap="0F" value="0" />
 			</register>
 		</node>
 		<!-- Empty node Inventory, title=Inventory data, type=SpringCoreMeta.NodeRegisters -->
@@ -116,7 +116,7 @@ This register is available only in debug builds of the firmware.
 				<description>
 This register is available to store the name of application or to identify the integrator who has loaded its license in the product. See the [license cryptogram](License_cryptogram) paragraph for details.
 				</description>
-				<field type="textbox" id="F0FFB8ED" maxlength="32" title="Application name" default=""/>
+				<field type="textbox" id="config0208" maxlength="32" title="Application name" default=""/>
 			</register>
 			<!-- Hiding License key (individual register) -->
 			<!-- Hiding License cryptogram (individual register) -->
@@ -135,8 +135,8 @@ This register is available to store the name of application or to identify the i
 				<description>
 This register control global UI behaviour.
 				</description>
-				<field type="hidden" id="87F8887B" name="rfu0" bitmap="FE" value="00" />
-				<field type="radios" id="1EF1D9C1" title="Host controlled" name="Host controlled" bitmap="01">
+				<field type="hidden" id="config02d0_snvp4xd" name="rfu0" bitmap="FE" value="00" />
+				<field type="radios" id="config02d0_ooba6wy" title="Host controlled" name="Host controlled" bitmap="01">
 					<option value="0" title="UI is firmware controlled"/>
 					<option value="1" title="UI is host controlled"/>
 				</field>
@@ -149,14 +149,14 @@ For products that have a set of 4 LEDs as primary user interface, this register 
 				<remark>
 This register is ignored if the product&apos;s primary UI is an [RGB LED](RGB_LED).
 				</remark>
-				<field type="number-h" id="69F6E957" minlength="1" maxlength="1" title="Options for the main 4-LED ramp" hint="byte" />
+				<field type="number-h" id="config02d1" minlength="1" maxlength="1" title="Options for the main 4-LED ramp" hint="byte" />
 			</register>
 			<register id="02D2" size="2" default="92A1">
 				<title>Settings for the main RGB LED(s)</title>
 				<description>
 For products that have a RGB LED (or a set of RGB LEDs) as primary user interface, this register defines its color and behaviour.
 				</description>
-				<field type="radios" id="F949F4C6" title="Color of the RGB LED(s) when the product is active, waiting for a card" name="Color" bitmap="F000">
+				<field type="radios" id="config02d2_3iq5wdd" title="Color of the RGB LED(s) when the product is active, waiting for a card" name="Color" bitmap="F000">
 					<option value="0" title="White"/>
 					<option value="1" title="Red"/>
 					<option value="2" title="Dark Red"/>
@@ -174,14 +174,14 @@ For products that have a RGB LED (or a set of RGB LEDs) as primary user interfac
 					<option value="14" title="Purple"/>
 					<option value="15" title="Orange"/>
 				</field>
-				<field type="hidden" id="8E4EC450" name="rfu0" bitmap="0C00" value="0" />
-				<field type="radios" id="174795EA" title="State of the RGB LED(s) when the product is active, waiting for a card" name="State" bitmap="0300">
+				<field type="hidden" id="config02d2_ai7xezy" name="rfu0" bitmap="0C00" value="0" />
+				<field type="radios" id="config02d2_gjrcb2n" title="State of the RGB LED(s) when the product is active, waiting for a card" name="State" bitmap="0300">
 					<option value="0" title="OFF"/>
 					<option value="1" title="Solid ON"/>
 					<option value="2" title="Breathing"/>
 					<option value="3" title="Pulses"/>
 				</field>
-				<field type="radios" id="6040A57C" title="Color of the RGB LED(s) when the product is inactive" name="Color" bitmap="00F0">
+				<field type="radios" id="config02d2_5sqf4yy" title="Color of the RGB LED(s) when the product is inactive" name="Color" bitmap="00F0">
 					<option value="0" title="White"/>
 					<option value="1" title="Red"/>
 					<option value="2" title="Dark Red"/>
@@ -199,8 +199,8 @@ For products that have a RGB LED (or a set of RGB LEDs) as primary user interfac
 					<option value="14" title="Purple"/>
 					<option value="15" title="Orange"/>
 				</field>
-				<field type="hidden" id="FE2430DF" name="rfu0" bitmap="000C" value="0" />
-				<field type="radios" id="89230049" title="State of the RGB LED(s) when the product is inactive" name="State" bitmap="0003">
+				<field type="hidden" id="config02d2_k4uiain" name="rfu0" bitmap="000C" value="0" />
+				<field type="radios" id="config02d2_evlcwsl" title="State of the RGB LED(s) when the product is inactive" name="State" bitmap="0003">
 					<option value="0" title="OFF"/>
 					<option value="1" title="Solid ON"/>
 					<option value="2" title="Breathing"/>
@@ -212,9 +212,9 @@ For products that have a RGB LED (or a set of RGB LEDs) as primary user interfac
 				<description>
 For products that have a RGB LED (or a set of RGB LEDs) as primary user interface, this register control the light level.
 				</description>
-				<field type="number-d" id="102A51F3" title="Light level when active" name="Full-level luminosity" bitmap="FF0000" remark="Value is in percent (0-100%). Default is 100%." />
-				<field type="number-d" id="672D6165" title="Light level when idle" name="Dimmed-level luminosity" bitmap="00FF00" remark="Value is in percent (0-100%). Default is 75%." />
-				<field type="number-d" id="EA256C90" title="Delay before switching to dimmed-level luminosity." name="Dimm after" bitmap="0000FF" remark="Value is in seconds. Default is 10s. Set to 0 to prevent dimming the light." />
+				<field type="number-d" id="config02d3_lmh6e5y" title="Light level when active" name="Full-level luminosity" bitmap="FF0000" remark="Value is in percent (0-100%). Default is 100%." />
+				<field type="number-d" id="config02d3_gsqqlyn" title="Light level when idle" name="Dimmed-level luminosity" bitmap="00FF00" remark="Value is in percent (0-100%). Default is 75%." />
+				<field type="number-d" id="config02d3_rk4pgmy" title="Delay before switching to dimmed-level luminosity." name="Dimm after" bitmap="0000FF" remark="Value is in seconds. Default is 10s. Set to 0 to prevent dimming the light." />
 			</register>
 			<register id="02D7" size="1" default="00" advanced="true">
 				<title>Options for the auxiliary LEDs</title>
@@ -224,7 +224,7 @@ For products that have auxiliary LEDs (for instance to show the state of the Blu
 				<remark>
 This register is ignored if the product does not have any auxiliary LED.
 				</remark>
-				<field type="number-h" id="9D225C06" minlength="1" maxlength="1" title="Options for the auxiliary LEDs" hint="byte"  advanced="true"/>
+				<field type="number-h" id="config02d7" minlength="1" maxlength="1" title="Options for the auxiliary LEDs" hint="byte"  advanced="true"/>
 			</register>
 			<register id="02D8" size="1" default="01">
 				<title>Sound options</title>
@@ -234,8 +234,8 @@ Options for the single-tone beeper (aka buzzer) or volume for the enhanced sound
 				<remark>
 This register is ignored if the product does not have a buzzer nor an enhanced sound driver.
 				</remark>
-				<field type="hidden" id="042B0DBC" name="rfu0" bitmap="F8" value="00" />
-				<field type="number-h" id="732C3D2A" title="Control whether the product is allowed to beep or define the Volume level. Set to 0 to disable sound. The maximum volume level depends on the product type." name="Volume" bitmap="07" />
+				<field type="hidden" id="config02d8_hxqkjly" name="rfu0" bitmap="F8" value="00" />
+				<field type="number-h" id="config02d8_kspmojd" title="Control whether the product is allowed to beep or define the Volume level. Set to 0 to disable sound. The maximum volume level depends on the product type." name="Volume" bitmap="07" />
 			</register>
 			<register id="02D9" size="64" default="" advanced="true" dynamic="true">
 				<title>Product Specific</title>
@@ -245,7 +245,7 @@ Custom UI options for specific products.
 				<remark>
 This register can be ignored.
 				</remark>
-				<field type="raw" id="ED48A889" minlength="0" maxlength="64" title="Product Specific" advanced="true" dynamic="true"/>
+				<field type="raw" id="config02d9" minlength="0" maxlength="64" title="Product Specific" advanced="true" dynamic="true"/>
 			</register>
 			<register id="02DA" size="3" default="000000">
 				<title>Theme selection</title>
@@ -255,7 +255,7 @@ Select which them to use for the UI .
 				<remark>
 Specific products.
 				</remark>
-				<field type="raw" id="9A4F981F" minlength="3" maxlength="3" title="Theme selection"/>
+				<field type="raw" id="config02da" minlength="3" maxlength="3" title="Theme selection"/>
 			</register>
 		</node>
 		<node title="Configuration for Smart Reader operation" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4">
@@ -264,44 +264,44 @@ Specific products.
 				<description>
 Key settings for Smart Reader operation
 				</description>
-				<field type="hidden" id="0346C9A5" name="rfu0" bitmap="E000000000" value="0" />
-				<field type="radios" id="7441F933" title="Insert / Remove" name="Insert Remove" bitmap="1000000000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4">
+				<field type="hidden" id="config02a0_aeev4dd" name="rfu0" bitmap="E000000000" value="0" />
+				<field type="radios" id="config02a0_oe4w4my" title="Insert / Remove" name="Insert Remove" bitmap="1000000000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4">
 					<option value="0" title="The Smart Reader sends the Tag read event only" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="1" title="The Smart Reader sends the Tag inserted event when the tag arrives, and the Tag removed event when it has leaved" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 				</field>
-				<field type="hidden" id="E4FEE4A2" name="rfu0" bitmap="0C00000000" value="0" />
-				<field type="radios" id="93F9D434" title="Explicit activation" name="Explicit activation" bitmap="0200000000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4">
+				<field type="hidden" id="config02a0_n2k4omn" name="rfu0" bitmap="0C00000000" value="0" />
+				<field type="radios" id="config02a0_ups3l5l" title="Explicit activation" name="Explicit activation" bitmap="0200000000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4">
 					<option value="0" title="Smart Reader operation is activated automatically as soon as a host is connected" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="1" title="Smart Reader operation has to be activated explicitly by a command from the host" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 				</field>
-				<field type="radios" id="0AF0858E" title="Activate on startup" name="Activate on startup" bitmap="0100000000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4">
+				<field type="radios" id="config02a0_5g4gajl" title="Activate on startup" name="Activate on startup" bitmap="0100000000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4">
 					<option value="0" title="Smart Reader operation has to be activated" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="1" title="Smart Reader operation is activated as soon as the product starts up" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 				</field>
-				<field type="hidden" id="7DF7B518" name="rfu0" bitmap="00FC000000" value="00" />
-				<field type="radios" id="E39320BB" title="Output protocol over a serial link" name="Protocol" bitmap="0003000000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Select MK1 for compatibility with earlier K663/RDR, S663/RDR etc.">
+				<field type="hidden" id="config02a0_43kxznd" name="rfu0" bitmap="00FC000000" value="00" />
+				<field type="radios" id="config02a0_rqjiszy" title="Output protocol over a serial link" name="Protocol" bitmap="0003000000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Select MK1 for compatibility with earlier K663/RDR, S663/RDR etc.">
 					<option value="0" title="TLV" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="1" title="SCRDR" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="2" title="JSON" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="3" title="MK1" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 				</field>
-				<field type="hidden" id="9494102D" name="rfu0" bitmap="0000FC0000" value="00" />
-				<field type="radios" id="0D9D4197" title="Output protocol over a Bluetooth link" name="Protocol" bitmap="0000030000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Select TLV for operation with SpringCard&apos;s iOS and Android reference applications.">
+				<field type="hidden" id="config02a0_2j6me3l" name="rfu0" bitmap="0000FC0000" value="00" />
+				<field type="radios" id="config02a0_ysqcqsn" title="Output protocol over a Bluetooth link" name="Protocol" bitmap="0000030000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Select TLV for operation with SpringCard&apos;s iOS and Android reference applications.">
 					<option value="0" title="TLV" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="1" title="SCRDR" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="2" title="JSON" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="3" title="MK1" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 				</field>
-				<field type="hidden" id="7A9A7101" name="rfu0" bitmap="000000F800" value="00" />
-				<field type="radios" id="BA201DAC" title="Output format over a Network link" name="Protocol" bitmap="0000000700" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Select JSON for operation over a MQTT connection. Legacy IWM2 is allowed only for HTTP client.">
+				<field type="hidden" id="config02a0_vkvtt3n" name="rfu0" bitmap="000000F800" value="00" />
+				<field type="radios" id="config02a0_sxs7v7d" title="Output format over a Network link" name="Protocol" bitmap="0000000700" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Select JSON for operation over a MQTT connection. Legacy IWM2 is allowed only for HTTP client.">
 					<option value="0" title="TLV" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="1" title="SCRDR" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="2" title="JSON" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="3" title="MK1" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="7" title="Legacy IWM2" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 				</field>
-				<field type="hidden" id="CD272D3A" name="rfu0" bitmap="00000000FC" value="00" />
-				<field type="radios" id="542E7C80" title="Output format over a USB link" name="Protocol" bitmap="0000000003" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Select TLV for operation with SpringCard Companion.">
+				<field type="hidden" id="config02a0_flooq3d" name="rfu0" bitmap="00000000FC" value="00" />
+				<field type="radios" id="config02a0_jzirgky" title="Output format over a USB link" name="Protocol" bitmap="0000000003" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Select TLV for operation with SpringCard Companion.">
 					<option value="0" title="TLV" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="1" title="SCRDR" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="2" title="JSON" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
@@ -316,15 +316,15 @@ Key timings for Smart Reader operation
 				<remark>
 All the timings are specified in tenth of seconds. Normal values go from 1 (100ms) to 254 (25.4s). Value 0 stands for as quickly as possible.
 				</remark>
-				<field type="number-h" id="23294C16" title="Delay between 2 consecutive readings" name="Read interval" bitmap="FF00" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Value is specified in 10th of second. Increase this value if the host is too slow to process 2 Tags in a raw." />
-				<field type="number-h" id="BD4DD9B5" title="Delay before reading the same Tag again" name="Repeat interval" bitmap="00FF" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Value is specified in 10th of second. Set this value to 255 to force a Tag removal before repeating the same Tag." />
+				<field type="number-h" id="config02a1_rj665vl" title="Delay between 2 consecutive readings" name="Read interval" bitmap="FF00" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Value is specified in 10th of second. Increase this value if the host is too slow to process 2 Tags in a raw." />
+				<field type="number-h" id="config02a1_gpg5rzd" title="Delay before reading the same Tag again" name="Repeat interval" bitmap="00FF" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Value is specified in 10th of second. Set this value to 255 to force a Tag removal before repeating the same Tag." />
 			</register>
 			<register id="02A6" size="1" default="00" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)">
 				<title>Keyboard layout</title>
 				<description>
 Defines the layout of the keyboard when the product runs in keyboard-emulation mode (HID over USB or HID over BLE).
 				</description>
-				<field type="dropdownlist" id="CA4AE923" title="Keyboard layout" name="Keyboard layout" bitmap="FF" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" description="Defines the layout of the keyboard when the product runs in keyboard-emulation mode (HID over USB or HID over BLE).">
+				<field type="dropdownlist" id="config02a6" title="Keyboard layout" name="Keyboard layout" bitmap="FF" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" description="Defines the layout of the keyboard when the product runs in keyboard-emulation mode (HID over USB or HID over BLE).">
 					<option value="0" title="US, QWERTY" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
 					<option value="1" title="French, AZERTY, complete (with num. padd)" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
 					<option value="2" title="German, QWERTZ" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
@@ -341,41 +341,41 @@ Defines the layout of the keyboard when the product runs in keyboard-emulation m
 			</register>
 			<register id="02A7" size="1" default="00" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)">
 				<title>Misc. options when running in keyboard mode</title>
-				<field type="number-h" id="5343B899" minlength="1" maxlength="1" title="Misc. options when running in keyboard mode" hint="undefined"  visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
+				<field type="number-h" id="config02a7" minlength="1" maxlength="1" title="Misc. options when running in keyboard mode" hint="undefined"  visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
 			</register>
 			<register id="02A8" size="8" default="" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)">
 				<title>Prefix: string sent before the data in keyboard mode</title>
-				<field type="textbox" id="2444880F" maxlength="8" title="Prefix: string sent before the data in keyboard mode" default="" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
+				<field type="textbox" id="config02a8" maxlength="8" title="Prefix: string sent before the data in keyboard mode" default="" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
 			</register>
 			<register id="02A9" size="8" default="0A" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)">
 				<title>Suffix: string sent after the data in keyboard mode</title>
-				<field type="textbox" id="B4FB959E" maxlength="8" title="Suffix: string sent after the data in keyboard mode" default="\n" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
+				<field type="textbox" id="config02a9" maxlength="8" title="Suffix: string sent after the data in keyboard mode" default="\n" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
 			</register>
 		</node>
 		<node title="Security-related configuration">
 			<register id="02F0" size="4" default="00000000">
 				<title>Access Conditions to configuration &amp; firmware update</title>
 				<!-- Ignoring General (no micore) -->
-				<field type="radios" id="C3FCA508" title="Protect the firmware" name="Firmware Protect" bitmap="00800000">
+				<field type="radios" id="config02f0_y4yzkmn" title="Protect the firmware" name="Firmware Protect" bitmap="00800000">
 					<option value="0" title="The firmware can be upgraded with no restriction through the Local host interface"/>
 					<option value="1" title="Authentication using *HostCommAdminKey* is required to upgrade the firmware"/>
 				</field>
-				<field type="radios" id="5AF5F4B2" title="Limit sensitive instructions" name="Admin protect" bitmap="00400000">
+				<field type="radios" id="config02f0_3m2xxun" title="Limit sensitive instructions" name="Admin protect" bitmap="00400000">
 					<option value="0" title="No restriction"/>
 					<option value="1" title="Authentication using *HostCommAdminKey* is required to run sensitive instructions"/>
 				</field>
-				<field type="radios" id="2DF2C424" title="Configuration" name="Config" bitmap="00300000">
+				<field type="radios" id="config02f0_noupivn" title="Configuration" name="Config" bitmap="00300000">
 					<option value="0" title="Full access (read/write)"/>
 					<option value="1" title="Write only"/>
 					<option value="2" title="Admin write only"/>
 					<option value="3" title="Locked"/>
 				</field>
-				<field type="hidden" id="B3965187" name="rfu0" bitmap="00080000" value="0" />
-				<field type="radios" id="C4916111" title="Makes the configuration always readable" name="Config readable" bitmap="00040000">
+				<field type="hidden" id="config02f0_xajyakn" name="rfu0" bitmap="00080000" value="0" />
+				<field type="radios" id="config02f0_ctwu2dn" title="Makes the configuration always readable" name="Config readable" bitmap="00040000">
 					<option value="0" title="Enabled"/>
 					<option value="1" title="Disabled"/>
 				</field>
-				<field type="radios" id="5D9830AB" title="Usage" name="Usage" bitmap="00030000">
+				<field type="radios" id="config02f0_ch4wbsl" title="Usage" name="Usage" bitmap="00030000">
 					<option value="0" title="Free"/>
 					<option value="1" title="Authenticated"/>
 					<option value="2" title="Secure"/>
@@ -396,10 +396,10 @@ Protect the product against brute-force attacks
 				<remark>
 Choose value 0 to disable locking
 				</remark>
-				<field type="number-d" id="2A9F003D" title="Counter to lock the Admin password in case of repeated authentication failures" name="Admin" bitmap="F000" remark="Set to 0 to disable password locking" />
-				<field type="number-d" id="A7970DC8" title="Counter to lock the User password in case of repeated authentication failures" name="User" bitmap="0F00" remark="Set to 0 to disable password locking" />
-				<field type="number-d" id="D0903D5E" title="Counter to lock the Admin authentication key in case of repeated authentication failures" name="Admin" bitmap="00F0" remark="Set to 0 to disable password locking" />
-				<field type="number-d" id="49996CE4" title="Counter to lock the User authentication key in case of repeated authentication failures" name="User" bitmap="000F" remark="Set to 0 to disable password locking" />
+				<field type="number-d" id="config02f1_3iq5wdd" title="Counter to lock the Admin password in case of repeated authentication failures" name="Admin" bitmap="F000" remark="Set to 0 to disable password locking" />
+				<field type="number-d" id="config02f1_ytndzhn" title="Counter to lock the User password in case of repeated authentication failures" name="User" bitmap="0F00" remark="Set to 0 to disable password locking" />
+				<field type="number-d" id="config02f1_5sqf4yy" title="Counter to lock the Admin authentication key in case of repeated authentication failures" name="Admin" bitmap="00F0" remark="Set to 0 to disable password locking" />
+				<field type="number-d" id="config02f1_rxpn6ed" title="Counter to lock the User authentication key in case of repeated authentication failures" name="User" bitmap="000F" remark="Set to 0 to disable password locking" />
 			</register>
 			<!-- Ignoring Master Options (no micore|network) -->
 			<!-- Ignoring Master Key ID (no micore|network) -->
@@ -419,7 +419,7 @@ Choose value 0 to disable locking
 				<description>
 Select the UHF protocols that the product is looking for.
 				</description>
-				<field type="checkboxes" id="3E9E5C72" title="RFID UHF protocols" name="Protocols" bitmap="FF" description="Select the UHF protocols that the product is looking for.">
+				<field type="checkboxes" id="config0261" title="RFID UHF protocols" name="Protocols" bitmap="FF" description="Select the UHF protocols that the product is looking for.">
 					<option value="80" title="RFU"/>
 					<option value="40" title="RFU"/>
 					<option value="20" title="RFU"/>
@@ -445,7 +445,7 @@ Select the UHF standard to comply with.
 				<description>
 Use ST reader suite or SpringCard Companion service
 				</description>
-				<field type="checkboxes" id="A0FAC9D1" title="RFID UHF USB protocol" name="USB Protocols" bitmap="FF" description="Use ST reader suite or SpringCard Companion service">
+				<field type="checkboxes" id="config0263" title="RFID UHF USB protocol" name="USB Protocols" bitmap="FF" description="Use ST reader suite or SpringCard Companion service">
 					<option value="80" title="RFU"/>
 					<option value="40" title="RFU"/>
 					<option value="20" title="RFU"/>
@@ -461,7 +461,7 @@ Use ST reader suite or SpringCard Companion service
 				<remark>
 This parameter is ignored unless the [local regulations](Regulations) parameter is see to `FF` (Custom).
 				</remark>
-				<field type="number-h" id="D7FDF947" minlength="1" maxlength="1" title="Main carrier frequency" hint="undefined" />
+				<field type="number-h" id="config0267" minlength="1" maxlength="1" title="Main carrier frequency" hint="undefined" />
 			</register>
 		</node>
 		<!-- Ignoring Barcode (no barcode) -->
@@ -471,12 +471,12 @@ This parameter is ignored unless the [local regulations](Regulations) parameter 
 		<node title="Configuration of the serial interface">
 			<register id="029C" size="2" default="0103">
 				<title>Legacy options</title>
-				<field type="hidden" id="4EF4A8FD" name="rfu0" bitmap="FE00" value="00" />
-				<field type="radios" id="39F3986B" title="Control whether Legacy communication drives the UI automatically" name="Auto UI" bitmap="0100">
+				<field type="hidden" id="config029c_t2pgapn" name="rfu0" bitmap="FE00" value="00" />
+				<field type="radios" id="config029c_jv4bm2d" title="Control whether Legacy communication drives the UI automatically" name="Auto UI" bitmap="0100">
 					<option value="0" title="No automatic UI control, UI shall be controlled explicitly by the host"/>
 					<option value="1" title="Automatic UI control, the product signals the host actions on its LEDs"/>
 				</field>
-				<field type="number-h" id="A94C85FA" title="Number of seconds after which the RF field is switched OFF and the host is reported has missing" name="Idle timeout" bitmap="00FF" remark="Set to 00 to disable this feature (warning: the RF field may remain ON forever if the host does not switch it OFF itself)" />
+				<field type="number-h" id="config029c_gpg5rzd" title="Number of seconds after which the RF field is switched OFF and the host is reported has missing" name="Idle timeout" bitmap="00FF" remark="Set to 00 to disable this feature (warning: the RF field may remain ON forever if the host does not switch it OFF itself)" />
 			</register>
 		</node>
 		<!-- Ignoring PC SC (no ccid) -->
