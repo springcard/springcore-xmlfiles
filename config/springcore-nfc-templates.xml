@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <springcard-multiconf-templates
-	version="1.23"
+	version=""
 	author="JDA"
 >
 	<tree>
 	<!-- Empty node , title=NFC Templates, type=SpringCoreMeta.NodeTemplateEntries -->
 	<!-- Empty node , title=NFC Templates, type=SpringCoreMeta.NodeTemplateRegisters -->
-	<template name="ID Only" title="ID Only Template">
+	<template name="ID Only" title="ID Only Template" hash="24hhu7n">
 		<lkl value="FF" title="All supported protocols" />
 		<lkl value="01" title="NFC-A - ISO/IEC 14443 type A" />
 		<lkl value="02" title="NFC-B - ISO/IEC 14443 type B" />
@@ -29,21 +29,21 @@ Pay attention that such IDs may easily be cloned or spoofed, and that NFC mobile
 		</description>
 		<register id="0001" size="2" default="0000">
 			<title>Output Size and Format</title>
-			<field type="radios" id="DE4BB56C" title="Invert the ID before transmitting?" name="Swap" bitmap="C000">
+			<field type="radios" id="tpl24hhu7n_reg0001_slszjhl" title="Invert the ID before transmitting?" name="Swap" bitmap="C000">
 				<option value="0" title="Do not invert ID bytes (the ID is transmitted &quot;as is&quot;)"/>
 				<option value="1" title="RFU"/>
 				<option value="2" title="Invert ID bytes for short (4-byte) ISO/IEC 14443 type A IDs"/>
 				<option value="3" title="Invert ID bytes for all kind of IDs"/>
 			</field>
-			<field type="radios" id="4742E4D6" title="Padding if ID is shorted than specified length" name="Padding if ID is shorted than specified length" bitmap="2000">
+			<field type="radios" id="tpl24hhu7n_reg0001_rsfphul" title="Padding if ID is shorted than specified length" name="Padding if ID is shorted than specified length" bitmap="2000">
 				<option value="0" title="Padd with `00` on the left"/>
 				<option value="1" title="Padd with `FF` on the right"/>
 			</field>
-			<field type="radios" id="3045D440" title="ID-only or all protocol bytes?" name="ID-only or all protocol bytes?" bitmap="1000">
+			<field type="radios" id="tpl24hhu7n_reg0001_4hgd4jd" title="ID-only or all protocol bytes?" name="ID-only or all protocol bytes?" bitmap="1000">
 				<option value="0" title="Read only the ID (UID-A, PUPI, etc)"/>
 				<option value="1" title="Read all the protocol bytes (ATQ-A, ATQ-B, etc)"/>
 			</field>
-			<field type="radios" id="AE2141E3" title="Length and Format" name="Length and Format" bitmap="0F00">
+			<field type="radios" id="tpl24hhu7n_reg0001_ytndzhn" title="Length and Format" name="Length and Format" bitmap="0F00">
 				<option value="0" title="Decimal, 10 digits (truncation on 4-B)"/>
 				<option value="1" title="Raw (hex), 4 bytes (32 bits)"/>
 				<option value="2" title="Raw (hex), 8 bytes (64 bits)"/>
@@ -64,22 +64,22 @@ Pay attention that such IDs may easily be cloned or spoofed, and that NFC mobile
 		</register>
 		<register id="0003" size="2" default="0000">
 			<title>Location of Data</title>
-			<field type="number-d" id="D9267175" title="Shift Bytes" name="Shift Bytes" bitmap="FF00" advanced="true" description="Leading bytes to suppress." />
-			<field type="number-d" id="402F20CF" title="Shift Bits" name="Shift Bits" bitmap="00FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
+			<field type="number-d" id="tpl24hhu7n_reg0003_rj665vl" title="Shift Bytes" name="Shift Bytes" bitmap="FF00" advanced="true" description="Leading bytes to suppress." />
+			<field type="number-d" id="tpl24hhu7n_reg0003_gpg5rzd" title="Shift Bits" name="Shift Bits" bitmap="00FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
 		</register>
 		<register id="0004" size="1" default="00" advanced="true">
 			<title>Options</title>
 			<description>
 If this register is set, the Reader adds a token to its output to tell the receiver what kind of credential has been read.
 			</description>
-			<field type="hidden" id="37281059" name="rfu0" bitmap="F0" value="0" />
-			<field type="radios" id="814E3D64" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
+			<field type="hidden" id="tpl24hhu7n_reg0004_g65secl" name="rfu0" bitmap="F0" value="0" />
+			<field type="radios" id="tpl24hhu7n_reg0004_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
 				<option value="0" title="Before the Prefix" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="1" title="After the Prefix, before the Data" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="2" title="After the Data (before the Suffix)" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="3" title="RFU" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 			</field>
-			<field type="radios" id="F6490DF2" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
+			<field type="radios" id="tpl24hhu7n_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
 				<option value="0" title="Do not add a Card Type Token" advanced="true"/>
 				<option value="1" title="Add a **numerical** (hex) value as Card Type Token." advanced="true"/>
 				<option value="2" title="Add a **char** as Card Type Token." advanced="true"/>
@@ -94,10 +94,10 @@ A Template-specific Prefix, that is added after the Reader&apos;s global Prefix.
 			<remark>
 Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical space.
 			</remark>
-			<field type="textbox" id="6F405C48" maxlength="8" title="Prefix" default=""/>
+			<field type="textbox" id="tpl24hhu7n_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template name="7816-4" title="7816-4 Template">
+	<template name="7816-4" title="7816-4 Template" hash="3n4zrpl">
 		<lkl value="13" title="ISO-DEP on NFC-A and NFC-B - ISO/IEC 14443-4 'T=CL' types A and B" />
 		<lkl value="11" title="ISO-DEP on NFC-A - ISO/IEC 14443-4 'T=CL' type A" />
 		<lkl value="12" title="ISO-DEP on NFC-B - ISO/IEC 14443-4 'T=CL' type B" />
@@ -122,7 +122,7 @@ This is typically a SELECT APPLICATION or a SELECT DIRECTORY Instruction.
 			<remark>
 The Reader checks the Status Word. In case of any error (SW!=`9xxx`), the Template is terminated.
 			</remark>
-			<field type="raw" id="18476CDE" minlength="0" maxlength="32" title="1st APDU" dynamic="true"/>
+			<field type="raw" id="tpl3n4zrpl_reg0005" minlength="0" maxlength="32" title="1st APDU" dynamic="true"/>
 		</register>
 		<register id="0006" size="32" default="" dynamic="true">
 			<title>2nd APDU</title>
@@ -132,7 +132,7 @@ This is typically a SELECT FILE Instruction.
 			<remark>
 The Reader checks the Status Word. In case of any error (SW!=`9xxx`), the Template is terminated.
 			</remark>
-			<field type="raw" id="8623F97D" minlength="0" maxlength="32" title="2nd APDU" dynamic="true"/>
+			<field type="raw" id="tpl3n4zrpl_reg0006" minlength="0" maxlength="32" title="2nd APDU" dynamic="true"/>
 		</register>
 		<register id="0007" size="32" default="" dynamic="true">
 			<title>3rd APDU</title>
@@ -142,27 +142,27 @@ This is typically a READ BINARY or READ RECORD Instruction.
 			<remark>
 The Reader checks the Status Word. In case of any error (SW!=`9xxx`), the Template is terminated.
 			</remark>
-			<field type="raw" id="F124C9EB" minlength="0" maxlength="32" title="3rd APDU" dynamic="true"/>
+			<field type="raw" id="tpl3n4zrpl_reg0007" minlength="0" maxlength="32" title="3rd APDU" dynamic="true"/>
 		</register>
 		<register id="0001" size="2" default="0000">
 			<title>Output Size and Format</title>
-			<field type="radios" id="682D9851" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tpl3n4zrpl_reg0001_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Transmit the sequence of bytes as is" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Transmit the sequence of bytes in reverse order" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="1F2AA8C7" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tpl3n4zrpl_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="8F95B556" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tpl3n4zrpl_reg0001_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Padd with `0` on the left" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Padd with `F` on the right" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="F89285C0" title="Remove leading zeroes?" name="Clean" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tpl3n4zrpl_reg0001_4hgd4jd" title="Remove leading zeroes?" name="Clean" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Keep all digits" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Suppress `0` digits on the left of the Data" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="619BD47A" title="Length and Format" name="Length and Format" bitmap="0F00" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tpl3n4zrpl_reg0001_ytndzhn" title="Length and Format" name="Length and Format" bitmap="0F00" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Decimal, 10 digits (truncation on 4-B)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Raw (hex), 4 bytes (32 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="2" title="Raw (hex), 8 bytes (64 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
@@ -180,23 +180,23 @@ The Reader checks the Status Word. In case of any error (SW!=`9xxx`), the Templa
 				<option value="14" title="Decimal, variable length" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="15" title="Raw (hex), variable length" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="169CE4EC" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tpl3n4zrpl_reg0001_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Transmit the sequence of characters as is" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Transmit the sequence of characters in reverse order" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="radios" id="88F8714F" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tpl3n4zrpl_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="radios" id="FFFF41D9" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tpl3n4zrpl_reg0001_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Variable length (no padding)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Padd with ` ` (space characters) on the right until the specified length" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="radios" id="66F61063" title="Short string or Long string?" name="Long" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tpl3n4zrpl_reg0001_4hgd4jd" title="Short string or Long string?" name="Long" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Short string (truncate to 16 characters or less)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Long string (more than 16 characters)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="dropdownlist" id="11F120F5" title="Length" name="Length" bitmap="0F00" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))">
+			<field type="dropdownlist" id="tpl3n4zrpl_reg0001_ytndzhn" title="Length" name="Length" bitmap="0F00" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))">
 				<option value="0" title="16 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 				<option value="1" title="1 character" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 				<option value="2" title="2 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
@@ -214,26 +214,26 @@ The Reader checks the Status Word. In case of any error (SW!=`9xxx`), the Templa
 				<option value="14" title="14 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 				<option value="15" title="15 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 			</field>
-			<field type="number-d" id="9CF92D00" title="Options for Long String" name="Options for Long String" bitmap="00FF" visibleif="(TPLBITS(1, 6, 1) is 1) and (TPLBITS(1, 4, 1) is 1)" description="Use this byte to specify the exact length to read from the card. Valid range is `1` to `255`." />
+			<field type="number-d" id="tpl3n4zrpl_reg0001_gpg5rzd" title="Options for Long String" name="Options for Long String" bitmap="00FF" visibleif="(TPLBITS(1, 6, 1) is 1) and (TPLBITS(1, 4, 1) is 1)" description="Use this byte to specify the exact length to read from the card. Valid range is `1` to `255`." />
 		</register>
 		<register id="0003" size="2" default="0000">
 			<title>Location of Data</title>
-			<field type="number-d" id="EBFE1D96" title="Shift Bytes" name="Shift Bytes" bitmap="FF00" advanced="true" description="Leading bytes to suppress." />
-			<field type="number-d" id="72F74C2C" title="Shift Bits" name="Shift Bits" bitmap="00FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
+			<field type="number-d" id="tpl3n4zrpl_reg0003_rj665vl" title="Shift Bytes" name="Shift Bytes" bitmap="FF00" advanced="true" description="Leading bytes to suppress." />
+			<field type="number-d" id="tpl3n4zrpl_reg0003_gpg5rzd" title="Shift Bits" name="Shift Bits" bitmap="00FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
 		</register>
 		<register id="0004" size="1" default="00">
 			<title>Options</title>
 			<description>
 If this register is set, the Reader adds a token to its output to tell the receiver what kind of credential has been read.
 			</description>
-			<field type="hidden" id="05F07CBA" name="rfu0" bitmap="F0" value="0" />
-			<field type="radios" id="9B94E919" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
+			<field type="hidden" id="tpl3n4zrpl_reg0004_g65secl" name="rfu0" bitmap="F0" value="0" />
+			<field type="radios" id="tpl3n4zrpl_reg0004_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
 				<option value="0" title="Before the Prefix" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="1" title="After the Prefix, before the Data" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="2" title="After the Data (before the Suffix)" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="3" title="RFU" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 			</field>
-			<field type="radios" id="EC93D98F" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
+			<field type="radios" id="tpl3n4zrpl_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
 				<option value="0" title="Do not add a Card Type Token" advanced="true"/>
 				<option value="1" title="Add `1F` hex value as Card Type Token" advanced="true"/>
 				<option value="2" title="Add `T` char as Card Type Token" advanced="true"/>
@@ -248,10 +248,10 @@ A Template-specific Prefix, that is added after the Reader&apos;s global Prefix.
 			<remark>
 Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical space.
 			</remark>
-			<field type="textbox" id="759A8835" maxlength="8" title="Prefix" default=""/>
+			<field type="textbox" id="tpl3n4zrpl_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template name="NDEF Data" title="NDEF Data Template">
+	<template name="NDEF Data" title="NDEF Data Template" hash="25z45sd">
 		<lkl value="4E" title="All NFC Forum Tags" />
 		<lkl value="4F" title="All NFC Forum Tags and SNEP peers (P2P mode)" />
 		<lkl value="41" title="NFC Forum type 1 Tags (T1T)" />
@@ -270,7 +270,7 @@ Use the NDEF Data Template to read the content of either a card formatted accord
 			<description>
 Specify the TNF of the NDEF messages to accept. Messages with another TNF will be discarded.
 			</description>
-			<field type="radios" id="029DB8A3" title="Type Name and Format" name="" bitmap="FF" description="TNF Filter">
+			<field type="radios" id="tpl25z45sd_reg0005_5znnnnn" title="Type Name and Format" name="" bitmap="FF" description="TNF Filter">
 				<option value="1" title="NFC Forum Well-known record (NFC RTD)"/>
 				<option value="2" title="NFC Forum Media record (RFC 2046)"/>
 				<option value="3" title="Absolute URI record (RFC 3986)"/>
@@ -290,27 +290,27 @@ Please refer to the specifications of NFC Forum NDEF Data and Records, and to th
 			<remark>
 This field is relevant only if TNF is either `01`, `02`, `03` or `04`; otherwise, its content is ignored.
 			</remark>
-			<field type="textbox" id="9222A532" maxlength="32" title="Type Filter" default="" visibleif="TPLBITS(5, 4, 4) is 0"/>
+			<field type="textbox" id="tpl25z45sd_reg0006" maxlength="32" title="Type Filter" default="" visibleif="TPLBITS(5, 4, 4) is 0"/>
 		</register>
 		<register id="0001" size="2" default="0000">
 			<title>Output Size and Format</title>
-			<field type="radios" id="E52595A4" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tpl25z45sd_reg0001_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Transmit the sequence of bytes as is" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Transmit the sequence of bytes in reverse order" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="7C2CC41E" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tpl25z45sd_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="0B2BF488" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tpl25z45sd_reg0001_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Padd with `0` on the left" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Padd with `F` on the right" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="954F612B" title="Remove leading zeroes?" name="Clean" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tpl25z45sd_reg0001_4hgd4jd" title="Remove leading zeroes?" name="Clean" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Keep all digits" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Suppress `0` digits on the left of the Data" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="E24851BD" title="Length and Format" name="Length and Format" bitmap="0F00" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tpl25z45sd_reg0001_ytndzhn" title="Length and Format" name="Length and Format" bitmap="0F00" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Decimal, 10 digits (truncation on 4-B)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Raw (hex), 4 bytes (32 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="2" title="Raw (hex), 8 bytes (64 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
@@ -328,23 +328,23 @@ This field is relevant only if TNF is either `01`, `02`, `03` or `04`; otherwise
 				<option value="14" title="Decimal, variable length" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="15" title="Raw (hex), variable length" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="7B410007" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tpl25z45sd_reg0001_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Transmit the sequence of characters as is" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Transmit the sequence of characters in reverse order" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="radios" id="0C463091" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tpl25z45sd_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="radios" id="385FEE5D" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tpl25z45sd_reg0001_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Variable length (no padding)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Padd with ` ` (space characters) on the right until the specified length" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="radios" id="4F58DECB" title="Short string or Long string?" name="Long" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tpl25z45sd_reg0001_4hgd4jd" title="Short string or Long string?" name="Long" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Short string (truncate to 16 characters or less)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Long string (more than 16 characters)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="dropdownlist" id="D6518F71" title="Length" name="Length" bitmap="0F00" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))">
+			<field type="dropdownlist" id="tpl25z45sd_reg0001_ytndzhn" title="Length" name="Length" bitmap="0F00" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))">
 				<option value="0" title="16 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 				<option value="1" title="1 character" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 				<option value="2" title="2 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
@@ -362,26 +362,26 @@ This field is relevant only if TNF is either `01`, `02`, `03` or `04`; otherwise
 				<option value="14" title="14 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 				<option value="15" title="15 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 			</field>
-			<field type="number-d" id="A156BFE7" title="Options for Long String" name="Options for Long String" bitmap="00FF" visibleif="(TPLBITS(1, 6, 1) is 1) and (TPLBITS(1, 4, 1) is 1)" description="Use this byte to specify the exact length to read from the card. Valid range is `1` to `255`." />
+			<field type="number-d" id="tpl25z45sd_reg0001_gpg5rzd" title="Options for Long String" name="Options for Long String" bitmap="00FF" visibleif="(TPLBITS(1, 6, 1) is 1) and (TPLBITS(1, 4, 1) is 1)" description="Use this byte to specify the exact length to read from the card. Valid range is `1` to `255`." />
 		</register>
 		<register id="0003" size="2" default="0000">
 			<title>Location of Data</title>
-			<field type="number-d" id="3F322A44" title="Shift Bytes" name="Shift Bytes" bitmap="FF00" advanced="true" description="Leading bytes to suppress." />
-			<field type="number-d" id="48351AD2" title="Shift Bits" name="Shift Bits" bitmap="00FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
+			<field type="number-d" id="tpl25z45sd_reg0003_rj665vl" title="Shift Bytes" name="Shift Bytes" bitmap="FF00" advanced="true" description="Leading bytes to suppress." />
+			<field type="number-d" id="tpl25z45sd_reg0003_gpg5rzd" title="Shift Bits" name="Shift Bits" bitmap="00FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
 		</register>
 		<register id="0004" size="1" default="00">
 			<title>Options</title>
 			<description>
 If this register is set, the Reader adds a token to its output to tell the receiver what kind of credential has been read.
 			</description>
-			<field type="hidden" id="D13C4B68" name="rfu0" bitmap="F0" value="0" />
-			<field type="radios" id="A63B7BFE" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
+			<field type="hidden" id="tpl25z45sd_reg0004_g65secl" name="rfu0" bitmap="F0" value="0" />
+			<field type="radios" id="tpl25z45sd_reg0004_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
 				<option value="0" title="Before the Prefix" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="1" title="After the Prefix, before the Data" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="2" title="After the Data (before the Suffix)" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="3" title="RFU" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 			</field>
-			<field type="radios" id="3684666F" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
+			<field type="radios" id="tpl25z45sd_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
 				<option value="0" title="Do not add a Card Type Token" advanced="true"/>
 				<option value="1" title="Add `4F` hex value as Card Type Token" advanced="true"/>
 				<option value="2" title="Add `N` char as Card Type Token" advanced="true"/>
@@ -396,23 +396,23 @@ A Template-specific Prefix, that is added after the Reader&apos;s global Prefix.
 			<remark>
 Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical space.
 			</remark>
-			<field type="textbox" id="418356F9" maxlength="8" title="Prefix" default=""/>
+			<field type="textbox" id="tpl25z45sd_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template name="Desfire ID" title="Desfire ID Template">
+	<template name="Desfire ID" title="Desfire ID Template" hash="hvnvpdd">
 		<lkl value="70" />
 		<description>
 Use the Desfire ID Template to get the actual ID of an NXP Desfire PICC with Random ID enabled at protocol level. The PICC could be either a Desfire EV0 or a Desfire EV1.
 		</description>
 		<register id="0001" size="2" default="0000">
 			<title>Output Size and Format</title>
-			<field type="radios" id="D88A0743" title="Invert the ID before transmitting?" name="Swap" bitmap="C000">
+			<field type="radios" id="tplhvnvpdd_reg0001_slszjhl" title="Invert the ID before transmitting?" name="Swap" bitmap="C000">
 				<option value="0" title="Do not invert ID bytes (order is `040...80`)"/>
 				<option value="3" title="Invert ID bytes (order is `80...04`)"/>
 			</field>
-			<field type="hidden" id="AF8D37D5" name="rfu0" bitmap="2000" value="0" />
-			<field type="hidden" id="31E9A276" name="rfu0" bitmap="1000" value="0" />
-			<field type="radios" id="46EE92E0" title="Length and Format" name="Length and Format" bitmap="0F00">
+			<field type="hidden" id="tplhvnvpdd_reg0001_rsfphul" name="rfu0" bitmap="2000" value="0" />
+			<field type="hidden" id="tplhvnvpdd_reg0001_4hgd4jd" name="rfu0" bitmap="1000" value="0" />
+			<field type="radios" id="tplhvnvpdd_reg0001_ytndzhn" title="Length and Format" name="Length and Format" bitmap="0F00">
 				<option value="0" title="Decimal, 10 digits (truncation on 4-B)"/>
 				<option value="1" title="Raw (hex), 4 bytes (32 bits)"/>
 				<option value="2" title="Raw (hex), 8 bytes (64 bits)"/>
@@ -436,40 +436,40 @@ Use the Desfire ID Template to get the actual ID of an NXP Desfire PICC with Ran
 			<description>
 Select the Desfire AID
 			</description>
-			<field type="number-h" id="DFE7C35A" title="Desfire Application ID (AID)" name="Application ID" bitmap="FFFFFF0000" remark="Leave empty or set to `000000` to use a plain GET VERSION command." />
-			<field type="number-d" id="A8E0F3CC" title="Shift Bytes" name="Shift Bytes" bitmap="000000FF00" advanced="true" description="Leading bytes to suppress." />
-			<field type="number-d" id="25E8FE39" title="Shift Bits" name="Shift Bits" bitmap="00000000FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
+			<field type="number-h" id="tplhvnvpdd_reg0003_gpgdxvl" title="Desfire Application ID (AID)" name="Application ID" bitmap="FFFFFF0000" remark="Leave empty or set to `000000` to use a plain GET VERSION command." />
+			<field type="number-d" id="tplhvnvpdd_reg0003_3ovnoey" title="Shift Bytes" name="Shift Bytes" bitmap="000000FF00" advanced="true" description="Leading bytes to suppress." />
+			<field type="number-d" id="tplhvnvpdd_reg0003_ahd4scn" title="Shift Bits" name="Shift Bits" bitmap="00000000FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
 		</register>
 		<register id="0005" size="18" default="000000000000000000000000000000000000">
 			<title>Authentication</title>
-			<field type="radios" id="52EFCEAF" title="Communication Mode" name="Communication Mode" bitmap="C00000000000000000000000000000000000" visibleif="(TPLBITS(5, 8, 8) is not 0) and (TPLBITS(5, 0, 4) is not 0)">
+			<field type="radios" id="tplhvnvpdd_reg0005_f26ipjn" title="Communication Mode" name="Communication Mode" bitmap="C00000000000000000000000000000000000" visibleif="(TPLBITS(5, 8, 8) is not 0) and (TPLBITS(5, 0, 4) is not 0)">
 				<option value="0" title="Plain" visibleif="(TPLBITS(5, 8, 8) is not 0) and (TPLBITS(5, 0, 4) is not 0)"/>
 				<option value="1" title="MAC or CMAC" visibleif="(TPLBITS(5, 8, 8) is not 0) and (TPLBITS(5, 0, 4) is not 0)"/>
 				<option value="2" title="RFU" visibleif="(TPLBITS(5, 8, 8) is not 0) and (TPLBITS(5, 0, 4) is not 0)"/>
 				<option value="3" title="Encrypted" visibleif="(TPLBITS(5, 8, 8) is not 0) and (TPLBITS(5, 0, 4) is not 0)"/>
 			</field>
-			<field type="radios" id="CBE69F15" title="Key Diversification" name="Key Diversification" bitmap="300000000000000000000000000000000000" visibleif="TPLBITS(5, 8, 8) is not 0">
+			<field type="radios" id="tplhvnvpdd_reg0005_bp5b7tl" title="Key Diversification" name="Key Diversification" bitmap="300000000000000000000000000000000000" visibleif="TPLBITS(5, 8, 8) is not 0">
 				<option value="0" title="No diversification" visibleif="TPLBITS(5, 8, 8) is not 0"/>
 				<option value="1" title="NXP AN10922 diversification" visibleif="TPLBITS(5, 8, 8) is not 0"/>
 				<option value="2" title="RFU" visibleif="TPLBITS(5, 8, 8) is not 0"/>
 				<option value="3" title="RFU" visibleif="TPLBITS(5, 8, 8) is not 0"/>
 			</field>
-			<field type="number-h" id="BCE1AF83" title="Key Index inside the Desfire Application" name="Key Index" bitmap="0F0000000000000000000000000000000000" visibleif="TPLBITS(5, 8, 8) is not 0" />
-			<field type="radios" id="22853A20" title="Location of Secret Key" name="Location of Secret Key" bitmap="00F000000000000000000000000000000000" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0">
+			<field type="number-h" id="tplhvnvpdd_reg0005_qxqw7kl" title="Key Index inside the Desfire Application" name="Key Index" bitmap="0F0000000000000000000000000000000000" visibleif="TPLBITS(5, 8, 8) is not 0" />
+			<field type="radios" id="tplhvnvpdd_reg0005_ucsziid" title="Location of Secret Key" name="Location of Secret Key" bitmap="00F000000000000000000000000000000000" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0">
 				<option value="0" title="Key is specified in the Template" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
 				<option value="1" title="RFU" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
 				<option value="2" title="SAM AV, select key automatically (based on AID)" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
 				<option value="3" title="SAM AV, key slot is specified" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
 			</field>
-			<field type="radios" id="55820AB6" title="Authentication Method" name="Authentication Method" bitmap="000F00000000000000000000000000000000">
+			<field type="radios" id="tplhvnvpdd_reg0005_owh5twn" title="Authentication Method" name="Authentication Method" bitmap="000F00000000000000000000000000000000">
 				<option value="0" title="No authentication"/>
 				<option value="1" title="Desfire EV0 DES/3DES authentication (Authenticate command)"/>
 				<option value="2" title="Desfire EV1 DES/3DES authentication (AuthenticateIso command)"/>
 				<option value="3" title="Desfire EV1 AES authentication (AuthenticateAes command)"/>
 				<option value="4" title="Desfire EV2 AES authentication (AuthenticateEV2 command)"/>
 			</field>
-			<field type="number-h" id="CC8B5B0C" title="Key slot in the internal SAM AV" name="2" bitmap="0000FF000000000000000000000000000000" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 12, 4) is 3)" />
-			<field type="raw" id="BB8C6B9A" title="Value of DES/3DES or AES Secret Key" name="2" bitmap="0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 12, 4) is 0)" />
+			<field type="number-h" id="tplhvnvpdd_reg0005_gki2gwd" title="Key slot in the internal SAM AV" name="2" bitmap="0000FF000000000000000000000000000000" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 12, 4) is 3)" />
+			<field type="raw" id="tplhvnvpdd_reg0005_7dkocnd" title="Value of DES/3DES or AES Secret Key" name="2" bitmap="0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 12, 4) is 0)" />
 		</register>
 		<register id="0004" size="1" default="00">
 			<title>Options</title>
@@ -477,22 +477,22 @@ Select the Desfire AID
 This register defines the transport protocol and the behaviour of the Reader during the handshaking.
 It is also possible for the Reader to add a token to its output, to tell the receiver what kind of credential has been read.
 			</description>
-			<field type="hidden" id="2B33760B" name="rfu0" bitmap="C0" value="0" />
-			<field type="radios" id="5C34469D" title="Iso 7816 Wrapping" name="Iso 7816 Wrapping" bitmap="20">
+			<field type="hidden" id="tplhvnvpdd_reg0004_kxpbr2l" name="rfu0" bitmap="C0" value="0" />
+			<field type="radios" id="tplhvnvpdd_reg0004_ax7h6sl" title="Iso 7816 Wrapping" name="Iso 7816 Wrapping" bitmap="20">
 				<option value="0" title="Use native Desfire command format"/>
 				<option value="1" title="Use ISO 7816 Wrapping of Desfire commands"/>
 			</field>
-			<field type="radios" id="C53D1727" title="Select Application" name="Select Application" bitmap="10">
+			<field type="radios" id="tplhvnvpdd_reg0004_t6r55rl" title="Select Application" name="Select Application" bitmap="10">
 				<option value="0" title="Do not send ISO 7816 SelectApplication(Desfire)"/>
 				<option value="1" title="Send ISO 7816 SelectApplication(Desfire) before processing"/>
 			</field>
-			<field type="radios" id="B23A27B1" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
+			<field type="radios" id="tplhvnvpdd_reg0004_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
 				<option value="0" title="Before the Prefix" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="1" title="After the Prefix, before the Data" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="2" title="After the Data (before the Suffix)" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="3" title="RFU" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 			</field>
-			<field type="radios" id="2C5EB212" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
+			<field type="radios" id="tplhvnvpdd_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
 				<option value="0" title="Do not add a Card Type Token" advanced="true"/>
 				<option value="1" title="Add `70` hex value as Card Type Token" advanced="true"/>
 				<option value="2" title="Add `D` char as Card Type Token" advanced="true"/>
@@ -507,10 +507,10 @@ A Template-specific Prefix, that is added after the Reader&apos;s global Prefix.
 			<remark>
 Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical space.
 			</remark>
-			<field type="textbox" id="5B598284" maxlength="8" title="Prefix" default=""/>
+			<field type="textbox" id="tplhvnvpdd_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template name="Desfire File" title="Desfire File Template">
+	<template name="Desfire File" title="Desfire File Template" hash="2gev7yd">
 		<lkl value="71" />
 		<description>
 Use the Desfire File Template to read data from a NXP Desfire PICC. The PICC could be either a Desfire EV0 or a Desfire EV1.
@@ -526,53 +526,53 @@ Access to the file could involve a Mutual Authentication with the card, and the 
 			<description>
 Select the Desfire AID, the File ID, and the offset/length parameters to read the file
 			</description>
-			<field type="number-h" id="C250D33E" title="Desfire Application ID (AID)" name="Application ID" bitmap="FFFFFF00000000000000" remark="Valid range depends on the memory size of the actual PICC." note="The number of pages to read is deduced from the expected length, as set in the TOF register." />
-			<field type="radios" id="B557E3A8" title="Read Command" name="Read Command" bitmap="000000C0000000000000" remark="Desfire EV2 commands are supported only after version 1.30.">
+			<field type="number-h" id="tpl2gev7yd_reg0003_gucejpy" title="Desfire Application ID (AID)" name="Application ID" bitmap="FFFFFF00000000000000" remark="Valid range depends on the memory size of the actual PICC." note="The number of pages to read is deduced from the expected length, as set in the TOF register." />
+			<field type="radios" id="tpl2gev7yd_reg0003_x6j525l" title="Read Command" name="Read Command" bitmap="000000C0000000000000" remark="Desfire EV2 commands are supported only after version 1.30.">
 				<option value="0" title="Read Data, `BD` (Standard Data File or Backup Data File, all card versions)"/>
 				<option value="1" title="Read Data, `AD` (Standard Data File or Backup Data File, Desfire EV2 and EV3)"/>
 				<option value="2" title="Read Record, `BB` (Linear Record File or Cyclic Record File, all card versions)"/>
 				<option value="3" title="Read Record, `AB` (Linear Record File or Cyclic Record File, Desfire EV2 and EV3)"/>
 			</field>
-			<field type="hidden" id="0331CE95" name="rfu0" bitmap="00000020000000000000" value="0" />
-			<field type="hidden" id="7436FE03" name="rfu0" bitmap="00000010000000000000" value="0" />
-			<field type="number-h" id="ED3FAFB9" title="File ID" name="File ID" bitmap="0000000F000000000000" />
-			<field type="number-h" id="9A389F2F" title="Read Offset or Record Number" name="Offset" bitmap="00000000FFFFFF000000" description="For a Standard Data File or a Backup Data File, this is the offset inside the file
+			<field type="hidden" id="tpl2gev7yd_reg0003_xdeivrd" name="rfu0" bitmap="00000020000000000000" value="0" />
+			<field type="hidden" id="tpl2gev7yd_reg0003_ds32kfn" name="rfu0" bitmap="00000010000000000000" value="0" />
+			<field type="number-h" id="tpl2gev7yd_reg0003_bu44smy" title="File ID" name="File ID" bitmap="0000000F000000000000" />
+			<field type="number-h" id="tpl2gev7yd_reg0003_bhudxsy" title="Read Offset or Record Number" name="Offset" bitmap="00000000FFFFFF000000" description="For a Standard Data File or a Backup Data File, this is the offset inside the file
 For a Linear Record File or a Cyclic Record File, this is the record number" />
-			<field type="number-h" id="045C0A8C" title="Read Length or Record Size" name="Length" bitmap="00000000000000FF0000" description="For a Standard Data File or a Backup Data File, this is the Length parameter to be sent to the card. Set to `0` to read the while file at once.
+			<field type="number-h" id="tpl2gev7yd_reg0003_jokxtwy" title="Read Length or Record Size" name="Length" bitmap="00000000000000FF0000" description="For a Standard Data File or a Backup Data File, this is the Length parameter to be sent to the card. Set to `0` to read the while file at once.
 For a Linear Record File or a Cyclic Record File, this is the record size" remark="The Reader&apos;s internal buffer is limited to 256 bytes. Do not set to `0` if the file in the card is likely to be greater than this limit." />
-			<field type="number-d" id="735B3A1A" title="Shift Bytes" name="Shift Bytes" bitmap="0000000000000000FF00" advanced="true" description="Leading bytes to suppress." />
-			<field type="number-d" id="EA526BA0" title="Shift Bits" name="Shift Bits" bitmap="000000000000000000FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
+			<field type="number-d" id="tpl2gev7yd_reg0003_fbuk34n" title="Shift Bytes" name="Shift Bytes" bitmap="0000000000000000FF00" advanced="true" description="Leading bytes to suppress." />
+			<field type="number-d" id="tpl2gev7yd_reg0003_trcl26y" title="Shift Bits" name="Shift Bits" bitmap="000000000000000000FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
 		</register>
 		<register id="0005" size="18" default="000000000000000000000000000000000000">
 			<title>Authentication</title>
-			<field type="radios" id="9D555B36" title="Communication Mode" name="Communication Mode" bitmap="C00000000000000000000000000000000000" visibleif="(TPLBITS(5, 8, 8) is not 0) and (TPLBITS(5, 0, 4) is not 0)">
+			<field type="radios" id="tpl2gev7yd_reg0005_f26ipjn" title="Communication Mode" name="Communication Mode" bitmap="C00000000000000000000000000000000000" visibleif="(TPLBITS(5, 8, 8) is not 0) and (TPLBITS(5, 0, 4) is not 0)">
 				<option value="0" title="Plain" visibleif="(TPLBITS(5, 8, 8) is not 0) and (TPLBITS(5, 0, 4) is not 0)"/>
 				<option value="1" title="MAC or CMAC" visibleif="(TPLBITS(5, 8, 8) is not 0) and (TPLBITS(5, 0, 4) is not 0)"/>
 				<option value="2" title="RFU" visibleif="(TPLBITS(5, 8, 8) is not 0) and (TPLBITS(5, 0, 4) is not 0)"/>
 				<option value="3" title="Encrypted" visibleif="(TPLBITS(5, 8, 8) is not 0) and (TPLBITS(5, 0, 4) is not 0)"/>
 			</field>
-			<field type="radios" id="0DEA46A7" title="Key Diversification" name="Key Diversification" bitmap="300000000000000000000000000000000000" visibleif="TPLBITS(5, 8, 8) is not 0">
+			<field type="radios" id="tpl2gev7yd_reg0005_bp5b7tl" title="Key Diversification" name="Key Diversification" bitmap="300000000000000000000000000000000000" visibleif="TPLBITS(5, 8, 8) is not 0">
 				<option value="0" title="No diversification" visibleif="TPLBITS(5, 8, 8) is not 0"/>
 				<option value="1" title="NXP AN10922 diversification" visibleif="TPLBITS(5, 8, 8) is not 0"/>
 				<option value="2" title="RFU" visibleif="TPLBITS(5, 8, 8) is not 0"/>
 				<option value="3" title="RFU" visibleif="TPLBITS(5, 8, 8) is not 0"/>
 			</field>
-			<field type="number-h" id="7AED7631" title="Key Index inside the Desfire Application" name="Key Index" bitmap="0F0000000000000000000000000000000000" visibleif="TPLBITS(5, 8, 8) is not 0" />
-			<field type="radios" id="E3E4278B" title="Location of Secret Key" name="Location of Secret Key" bitmap="00F000000000000000000000000000000000" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0">
+			<field type="number-h" id="tpl2gev7yd_reg0005_qxqw7kl" title="Key Index inside the Desfire Application" name="Key Index" bitmap="0F0000000000000000000000000000000000" visibleif="TPLBITS(5, 8, 8) is not 0" />
+			<field type="radios" id="tpl2gev7yd_reg0005_ucsziid" title="Location of Secret Key" name="Location of Secret Key" bitmap="00F000000000000000000000000000000000" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0">
 				<option value="0" title="Key is specified in the Template" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
 				<option value="1" title="RFU" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
 				<option value="2" title="SAM AV, select key automatically (based on AID)" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
 				<option value="3" title="SAM AV, key slot is specified" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
 			</field>
-			<field type="radios" id="94E3171D" title="Authentication Method" name="Authentication Method" bitmap="000F00000000000000000000000000000000">
+			<field type="radios" id="tpl2gev7yd_reg0005_owh5twn" title="Authentication Method" name="Authentication Method" bitmap="000F00000000000000000000000000000000">
 				<option value="0" title="No authentication"/>
 				<option value="1" title="Desfire EV0 DES/3DES authentication (Authenticate command)"/>
 				<option value="2" title="Desfire EV1 DES/3DES authentication (AuthenticateIso command)"/>
 				<option value="3" title="Desfire EV1 AES authentication (AuthenticateAes command)"/>
 				<option value="4" title="Desfire EV2 AES authentication (AuthenticateEV2 command)"/>
 			</field>
-			<field type="number-h" id="0A8782BE" title="Key slot in the internal SAM AV" name="2" bitmap="0000FF000000000000000000000000000000" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 12, 4) is 3)" />
-			<field type="raw" id="7D80B228" title="Value of DES/3DES or AES Secret Key" name="2" bitmap="0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 12, 4) is 0)" />
+			<field type="number-h" id="tpl2gev7yd_reg0005_gki2gwd" title="Key slot in the internal SAM AV" name="2" bitmap="0000FF000000000000000000000000000000" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 12, 4) is 3)" />
+			<field type="raw" id="tpl2gev7yd_reg0005_7dkocnd" title="Value of DES/3DES or AES Secret Key" name="2" bitmap="0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 12, 4) is 0)" />
 		</register>
 		<register id="0004" size="1" default="00">
 			<title>Options</title>
@@ -580,22 +580,22 @@ For a Linear Record File or a Cyclic Record File, this is the record size" remar
 This register defines the transport protocol and the behaviour of the Reader during the handshaking.
 It is also possible for the Reader to add a token to its output, to tell the receiver what kind of credential has been read.
 			</description>
-			<field type="hidden" id="E489E392" name="rfu0" bitmap="C0" value="0" />
-			<field type="radios" id="938ED304" title="Iso 7816 Wrapping" name="Iso 7816 Wrapping" bitmap="20">
+			<field type="hidden" id="tpl2gev7yd_reg0004_kxpbr2l" name="rfu0" bitmap="C0" value="0" />
+			<field type="radios" id="tpl2gev7yd_reg0004_ax7h6sl" title="Iso 7816 Wrapping" name="Iso 7816 Wrapping" bitmap="20">
 				<option value="0" title="Use native Desfire command format"/>
 				<option value="1" title="Use ISO 7816 Wrapping of Desfire commands"/>
 			</field>
-			<field type="radios" id="1E86DEF1" title="Select Application" name="Select Application" bitmap="10">
+			<field type="radios" id="tpl2gev7yd_reg0004_t6r55rl" title="Select Application" name="Select Application" bitmap="10">
 				<option value="0" title="Do not send ISO 7816 SelectApplication(Desfire)"/>
 				<option value="1" title="Send ISO 7816 SelectApplication(Desfire) before processing"/>
 			</field>
-			<field type="radios" id="6981EE67" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
+			<field type="radios" id="tpl2gev7yd_reg0004_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
 				<option value="0" title="Before the Prefix" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="1" title="After the Prefix, before the Data" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="2" title="After the Data (before the Suffix)" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="3" title="RFU" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 			</field>
-			<field type="radios" id="F088BFDD" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
+			<field type="radios" id="tpl2gev7yd_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
 				<option value="0" title="Do not add a Card Type Token" advanced="true"/>
 				<option value="1" title="Add `71` hex value as Card Type Token" advanced="true"/>
 				<option value="2" title="Add `D` char as Card Type Token" advanced="true"/>
@@ -610,10 +610,10 @@ A Template-specific Prefix, that is added after the Reader&apos;s global Prefix.
 			<remark>
 Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical space.
 			</remark>
-			<field type="textbox" id="878F8F4B" maxlength="8" title="Prefix" default=""/>
+			<field type="textbox" id="tpl2gev7yd_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template name="Mifare UltraLight" title="Mifare UltraLight Template">
+	<template name="Mifare UltraLight" title="Mifare UltraLight Template" hash="zyob5bl">
 		<lkl value="62" />
 		<description>
 Use the Mifare UltraLight Template to read data from a PICC within the NXP Mifare UltraLight family (including Mifare UltraLight EV1, Mifare UltraLight C, NTAG203, NTAG213, and virtually all other chips in the NTAG family).
@@ -626,30 +626,30 @@ The target data is pointed to by an absolute page number (yet the data may occup
 		</description>
 		<register id="0003" size="3" default="000000">
 			<title>Location of Data</title>
-			<field type="number-h" id="19EB1AE8" title="Address" name="Address" bitmap="FF0000" description="This is the Address of the 1st page to read.
+			<field type="number-h" id="tplzyob5bl_reg0003_lmh6e5y" title="Address" name="Address" bitmap="FF0000" description="This is the Address of the 1st page to read.
 Valid range depends on the memory size of the actual PICC" note="The number of pages to be read is deduced from the expected length, as set in the TOF register." />
-			<field type="number-d" id="6EEC2A7E" title="Shift Bytes" name="Shift Bytes" bitmap="00FF00" advanced="true" description="Leading bytes to suppress; valid range is `0` to `48` (in decimal)." />
-			<field type="number-d" id="F7E57BC4" title="Shift Bits" name="Shift Bits" bitmap="0000FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
+			<field type="number-d" id="tplzyob5bl_reg0003_gsqqlyn" title="Shift Bytes" name="Shift Bytes" bitmap="00FF00" advanced="true" description="Leading bytes to suppress; valid range is `0` to `48` (in decimal)." />
+			<field type="number-d" id="tplzyob5bl_reg0003_rk4pgmy" title="Shift Bits" name="Shift Bits" bitmap="0000FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
 		</register>
 		<register id="0001" size="2" default="0000">
 			<title>Output Size and Format</title>
-			<field type="radios" id="80E24B52" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplzyob5bl_reg0001_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Transmit the sequence of bytes as is" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Transmit the sequence of bytes in reverse order" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="105D56C3" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplzyob5bl_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="675A6655" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplzyob5bl_reg0001_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Padd with `0` on the left" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Padd with `F` on the right" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="FE5337EF" title="Remove leading zeroes?" name="Clean" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplzyob5bl_reg0001_4hgd4jd" title="Remove leading zeroes?" name="Clean" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Keep all digits" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Suppress `0` digits on the left of the Data" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="89540779" title="Length and Format" name="Length and Format" bitmap="0F00" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplzyob5bl_reg0001_ytndzhn" title="Length and Format" name="Length and Format" bitmap="0F00" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Decimal, 10 digits (truncation on 4-B)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Raw (hex), 4 bytes (32 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="2" title="Raw (hex), 8 bytes (64 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
@@ -667,23 +667,23 @@ Valid range depends on the memory size of the actual PICC" note="The number of p
 				<option value="14" title="Decimal, variable length" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="15" title="Raw (hex), variable length" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="173092DA" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tplzyob5bl_reg0001_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Transmit the sequence of characters as is" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Transmit the sequence of characters in reverse order" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="radios" id="6037A24C" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tplzyob5bl_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="radios" id="F93EF3F6" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tplzyob5bl_reg0001_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Variable length (no padding)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Padd with ` ` (space characters) on the right until the specified length" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="radios" id="8E39C360" title="Short string or Long string?" name="Long" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tplzyob5bl_reg0001_4hgd4jd" title="Short string or Long string?" name="Long" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Short string (truncate to 16 characters or less)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Long string (more than 16 characters)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="dropdownlist" id="4E83AFCD" title="Length" name="Length" bitmap="0F00" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))">
+			<field type="dropdownlist" id="tplzyob5bl_reg0001_ytndzhn" title="Length" name="Length" bitmap="0F00" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))">
 				<option value="0" title="16 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 				<option value="1" title="1 character" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 				<option value="2" title="2 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
@@ -701,21 +701,21 @@ Valid range depends on the memory size of the actual PICC" note="The number of p
 				<option value="14" title="14 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 				<option value="15" title="15 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 			</field>
-			<field type="number-d" id="39849F5B" title="Options for Long String" name="Options for Long String" bitmap="00FF" visibleif="(TPLBITS(1, 6, 1) is 1) and (TPLBITS(1, 4, 1) is 1)" description="Use this byte to specify the exact length to read from the card. Valid range is `1` to `255`." />
+			<field type="number-d" id="tplzyob5bl_reg0001_gpg5rzd" title="Options for Long String" name="Options for Long String" bitmap="00FF" visibleif="(TPLBITS(1, 6, 1) is 1) and (TPLBITS(1, 4, 1) is 1)" description="Use this byte to specify the exact length to read from the card. Valid range is `1` to `255`." />
 		</register>
 		<register id="0004" size="1" default="00">
 			<title>Options</title>
 			<description>
 If this register is set, the Reader adds a token to its output to tell the receiver what kind of credential has been read.
 			</description>
-			<field type="hidden" id="A08DCEE1" name="rfu0" bitmap="F0" value="0" />
-			<field type="radios" id="D78AFE77" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
+			<field type="hidden" id="tplzyob5bl_reg0004_g65secl" name="rfu0" bitmap="F0" value="0" />
+			<field type="radios" id="tplzyob5bl_reg0004_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
 				<option value="0" title="Before the Prefix" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="1" title="After the Prefix, before the Data" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="2" title="After the Data (before the Suffix)" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="3" title="RFU" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 			</field>
-			<field type="radios" id="49EE6BD4" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
+			<field type="radios" id="tplzyob5bl_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
 				<option value="0" title="Do not add a Card Type Token" advanced="true"/>
 				<option value="1" title="Add `62` hex value as Card Type Token" advanced="true"/>
 				<option value="2" title="Add `U` char as Card Type Token" advanced="true"/>
@@ -730,10 +730,10 @@ A Template-specific Prefix, that is added after the Reader&apos;s global Prefix.
 			<remark>
 Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical space.
 			</remark>
-			<field type="textbox" id="3EE95B42" maxlength="8" title="Prefix" default=""/>
+			<field type="textbox" id="tplzyob5bl_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template name="Mifare Classic" title="Mifare Classic Template">
+	<template name="Mifare Classic" title="Mifare Classic Template" hash="nqitimn">
 		<lkl value="61" />
 		<description>
 Use the Mifare Classic Template to read data from a NXP Mifare Classic PICC (Mifare Classic 1K, Mifare Classic 4K) or from any compliant PICCs (including Mifare Plus running in Security Level 14).
@@ -748,23 +748,23 @@ The AID or the block address is specified in the LOC register.
 		</description>
 		<register id="0001" size="2" default="0000">
 			<title>Output Size and Format</title>
-			<field type="radios" id="A7E00AF8" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplnqitimn_reg0001_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Transmit the sequence of bytes as is" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Transmit the sequence of bytes in reverse order" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="D0E73A6E" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplnqitimn_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="405827FF" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplnqitimn_reg0001_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Padd with `0` on the left" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Padd with `F` on the right" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="375F1769" title="Remove leading zeroes?" name="Clean" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplnqitimn_reg0001_4hgd4jd" title="Remove leading zeroes?" name="Clean" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Keep all digits" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Suppress `0` digits on the left of the Data" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="AE5646D3" title="Length and Format" name="Length and Format" bitmap="0F00" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplnqitimn_reg0001_ytndzhn" title="Length and Format" name="Length and Format" bitmap="0F00" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Decimal, 10 digits (truncation on 4-B)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Raw (hex), 4 bytes (32 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="2" title="Raw (hex), 8 bytes (64 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
@@ -782,23 +782,23 @@ The AID or the block address is specified in the LOC register.
 				<option value="14" title="Decimal, variable length" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="15" title="Raw (hex), variable length" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="D9517645" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tplnqitimn_reg0001_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Transmit the sequence of characters as is" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Transmit the sequence of characters in reverse order" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="radios" id="4735E3E6" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tplnqitimn_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="radios" id="3032D370" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tplnqitimn_reg0001_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Variable length (no padding)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Padd with ` ` (space characters) on the right until the specified length" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="radios" id="A93B82CA" title="Short string or Long string?" name="Long" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tplnqitimn_reg0001_4hgd4jd" title="Short string or Long string?" name="Long" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Short string (truncate to 16 characters or less)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Long string (more than 16 characters)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="dropdownlist" id="DE3CB25C" title="Length" name="Length" bitmap="0F00" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))">
+			<field type="dropdownlist" id="tplnqitimn_reg0001_ytndzhn" title="Length" name="Length" bitmap="0F00" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))">
 				<option value="0" title="16 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 				<option value="1" title="1 character" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 				<option value="2" title="2 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
@@ -816,7 +816,7 @@ The AID or the block address is specified in the LOC register.
 				<option value="14" title="14 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 				<option value="15" title="15 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 			</field>
-			<field type="number-d" id="5334BFA9" title="Options for Long String" name="Options for Long String" bitmap="00FF" visibleif="(TPLBITS(1, 6, 1) is 1) and (TPLBITS(1, 4, 1) is 1)" description="Use this byte to specify the exact length to read from the card. Valid range is `1` to `255`." />
+			<field type="number-d" id="tplnqitimn_reg0001_gpg5rzd" title="Options for Long String" name="Options for Long String" bitmap="00FF" visibleif="(TPLBITS(1, 6, 1) is 1) and (TPLBITS(1, 4, 1) is 1)" description="Use this byte to specify the exact length to read from the card. Valid range is `1` to `255`." />
 		</register>
 		<register id="0002" size="8" default="">
 			<title>Prefix</title>
@@ -826,18 +826,18 @@ A Template-specific Prefix, that is added after the Reader&apos;s global Prefix.
 			<remark>
 Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical space.
 			</remark>
-			<field type="textbox" id="24338F3F" maxlength="8" title="Prefix" default=""/>
+			<field type="textbox" id="tplnqitimn_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 		<register id="0003" size="5" default="0000000000">
 			<title>Location of Data</title>
 			<remark>
 Reading can cross sector boundaries, but sector trailers are always discarded.
 			</remark>
-			<field type="number-h" id="BD3ADE85" title="AID" name="AID" bitmap="FFFF000000" description="AID of the sector (MSB-first)." remark="Set to `0000` to specify an absolute address in the next byte." />
-			<field type="number-h" id="CA3DEE13" title="Address" name="Address" bitmap="0000FF0000" description="This is the Address of the 1st block to read.
+			<field type="number-h" id="tplnqitimn_reg0003_rk4phyn" title="AID" name="AID" bitmap="FFFF000000" description="AID of the sector (MSB-first)." remark="Set to `0000` to specify an absolute address in the next byte." />
+			<field type="number-h" id="tplnqitimn_reg0003_2bahmzn" title="Address" name="Address" bitmap="0000FF0000" description="This is the Address of the 1st block to read.
 Valid range depends on the memory size of the PICC (1K-&gt;64 blocks, 4K-&gt;256 blocks)." remark="Set to `00` to specify an AID in the previous bytes." />
-			<field type="number-d" id="54597BB0" title="Shift Bytes" name="Shift Bytes" bitmap="000000FF00" advanced="true" description="Leading bytes to suppress; valid range is `0` to `48` (in decimal)." />
-			<field type="number-d" id="235E4B26" title="Shift Bits" name="Shift Bits" bitmap="00000000FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
+			<field type="number-d" id="tplnqitimn_reg0003_3ovnoey" title="Shift Bytes" name="Shift Bytes" bitmap="000000FF00" advanced="true" description="Leading bytes to suppress; valid range is `0` to `48` (in decimal)." />
+			<field type="number-d" id="tplnqitimn_reg0003_ahd4scn" title="Shift Bits" name="Shift Bits" bitmap="00000000FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
 			<note>
 The number of blocks to be read is deduced from the expected length, as set in the TOF register.
 			</note>
@@ -847,14 +847,14 @@ The number of blocks to be read is deduced from the expected length, as set in t
 			<description>
 If this register is set, the Reader adds a token to its output to tell the receiver what kind of credential has been read.
 			</description>
-			<field type="hidden" id="BA571A9C" name="rfu0" bitmap="F0" value="0" />
-			<field type="radios" id="CD502A0A" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
+			<field type="hidden" id="tplnqitimn_reg0004_g65secl" name="rfu0" bitmap="F0" value="0" />
+			<field type="radios" id="tplnqitimn_reg0004_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
 				<option value="0" title="Before the Prefix" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="1" title="After the Prefix, before the Data" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="2" title="After the Data (before the Suffix)" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="3" title="RFU" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 			</field>
-			<field type="radios" id="5DEF379B" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
+			<field type="radios" id="tplnqitimn_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
 				<option value="0" title="Do not add a Card Type Token" advanced="true"/>
 				<option value="1" title="Add `61` hex value as Card Type Token" advanced="true"/>
 				<option value="2" title="Add `M` char as Card Type Token" advanced="true"/>
@@ -863,15 +863,15 @@ If this register is set, the Reader adds a token to its output to tell the recei
 		</register>
 		<register id="0005" size="7" default="00000000000000">
 			<title>Authentication</title>
-			<field type="radios" id="2AE8070D" title="Type of Key" name="Type of Key" bitmap="80000000000000">
+			<field type="radios" id="tplnqitimn_reg0005_biavjvn" title="Type of Key" name="Type of Key" bitmap="80000000000000">
 				<option value="0" title="Key A"/>
 				<option value="1" title="Key B"/>
 			</field>
-			<field type="hidden" id="B3E156B7" name="rfu0" bitmap="7F000000000000" value="00" />
-			<field type="raw" id="C4E66621" title="Value of the CRYPTO1 Secret Key" name="1" bitmap="00FFFFFFFFFFFF" description="The CRYPTO1 keys must be explicitly specified in the Templates." />
+			<field type="hidden" id="tplnqitimn_reg0005_dawm52n" name="rfu0" bitmap="7F000000000000" value="00" />
+			<field type="raw" id="tplnqitimn_reg0005_gietmul" title="Value of the CRYPTO1 Secret Key" name="1" bitmap="00FFFFFFFFFFFF" description="The CRYPTO1 keys must be explicitly specified in the Templates." />
 		</register>
 	</template>
-	<template name="Mifare Plus SL3" title="Mifare Plus SL3 Template">
+	<template name="Mifare Plus SL3" title="Mifare Plus SL3 Template" hash="vsbmlpn">
 		<lkl value="63" />
 		<description>
 Use the Mifare Plus SL3 Template to read data from a NXP Mifare Plus PICC (Mifare Plus 2K, Mifare Plus 4K) running in Security Level 3.
@@ -889,28 +889,28 @@ The AID or the block address is specified in the LOC register.
 			<remark>
 Reading can cross sector boundaries, but sector trailers are always discarded.
 			</remark>
-			<field type="number-h" id="5A82F382" title="AID" name="AID" bitmap="FFFF000000" description="AID of the sector (MSB-first)." remark="Set to `0000` to specify an absolute address in the next byte." />
-			<field type="number-h" id="2D85C314" title="Address" name="Address" bitmap="0000FF0000" description="This is the Address of the 1st block to read.
+			<field type="number-h" id="tplvsbmlpn_reg0003_rk4phyn" title="AID" name="AID" bitmap="FFFF000000" description="AID of the sector (MSB-first)." remark="Set to `0000` to specify an absolute address in the next byte." />
+			<field type="number-h" id="tplvsbmlpn_reg0003_2bahmzn" title="Address" name="Address" bitmap="0000FF0000" description="This is the Address of the 1st block to read.
 Valid range depends on the memory size of the PICC (1K-&gt;64 blocks, 4K-&gt;256 blocks)." remark="Set to `00` to specify an AID in the previous bytes." />
-			<field type="number-d" id="B48C92AE" title="Shift Bytes" name="Shift Bytes" bitmap="000000FF00" advanced="true" description="Leading bytes to suppress; valid range is `0` to `48` (in decimal)." />
-			<field type="number-d" id="C38BA238" title="Shift Bits" name="Shift Bits" bitmap="00000000FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
+			<field type="number-d" id="tplvsbmlpn_reg0003_3ovnoey" title="Shift Bytes" name="Shift Bytes" bitmap="000000FF00" advanced="true" description="Leading bytes to suppress; valid range is `0` to `48` (in decimal)." />
+			<field type="number-d" id="tplvsbmlpn_reg0003_ahd4scn" title="Shift Bits" name="Shift Bits" bitmap="00000000FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
 			<note>
 The number of blocks to be read is deduced from the expected length, as set in the TOF register.
 			</note>
 		</register>
 		<register id="0005" size="17" default="0000000000000000000000000000000000">
 			<title>Authentication</title>
-			<field type="radios" id="75ED8F05" title="Type of Key" name="Type of Key" bitmap="8000000000000000000000000000000000">
+			<field type="radios" id="tplvsbmlpn_reg0005_fgspoil" title="Type of Key" name="Type of Key" bitmap="8000000000000000000000000000000000">
 				<option value="0" title="Key A"/>
 				<option value="1" title="Key B"/>
 			</field>
-			<field type="hidden" id="02EABF93" name="rfu0" bitmap="4000000000000000000000000000000000" value="0" />
-			<field type="radios" id="9BE3EE29" title="Location of Secret Key" name="Location of Secret Key" bitmap="2000000000000000000000000000000000">
+			<field type="hidden" id="tplvsbmlpn_reg0005_qqotlql" name="rfu0" bitmap="4000000000000000000000000000000000" value="0" />
+			<field type="radios" id="tplvsbmlpn_reg0005_zawhwsy" title="Location of Secret Key" name="Location of Secret Key" bitmap="2000000000000000000000000000000000">
 				<option value="0" title="Key is specified in the Template"/>
 				<option value="1" title="SAM AV"/>
 			</field>
-			<field type="hidden" id="ECE4DEBF" name="rfu0" bitmap="1800000000000000000000000000000000" value="0" />
-			<field type="radios" id="72804B1C" title="Read mode" name="Read mode" bitmap="0700000000000000000000000000000000">
+			<field type="hidden" id="tplvsbmlpn_reg0005_mbubfud" name="rfu0" bitmap="1800000000000000000000000000000000" value="0" />
+			<field type="radios" id="tplvsbmlpn_reg0005_ax6yead" title="Read mode" name="Read mode" bitmap="0700000000000000000000000000000000">
 				<option value="0" title="Read encrypted, MAC on command, no MAC on response"/>
 				<option value="1" title="Read encrypted, MAC on command, MAC on response"/>
 				<option value="2" title="Read in plain, MAC on command, no MAC on response"/>
@@ -920,28 +920,28 @@ The number of blocks to be read is deduced from the expected length, as set in t
 				<option value="6" title="Read in plain, no MAC on command, no MAC on response"/>
 				<option value="7" title="Read in plain, no MAC on command, MAC on response"/>
 			</field>
-			<field type="number-h" id="05877B8A" title="Key slot in the internal SAM AV" name="1" bitmap="00FF000000000000000000000000000000" visibleif="(TPLBITS(5, 5, 1) is 1)" />
-			<field type="raw" id="9C8E2A30" title="Value of the AES Secret Key" name="1" bitmap="00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" visibleif="(TPLBITS(5, 5, 1) is 0)" />
+			<field type="number-h" id="tplvsbmlpn_reg0005_yq2hdrd" title="Key slot in the internal SAM AV" name="1" bitmap="00FF000000000000000000000000000000" visibleif="(TPLBITS(5, 5, 1) is 1)" />
+			<field type="raw" id="tplvsbmlpn_reg0005_vjputzd" title="Value of the AES Secret Key" name="1" bitmap="00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" visibleif="(TPLBITS(5, 5, 1) is 0)" />
 		</register>
 		<register id="0001" size="2" default="0000">
 			<title>Output Size and Format</title>
-			<field type="radios" id="EB891AA6" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplvsbmlpn_reg0001_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Transmit the sequence of bytes as is" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Transmit the sequence of bytes in reverse order" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="7B360737" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplvsbmlpn_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="0C3137A1" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplvsbmlpn_reg0001_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Padd with `0` on the left" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Padd with `F` on the right" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="9538661B" title="Remove leading zeroes?" name="Clean" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplvsbmlpn_reg0001_4hgd4jd" title="Remove leading zeroes?" name="Clean" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Keep all digits" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Suppress `0` digits on the left of the Data" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="E23F568D" title="Length and Format" name="Length and Format" bitmap="0F00" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplvsbmlpn_reg0001_ytndzhn" title="Length and Format" name="Length and Format" bitmap="0F00" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Decimal, 10 digits (truncation on 4-B)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Raw (hex), 4 bytes (32 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="2" title="Raw (hex), 8 bytes (64 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
@@ -959,23 +959,23 @@ The number of blocks to be read is deduced from the expected length, as set in t
 				<option value="14" title="Decimal, variable length" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="15" title="Raw (hex), variable length" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="7C5BC32E" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tplvsbmlpn_reg0001_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Transmit the sequence of characters as is" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Transmit the sequence of characters in reverse order" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="radios" id="0B5CF3B8" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tplvsbmlpn_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="radios" id="9255A202" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tplvsbmlpn_reg0001_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Variable length (no padding)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Padd with ` ` (space characters) on the right until the specified length" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="radios" id="E5529294" title="Short string or Long string?" name="Long" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tplvsbmlpn_reg0001_4hgd4jd" title="Short string or Long string?" name="Long" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Short string (truncate to 16 characters or less)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Long string (more than 16 characters)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="dropdownlist" id="685A9F61" title="Length" name="Length" bitmap="0F00" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))">
+			<field type="dropdownlist" id="tplvsbmlpn_reg0001_ytndzhn" title="Length" name="Length" bitmap="0F00" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))">
 				<option value="0" title="16 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 				<option value="1" title="1 character" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 				<option value="2" title="2 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
@@ -993,21 +993,21 @@ The number of blocks to be read is deduced from the expected length, as set in t
 				<option value="14" title="14 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 				<option value="15" title="15 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 			</field>
-			<field type="number-d" id="1F5DAFF7" title="Options for Long String" name="Options for Long String" bitmap="00FF" visibleif="(TPLBITS(1, 6, 1) is 1) and (TPLBITS(1, 4, 1) is 1)" description="Use this byte to specify the exact length to read from the card. Valid range is `1` to `255`." />
+			<field type="number-d" id="tplvsbmlpn_reg0001_gpg5rzd" title="Options for Long String" name="Options for Long String" bitmap="00FF" visibleif="(TPLBITS(1, 6, 1) is 1) and (TPLBITS(1, 4, 1) is 1)" description="Use this byte to specify the exact length to read from the card. Valid range is `1` to `255`." />
 		</register>
 		<register id="0004" size="1" default="00">
 			<title>Options</title>
 			<description>
 If this register is set, the Reader adds a token to its output to tell the receiver what kind of credential has been read.
 			</description>
-			<field type="hidden" id="8654FE4D" name="rfu0" bitmap="F0" value="0" />
-			<field type="radios" id="F153CEDB" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
+			<field type="hidden" id="tplvsbmlpn_reg0004_g65secl" name="rfu0" bitmap="F0" value="0" />
+			<field type="radios" id="tplvsbmlpn_reg0004_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
 				<option value="0" title="Before the Prefix" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="1" title="After the Prefix, before the Data" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="2" title="After the Data (before the Suffix)" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="3" title="RFU" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 			</field>
-			<field type="radios" id="6F375B78" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
+			<field type="radios" id="tplvsbmlpn_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
 				<option value="0" title="Do not add a Card Type Token" advanced="true"/>
 				<option value="1" title="Add `63` hex value as Card Type Token" advanced="true"/>
 				<option value="2" title="Add `M` char as Card Type Token" advanced="true"/>
@@ -1022,10 +1022,10 @@ A Template-specific Prefix, that is added after the Reader&apos;s global Prefix.
 			<remark>
 Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical space.
 			</remark>
-			<field type="textbox" id="18306BEE" maxlength="8" title="Prefix" default=""/>
+			<field type="textbox" id="tplvsbmlpn_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template name="ISO 15693 Memory" title="ISO 15693 Memory Template">
+	<template name="ISO 15693 Memory" title="ISO 15693 Memory Template" hash="soaav3l">
 		<lkl value="54" />
 		<description>
 Use the ISO 15693 Memory Template to read data from a VICC compliant with ISO 15693-3 or a NFC-V Tag (T5T).
@@ -1039,30 +1039,30 @@ The reader accepts block sizes up to 64 bytes. The block number is specified in 
 		</description>
 		<register id="0003" size="3" default="000000">
 			<title>Location of Data</title>
-			<field type="number-h" id="81393A54" title="Address" name="Address" bitmap="FF0000" description="This is the Address of the 1st page to read.
+			<field type="number-h" id="tplsoaav3l_reg0003_lmh6e5y" title="Address" name="Address" bitmap="FF0000" description="This is the Address of the 1st page to read.
 Valid range depends on the memory size of the actual VICC" note="The number of pages to be read is deduced from the expected length, as set in the TOF register." />
-			<field type="number-d" id="F63E0AC2" title="Shift Bytes" name="Shift Bytes" bitmap="00FF00" advanced="true" description="Leading bytes to suppress; valid range is `0` to `32` (in decimal)." />
-			<field type="number-d" id="66811753" title="Shift Bits" name="Shift Bits" bitmap="0000FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
+			<field type="number-d" id="tplsoaav3l_reg0003_gsqqlyn" title="Shift Bytes" name="Shift Bytes" bitmap="00FF00" advanced="true" description="Leading bytes to suppress; valid range is `0` to `32` (in decimal)." />
+			<field type="number-d" id="tplsoaav3l_reg0003_rk4pgmy" title="Shift Bits" name="Shift Bits" bitmap="0000FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
 		</register>
 		<register id="0001" size="2" default="0000">
 			<title>Output Size and Format</title>
-			<field type="radios" id="118627C5" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplsoaav3l_reg0001_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Transmit the sequence of bytes as is" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Transmit the sequence of bytes in reverse order" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="888F767F" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplsoaav3l_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="FF8846E9" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplsoaav3l_reg0001_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Padd with `0` on the left" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Padd with `F` on the right" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="61ECD34A" title="Remove leading zeroes?" name="Clean" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplsoaav3l_reg0001_4hgd4jd" title="Remove leading zeroes?" name="Clean" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Keep all digits" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Suppress `0` digits on the left of the Data" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="16EBE3DC" title="Length and Format" name="Length and Format" bitmap="0F00" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplsoaav3l_reg0001_ytndzhn" title="Length and Format" name="Length and Format" bitmap="0F00" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Decimal, 10 digits (truncation on 4-B)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Raw (hex), 4 bytes (32 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="2" title="Raw (hex), 8 bytes (64 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
@@ -1080,23 +1080,23 @@ Valid range depends on the memory size of the actual VICC" note="The number of p
 				<option value="14" title="Decimal, variable length" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="15" title="Raw (hex), variable length" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="8FE2B266" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tplsoaav3l_reg0001_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Transmit the sequence of characters as is" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Transmit the sequence of characters in reverse order" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="radios" id="F8E582F0" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tplsoaav3l_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="radios" id="D5E76D7D" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tplsoaav3l_reg0001_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Variable length (no padding)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Padd with ` ` (space characters) on the right until the specified length" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="radios" id="A2E05DEB" title="Short string or Long string?" name="Long" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tplsoaav3l_reg0001_4hgd4jd" title="Short string or Long string?" name="Long" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Short string (truncate to 16 characters or less)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Long string (more than 16 characters)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="dropdownlist" id="3BE90C51" title="Length" name="Length" bitmap="0F00" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))">
+			<field type="dropdownlist" id="tplsoaav3l_reg0001_ytndzhn" title="Length" name="Length" bitmap="0F00" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))">
 				<option value="0" title="16 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 				<option value="1" title="1 character" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 				<option value="2" title="2 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
@@ -1114,21 +1114,21 @@ Valid range depends on the memory size of the actual VICC" note="The number of p
 				<option value="14" title="14 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 				<option value="15" title="15 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 			</field>
-			<field type="number-d" id="4CEE3CC7" title="Options for Long String" name="Options for Long String" bitmap="00FF" visibleif="(TPLBITS(1, 6, 1) is 1) and (TPLBITS(1, 4, 1) is 1)" description="Use this byte to specify the exact length to read from the card. Valid range is `1` to `255`." />
+			<field type="number-d" id="tplsoaav3l_reg0001_gpg5rzd" title="Options for Long String" name="Options for Long String" bitmap="00FF" visibleif="(TPLBITS(1, 6, 1) is 1) and (TPLBITS(1, 4, 1) is 1)" description="Use this byte to specify the exact length to read from the card. Valid range is `1` to `255`." />
 		</register>
 		<register id="0004" size="1" default="00">
 			<title>Options</title>
 			<description>
 If this register is set, the Reader adds a token to its output to tell the receiver what kind of credential has been read.
 			</description>
-			<field type="hidden" id="D28AA964" name="rfu0" bitmap="F0" value="0" />
-			<field type="radios" id="A58D99F2" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
+			<field type="hidden" id="tplsoaav3l_reg0004_g65secl" name="rfu0" bitmap="F0" value="0" />
+			<field type="radios" id="tplsoaav3l_reg0004_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
 				<option value="0" title="Before the Prefix" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="1" title="After the Prefix, before the Data" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="2" title="After the Data (before the Suffix)" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="3" title="RFU" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 			</field>
-			<field type="radios" id="3C84C848" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
+			<field type="radios" id="tplsoaav3l_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
 				<option value="0" title="Do not add a Card Type Token" advanced="true"/>
 				<option value="1" title="Add `54` hex value as Card Type Token" advanced="true"/>
 				<option value="2" title="Add `V` char as Card Type Token" advanced="true"/>
@@ -1143,10 +1143,10 @@ A Template-specific Prefix, that is added after the Reader&apos;s global Prefix.
 			<remark>
 Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical space.
 			</remark>
-			<field type="textbox" id="4B83F8DE" maxlength="8" title="Prefix" default=""/>
+			<field type="textbox" id="tplsoaav3l_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template name="EM4134 Memory" title="EM4134 Memory Template">
+	<template name="EM4134 Memory" title="EM4134 Memory Template" hash="phfd7cn">
 		<lkl value="56" />
 		<description>
 Use the EM4134 Memory Template to read data from the EM MicroElectronic Marin EM4134 chip.
@@ -1159,29 +1159,29 @@ The word number is specified in the LOC register.
 		</description>
 		<register id="0003" size="3" default="000000">
 			<title>Location of Data</title>
-			<field type="number-h" id="DB3CE54F" title="Address" name="Address" bitmap="FF0000" description="This is the Address of the 1st word to read; valid range is `1` to `15` (in decimal)." note="The number of words to be read is deduced from the expected length, as set in the TOF register." />
-			<field type="number-d" id="AC3BD5D9" title="Shift Bytes" name="Shift Bytes" bitmap="00FF00" advanced="true" description="Leading bytes to suppress; valid range is `0` to `3`." />
-			<field type="number-d" id="35328463" title="Shift Bits" name="Shift Bits" bitmap="0000FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
+			<field type="number-h" id="tplphfd7cn_reg0003_lmh6e5y" title="Address" name="Address" bitmap="FF0000" description="This is the Address of the 1st word to read; valid range is `1` to `15` (in decimal)." note="The number of words to be read is deduced from the expected length, as set in the TOF register." />
+			<field type="number-d" id="tplphfd7cn_reg0003_gsqqlyn" title="Shift Bytes" name="Shift Bytes" bitmap="00FF00" advanced="true" description="Leading bytes to suppress; valid range is `0` to `3`." />
+			<field type="number-d" id="tplphfd7cn_reg0003_rk4pgmy" title="Shift Bits" name="Shift Bits" bitmap="0000FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
 		</register>
 		<register id="0001" size="2" default="0000">
 			<title>Output Size and Format</title>
-			<field type="radios" id="4235B4F5" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplphfd7cn_reg0001_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Transmit the sequence of bytes as is" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Transmit the sequence of bytes in reverse order" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="DC512156" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplphfd7cn_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="AB5611C0" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplphfd7cn_reg0001_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Padd with `0` on the left" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Padd with `F` on the right" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="325F407A" title="Remove leading zeroes?" name="Clean" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplphfd7cn_reg0001_4hgd4jd" title="Remove leading zeroes?" name="Clean" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Keep all digits" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Suppress `0` digits on the left of the Data" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="455870EC" title="Length and Format" name="Length and Format" bitmap="0F00" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplphfd7cn_reg0001_ytndzhn" title="Length and Format" name="Length and Format" bitmap="0F00" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Decimal, 10 digits (truncation on 4-B)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Raw (hex), 4 bytes (32 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="2" title="Raw (hex), 8 bytes (64 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
@@ -1199,23 +1199,23 @@ The word number is specified in the LOC register.
 				<option value="14" title="Decimal, variable length" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="15" title="Raw (hex), variable length" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="C8507D19" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tplphfd7cn_reg0001_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Transmit the sequence of characters as is" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Transmit the sequence of characters in reverse order" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="radios" id="BF574D8F" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tplphfd7cn_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="radios" id="265E1C35" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tplphfd7cn_reg0001_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Variable length (no padding)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Padd with ` ` (space characters) on the right until the specified length" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="radios" id="51592CA3" title="Short string or Long string?" name="Long" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tplphfd7cn_reg0001_4hgd4jd" title="Short string or Long string?" name="Long" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Short string (truncate to 16 characters or less)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Long string (more than 16 characters)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="dropdownlist" id="CF3DB900" title="Length" name="Length" bitmap="0F00" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))">
+			<field type="dropdownlist" id="tplphfd7cn_reg0001_ytndzhn" title="Length" name="Length" bitmap="0F00" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))">
 				<option value="0" title="16 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 				<option value="1" title="1 character" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 				<option value="2" title="2 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
@@ -1233,21 +1233,21 @@ The word number is specified in the LOC register.
 				<option value="14" title="14 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 				<option value="15" title="15 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 			</field>
-			<field type="number-d" id="B83A8996" title="Options for Long String" name="Options for Long String" bitmap="00FF" visibleif="(TPLBITS(1, 6, 1) is 1) and (TPLBITS(1, 4, 1) is 1)" description="Use this byte to specify the exact length to read from the card. Valid range is `1` to `255`." />
+			<field type="number-d" id="tplphfd7cn_reg0001_gpg5rzd" title="Options for Long String" name="Options for Long String" bitmap="00FF" visibleif="(TPLBITS(1, 6, 1) is 1) and (TPLBITS(1, 4, 1) is 1)" description="Use this byte to specify the exact length to read from the card. Valid range is `1` to `255`." />
 		</register>
 		<register id="0004" size="1" default="00">
 			<title>Options</title>
 			<description>
 If this register is set, the Reader adds a token to its output to tell the receiver what kind of credential has been read.
 			</description>
-			<field type="hidden" id="2133D82C" name="rfu0" bitmap="F0" value="0" />
-			<field type="radios" id="5634E8BA" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
+			<field type="hidden" id="tplphfd7cn_reg0004_g65secl" name="rfu0" bitmap="F0" value="0" />
+			<field type="radios" id="tplphfd7cn_reg0004_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
 				<option value="0" title="Before the Prefix" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="1" title="After the Prefix, before the Data" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="2" title="After the Data (before the Suffix)" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="3" title="RFU" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 			</field>
-			<field type="radios" id="C68BF52B" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
+			<field type="radios" id="tplphfd7cn_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
 				<option value="0" title="Do not add a Card Type Token" advanced="true"/>
 				<option value="1" title="Add `56` hex value as Card Type Token" advanced="true"/>
 				<option value="2" title="Add `V` char as Card Type Token" advanced="true"/>
@@ -1262,16 +1262,16 @@ A Template-specific Prefix, that is added after the Reader&apos;s global Prefix.
 			<remark>
 Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical space.
 			</remark>
-			<field type="textbox" id="B18CC5BD" maxlength="8" title="Prefix" default=""/>
+			<field type="textbox" id="tplphfd7cn_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template name="SpringBlue" title="SpringBlue Template">
+	<template name="SpringBlue" title="SpringBlue Template" hash="756ugod">
 		<lkl value="B0" />
 		<description>
 Read a credential from **SpringCard**&apos;s SpringBlue mobile app.
 		</description>
 	</template>
-	<template name="Orange NFC Retail" title="Orange NFC Retail Template">
+	<template name="Orange NFC Retail" title="Orange NFC Retail Template" hash="5hyjhnl">
 		<lkl value="C0" />
 		<description>
 Read an identifier from the Orange NFC Retail application running on a smartphone.
@@ -1279,7 +1279,7 @@ Orange NFC APIs for Retail is a framework for NFC services, offered by Mobile Ne
 The services rely on a general-purpose cardlet, loaded into a NFC-enabled smartphone&apos;s SIM card. Merchants and service providers are identified by a unique RetailerId (on 4 bytes). Every user “belonging” to this merchant or service provider is identified by either a unique HolderId (on 20 bytes), assigned by Orange to this very user, a CustomerId, defined freely by the merchant or service provider in association with a customer account, a LoyaltyId, defined freely by the merchant or service provider in association with a loyalty card or coupons.
 		</description>
 	</template>
-	<template name="Orange NFC Office" title="Orange NFC Office Template">
+	<template name="Orange NFC Office" title="Orange NFC Office Template" hash="fpocwxd">
 		<lkl value="C1" />
 		<description>
 Read an identifier from the Orange NFC Office application running on a smartphone.
@@ -1287,7 +1287,7 @@ Use this template to read an identifier from the Orange NFC Office application r
 Orange NFC APIs for Office is a framework for NFC services, offered by Mobile Network Operator Orange. It targets user identification applications (access control, private e-purse, car park &amp; card sharing, and alikes). The services are provided by the smartphone either in host-based card emulation mode (HCE) or through a SIM card. Organisations are identified by an ApplicationId (variable length) and their organisation units by a ZoneId (on 6 bytes). A diversified AES key protects the data. Every user “belonging” to the organisation is identified by a Badge number on 10 bytes.
 		</description>
 	</template>
-	<template name="Apple VAS" title="Apple VAS Template">
+	<template name="Apple VAS" title="Apple VAS Template" hash="ql55h6y">
 		<lkl value="D1" />
 		<description>
 Read data from an iOS mobile phone using ECP and the Apple VAS protocol.
@@ -1304,58 +1304,58 @@ The SpringCore firmware is only suitable to read Apple Pay VAS data, not to run 
 			<description>
 Merchant ID of the 1st (or only) merchant. This is SHA256(*Merchant Name*).
 			</description>
-			<field type="raw" id="28859407" minlength="0" maxlength="32" title="Merchant ID" dynamic="true"/>
+			<field type="raw" id="tplql55h6y_reg0006" minlength="0" maxlength="32" title="Merchant ID" dynamic="true"/>
 		</register>
 		<register id="0007" size="1" default="00" advanced="true">
 			<title>Merchant URL</title>
 			<description>
 *Not used*.
 			</description>
-			<field type="number-h" id="5F82A491" minlength="1" maxlength="1" title="Merchant URL" hint="undefined"  advanced="true"/>
+			<field type="number-h" id="tplql55h6y_reg0007" minlength="1" maxlength="1" title="Merchant URL" hint="undefined"  advanced="true"/>
 		</register>
 		<register id="0007" size="32" default="0000000000000000000000000000000000000000000000000000000000000000">
 			<title>Merchant&apos;s Private Key</title>
-			<field type="number-h" id="C1E63132" title="Key slot in the internal ATECC" name="0" bitmap="FF00000000000000000000000000000000000000000000000000000000000000" />
-			<field type="raw" id="B6E101A4" title="Value of ECC Private Key" name="0" bitmap="FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" />
+			<field type="number-h" id="tplql55h6y_reg0007_5jmntfy" title="Key slot in the internal ATECC" name="0" bitmap="FF00000000000000000000000000000000000000000000000000000000000000" />
+			<field type="raw" id="tplql55h6y_reg0007_5a737by" title="Value of ECC Private Key" name="0" bitmap="FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" />
 		</register>
 		<register id="0009" size="32" default="" dynamic="true">
 			<title>Merchant ID (second)</title>
 			<description>
 Merchant ID of the 2nd merchant. This is SHA256(*Merchant Name*).
 			</description>
-			<field type="raw" id="2FE8501E" minlength="0" maxlength="32" title="Merchant ID (second)" dynamic="true"/>
+			<field type="raw" id="tplql55h6y_reg0009" minlength="0" maxlength="32" title="Merchant ID (second)" dynamic="true"/>
 		</register>
 		<register id="000A" size="1" default="00" advanced="true">
 			<title>Merchant URL (second)</title>
 			<description>
 *Not used*.
 			</description>
-			<field type="number-h" id="58EF6088" minlength="1" maxlength="1" title="Merchant URL (second)" hint="undefined"  advanced="true"/>
+			<field type="number-h" id="tplql55h6y_reg000a" minlength="1" maxlength="1" title="Merchant URL (second)" hint="undefined"  advanced="true"/>
 		</register>
 		<register id="000B" size="32" default="0000000000000000000000000000000000000000000000000000000000000000">
 			<title>Merchant&apos;s Private Key (second)</title>
-			<field type="number-h" id="EE894DB5" title="Key slot in the internal ATECC" name="0" bitmap="FF00000000000000000000000000000000000000000000000000000000000000" />
-			<field type="raw" id="998E7D23" title="Value of ECC Private Key" name="0" bitmap="FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" />
+			<field type="number-h" id="tplql55h6y_reg000b_5jmntfy" title="Key slot in the internal ATECC" name="0" bitmap="FF00000000000000000000000000000000000000000000000000000000000000" />
+			<field type="raw" id="tplql55h6y_reg000b_5a737by" title="Value of ECC Private Key" name="0" bitmap="FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" />
 		</register>
 		<register id="0001" size="2" default="0000">
 			<title>Output Size and Format</title>
-			<field type="radios" id="00872C99" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplql55h6y_reg0001_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Transmit the sequence of bytes as is" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Transmit the sequence of bytes in reverse order" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="77801C0F" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplql55h6y_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="E9E489AC" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplql55h6y_reg0001_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Padd with `0` on the left" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Padd with `F` on the right" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="9EE3B93A" title="Remove leading zeroes?" name="Clean" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplql55h6y_reg0001_4hgd4jd" title="Remove leading zeroes?" name="Clean" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Keep all digits" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Suppress `0` digits on the left of the Data" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="07EAE880" title="Length and Format" name="Length and Format" bitmap="0F00" visibleif="(TPLBITS(1, 6, 1) is 0)">
+			<field type="radios" id="tplql55h6y_reg0001_ytndzhn" title="Length and Format" name="Length and Format" bitmap="0F00" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Decimal, 10 digits (truncation on 4-B)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Raw (hex), 4 bytes (32 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="2" title="Raw (hex), 8 bytes (64 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
@@ -1373,23 +1373,23 @@ Merchant ID of the 2nd merchant. This is SHA256(*Merchant Name*).
 				<option value="14" title="Decimal, variable length" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="15" title="Raw (hex), variable length" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
-			<field type="radios" id="70EDD816" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tplql55h6y_reg0001_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Transmit the sequence of characters as is" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Transmit the sequence of characters in reverse order" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="radios" id="E052C587" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tplql55h6y_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="radios" id="9755F511" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tplql55h6y_reg0001_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Variable length (no padding)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Padd with ` ` (space characters) on the right until the specified length" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="radios" id="0E5CA4AB" title="Short string or Long string?" name="Long" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+			<field type="radios" id="tplql55h6y_reg0001_4hgd4jd" title="Short string or Long string?" name="Long" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Short string (truncate to 16 characters or less)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Long string (more than 16 characters)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
-			<field type="dropdownlist" id="795B943D" title="Length" name="Length" bitmap="0F00" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))">
+			<field type="dropdownlist" id="tplql55h6y_reg0001_ytndzhn" title="Length" name="Length" bitmap="0F00" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))">
 				<option value="0" title="16 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 				<option value="1" title="1 character" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 				<option value="2" title="2 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
@@ -1407,21 +1407,21 @@ Merchant ID of the 2nd merchant. This is SHA256(*Merchant Name*).
 				<option value="14" title="14 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 				<option value="15" title="15 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
 			</field>
-			<field type="number-d" id="E73F019E" title="Options for Long String" name="Options for Long String" bitmap="00FF" visibleif="(TPLBITS(1, 6, 1) is 1) and (TPLBITS(1, 4, 1) is 1)" description="Use this byte to specify the exact length to read from the card. Valid range is `1` to `255`." />
+			<field type="number-d" id="tplql55h6y_reg0001_gpg5rzd" title="Options for Long String" name="Options for Long String" bitmap="00FF" visibleif="(TPLBITS(1, 6, 1) is 1) and (TPLBITS(1, 4, 1) is 1)" description="Use this byte to specify the exact length to read from the card. Valid range is `1` to `255`." />
 		</register>
 		<register id="0004" size="1" default="00">
 			<title>Options</title>
 			<description>
 If this register is set, the Reader adds a token to its output to tell the receiver what kind of credential has been read.
 			</description>
-			<field type="hidden" id="90383108" name="rfu0" bitmap="F0" value="0" />
-			<field type="radios" id="093160B2" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
+			<field type="hidden" id="tplql55h6y_reg0004_g65secl" name="rfu0" bitmap="F0" value="0" />
+			<field type="radios" id="tplql55h6y_reg0004_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
 				<option value="0" title="Before the Prefix" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="1" title="After the Prefix, before the Data" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="2" title="After the Data (before the Suffix)" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 				<option value="3" title="RFU" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 			</field>
-			<field type="radios" id="7E365024" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
+			<field type="radios" id="tplql55h6y_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
 				<option value="0" title="Do not add a Card Type Token" advanced="true"/>
 				<option value="1" title="Add `D1` hex value as Card Type Token" advanced="true"/>
 				<option value="2" title="Add `A` char as Card Type Token" advanced="true"/>
@@ -1436,13 +1436,13 @@ A Template-specific Prefix, that is added after the Reader&apos;s global Prefix.
 			<remark>
 Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical space.
 			</remark>
-			<field type="textbox" id="F33E5DD1" maxlength="8" title="Prefix" default=""/>
+			<field type="textbox" id="tplql55h6y_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template name="Google SmartTap" title="Google SmartTap Template">
+	<template name="Google SmartTap" title="Google SmartTap Template" hash="bqdrmad">
 		<lkl value="D2" />
 	</template>
-	<template name="PAN" title="PAN Template">
+	<template name="PAN" title="PAN Template" hash="a2a63zl">
 		<lkl value="73" />
 		<description>
 Read a 16-digit PAN
