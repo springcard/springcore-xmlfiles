@@ -28,6 +28,12 @@
 			implements="usb,ble,ccid,rdr,micore,7816,7816_sam,samav,atecc,battery"
 			individuals="0201,0202,0209,020A,0244"
 			/>
+		<device title="M519"
+			firmware="springcore/m519"
+			hardware=""
+			implements="usb,serial,ccid,rdr,micore,7816,atecc"
+			individuals="0201,0202,0209,020A,02FE,02FF"
+			/>
 		<device title="Evaluation kit Net"
 			firmware="springcore/e518/reference"
 			hardware="EAN18090"
@@ -45,12 +51,6 @@
 			hardware="EAN19217"
 			implements="usb,serial,network,ccid,rdr,micore,7816,7816_id1,7816_sam_x4,samav,atecc,vegas"
 			individuals="0201,0202,0209,020A,0280,0281,02FE,02FF"
-			/>
-		<device title="Puck"
-			firmware="springcore/h518/puck"
-			hardware=""
-			implements="usb,ble,ccid,rdr,micore,7816,7816_sam,samav,atecc,vegas,battery"
-			individuals="0201,0202,0209,020A,0244"
 			/>
 		<device title="Puck Base"
 			firmware="springcore/h518/puck"
