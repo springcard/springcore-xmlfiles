@@ -111,13 +111,13 @@ It contains a mixed collection of
 1. UI-related entries: `<title>`, `<description`>, `<remark>`, ...
 2. `<field>`. A field is a portion of the register (i.e. a subset of it bits) that is shown to the user as a single, atomic, configuration field.
 
-### Attributes fot the `register` XML node
+### Attributes for the `register` XML node
 
 | Name      | Description                                                  |
 | --------- | ------------------------------------------------------------ |
 | `id`      | Address of the register, on two bytes, specified in hexadecimal (allowed values are `0200` to `02FF`) |
 | `size`    | Size of the register, in bytes, specified in decimal (allowed values are `1` to `64`) |
-| `default` | Default value of the register, specified in hexadecimal. This is typically used by the application to populate the fields in the UI with default state when creation a new configuration from scratch. |
+| `default` | Default value of the register, specified in hexadecimal. This is typically used by the application to populate the fields in the UI with default state when a new, blank configuration is created. |
 
 ### `title` XML entry
 
@@ -142,10 +142,11 @@ The `<field>` XML node may be final, or may contain a collection of `<option>`.
 | Name        | Description                                   | Remark                                                       |
 | ----------- | --------------------------------------------- | ------------------------------------------------------------ |
 | `type`      | How shall the field be displayed to the user? | See below for a list                                         |
-| `id`        | Unique ID of the field                        | Not relevant for the Companion Service. Can be used by the UI for convenience. |
+| `id`        | Unique ID of the field                        | Not relevant for the Companion Service. Can be used by the configuration application for convenience. |
 | `title`     | Title of the field                            | Main label to be associated to the field's input area        |
 | `name`      | Name of the field                             | Shorter, hence less explicit than the Title. May be used to present the fields as a tree in the UI. |
 | `bitmap`    | Relevant bits in the register                 | Value is specified in hexadecimal. This is a bit mask (i.e. valid bits are `1`, unused bits are `0`). If the register has only one field, the bitmap may be missing (it must be assumed that it is all `1`). |
+| `value`     | Value of the (hidden) field                   | Only present for a field having `type="hidden"`. |
 | `visibleif` | Condition to display this field               | See `visibleif` paragraph at the end of the document         |
 
 ### Values for `type` attribute
@@ -189,8 +190,8 @@ The syntax of `visibleif` is a very basic script language.
 The script langage has 3 functions:
 
 - **REGVAL(address):** read the current value in the register at ***address***,
-- **REGBIT(address, offset):** read the current value of the bit at position ***offset*** in register at ***address***,
-- **REGBITS(address, offset, count):** read the current value of the ***count*** bits starting at position ***offset*** in register at ***address***,
+- **REGBIT(address, bit_offset):** read the current value of the bit at position ***bit_offset*** in register at ***address***,
+- **REGBITS(address, bit_offset, bit_count):** read the current value of the ***bit_count*** bits starting at position ***bit_offset*** in register at ***address***,
 
 **Remark:** *REGBIT(address, offset)* is the same as *REGBITS(address, offset, 1)*
 
