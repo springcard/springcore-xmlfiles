@@ -13,6 +13,17 @@ In the XML tree,
 - The root object's attribute fields provide all data required to identify the device, and to describe it to the end-user
 - Child nodes expose all the configuration registers that the device features, and detail the underlying fields, and how they shall be described to the end-user.
 
+### Individual registers and their implication to the UI
+
+File `springcard-multiconf-individuals.xml` contains a list of devices, and, for every device, the list of individual registers (using their address or `id` as key).
+
+From the device point of view, individual registers are a part of their configuration. The firmware makes no difference with other registers. But from the end-user point of view, hence for the configuration application, they are two different things.
+
+- **The global configuration** (i.e. all the registers that are not explicitly listed as being individual) **could be copied 'as is' into many devices**. Typically, all devices of the same type belonging to the same company or installed to the same premises shares the same global configuration,
+- **The individual configuration** (i.e. the set of a few registers that are explicitly listed as being individual) **is specific to one very device**. Copying this configuration to another device would not work, or break something. This is for instance the case of the static IP address (the device's address shall be unique on the network) or the inventory and location data used for asset management.
+
+The application shall expose the global configuration as a set of parameters that could be applied to many device, and shall provide a mean to edit the individual configuration of every device (with no doubt on the very target it is actually configuring).
+
 ## The XML root node
 
 The root of the XML tree is `<springcard-multiconf-registers>`
@@ -40,6 +51,8 @@ Since the root node describes a device, its content is closely related to the DE
 Given a DEVICE object provided by **SpringCard Companion Service**, the configuration application shall filter the XML files to keep only the one that match on the `firmware`/`Firmware` and `hardware`/`Hardware` fields.
 
 In some situation, the `Hardware` field may be empty in the DEVICE object. In this case, the match is done on the `Firmware` field only. If more than one XML file match, the user shall be prompted to select the right one.
+
+In other situation, an XML file exists with the `hardware` field empty or set to `*` (wildcard). Such XML file is the fallback for all devices with the same `Firmware` but no corresponding `Hardware`, or an empty `Hardware`.
 
 ### Dealing with the version fields
 
