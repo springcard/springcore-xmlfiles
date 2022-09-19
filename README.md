@@ -9,3 +9,8 @@ The configuration is generally edited using **SpringCard Companion** cloud-based
 **SpringCard Companion** exposes the device's configuration as user-friendly forms in the web browser. These forms are generated from the device's internals. The XML files published in this repository act as the gateway between the source code of the device's firmware and the web application.
 
 This repository is public, and customers/integrators are free to embed the configuration of the devices they use in their own applications.
+
+The documentation of the XML files is provided in:
+
+- [XML_Format_Configuration](XML_Format_Configuration.md)
+- [XML_Format_Templates](XML_Format_Templates.md)

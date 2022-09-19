@@ -5,7 +5,7 @@
 	firmware="springcore/h993/crazyuhf"
 	implements="usb,serial,rdr,uhf"
 	hardware="EAN18035"
-	version=""
+	version="1.23"
 	author="JDA"
 	templatesnfc="false"
 	templatesble="false"

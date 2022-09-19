@@ -5,10 +5,10 @@
 	firmware="springcore/h518/puck"
 	implements="usb,ccid,rdr,micore,7816,7816_sam,samav,atecc,vegas"
 	hardware="FPF18177"
-	version=""
+	version="1.23"
 	author="JDA"
 	templatesnfc="true"
-	templatesble="true"
+	templatesble="false"
 >
 	<tree>
 	<!-- Empty node Constants, title=Constants, type=SpringCoreMeta.NodeRegisters -->

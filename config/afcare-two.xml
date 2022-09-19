@@ -5,7 +5,7 @@
 	firmware="springcore/h518/afcare-two"
 	implements="usb,ble,ccid,7816,7816_id1_x2,ataes,battery"
 	hardware="FSE18283"
-	version=""
+	version="1.23"
 	author="JDA"
 	templatesnfc="false"
 	templatesble="false"
