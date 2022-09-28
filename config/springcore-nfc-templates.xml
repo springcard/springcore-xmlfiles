@@ -6,23 +6,25 @@
 	<tree>
 	<!-- Empty node , title=NFC Templates, type=SpringCoreMeta.NodeTemplateEntries -->
 	<!-- Empty node , title=NFC Templates, type=SpringCoreMeta.NodeTemplateRegisters -->
-	<template name="ID Only" title="ID Only Template" hash="24hhu7n">
-		<lkl value="FF" title="All supported protocols" />
-		<lkl value="01" title="NFC-A - ISO/IEC 14443 type A" />
-		<lkl value="02" title="NFC-B - ISO/IEC 14443 type B" />
-		<lkl value="03" title="NFC-A and NFC-B - ISO/IEC 14443 types A and B" />
-		<lkl value="04" title="NFC-V - ISO/IEC 15693" />
-		<lkl value="07" title="NFC-A, NFC-B and NFC-V - ISO/IEC 14443 types A and B and ISO/IEC 15693" />
-		<lkl value="08" title="NFC-F" />
-		<lkl value="0F" title="All NFC and ISO/IEC protocols" />
-		<lkl value="20" title="ThinFilm / Kovio RF Barcodes" />
-		<lkl value="21" title="Innovision Topaz/Jewel - NFC T1T" />
-		<lkl value="22" title="ST MicroElectronics ST Family" />
-		<lkl value="23" title="ASK CTS 256B and CTS 512B" />
-		<lkl value="24" title="Inside Secure PicoTag (including HID iClass), protocol B" />
-		<lkl value="28" title="FeliCa" />
-		<lkl value="2A" title="Inside Secure PicoTag (including HID iClass), protocol V" />
-		<lkl value="2C" title="Innovatron Radio Protocol (legacy Calypso cards)" />
+	<template name="ID Only" title="ID Only Template" id="tpl24hhu7n">
+		<lookups>
+			<lkl value="FF" title="All supported protocols" />
+			<lkl value="01" title="NFC-A - ISO/IEC 14443 type A" />
+			<lkl value="02" title="NFC-B - ISO/IEC 14443 type B" />
+			<lkl value="03" title="NFC-A and NFC-B - ISO/IEC 14443 types A and B" />
+			<lkl value="04" title="NFC-V - ISO/IEC 15693" />
+			<lkl value="07" title="NFC-A, NFC-B and NFC-V - ISO/IEC 14443 types A and B and ISO/IEC 15693" />
+			<lkl value="08" title="NFC-F" />
+			<lkl value="0F" title="All NFC and ISO/IEC protocols" />
+			<lkl value="20" title="ThinFilm / Kovio RF Barcodes" />
+			<lkl value="21" title="Innovision Topaz/Jewel - NFC T1T" />
+			<lkl value="22" title="ST MicroElectronics ST Family" />
+			<lkl value="23" title="ASK CTS 256B and CTS 512B" />
+			<lkl value="24" title="Inside Secure PicoTag (including HID iClass), protocol B" />
+			<lkl value="28" title="FeliCa" />
+			<lkl value="2A" title="Inside Secure PicoTag (including HID iClass), protocol V" />
+			<lkl value="2C" title="Innovatron Radio Protocol (legacy Calypso cards)" />
+		</lookups>
 		<description>
 The ID Only Template is the basic Template to read a card or tag&apos;s protocol-level IDentifier.
 Pay attention that such IDs may easily be cloned or spoofed, and that NFC mobile phones as well as modern, privacy-concerned card solutions, use random protocol-level IDentifiers, that would change all the time.
@@ -97,11 +99,13 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 			<field type="textbox" id="tpl24hhu7n_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template name="7816-4" title="7816-4 Template" hash="3n4zrpl">
-		<lkl value="13" title="ISO-DEP on NFC-A and NFC-B - ISO/IEC 14443-4 'T=CL' types A and B" />
-		<lkl value="11" title="ISO-DEP on NFC-A - ISO/IEC 14443-4 'T=CL' type A" />
-		<lkl value="12" title="ISO-DEP on NFC-B - ISO/IEC 14443-4 'T=CL' type B" />
-		<lkl value="72" title="Innovatron Radio Protocol (legacy Calypso cards)" />
+	<template name="7816-4" title="7816-4 Template" id="tpl3n4zrpl">
+		<lookups>
+			<lkl value="13" title="ISO-DEP on NFC-A and NFC-B - ISO/IEC 14443-4 'T=CL' types A and B" />
+			<lkl value="11" title="ISO-DEP on NFC-A - ISO/IEC 14443-4 'T=CL' type A" />
+			<lkl value="12" title="ISO-DEP on NFC-B - ISO/IEC 14443-4 'T=CL' type B" />
+			<lkl value="72" title="Innovatron Radio Protocol (legacy Calypso cards)" />
+		</lookups>
 		<description>
 ISO/IEC 7816-4 is the standard for smart card commands. Most contactless smartcards use the ISO/IEC 7816-4 on top of a ISO/IEC 14443-4 &apos;T=CL&apos; or &quot;ISO-DEP&quot; communication channel.
 According to this standard, the card is structured as a (lightweight) file-system, providing Directory Files and Elementary Files.
@@ -251,17 +255,19 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 			<field type="textbox" id="tpl3n4zrpl_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template name="NDEF Data" title="NDEF Data Template" hash="25z45sd">
-		<lkl value="4E" title="All NFC Forum Tags" />
-		<lkl value="4F" title="All NFC Forum Tags and SNEP peers (P2P mode)" />
-		<lkl value="41" title="NFC Forum type 1 Tags (T1T)" />
-		<lkl value="42" title="NFC Forum type 2 Tags (T2T / NFC-A)" />
-		<lkl value="43" title="NFC Forum type 3 Tags (T3T / NFC-F)" />
-		<lkl value="44" title="NFC Forum type 4 Tags (T4T on NFC-A and NFC-B)" />
-		<lkl value="45" title="NFC Forum type 5 Tags (T5T / NFC-V)" />
-		<lkl value="4A" title="NFC Forum type 4A Tags (T4T on NFC-A only)" />
-		<lkl value="4B" title="NFC Forum type 4B Tags (T4T on NFC-B only)" />
-		<lkl value="40" title="SNEP peers (P2P mode)" />
+	<template name="NDEF Data" title="NDEF Data Template" id="tpl25z45sd">
+		<lookups>
+			<lkl value="4E" title="All NFC Forum Tags" />
+			<lkl value="4F" title="All NFC Forum Tags and SNEP peers (P2P mode)" />
+			<lkl value="41" title="NFC Forum type 1 Tags (T1T)" />
+			<lkl value="42" title="NFC Forum type 2 Tags (T2T / NFC-A)" />
+			<lkl value="43" title="NFC Forum type 3 Tags (T3T / NFC-F)" />
+			<lkl value="44" title="NFC Forum type 4 Tags (T4T on NFC-A and NFC-B)" />
+			<lkl value="45" title="NFC Forum type 5 Tags (T5T / NFC-V)" />
+			<lkl value="4A" title="NFC Forum type 4A Tags (T4T on NFC-A only)" />
+			<lkl value="4B" title="NFC Forum type 4B Tags (T4T on NFC-B only)" />
+			<lkl value="40" title="SNEP peers (P2P mode)" />
+		</lookups>
 		<description>
 Use the NDEF Data Template to read the content of either a card formatted according to the NFC Forum Tag specification, or to receive a message through NFC beam (SNEP over LLCP).
 		</description>
@@ -399,8 +405,10 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 			<field type="textbox" id="tpl25z45sd_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template name="Desfire ID" title="Desfire ID Template" hash="hvnvpdd">
-		<lkl value="70" />
+	<template name="Desfire ID" title="Desfire ID Template" id="tplhvnvpdd">
+		<lookups>
+			<lkl value="70" title="(Desfire ID)" />
+		</lookups>
 		<description>
 Use the Desfire ID Template to get the actual ID of an NXP Desfire PICC with Random ID enabled at protocol level. The PICC could be either a Desfire EV0 or a Desfire EV1.
 		</description>
@@ -510,8 +518,10 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 			<field type="textbox" id="tplhvnvpdd_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template name="Desfire File" title="Desfire File Template" hash="2gev7yd">
-		<lkl value="71" />
+	<template name="Desfire File" title="Desfire File Template" id="tpl2gev7yd">
+		<lookups>
+			<lkl value="71" title="(Desfire File)" />
+		</lookups>
 		<description>
 Use the Desfire File Template to read data from a NXP Desfire PICC. The PICC could be either a Desfire EV0 or a Desfire EV1.
 The Reader may either
@@ -613,8 +623,10 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 			<field type="textbox" id="tpl2gev7yd_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template name="Mifare UltraLight" title="Mifare UltraLight Template" hash="zyob5bl">
-		<lkl value="62" />
+	<template name="Mifare UltraLight" title="Mifare UltraLight Template" id="tplzyob5bl">
+		<lookups>
+			<lkl value="62" title="(Mifare UltraLight)" />
+		</lookups>
 		<description>
 Use the Mifare UltraLight Template to read data from a PICC within the NXP Mifare UltraLight family (including Mifare UltraLight EV1, Mifare UltraLight C, NTAG203, NTAG213, and virtually all other chips in the NTAG family).
 Any PICC compliant with the NFC Forum Type 2 Tag specification may also be read using this template (but the Reader will not decode the NFC Forum NDEF data when this template is choosen).
@@ -733,8 +745,10 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 			<field type="textbox" id="tplzyob5bl_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template name="Mifare Classic" title="Mifare Classic Template" hash="nqitimn">
-		<lkl value="61" />
+	<template name="Mifare Classic" title="Mifare Classic Template" id="tplnqitimn">
+		<lookups>
+			<lkl value="61" title="(Mifare Classic)" />
+		</lookups>
 		<description>
 Use the Mifare Classic Template to read data from a NXP Mifare Classic PICC (Mifare Classic 1K, Mifare Classic 4K) or from any compliant PICCs (including Mifare Plus running in Security Level 14).
 The reader may either
@@ -871,8 +885,10 @@ If this register is set, the Reader adds a token to its output to tell the recei
 			<field type="raw" id="tplnqitimn_reg0005_gietmul" title="Value of the CRYPTO1 Secret Key" name="1" bitmap="00FFFFFFFFFFFF" description="The CRYPTO1 keys must be explicitly specified in the Templates." />
 		</register>
 	</template>
-	<template name="Mifare Plus SL3" title="Mifare Plus SL3 Template" hash="vsbmlpn">
-		<lkl value="63" />
+	<template name="Mifare Plus SL3" title="Mifare Plus SL3 Template" id="tplvsbmlpn">
+		<lookups>
+			<lkl value="63" title="(Mifare Plus SL3)" />
+		</lookups>
 		<description>
 Use the Mifare Plus SL3 Template to read data from a NXP Mifare Plus PICC (Mifare Plus 2K, Mifare Plus 4K) running in Security Level 3.
 The reader may either
@@ -1025,8 +1041,10 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 			<field type="textbox" id="tplvsbmlpn_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template name="ISO 15693 Memory" title="ISO 15693 Memory Template" hash="soaav3l">
-		<lkl value="54" />
+	<template name="ISO 15693 Memory" title="ISO 15693 Memory Template" id="tplsoaav3l">
+		<lookups>
+			<lkl value="54" title="(ISO 15693 Memory)" />
+		</lookups>
 		<description>
 Use the ISO 15693 Memory Template to read data from a VICC compliant with ISO 15693-3 or a NFC-V Tag (T5T).
 The reader may either
@@ -1146,8 +1164,10 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 			<field type="textbox" id="tplsoaav3l_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template name="EM4134 Memory" title="EM4134 Memory Template" hash="phfd7cn">
-		<lkl value="56" />
+	<template name="EM4134 Memory" title="EM4134 Memory Template" id="tplphfd7cn">
+		<lookups>
+			<lkl value="56" title="(EM4134 Memory)" />
+		</lookups>
 		<description>
 Use the EM4134 Memory Template to read data from the EM MicroElectronic Marin EM4134 chip.
 The reader may either
@@ -1265,30 +1285,38 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 			<field type="textbox" id="tplphfd7cn_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template name="SpringBlue" title="SpringBlue Template" hash="756ugod">
-		<lkl value="B0" />
+	<template name="SpringBlue" title="SpringBlue Template" id="tpl756ugod">
+		<lookups>
+			<lkl value="B0" title="(SpringBlue)" />
+		</lookups>
 		<description>
 Read a credential from **SpringCard**&apos;s SpringBlue mobile app.
 		</description>
 	</template>
-	<template name="Orange NFC Retail" title="Orange NFC Retail Template" hash="5hyjhnl">
-		<lkl value="C0" />
+	<template name="Orange NFC Retail" title="Orange NFC Retail Template" id="tpl5hyjhnl">
+		<lookups>
+			<lkl value="C0" title="(Orange NFC Retail)" />
+		</lookups>
 		<description>
 Read an identifier from the Orange NFC Retail application running on a smartphone.
 Orange NFC APIs for Retail is a framework for NFC services, offered by Mobile Network Operator Orange. It targets loyalty, couponing and alike applications.
 The services rely on a general-purpose cardlet, loaded into a NFC-enabled smartphone&apos;s SIM card. Merchants and service providers are identified by a unique RetailerId (on 4 bytes). Every user “belonging” to this merchant or service provider is identified by either a unique HolderId (on 20 bytes), assigned by Orange to this very user, a CustomerId, defined freely by the merchant or service provider in association with a customer account, a LoyaltyId, defined freely by the merchant or service provider in association with a loyalty card or coupons.
 		</description>
 	</template>
-	<template name="Orange NFC Office" title="Orange NFC Office Template" hash="fpocwxd">
-		<lkl value="C1" />
+	<template name="Orange NFC Office" title="Orange NFC Office Template" id="tplfpocwxd">
+		<lookups>
+			<lkl value="C1" title="(Orange NFC Office)" />
+		</lookups>
 		<description>
 Read an identifier from the Orange NFC Office application running on a smartphone.
 Use this template to read an identifier from the Orange NFC Office application running on a smartphone.
 Orange NFC APIs for Office is a framework for NFC services, offered by Mobile Network Operator Orange. It targets user identification applications (access control, private e-purse, car park &amp; card sharing, and alikes). The services are provided by the smartphone either in host-based card emulation mode (HCE) or through a SIM card. Organisations are identified by an ApplicationId (variable length) and their organisation units by a ZoneId (on 6 bytes). A diversified AES key protects the data. Every user “belonging” to the organisation is identified by a Badge number on 10 bytes.
 		</description>
 	</template>
-	<template name="Apple VAS" title="Apple VAS Template" hash="ql55h6y">
-		<lkl value="D1" />
+	<template name="Apple VAS" title="Apple VAS Template" id="tplql55h6y">
+		<lookups>
+			<lkl value="D1" title="(Apple VAS)" />
+		</lookups>
 		<description>
 Read data from an iOS mobile phone using ECP and the Apple VAS protocol.
 On iOS, the Apple Wallet application allows users to organize their boarding passes, tickets, gift cards, and loyalty cards. Management of the passes is performed through the PassKit framework. NFC-enabled passes could be transmitted to a remote application through NFC, using the Apple Pay Value Added Services protocol (Apple VAS).
@@ -1439,11 +1467,15 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 			<field type="textbox" id="tplql55h6y_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template name="Google SmartTap" title="Google SmartTap Template" hash="bqdrmad">
-		<lkl value="D2" />
+	<template name="Google SmartTap" title="Google SmartTap Template" id="tplbqdrmad">
+		<lookups>
+			<lkl value="D2" title="(Google SmartTap)" />
+		</lookups>
 	</template>
-	<template name="PAN" title="PAN Template" hash="a2a63zl">
-		<lkl value="73" />
+	<template name="PAN" title="PAN Template" id="tpla2a63zl">
+		<lookups>
+			<lkl value="73" title="(PAN)" />
+		</lookups>
 		<description>
 Read a 16-digit PAN
 		</description>

@@ -117,11 +117,13 @@ Under a `<register>` XML node, a `<description>` XML entry contains the descript
 
 Under a `<register>` XML node, a `<remark>` XML entry contains any remark to explain or detail the register.
 
-## `lkl` XML nodes
+## `lookups` and `lkl` XML nodes
 
-Under a `<register>` XML node, a `<lkl>` XML node selects technology(ies) the Template instance shall look for.
+Under a `<register>` XML node, a ` <lookup>` XML node contains a set  of `<lkl>`  XML nodes.
 
-The select `value` goes straight into the register at offset `0000` under the address space of the Template instance.
+The `<lkl>`  XML nodes select technology(ies) the Template instance shall look for.
+
+The selected `value` goes straight into the register at offset `0000` under the address space of the Template instance.
 
 ### Attributes for the `lkl` XML node
 
