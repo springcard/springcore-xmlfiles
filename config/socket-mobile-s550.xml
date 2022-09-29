@@ -123,7 +123,7 @@ Control various options related to the current profile.
 					<option value="1" title="HID Ringer is disabled" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3"/>
 				</field>
 			</register>
-			<register id="02C5" size="3" default="000203">
+			<register id="02C5" size="3" default="000578">
 				<title>Battery configuration</title>
 				<description>
 When the product has a battery, this register controls the behaviour of the power button and the power-saving policy.
