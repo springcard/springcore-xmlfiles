@@ -5,7 +5,7 @@
 	firmware="springcore/h993/crazyuhf"
 	implements="usb,serial,rdr,uhf"
 	hardware="EAN18035"
-	version="1.23"
+	version=""
 	author="JDA"
 	templatesnfc="false"
 	templatesble="false"
@@ -44,27 +44,27 @@ If the product has no USB interface, this register is ignored.
 					<option value="0" title="USB is enabled"/>
 					<option value="1" title="USB is disabled, all the other settings are ignored"/>
 				</field>
-				<field type="radios" id="reg02c1_op23zml" title="Disable serial number" name="No Serno" bitmap="40" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0">
+				<field type="radios" id="reg02c1_5ymphln_op23zml" title="Disable serial number" name="No Serno" bitmap="40" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0">
 					<option value="0" title="The actual serial number of the product is provided in the USB descriptor" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0"/>
 					<option value="1" title="A constant serial number is provided in the USB descriptor" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0"/>
 				</field>
-				<field type="radios" id="reg02c1_ax7h6sl" title="On USB bus reset event, does the product fully reset?" name="Reset on bus reset" bitmap="20" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0" remark="Standard behaviour is no, but this does help putting back a battery-powered or externaly-powered product that was connected through Bluetooth or Network to the &apos;ready for USB operation&apos; state">
+				<field type="radios" id="reg02c1_5ymphln_ax7h6sl" title="On USB bus reset event, does the product fully reset?" name="Reset on bus reset" bitmap="20" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0" remark="Standard behaviour is no, but this does help putting back a battery-powered or externaly-powered product that was connected through Bluetooth or Network to the &apos;ready for USB operation&apos; state">
 					<option value="0" title="Don&apos;t reset" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0"/>
 					<option value="1" title="Do reset upon Bus reset" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0"/>
 				</field>
-				<field type="radios" id="reg02c1_t6r55rl" title="On USB bus resume event, does the product fully reset?" name="Reset on bus resume" bitmap="10" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0" remark="Standard behaviour is no, but this does help putting back a battery-powered or externaly-powered product that was connected through Bluetooth or Network to the &apos;ready for USB operation&apos; state">
+				<field type="radios" id="reg02c1_5ymphln_t6r55rl" title="On USB bus resume event, does the product fully reset?" name="Reset on bus resume" bitmap="10" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0" remark="Standard behaviour is no, but this does help putting back a battery-powered or externaly-powered product that was connected through Bluetooth or Network to the &apos;ready for USB operation&apos; state">
 					<option value="0" title="Don&apos;t reset" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0"/>
 					<option value="1" title="Do reset upon Bus resume" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0"/>
 				</field>
-				<field type="radios" id="reg02c1_eph722y" title="Disable SpringCore direct as secondary USB interface." name="No Direct" bitmap="08" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0" remark="If [Primary profile](Profile) is set to `0` (SpringCore Direct only), this setting is ignored.">
+				<field type="radios" id="reg02c1_5ymphln_eph722y" title="Disable SpringCore direct as secondary USB interface." name="No Direct" bitmap="08" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0" remark="If [Primary profile](Profile) is set to `0` (SpringCore Direct only), this setting is ignored.">
 					<option value="0" title="SpringCore Direct is announced in the USB profile" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0"/>
 					<option value="1" title="SpringCore Direct is not announced in the USB profile" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0"/>
 				</field>
-				<field type="radios" id="reg02c1_riuquxn" title="Behaviour of the product when USB VBUS is lost and the product is not allowed to keep running" name="VBUS down stop action" bitmap="04" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C1, 0, 2) is 0">
+				<field type="radios" id="reg02c1_gcbfcky_riuquxn" title="Behaviour of the product when USB VBUS is lost and the product is not allowed to keep running" name="VBUS down stop action" bitmap="04" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C1, 0, 2) is 0">
 					<option value="0" title="Reset" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C1, 0, 2) is 0"/>
 					<option value="1" title="Shutdown" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C1, 0, 2) is 0"/>
 				</field>
-				<field type="radios" id="reg02c1_khxezgy" title="Behaviour of the product when USB VBUS is lost" name="VBUS down behaviour" bitmap="03" visibleif="REGBIT(0x02C1, 7) is 0">
+				<field type="radios" id="reg02c1_5ymphln_khxezgy" title="Behaviour of the product when USB VBUS is lost" name="VBUS down behaviour" bitmap="03" visibleif="REGBIT(0x02C1, 7) is 0">
 					<option value="0" title="Stop - reset or shutdown" visibleif="REGBIT(0x02C1, 7) is 0"/>
 					<option value="1" title="Keep running on external power" visibleif="REGBIT(0x02C1, 7) is 0"/>
 					<option value="2" title="Keep running on battery" visibleif="REGBIT(0x02C1, 7) is 0"/>
@@ -79,7 +79,7 @@ If the product has no USB interface, this register is ignored.
 Control various options related to the current profile.
 				</description>
 				<field type="hidden" id="reg02c4_snvp4xd" name="rfu0" bitmap="FE" value="00" />
-				<field type="radios" id="reg02c4_ooba6wy" title="Enable HID Ringer addon used by Telephony services (experimental)." name="Enable Ringer" bitmap="01" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3">
+				<field type="radios" id="reg02c4_s27wvjn_ooba6wy" title="Enable HID Ringer addon used by Telephony services (experimental)." name="Enable Ringer" bitmap="01" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3">
 					<option value="0" title="HID Ringer is enabled" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3"/>
 					<option value="1" title="HID Ringer is disabled" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3"/>
 				</field>
@@ -97,16 +97,16 @@ This register is available only in debug builds of the firmware.
 				<remark>
 This register is available only in debug builds of the firmware.
 				</remark>
-				<field type="hidden" id="reg02ce_kxpbr2l" name="rfu0" bitmap="C0" value="0" />
-				<field type="radios" id="reg02ce_ax7h6sl" title="Use Syslog" name="Use Syslog" bitmap="20" advanced="true" visibleif="REGVAL(0x02CD) is not 0">
+				<field type="hidden" id="reg02ce_fe5kedn_kxpbr2l" name="rfu0" bitmap="C0" value="0" />
+				<field type="radios" id="reg02ce_fe5kedn_ax7h6sl" title="Use Syslog" name="Use Syslog" bitmap="20" advanced="true" visibleif="REGVAL(0x02CD) is not 0">
 					<option value="0" title="Don&apos;t use syslog" advanced="true" visibleif="REGVAL(0x02CD) is not 0"/>
 					<option value="1" title="Send traces to syslog" advanced="true" visibleif="REGVAL(0x02CD) is not 0"/>
 				</field>
-				<field type="radios" id="reg02ce_t6r55rl" title="Show uptime" name="Show uptime" bitmap="10" advanced="true" visibleif="REGVAL(0x02CD) is not 0">
+				<field type="radios" id="reg02ce_fe5kedn_t6r55rl" title="Show uptime" name="Show uptime" bitmap="10" advanced="true" visibleif="REGVAL(0x02CD) is not 0">
 					<option value="0" title="Don&apos;t show uptime" advanced="true" visibleif="REGVAL(0x02CD) is not 0"/>
 					<option value="1" title="Show uptime" advanced="true" visibleif="REGVAL(0x02CD) is not 0"/>
 				</field>
-				<field type="hidden" id="reg02ce_l365cmn" name="rfu0" bitmap="0F" value="0" />
+				<field type="hidden" id="reg02ce_fe5kedn_l365cmn" name="rfu0" bitmap="0F" value="0" />
 			</register>
 		</node>
 		<!-- Empty node Inventory, title=Inventory data, type=SpringCoreMeta.NodeRegisters -->
@@ -264,44 +264,44 @@ Specific products.
 				<description>
 Key settings for Smart Reader operation
 				</description>
-				<field type="hidden" id="reg02a0_aeev4dd" name="rfu0" bitmap="E000000000" value="0" />
-				<field type="radios" id="reg02a0_oe4w4my" title="Insert / Remove" name="Insert Remove" bitmap="1000000000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4">
+				<field type="hidden" id="reg02a0_6ohabel_aeev4dd" name="rfu0" bitmap="E000000000" value="0" />
+				<field type="radios" id="reg02a0_6ohabel_oe4w4my" title="Insert / Remove" name="Insert Remove" bitmap="1000000000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4">
 					<option value="0" title="The Smart Reader sends the Tag read event only" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="1" title="The Smart Reader sends the Tag inserted event when the tag arrives, and the Tag removed event when it has leaved" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 				</field>
-				<field type="hidden" id="reg02a0_n2k4omn" name="rfu0" bitmap="0C00000000" value="0" />
-				<field type="radios" id="reg02a0_ups3l5l" title="Explicit activation" name="Explicit activation" bitmap="0200000000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4">
+				<field type="hidden" id="reg02a0_6ohabel_n2k4omn" name="rfu0" bitmap="0C00000000" value="0" />
+				<field type="radios" id="reg02a0_6ohabel_ups3l5l" title="Explicit activation" name="Explicit activation" bitmap="0200000000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4">
 					<option value="0" title="Smart Reader operation is activated automatically as soon as a host is connected" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="1" title="Smart Reader operation has to be activated explicitly by a command from the host" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 				</field>
-				<field type="radios" id="reg02a0_5g4gajl" title="Activate on startup" name="Activate on startup" bitmap="0100000000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4">
+				<field type="radios" id="reg02a0_6ohabel_5g4gajl" title="Activate on startup" name="Activate on startup" bitmap="0100000000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4">
 					<option value="0" title="Smart Reader operation has to be activated" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="1" title="Smart Reader operation is activated as soon as the product starts up" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 				</field>
-				<field type="hidden" id="reg02a0_43kxznd" name="rfu0" bitmap="00FC000000" value="00" />
-				<field type="radios" id="reg02a0_rqjiszy" title="Output protocol over a serial link" name="Protocol" bitmap="0003000000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Select MK1 for compatibility with earlier K663/RDR, S663/RDR etc.">
+				<field type="hidden" id="reg02a0_6ohabel_43kxznd" name="rfu0" bitmap="00FC000000" value="00" />
+				<field type="radios" id="reg02a0_6ohabel_rqjiszy" title="Output protocol over a serial link" name="Protocol" bitmap="0003000000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Select MK1 for compatibility with earlier K663/RDR, S663/RDR etc.">
 					<option value="0" title="TLV" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="1" title="SCRDR" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="2" title="JSON" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="3" title="MK1" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 				</field>
-				<field type="hidden" id="reg02a0_2j6me3l" name="rfu0" bitmap="0000FC0000" value="00" />
-				<field type="radios" id="reg02a0_ysqcqsn" title="Output protocol over a Bluetooth link" name="Protocol" bitmap="0000030000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Select TLV for operation with SpringCard&apos;s iOS and Android reference applications.">
+				<field type="hidden" id="reg02a0_6ohabel_2j6me3l" name="rfu0" bitmap="0000FC0000" value="00" />
+				<field type="radios" id="reg02a0_6ohabel_ysqcqsn" title="Output protocol over a Bluetooth link" name="Protocol" bitmap="0000030000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Select TLV for operation with SpringCard&apos;s iOS and Android reference applications.">
 					<option value="0" title="TLV" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="1" title="SCRDR" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="2" title="JSON" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="3" title="MK1" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 				</field>
-				<field type="hidden" id="reg02a0_vkvtt3n" name="rfu0" bitmap="000000F800" value="00" />
-				<field type="radios" id="reg02a0_sxs7v7d" title="Output format over a Network link" name="Protocol" bitmap="0000000700" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Select JSON for operation over a MQTT connection. Legacy IWM2 is allowed only for HTTP client.">
+				<field type="hidden" id="reg02a0_6ohabel_vkvtt3n" name="rfu0" bitmap="000000F800" value="00" />
+				<field type="radios" id="reg02a0_6ohabel_sxs7v7d" title="Output format over a Network link" name="Protocol" bitmap="0000000700" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Select JSON for operation over a MQTT connection. Legacy IWM2 is allowed only for HTTP client.">
 					<option value="0" title="TLV" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="1" title="SCRDR" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="2" title="JSON" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="3" title="MK1" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="7" title="Legacy IWM2" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 				</field>
-				<field type="hidden" id="reg02a0_flooq3d" name="rfu0" bitmap="00000000FC" value="00" />
-				<field type="radios" id="reg02a0_jzirgky" title="Output format over a USB link" name="Protocol" bitmap="0000000003" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Select TLV for operation with SpringCard Companion.">
+				<field type="hidden" id="reg02a0_6ohabel_flooq3d" name="rfu0" bitmap="00000000FC" value="00" />
+				<field type="radios" id="reg02a0_6ohabel_jzirgky" title="Output format over a USB link" name="Protocol" bitmap="0000000003" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Select TLV for operation with SpringCard Companion.">
 					<option value="0" title="TLV" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="1" title="SCRDR" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="2" title="JSON" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
@@ -316,8 +316,8 @@ Key timings for Smart Reader operation
 				<remark>
 All the timings are specified in tenth of seconds. Normal values go from 1 (100ms) to 254 (25.4s). Value 0 stands for as quickly as possible.
 				</remark>
-				<field type="number-h" id="reg02a1_rj665vl" title="Delay between 2 consecutive readings" name="Read interval" bitmap="FF00" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Value is specified in 10th of second. Increase this value if the host is too slow to process 2 Tags in a raw." />
-				<field type="number-h" id="reg02a1_gpg5rzd" title="Delay before reading the same Tag again" name="Repeat interval" bitmap="00FF" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Value is specified in 10th of second. Set this value to 255 to force a Tag removal before repeating the same Tag." />
+				<field type="number-h" id="reg02a1_6ohabel_rj665vl" title="Delay between 2 consecutive readings" name="Read interval" bitmap="FF00" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Value is specified in 10th of second. Increase this value if the host is too slow to process 2 Tags in a raw." />
+				<field type="number-h" id="reg02a1_6ohabel_gpg5rzd" title="Delay before reading the same Tag again" name="Repeat interval" bitmap="00FF" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Value is specified in 10th of second. Set this value to 255 to force a Tag removal before repeating the same Tag." />
 			</register>
 			<register id="02A6" size="1" default="00" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)">
 				<title>Keyboard layout</title>

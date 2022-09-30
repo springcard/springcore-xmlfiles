@@ -5,7 +5,7 @@
 	firmware="springcore/h518/puck"
 	implements="usb,ble,ccid,rdr,micore,7816,samav,atecc,vegas,battery"
 	hardware="FPF18178"
-	version="1.23"
+	version=""
 	author="JDA"
 	templatesnfc="true"
 	templatesble="true"
@@ -44,27 +44,27 @@ If the product has no USB interface, this register is ignored.
 					<option value="0" title="USB is enabled"/>
 					<option value="1" title="USB is disabled, all the other settings are ignored"/>
 				</field>
-				<field type="radios" id="reg02c1_op23zml" title="Disable serial number" name="No Serno" bitmap="40" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0">
+				<field type="radios" id="reg02c1_5ymphln_op23zml" title="Disable serial number" name="No Serno" bitmap="40" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0">
 					<option value="0" title="The actual serial number of the product is provided in the USB descriptor" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0"/>
 					<option value="1" title="A constant serial number is provided in the USB descriptor" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0"/>
 				</field>
-				<field type="radios" id="reg02c1_ax7h6sl" title="On USB bus reset event, does the product fully reset?" name="Reset on bus reset" bitmap="20" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0" remark="Standard behaviour is no, but this does help putting back a battery-powered or externaly-powered product that was connected through Bluetooth or Network to the &apos;ready for USB operation&apos; state">
+				<field type="radios" id="reg02c1_5ymphln_ax7h6sl" title="On USB bus reset event, does the product fully reset?" name="Reset on bus reset" bitmap="20" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0" remark="Standard behaviour is no, but this does help putting back a battery-powered or externaly-powered product that was connected through Bluetooth or Network to the &apos;ready for USB operation&apos; state">
 					<option value="0" title="Don&apos;t reset" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0"/>
 					<option value="1" title="Do reset upon Bus reset" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0"/>
 				</field>
-				<field type="radios" id="reg02c1_t6r55rl" title="On USB bus resume event, does the product fully reset?" name="Reset on bus resume" bitmap="10" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0" remark="Standard behaviour is no, but this does help putting back a battery-powered or externaly-powered product that was connected through Bluetooth or Network to the &apos;ready for USB operation&apos; state">
+				<field type="radios" id="reg02c1_5ymphln_t6r55rl" title="On USB bus resume event, does the product fully reset?" name="Reset on bus resume" bitmap="10" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0" remark="Standard behaviour is no, but this does help putting back a battery-powered or externaly-powered product that was connected through Bluetooth or Network to the &apos;ready for USB operation&apos; state">
 					<option value="0" title="Don&apos;t reset" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0"/>
 					<option value="1" title="Do reset upon Bus resume" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0"/>
 				</field>
-				<field type="radios" id="reg02c1_eph722y" title="Disable SpringCore direct as secondary USB interface." name="No Direct" bitmap="08" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0" remark="If [Primary profile](Profile) is set to `0` (SpringCore Direct only), this setting is ignored.">
+				<field type="radios" id="reg02c1_5ymphln_eph722y" title="Disable SpringCore direct as secondary USB interface." name="No Direct" bitmap="08" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0" remark="If [Primary profile](Profile) is set to `0` (SpringCore Direct only), this setting is ignored.">
 					<option value="0" title="SpringCore Direct is announced in the USB profile" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0"/>
 					<option value="1" title="SpringCore Direct is not announced in the USB profile" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0"/>
 				</field>
-				<field type="radios" id="reg02c1_riuquxn" title="Behaviour of the product when USB VBUS is lost and the product is not allowed to keep running" name="VBUS down stop action" bitmap="04" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C1, 0, 2) is 0">
+				<field type="radios" id="reg02c1_gcbfcky_riuquxn" title="Behaviour of the product when USB VBUS is lost and the product is not allowed to keep running" name="VBUS down stop action" bitmap="04" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C1, 0, 2) is 0">
 					<option value="0" title="Reset" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C1, 0, 2) is 0"/>
 					<option value="1" title="Shutdown" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C1, 0, 2) is 0"/>
 				</field>
-				<field type="radios" id="reg02c1_khxezgy" title="Behaviour of the product when USB VBUS is lost" name="VBUS down behaviour" bitmap="03" visibleif="REGBIT(0x02C1, 7) is 0">
+				<field type="radios" id="reg02c1_5ymphln_khxezgy" title="Behaviour of the product when USB VBUS is lost" name="VBUS down behaviour" bitmap="03" visibleif="REGBIT(0x02C1, 7) is 0">
 					<option value="0" title="Stop - reset or shutdown" visibleif="REGBIT(0x02C1, 7) is 0"/>
 					<option value="1" title="Keep running on external power" visibleif="REGBIT(0x02C1, 7) is 0"/>
 					<option value="2" title="Keep running on battery" visibleif="REGBIT(0x02C1, 7) is 0"/>
@@ -83,27 +83,27 @@ If the product has no BLE interface, this register is ignored.
 					<option value="0" title="BLE is enabled"/>
 					<option value="1" title="BLE is disabled, all the other settings are ignored"/>
 				</field>
-				<field type="radios" id="reg02c2_op23zml" title="Disable BLE negociation (use default settings and avoid renegociation)." name="Disable negociation" bitmap="40" advanced="true" visibleif="REGBIT(0x02C2, 7) is 0">
+				<field type="radios" id="reg02c2_bozlrly_op23zml" title="Disable BLE negociation (use default settings and avoid renegociation)." name="Disable negociation" bitmap="40" advanced="true" visibleif="REGBIT(0x02C2, 7) is 0">
 					<option value="0" title="BLE negociation is enabled" advanced="true" visibleif="REGBIT(0x02C2, 7) is 0"/>
 					<option value="1" title="BLE negociation is disabled" advanced="true" visibleif="REGBIT(0x02C2, 7) is 0"/>
 				</field>
-				<field type="radios" id="reg02c2_ax7h6sl" title="Use a different address (BT_ADDR) per profile" name="Addr per profile" bitmap="20" advanced="true" visibleif="REGBIT(0x02C2, 7) is 0">
+				<field type="radios" id="reg02c2_bozlrly_ax7h6sl" title="Use a different address (BT_ADDR) per profile" name="Addr per profile" bitmap="20" advanced="true" visibleif="REGBIT(0x02C2, 7) is 0">
 					<option value="0" title="Une the same BT_ADDR whatever the profile" advanced="true" visibleif="REGBIT(0x02C2, 7) is 0"/>
 					<option value="1" title="The first bits of the BT_ADDR change with the profile" advanced="true" visibleif="REGBIT(0x02C2, 7) is 0"/>
 				</field>
-				<field type="radios" id="reg02c2_t6r55rl" title="Defines whether the BLE interface requires paired (bonded) connections, or not." name="Force pairing" bitmap="10" advanced="true" visibleif="REGBIT(0x02C2, 7) is 0" remark="If [Primary profile](Profile) is set to `3` (HID only), this entry MUST be set to 1 for correct operation with the iOS and Android operating systems.">
+				<field type="radios" id="reg02c2_bozlrly_t6r55rl" title="Defines whether the BLE interface requires paired (bonded) connections, or not." name="Force pairing" bitmap="10" advanced="true" visibleif="REGBIT(0x02C2, 7) is 0" remark="If [Primary profile](Profile) is set to `3` (HID only), this entry MUST be set to 1 for correct operation with the iOS and Android operating systems.">
 					<option value="0" title="No pairing required - The BLE profile exposes only unbonded services" advanced="true" visibleif="REGBIT(0x02C2, 7) is 0"/>
 					<option value="1" title="Force pairing - The BLE profile exposes only bonded services" advanced="true" visibleif="REGBIT(0x02C2, 7) is 0"/>
 				</field>
-				<field type="radios" id="reg02c2_eph722y" title="Disable SpringCore direct as secondary BLE interface." name="No Direct" bitmap="08" advanced="true" visibleif="REGBIT(0x02C2, 7) is 0" remark="If [Primary profile](Profile) is set to `0` (SpringCore Direct only), this setting is ignored.">
+				<field type="radios" id="reg02c2_bozlrly_eph722y" title="Disable SpringCore direct as secondary BLE interface." name="No Direct" bitmap="08" advanced="true" visibleif="REGBIT(0x02C2, 7) is 0" remark="If [Primary profile](Profile) is set to `0` (SpringCore Direct only), this setting is ignored.">
 					<option value="0" title="SpringCore Direct is announced in the BLE profile" advanced="true" visibleif="REGBIT(0x02C2, 7) is 0"/>
 					<option value="1" title="SpringCore Direct is not announced in the BLE profile" advanced="true" visibleif="REGBIT(0x02C2, 7) is 0"/>
 				</field>
-				<field type="radios" id="reg02c2_riuquxn" title="Disable fast link (PHY 2M)." name="No Fast Link" bitmap="04" advanced="true" visibleif="REGBIT(0x02C2, 7) is 0">
+				<field type="radios" id="reg02c2_bozlrly_riuquxn" title="Disable fast link (PHY 2M)." name="No Fast Link" bitmap="04" advanced="true" visibleif="REGBIT(0x02C2, 7) is 0">
 					<option value="0" title="use link speed auto-detection" advanced="true" visibleif="REGBIT(0x02C2, 7) is 0"/>
 					<option value="1" title="use slow link speed" advanced="true" visibleif="REGBIT(0x02C2, 7) is 0"/>
 				</field>
-				<field type="radios" id="reg02c2_khxezgy" title="Defines how the BLE interface is used." name="Role" bitmap="03" visibleif="REGBIT(0x02C2, 7) is 0">
+				<field type="radios" id="reg02c2_bozlrly_khxezgy" title="Defines how the BLE interface is used." name="Role" bitmap="03" visibleif="REGBIT(0x02C2, 7) is 0">
 					<option value="0" title="Device; use the BLE interface to communicate with the host." visibleif="REGBIT(0x02C2, 7) is 0"/>
 					<option value="1" title="Reader; use the BLE interface to read BLE tokens. Use [BLE template](../../Templates/BLE_template) to configure Smart Reader operation with BLE tokens." visibleif="REGBIT(0x02C2, 7) is 0"/>
 					<option value="2" title="Beacon; use the BLE interface for iBeacon brodcasting." visibleif="REGBIT(0x02C2, 7) is 0"/>
@@ -118,7 +118,7 @@ If the product has no BLE interface, this register is ignored.
 Control various options related to the current profile.
 				</description>
 				<field type="hidden" id="reg02c4_snvp4xd" name="rfu0" bitmap="FE" value="00" />
-				<field type="radios" id="reg02c4_ooba6wy" title="Enable HID Ringer addon used by Telephony services (experimental)." name="Enable Ringer" bitmap="01" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3">
+				<field type="radios" id="reg02c4_s27wvjn_ooba6wy" title="Enable HID Ringer addon used by Telephony services (experimental)." name="Enable Ringer" bitmap="01" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3">
 					<option value="0" title="HID Ringer is enabled" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3"/>
 					<option value="1" title="HID Ringer is disabled" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3"/>
 				</field>
@@ -175,16 +175,16 @@ This register is available only in debug builds of the firmware.
 				<remark>
 This register is available only in debug builds of the firmware.
 				</remark>
-				<field type="hidden" id="reg02ce_kxpbr2l" name="rfu0" bitmap="C0" value="0" />
-				<field type="radios" id="reg02ce_ax7h6sl" title="Use Syslog" name="Use Syslog" bitmap="20" advanced="true" visibleif="REGVAL(0x02CD) is not 0">
+				<field type="hidden" id="reg02ce_fe5kedn_kxpbr2l" name="rfu0" bitmap="C0" value="0" />
+				<field type="radios" id="reg02ce_fe5kedn_ax7h6sl" title="Use Syslog" name="Use Syslog" bitmap="20" advanced="true" visibleif="REGVAL(0x02CD) is not 0">
 					<option value="0" title="Don&apos;t use syslog" advanced="true" visibleif="REGVAL(0x02CD) is not 0"/>
 					<option value="1" title="Send traces to syslog" advanced="true" visibleif="REGVAL(0x02CD) is not 0"/>
 				</field>
-				<field type="radios" id="reg02ce_t6r55rl" title="Show uptime" name="Show uptime" bitmap="10" advanced="true" visibleif="REGVAL(0x02CD) is not 0">
+				<field type="radios" id="reg02ce_fe5kedn_t6r55rl" title="Show uptime" name="Show uptime" bitmap="10" advanced="true" visibleif="REGVAL(0x02CD) is not 0">
 					<option value="0" title="Don&apos;t show uptime" advanced="true" visibleif="REGVAL(0x02CD) is not 0"/>
 					<option value="1" title="Show uptime" advanced="true" visibleif="REGVAL(0x02CD) is not 0"/>
 				</field>
-				<field type="hidden" id="reg02ce_l365cmn" name="rfu0" bitmap="0F" value="0" />
+				<field type="hidden" id="reg02ce_fe5kedn_l365cmn" name="rfu0" bitmap="0F" value="0" />
 			</register>
 		</node>
 		<!-- Empty node Inventory, title=Inventory data, type=SpringCoreMeta.NodeRegisters -->
@@ -342,44 +342,44 @@ Specific products.
 				<description>
 Key settings for Smart Reader operation
 				</description>
-				<field type="hidden" id="reg02a0_aeev4dd" name="rfu0" bitmap="E000000000" value="0" />
-				<field type="radios" id="reg02a0_oe4w4my" title="Insert / Remove" name="Insert Remove" bitmap="1000000000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4">
+				<field type="hidden" id="reg02a0_6ohabel_aeev4dd" name="rfu0" bitmap="E000000000" value="0" />
+				<field type="radios" id="reg02a0_6ohabel_oe4w4my" title="Insert / Remove" name="Insert Remove" bitmap="1000000000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4">
 					<option value="0" title="The Smart Reader sends the Tag read event only" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="1" title="The Smart Reader sends the Tag inserted event when the tag arrives, and the Tag removed event when it has leaved" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 				</field>
-				<field type="hidden" id="reg02a0_n2k4omn" name="rfu0" bitmap="0C00000000" value="0" />
-				<field type="radios" id="reg02a0_ups3l5l" title="Explicit activation" name="Explicit activation" bitmap="0200000000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4">
+				<field type="hidden" id="reg02a0_6ohabel_n2k4omn" name="rfu0" bitmap="0C00000000" value="0" />
+				<field type="radios" id="reg02a0_6ohabel_ups3l5l" title="Explicit activation" name="Explicit activation" bitmap="0200000000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4">
 					<option value="0" title="Smart Reader operation is activated automatically as soon as a host is connected" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="1" title="Smart Reader operation has to be activated explicitly by a command from the host" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 				</field>
-				<field type="radios" id="reg02a0_5g4gajl" title="Activate on startup" name="Activate on startup" bitmap="0100000000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4">
+				<field type="radios" id="reg02a0_6ohabel_5g4gajl" title="Activate on startup" name="Activate on startup" bitmap="0100000000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4">
 					<option value="0" title="Smart Reader operation has to be activated" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="1" title="Smart Reader operation is activated as soon as the product starts up" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 				</field>
-				<field type="hidden" id="reg02a0_43kxznd" name="rfu0" bitmap="00FC000000" value="00" />
-				<field type="radios" id="reg02a0_rqjiszy" title="Output protocol over a serial link" name="Protocol" bitmap="0003000000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Select MK1 for compatibility with earlier K663/RDR, S663/RDR etc.">
+				<field type="hidden" id="reg02a0_6ohabel_43kxznd" name="rfu0" bitmap="00FC000000" value="00" />
+				<field type="radios" id="reg02a0_6ohabel_rqjiszy" title="Output protocol over a serial link" name="Protocol" bitmap="0003000000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Select MK1 for compatibility with earlier K663/RDR, S663/RDR etc.">
 					<option value="0" title="TLV" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="1" title="SCRDR" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="2" title="JSON" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="3" title="MK1" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 				</field>
-				<field type="hidden" id="reg02a0_2j6me3l" name="rfu0" bitmap="0000FC0000" value="00" />
-				<field type="radios" id="reg02a0_ysqcqsn" title="Output protocol over a Bluetooth link" name="Protocol" bitmap="0000030000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Select TLV for operation with SpringCard&apos;s iOS and Android reference applications.">
+				<field type="hidden" id="reg02a0_6ohabel_2j6me3l" name="rfu0" bitmap="0000FC0000" value="00" />
+				<field type="radios" id="reg02a0_6ohabel_ysqcqsn" title="Output protocol over a Bluetooth link" name="Protocol" bitmap="0000030000" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Select TLV for operation with SpringCard&apos;s iOS and Android reference applications.">
 					<option value="0" title="TLV" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="1" title="SCRDR" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="2" title="JSON" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="3" title="MK1" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 				</field>
-				<field type="hidden" id="reg02a0_vkvtt3n" name="rfu0" bitmap="000000F800" value="00" />
-				<field type="radios" id="reg02a0_sxs7v7d" title="Output format over a Network link" name="Protocol" bitmap="0000000700" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Select JSON for operation over a MQTT connection. Legacy IWM2 is allowed only for HTTP client.">
+				<field type="hidden" id="reg02a0_6ohabel_vkvtt3n" name="rfu0" bitmap="000000F800" value="00" />
+				<field type="radios" id="reg02a0_6ohabel_sxs7v7d" title="Output format over a Network link" name="Protocol" bitmap="0000000700" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Select JSON for operation over a MQTT connection. Legacy IWM2 is allowed only for HTTP client.">
 					<option value="0" title="TLV" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="1" title="SCRDR" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="2" title="JSON" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="3" title="MK1" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="7" title="Legacy IWM2" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 				</field>
-				<field type="hidden" id="reg02a0_flooq3d" name="rfu0" bitmap="00000000FC" value="00" />
-				<field type="radios" id="reg02a0_jzirgky" title="Output format over a USB link" name="Protocol" bitmap="0000000003" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Select TLV for operation with SpringCard Companion.">
+				<field type="hidden" id="reg02a0_6ohabel_flooq3d" name="rfu0" bitmap="00000000FC" value="00" />
+				<field type="radios" id="reg02a0_6ohabel_jzirgky" title="Output format over a USB link" name="Protocol" bitmap="0000000003" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Select TLV for operation with SpringCard Companion.">
 					<option value="0" title="TLV" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="1" title="SCRDR" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
 					<option value="2" title="JSON" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"/>
@@ -394,8 +394,8 @@ Key timings for Smart Reader operation
 				<remark>
 All the timings are specified in tenth of seconds. Normal values go from 1 (100ms) to 254 (25.4s). Value 0 stands for as quickly as possible.
 				</remark>
-				<field type="number-h" id="reg02a1_rj665vl" title="Delay between 2 consecutive readings" name="Read interval" bitmap="FF00" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Value is specified in 10th of second. Increase this value if the host is too slow to process 2 Tags in a raw." />
-				<field type="number-h" id="reg02a1_gpg5rzd" title="Delay before reading the same Tag again" name="Repeat interval" bitmap="00FF" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Value is specified in 10th of second. Set this value to 255 to force a Tag removal before repeating the same Tag." />
+				<field type="number-h" id="reg02a1_6ohabel_rj665vl" title="Delay between 2 consecutive readings" name="Read interval" bitmap="FF00" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Value is specified in 10th of second. Increase this value if the host is too slow to process 2 Tags in a raw." />
+				<field type="number-h" id="reg02a1_6ohabel_gpg5rzd" title="Delay before reading the same Tag again" name="Repeat interval" bitmap="00FF" visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4" remark="Value is specified in 10th of second. Set this value to 255 to force a Tag removal before repeating the same Tag." />
 			</register>
 			<register id="02A6" size="1" default="00" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)">
 				<title>Keyboard layout</title>
@@ -630,7 +630,7 @@ Select the 13.56MHz protocols that the product is looking for.
 * Forcing the reader to use low-speed protocol increase the operating distance, makes the communication with the card more reliable, and decreases the power consumption.
 * This register is not used in Smart Reader mode (only lowest-speed protocol are used then).
 				</remark>
-				<field type="checkboxes" id="reg0232_rj665vl" title="Bitrates for NFC-A (ISO/IEC 14443 type A)" name="A" bitmap="FF00" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+				<field type="checkboxes" id="reg0232_35gzn7y_rj665vl" title="Bitrates for NFC-A (ISO/IEC 14443 type A)" name="A" bitmap="FF00" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 					<option value="80" title="RFU" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="40" title="PICC to PCD at 848kbps" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="20" title="PICC to PCD at 242kbps" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
@@ -640,7 +640,7 @@ Select the 13.56MHz protocols that the product is looking for.
 					<option value="02" title="PCD to PICC at 242kbps" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="01" title="PCD to PICC at 212kbps" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 				</field>
-				<field type="checkboxes" id="reg0232_gpg5rzd" title="Bitrates for NFC-B (ISO/IEC 14443 type B)" name="B" bitmap="00FF" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+				<field type="checkboxes" id="reg0232_35gzn7y_gpg5rzd" title="Bitrates for NFC-B (ISO/IEC 14443 type B)" name="B" bitmap="00FF" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 					<option value="80" title="RFU" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="40" title="PICC to PCD at 848kbps" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="20" title="PICC to PCD at 242kbps" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
@@ -659,23 +659,23 @@ Defines whether the Contactless smart-cards or NFC peers are activated up to the
 				<remark>
 This register is not used in Smart Reader mode (the Templates define how the cards are operated).
 				</remark>
-				<field type="hidden" id="reg0233_m6awtjl" name="rfu0" bitmap="80" value="0" />
-				<field type="hidden" id="reg0233_op23zml" name="rfu0" bitmap="40" value="0" />
-				<field type="hidden" id="reg0233_ax7h6sl" name="rfu0" bitmap="20" value="0" />
-				<field type="hidden" id="reg0233_t6r55rl" name="rfu0" bitmap="10" value="0" />
-				<field type="radios" id="reg0233_eph722y" title="Prevent targets using the NFC-F protocol to enter NFC DEP level" name="No NFC DEP F" bitmap="08" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+				<field type="hidden" id="reg0233_35gzn7y_m6awtjl" name="rfu0" bitmap="80" value="0" />
+				<field type="hidden" id="reg0233_35gzn7y_op23zml" name="rfu0" bitmap="40" value="0" />
+				<field type="hidden" id="reg0233_35gzn7y_ax7h6sl" name="rfu0" bitmap="20" value="0" />
+				<field type="hidden" id="reg0233_35gzn7y_t6r55rl" name="rfu0" bitmap="10" value="0" />
+				<field type="radios" id="reg0233_35gzn7y_eph722y" title="Prevent targets using the NFC-F protocol to enter NFC DEP level" name="No NFC DEP F" bitmap="08" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 					<option value="0" title="NFC-F targets are activated according to ISO 18092 (DEQ_REQ)" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="1" title="NFC-F targets are kept at Felica read/write level" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 				</field>
-				<field type="radios" id="reg0233_riuquxn" title="Prevent targets using the NFC-A protocol to enter NFC DEP level" name="No NFC DEP A" bitmap="04" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+				<field type="radios" id="reg0233_35gzn7y_riuquxn" title="Prevent targets using the NFC-A protocol to enter NFC DEP level" name="No NFC DEP A" bitmap="04" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 					<option value="0" title="NFC-A targets are activated according to ISO 18092 (DEQ_REQ)" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="1" title="NFC-A targets are kept at ISO 14443 level 3" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 				</field>
-				<field type="radios" id="reg0233_mdwlall" title="Prevent cards using the NFC-B protocol to enter T=CL / ISO DEP level" name="No ISO DEP B" bitmap="02" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+				<field type="radios" id="reg0233_35gzn7y_mdwlall" title="Prevent cards using the NFC-B protocol to enter T=CL / ISO DEP level" name="No ISO DEP B" bitmap="02" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 					<option value="0" title="NFC-B cards are activated at ISO 14443 level 4 (ATTRIB)" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="1" title="NFC-B cards are kept at ISO 14443 level 3" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 				</field>
-				<field type="radios" id="reg0233_ooba6wy" title="Prevent cards using the NFC-A protocol to enter T=CL / ISO DEP level" name="No ISO DEP A" bitmap="01" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+				<field type="radios" id="reg0233_35gzn7y_ooba6wy" title="Prevent cards using the NFC-A protocol to enter T=CL / ISO DEP level" name="No ISO DEP A" bitmap="01" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 					<option value="0" title="NFC-A cards are activated at ISO 14443 level 4 (RATS)" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="1" title="NFC-A cards are kept at ISO 14443 level 3" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 				</field>
@@ -685,17 +685,17 @@ This register is not used in Smart Reader mode (the Templates define how the car
 				<description>
 Contactless cards don&apos;t have an ATR. PC/SC specifies how a pseudo-ATR shall be constructed by the reader, with a few options.
 				</description>
-				<field type="hidden" id="reg0234_m6awtjl" name="rfu0" bitmap="80" value="0" />
-				<field type="hidden" id="reg0234_op23zml" name="rfu0" bitmap="40" value="0" />
-				<field type="hidden" id="reg0234_ax7h6sl" name="rfu0" bitmap="20" value="0" />
-				<field type="hidden" id="reg0234_t6r55rl" name="rfu0" bitmap="10" value="0" />
-				<field type="hidden" id="reg0234_eph722y" name="rfu0" bitmap="08" value="0" />
-				<field type="hidden" id="reg0234_riuquxn" name="rfu0" bitmap="04" value="0" />
-				<field type="radios" id="reg0234_mdwlall" title="Use Innovatron T=0 ATR" name="Innovatron T0 ATR" bitmap="02" visibleif="REGBITS(0x02C0, 0, 3) is 2" description="Innovatron Contactless cards return their T=0 ATR over interface (APGEN/REPGEN). Some legacy applications rely on this ATR to recognize the card, which is different from the PC/SC-specified ATR." remark="Using this option is known to break the compatibility with some implementations of the PC/SC stack (the card has a T=0 ATR but uses T=1 Case 4 APDUs, which is considered as a protocol violation by the stack).">
+				<field type="hidden" id="reg0234_35gzn7y_m6awtjl" name="rfu0" bitmap="80" value="0" />
+				<field type="hidden" id="reg0234_35gzn7y_op23zml" name="rfu0" bitmap="40" value="0" />
+				<field type="hidden" id="reg0234_35gzn7y_ax7h6sl" name="rfu0" bitmap="20" value="0" />
+				<field type="hidden" id="reg0234_35gzn7y_t6r55rl" name="rfu0" bitmap="10" value="0" />
+				<field type="hidden" id="reg0234_35gzn7y_eph722y" name="rfu0" bitmap="08" value="0" />
+				<field type="hidden" id="reg0234_35gzn7y_riuquxn" name="rfu0" bitmap="04" value="0" />
+				<field type="radios" id="reg0234_35gzn7y_mdwlall" title="Use Innovatron T=0 ATR" name="Innovatron T0 ATR" bitmap="02" visibleif="REGBITS(0x02C0, 0, 3) is 2" description="Innovatron Contactless cards return their T=0 ATR over interface (APGEN/REPGEN). Some legacy applications rely on this ATR to recognize the card, which is different from the PC/SC-specified ATR." remark="Using this option is known to break the compatibility with some implementations of the PC/SC stack (the card has a T=0 ATR but uses T=1 Case 4 APDUs, which is considered as a protocol violation by the stack).">
 					<option value="0" title="Obey to PC/SC rule and construct a T=1 ATR, even for Innovatron Contactless cards" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="1" title="For Innovatron Contactless cards, use the T=0 ATR supplied by the card" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 				</field>
-				<field type="radios" id="reg0234_ooba6wy" title="Control which values for NN are used in the ATR" name="Standard NN only" bitmap="01" visibleif="REGBITS(0x02C0, 0, 3) is 2" remark="The PC/SC workgroup maintains a list of Contactless memory cards, and defines a NN value for every registered card technology.
+				<field type="radios" id="reg0234_35gzn7y_ooba6wy" title="Control which values for NN are used in the ATR" name="Standard NN only" bitmap="01" visibleif="REGBITS(0x02C0, 0, 3) is 2" remark="The PC/SC workgroup maintains a list of Contactless memory cards, and defines a NN value for every registered card technology.
 Unfortunately, this list is not updated frequently and not exhaustive.
 The reader shall theoritically return NN=`0000` for all the cards that are not in list, but, to help application developers discriminate among card technologies, SpringCard readers have a more complete list (non-PC/SC values being above `F000`).">
 					<option value="0" title="Use all NN entries defined by SpringCard to cover all Contactless memory cards" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
@@ -791,10 +791,10 @@ TX power in 0.1dBm steps
 			</register>
 			<register id="0241" size="8" default="0006000600000064" visibleif="REGBIT(0x02C2, 7) is 0">
 				<title>Timings</title>
-				<field type="number-h" id="reg0241_rx2tm2y" title="BLE minimal interval" name="MinInterval" bitmap="FFFF000000000000" visibleif="REGBIT(0x02C2, 7) is 0" description="Minimum value for the connection event interval. This must be set be less than or equal to max_interval." note="This value is in 1.25ms steps." />
-				<field type="number-h" id="reg0241_kf4jw3l" title="BLE minimal interval" name="MaxInterval" bitmap="0000FFFF00000000" visibleif="REGBIT(0x02C2, 7) is 0" description="Maximum value for the connection event interval. This must be set greater than or equal to min_interval." note="This value is in 1.25ms steps." />
-				<field type="number-h" id="reg0241_n756ral" title="BLE slave latency" name="SlaveLatency" bitmap="00000000FFFF0000" visibleif="REGBIT(0x02C2, 7) is 0" description="This parameter defines how many connection intervals the slave can skip if it has no data to send." note="This value is in 1.25ms steps." />
-				<field type="number-h" id="reg0241_ehbhexd" title="BLE supervision timeout" name="SupervisionTimeout" bitmap="000000000000FFFF" visibleif="REGBIT(0x02C2, 7) is 0" description="The supervision timeout defines for how long the BLE connection is maintained despite the peers being unable to communicate at the currently configured connection interval." note="This value is in 10ms steps." />
+				<field type="number-h" id="reg0241_bozlrly_rx2tm2y" title="BLE minimal interval" name="MinInterval" bitmap="FFFF000000000000" visibleif="REGBIT(0x02C2, 7) is 0" description="Minimum value for the connection event interval. This must be set be less than or equal to max_interval." note="This value is in 1.25ms steps." />
+				<field type="number-h" id="reg0241_bozlrly_kf4jw3l" title="BLE minimal interval" name="MaxInterval" bitmap="0000FFFF00000000" visibleif="REGBIT(0x02C2, 7) is 0" description="Maximum value for the connection event interval. This must be set greater than or equal to min_interval." note="This value is in 1.25ms steps." />
+				<field type="number-h" id="reg0241_bozlrly_n756ral" title="BLE slave latency" name="SlaveLatency" bitmap="00000000FFFF0000" visibleif="REGBIT(0x02C2, 7) is 0" description="This parameter defines how many connection intervals the slave can skip if it has no data to send." note="This value is in 1.25ms steps." />
+				<field type="number-h" id="reg0241_bozlrly_ehbhexd" title="BLE supervision timeout" name="SupervisionTimeout" bitmap="000000000000FFFF" visibleif="REGBIT(0x02C2, 7) is 0" description="The supervision timeout defines for how long the BLE connection is maintained despite the peers being unable to communicate at the currently configured connection interval." note="This value is in 10ms steps." />
 			</register>
 			<register id="0242" size="1" default="1E" visibleif="REGBIT(0x02C2, 7) is 0">
 				<title>Notifications Registration Timeout</title>
@@ -808,9 +808,9 @@ The client must register to notifications/indication before this timeout occurs.
 				<description>
 Extra BLE options
 				</description>
-				<field type="hidden" id="reg0243_hycivfd" name="rfu0" bitmap="FC" value="00" />
-				<field type="number-h" id="reg0243_mdwlall" title="Force legacy advertising frame." name="force_legacy_advertising_frame" bitmap="02" visibleif="REGBIT(0x02C2, 7) is 0" />
-				<field type="number-h" id="reg0243_ooba6wy" title="Disable pairing re-initiator." name="disable_pairing_re_initiator" bitmap="01" visibleif="REGBIT(0x02C2, 7) is 0" />
+				<field type="hidden" id="reg0243_bozlrly_hycivfd" name="rfu0" bitmap="FC" value="00" />
+				<field type="number-h" id="reg0243_bozlrly_mdwlall" title="Force legacy advertising frame." name="force_legacy_advertising_frame" bitmap="02" visibleif="REGBIT(0x02C2, 7) is 0" />
+				<field type="number-h" id="reg0243_bozlrly_ooba6wy" title="Disable pairing re-initiator." name="disable_pairing_re_initiator" bitmap="01" visibleif="REGBIT(0x02C2, 7) is 0" />
 			</register>
 			<!-- Hiding User Device Name (individual register) -->
 			<register id="0248" size="1" default="77" visibleif="REGBIT(0x02C2, 7) is 0">
@@ -818,10 +818,10 @@ Extra BLE options
 				<description>
 Channels used while advertising.
 				</description>
-				<field type="hidden" id="reg0248_m6awtjl" name="rfu1" bitmap="80" value="1" />
-				<field type="number-h" id="reg0248_dlvtahl" title="set 1 (beacon)." name="set_1" bitmap="70" visibleif="REGBIT(0x02C2, 7) is 0" />
-				<field type="hidden" id="reg0248_eph722y" name="rfu0" bitmap="08" value="0" />
-				<field type="number-h" id="reg0248_kspmojd" title="set 0 (application)." name="set_0" bitmap="07" visibleif="REGBIT(0x02C2, 7) is 0" />
+				<field type="hidden" id="reg0248_bozlrly_m6awtjl" name="rfu1" bitmap="80" value="1" />
+				<field type="number-h" id="reg0248_bozlrly_dlvtahl" title="set 1 (beacon)." name="set_1" bitmap="70" visibleif="REGBIT(0x02C2, 7) is 0" />
+				<field type="hidden" id="reg0248_bozlrly_eph722y" name="rfu0" bitmap="08" value="0" />
+				<field type="number-h" id="reg0248_bozlrly_kspmojd" title="set 0 (application)." name="set_0" bitmap="07" visibleif="REGBIT(0x02C2, 7) is 0" />
 			</register>
 			<register id="0249" size="4" default="00000000" visibleif="REGBIT(0x02C2, 7) is 0">
 				<title>iBeacon ID</title>
@@ -939,36 +939,36 @@ Major ID and Minor ID used for iBeacon broadcasting
 		<node title="Configuration for PC/SC (CCID) operation" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 			<register id="02B0" size="1" default="00" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 				<title>Which PC/SC slots are announced to the computer</title>
-				<field type="radios" id="reg02b0_m6awtjl" title="Expose the SAM AV through PC/SC" name="SAM AV" bitmap="80" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+				<field type="radios" id="reg02b0_35gzn7y_m6awtjl" title="Expose the SAM AV through PC/SC" name="SAM AV" bitmap="80" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 					<option value="0" title="The SAM AV is used only internally" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="1" title="The SAM AV has its own PC/SC slot (USE WITH CARE)" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 				</field>
-				<field type="hidden" id="reg02b0_op23zml" name="rfu0" bitmap="40" value="0" />
-				<field type="radios" id="reg02b0_ax7h6sl" title="Disable the other SAM slots (&quot;SAM B&quot;, &quot;SAM C&quot; and &quot;SAM D&quot;)" name="No SAM B-C-D" bitmap="20" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+				<field type="hidden" id="reg02b0_35gzn7y_op23zml" name="rfu0" bitmap="40" value="0" />
+				<field type="radios" id="reg02b0_35gzn7y_ax7h6sl" title="Disable the other SAM slots (&quot;SAM B&quot;, &quot;SAM C&quot; and &quot;SAM D&quot;)" name="No SAM B-C-D" bitmap="20" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 					<option value="0" title="The other SAM slots are enabled" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="1" title="The other SAM slots are disabled" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 				</field>
-				<field type="radios" id="reg02b0_t6r55rl" title="Disable the first SAM slot (&quot;SAM&quot; or &quot;SAM A&quot;)" name="No SAM A" bitmap="10" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+				<field type="radios" id="reg02b0_35gzn7y_t6r55rl" title="Disable the first SAM slot (&quot;SAM&quot; or &quot;SAM A&quot;)" name="No SAM A" bitmap="10" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 					<option value="0" title="The 1st SAM slot is enabled" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="1" title="The 1st SAM slot is disabled" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 				</field>
-				<field type="radios" id="reg02b0_eph722y" title="Disable the second Contact slot (&quot;Contact B&quot;)" name="No Contact B" bitmap="08" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+				<field type="radios" id="reg02b0_35gzn7y_eph722y" title="Disable the second Contact slot (&quot;Contact B&quot;)" name="No Contact B" bitmap="08" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 					<option value="0" title="The 2nd Contact slot is enabled" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="1" title="The 2nd Contact slot is disabled" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 				</field>
-				<field type="radios" id="reg02b0_riuquxn" title="Disable the first Contact slot (&quot;Contact&quot; or &quot;Contact A&quot;)" name="No Contact A" bitmap="04" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+				<field type="radios" id="reg02b0_35gzn7y_riuquxn" title="Disable the first Contact slot (&quot;Contact&quot; or &quot;Contact A&quot;)" name="No Contact A" bitmap="04" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 					<option value="0" title="The 1st Contact slot is enabled" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="1" title="The 1st Contact slot is disabled" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 				</field>
-				<field type="hidden" id="reg02b0_mdwlall" name="rfu0" bitmap="02" value="0" />
-				<field type="radios" id="reg02b0_ooba6wy" title="Disable the contactless slot" name="No Contactless" bitmap="01" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+				<field type="hidden" id="reg02b0_35gzn7y_mdwlall" name="rfu0" bitmap="02" value="0" />
+				<field type="radios" id="reg02b0_35gzn7y_ooba6wy" title="Disable the contactless slot" name="No Contactless" bitmap="01" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 					<option value="0" title="The Contactless slot is enabled" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="1" title="The Contactless slot is disabled" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 				</field>
 			</register>
 			<register id="02B1" size="1" default="00" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 				<title>Options to control how the slots are named, and their order of enumeration</title>
-				<field type="dropdownlist" id="reg02b1_flcneal" title="How are the slot numbers created" name="Order" bitmap="E0" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+				<field type="dropdownlist" id="reg02b1_35gzn7y_flcneal" title="How are the slot numbers created" name="Order" bitmap="E0" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 					<option value="0" title="Contactless, Contact, SAM(s)" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="1" title="Contactless, SAM(s), Contact" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="2" title="Contact, Contactless, SAM(s)" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
@@ -976,44 +976,44 @@ Major ID and Minor ID used for iBeacon broadcasting
 					<option value="4" title="SAM(s), Contact, Contactless" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="5" title="SAM(s), Contactless, Contact" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 				</field>
-				<field type="dropdownlist" id="reg02b1_yxum27y" title="Add a part of the device identification data into the names of the slots" name="Add device id" bitmap="18" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+				<field type="dropdownlist" id="reg02b1_35gzn7y_yxum27y" title="Add a part of the device identification data into the names of the slots" name="Add device id" bitmap="18" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 					<option value="0" title="Do not add a device id" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="1" title="Add the complete serial number (in hex)" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="2" title="Add the last 2 bytes of the serial number (in hex)" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="3" title="Add the IPv4 address (if the device as a network interface)" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 				</field>
-				<field type="radios" id="reg02b1_riuquxn" title="Force a letter in the name of the SAM slots (eg &quot;SAM A&quot;, &quot;SAM B&quot; etc)" name="Force SAM index" bitmap="04" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+				<field type="radios" id="reg02b1_35gzn7y_riuquxn" title="Force a letter in the name of the SAM slots (eg &quot;SAM A&quot;, &quot;SAM B&quot; etc)" name="Force SAM index" bitmap="04" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 					<option value="0" title="No letter for a single SAM (&quot;SAM&quot; only)" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="1" title="Even a single SAM is named &quot;SAM A&quot;" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 				</field>
-				<field type="radios" id="reg02b1_mdwlall" title="Force a letter in the name of the ID-1 slots (eg &quot;Contact A&quot;, &quot;Contact B&quot; etc)" name="Force ID-1 index" bitmap="02" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+				<field type="radios" id="reg02b1_35gzn7y_mdwlall" title="Force a letter in the name of the ID-1 slots (eg &quot;Contact A&quot;, &quot;Contact B&quot; etc)" name="Force ID-1 index" bitmap="02" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 					<option value="0" title="No letter for a single Contact slot (&quot;Contact&quot; only)" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="1" title="Even a single Contact slot is named &quot;Contact A&quot;" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 				</field>
-				<field type="hidden" id="reg02b1_ooba6wy" name="rfu0" bitmap="01" value="0" />
+				<field type="hidden" id="reg02b1_35gzn7y_ooba6wy" name="rfu0" bitmap="01" value="0" />
 			</register>
 			<register id="02BC" size="1" default="00" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 				<title>Driver support</title>
-				<field type="hidden" id="reg02bc_g65secl" name="rfu0" bitmap="F0" value="0" />
-				<field type="radios" id="reg02bc_efr3mkd" title="Method for CCID Time Extension (empty) data-blocks" name="Time Extension mode" bitmap="0C" visibleif="REGBITS(0x02C0, 0, 3) is 2" remark="The Time Extension frames are mandatory with the CCID driver from the PC/SC-Lite project.">
+				<field type="hidden" id="reg02bc_35gzn7y_g65secl" name="rfu0" bitmap="F0" value="0" />
+				<field type="radios" id="reg02bc_35gzn7y_efr3mkd" title="Method for CCID Time Extension (empty) data-blocks" name="Time Extension mode" bitmap="0C" visibleif="REGBITS(0x02C0, 0, 3) is 2" remark="The Time Extension frames are mandatory with the CCID driver from the PC/SC-Lite project.">
 					<option value="0" title="Send a Time Extension frame when the card has sent a WTX or a 60 procedure byte" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="1" title="Send a Time Extension frame every 1s" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="10" title="Send a Time Extension frame every 2s" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="11" title="Disable sending the Time Extension frame" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 				</field>
-				<field type="radios" id="reg02bc_mdwlall" title="Implement CCID without the Interrupt endpoint" name="Disable Interrupt EP" bitmap="02" visibleif="REGBITS(0x02C0, 0, 3) is 2" remark="The Interrupt EP is mandatory with Windows PC/SC driver and most SpringCard-supplied CCID implementations. It shall be disabled only when the product is used with a legacy CCID driver that has a bogus Interrupt implementation.">
+				<field type="radios" id="reg02bc_35gzn7y_mdwlall" title="Implement CCID without the Interrupt endpoint" name="Disable Interrupt EP" bitmap="02" visibleif="REGBITS(0x02C0, 0, 3) is 2" remark="The Interrupt EP is mandatory with Windows PC/SC driver and most SpringCard-supplied CCID implementations. It shall be disabled only when the product is used with a legacy CCID driver that has a bogus Interrupt implementation.">
 					<option value="0" title="The Interrupt EP is enabled" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="1" title="The Interrupt EP is disabled" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 				</field>
-				<field type="radios" id="reg02bc_ooba6wy" title="Hide CCID class in the USB descriptor" name="Hide CCID on USB" bitmap="01" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+				<field type="radios" id="reg02bc_35gzn7y_ooba6wy" title="Hide CCID class in the USB descriptor" name="Hide CCID on USB" bitmap="01" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 					<option value="0" title="The USB class of the CCID interface is 0B (SmartCard)" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="1" title="The USB class of the CCID interface is FF (vendor specific)" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 				</field>
 			</register>
 			<register id="02BE" size="2" default="0000" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 				<title>Advanced CCID timers</title>
-				<field type="number-h" id="reg02be_rj665vl" title="Time to wait before CCID operation after the SET_CONFIGURATION control (10th of second)" name="Wait after start" bitmap="FF00" visibleif="REGBITS(0x02C0, 0, 3) is 2" />
-				<field type="number-h" id="reg02be_gpg5rzd" title="Time to wait before CCID operation after the first GET_STATUS request (10th of second)" name="Wait after probe" bitmap="00FF" visibleif="REGBITS(0x02C0, 0, 3) is 2" />
+				<field type="number-h" id="reg02be_35gzn7y_rj665vl" title="Time to wait before CCID operation after the SET_CONFIGURATION control (10th of second)" name="Wait after start" bitmap="FF00" visibleif="REGBITS(0x02C0, 0, 3) is 2" />
+				<field type="number-h" id="reg02be_35gzn7y_gpg5rzd" title="Time to wait before CCID operation after the first GET_STATUS request (10th of second)" name="Wait after probe" bitmap="00FF" visibleif="REGBITS(0x02C0, 0, 3) is 2" />
 			</register>
 			<register id="02BF" size="1" default="FF" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 				<title>Class of the embedded APDU interpreter</title>
