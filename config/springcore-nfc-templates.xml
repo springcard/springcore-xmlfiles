@@ -6,7 +6,7 @@
 	<tree>
 	<!-- Empty node , title=NFC Templates, type=SpringCoreMeta.NodeTemplateEntries -->
 	<!-- Empty node , title=NFC Templates, type=SpringCoreMeta.NodeTemplateRegisters -->
-	<template id="id-only" name="ID Only" title="ID Only Template" hash="24hhu7n">
+	<template id="id_only" name="ID Only" title="ID Only Template" hash="24hhu7n">
 		<lookups>
 			<lkl value="FF" title="All supported protocols" />
 			<lkl value="01" title="NFC-A - ISO/IEC 14443 type A" />
@@ -99,7 +99,7 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 			<field type="textbox" id="tpl24hhu7n_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template id="7816-4" name="7816-4" title="7816-4 Template" hash="3n4zrpl">
+	<template id="_7816_4" name="7816-4" title="7816-4 Template" hash="3n4zrpl">
 		<lookups>
 			<lkl value="13" title="ISO-DEP on NFC-A and NFC-B - ISO/IEC 14443-4 'T=CL' types A and B" />
 			<lkl value="11" title="ISO-DEP on NFC-A - ISO/IEC 14443-4 'T=CL' type A" />
@@ -255,7 +255,7 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 			<field type="textbox" id="tpl3n4zrpl_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template id="ndef-data" name="NDEF Data" title="NDEF Data Template" hash="25z45sd">
+	<template id="ndef_data" name="NDEF Data" title="NDEF Data Template" hash="25z45sd">
 		<lookups>
 			<lkl value="4E" title="All NFC Forum Tags" />
 			<lkl value="4F" title="All NFC Forum Tags and SNEP peers (P2P mode)" />
@@ -405,7 +405,7 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 			<field type="textbox" id="tpl25z45sd_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template id="desfire-id" name="Desfire ID" title="Desfire ID Template" hash="hvnvpdd">
+	<template id="desfire_id" name="Desfire ID" title="Desfire ID Template" hash="hvnvpdd">
 		<lookups>
 			<lkl value="70" title="(Desfire ID)" />
 		</lookups>
@@ -518,7 +518,7 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 			<field type="textbox" id="tplhvnvpdd_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template id="desfire-file" name="Desfire File" title="Desfire File Template" hash="2gev7yd">
+	<template id="desfire_file" name="Desfire File" title="Desfire File Template" hash="2gev7yd">
 		<lookups>
 			<lkl value="71" title="(Desfire File)" />
 		</lookups>
@@ -623,7 +623,7 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 			<field type="textbox" id="tpl2gev7yd_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template id="mifare-ultralight" name="Mifare UltraLight" title="Mifare UltraLight Template" hash="zyob5bl">
+	<template id="mifare_ultralight" name="Mifare UltraLight" title="Mifare UltraLight Template" hash="zyob5bl">
 		<lookups>
 			<lkl value="62" title="(Mifare UltraLight)" />
 		</lookups>
@@ -745,7 +745,7 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 			<field type="textbox" id="tplzyob5bl_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template id="mifare-classic" name="Mifare Classic" title="Mifare Classic Template" hash="nqitimn">
+	<template id="mifare_classic" name="Mifare Classic" title="Mifare Classic Template" hash="nqitimn">
 		<lookups>
 			<lkl value="61" title="(Mifare Classic)" />
 		</lookups>
@@ -885,7 +885,7 @@ If this register is set, the Reader adds a token to its output to tell the recei
 			<field type="raw" id="tplnqitimn_reg0005_gietmul" title="Value of the CRYPTO1 Secret Key" name="1" bitmap="00FFFFFFFFFFFF" description="The CRYPTO1 keys must be explicitly specified in the Templates." />
 		</register>
 	</template>
-	<template id="mifare-plus-sl3" name="Mifare Plus SL3" title="Mifare Plus SL3 Template" hash="vsbmlpn">
+	<template id="mifare_plus_sl3" name="Mifare Plus SL3" title="Mifare Plus SL3 Template" hash="vsbmlpn">
 		<lookups>
 			<lkl value="63" title="(Mifare Plus SL3)" />
 		</lookups>
@@ -1041,7 +1041,7 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 			<field type="textbox" id="tplvsbmlpn_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template id="iso-15693-memory" name="ISO 15693 Memory" title="ISO 15693 Memory Template" hash="soaav3l">
+	<template id="iso_15693_memory" name="ISO 15693 Memory" title="ISO 15693 Memory Template" hash="soaav3l">
 		<lookups>
 			<lkl value="54" title="(ISO 15693 Memory)" />
 		</lookups>
@@ -1164,7 +1164,7 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 			<field type="textbox" id="tplsoaav3l_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template id="em4134-memory" name="EM4134 Memory" title="EM4134 Memory Template" hash="phfd7cn">
+	<template id="em4134_memory" name="EM4134 Memory" title="EM4134 Memory Template" hash="phfd7cn">
 		<lookups>
 			<lkl value="56" title="(EM4134 Memory)" />
 		</lookups>
@@ -1293,7 +1293,7 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 Read a credential from **SpringCard**&apos;s SpringBlue mobile app.
 		</description>
 	</template>
-	<template id="orange-nfc-retail" name="Orange NFC Retail" title="Orange NFC Retail Template" hash="5hyjhnl">
+	<template id="orange_nfc_retail" name="Orange NFC Retail" title="Orange NFC Retail Template" hash="5hyjhnl">
 		<lookups>
 			<lkl value="C0" title="(Orange NFC Retail)" />
 		</lookups>
@@ -1303,7 +1303,7 @@ Orange NFC APIs for Retail is a framework for NFC services, offered by Mobile Ne
 The services rely on a general-purpose cardlet, loaded into a NFC-enabled smartphone&apos;s SIM card. Merchants and service providers are identified by a unique RetailerId (on 4 bytes). Every user “belonging” to this merchant or service provider is identified by either a unique HolderId (on 20 bytes), assigned by Orange to this very user, a CustomerId, defined freely by the merchant or service provider in association with a customer account, a LoyaltyId, defined freely by the merchant or service provider in association with a loyalty card or coupons.
 		</description>
 	</template>
-	<template id="orange-nfc-office" name="Orange NFC Office" title="Orange NFC Office Template" hash="fpocwxd">
+	<template id="orange_nfc_office" name="Orange NFC Office" title="Orange NFC Office Template" hash="fpocwxd">
 		<lookups>
 			<lkl value="C1" title="(Orange NFC Office)" />
 		</lookups>
@@ -1313,7 +1313,7 @@ Use this template to read an identifier from the Orange NFC Office application r
 Orange NFC APIs for Office is a framework for NFC services, offered by Mobile Network Operator Orange. It targets user identification applications (access control, private e-purse, car park &amp; card sharing, and alikes). The services are provided by the smartphone either in host-based card emulation mode (HCE) or through a SIM card. Organisations are identified by an ApplicationId (variable length) and their organisation units by a ZoneId (on 6 bytes). A diversified AES key protects the data. Every user “belonging” to the organisation is identified by a Badge number on 10 bytes.
 		</description>
 	</template>
-	<template id="apple-vas" name="Apple VAS" title="Apple VAS Template" hash="ql55h6y">
+	<template id="apple_vas" name="Apple VAS" title="Apple VAS Template" hash="ql55h6y">
 		<lookups>
 			<lkl value="D1" title="(Apple VAS)" />
 		</lookups>
@@ -1467,7 +1467,7 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 			<field type="textbox" id="tplql55h6y_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template id="google-smarttap" name="Google SmartTap" title="Google SmartTap Template" hash="bqdrmad">
+	<template id="google_smarttap" name="Google SmartTap" title="Google SmartTap Template" hash="bqdrmad">
 		<lookups>
 			<lkl value="D2" title="(Google SmartTap)" />
 		</lookups>

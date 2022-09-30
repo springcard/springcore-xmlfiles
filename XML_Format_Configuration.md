@@ -1,3 +1,10 @@
+---
+title: Syntax of XML files for configuration
+category: readme
+author: johann.d
+tags: [XML, SpringCore, metadata]
+---
+
 # Syntax of XML files for configuration
 
 ## Overview
