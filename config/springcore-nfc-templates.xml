@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <springcard-multiconf-templates
-	version="1.23"
+	version=""
 	author="JDA"
 >
 	<tree>
@@ -1341,10 +1341,10 @@ Merchant ID of the 1st (or only) merchant. This is SHA256(*Merchant Name*).
 			</description>
 			<field type="number-h" id="tplql55h6y_reg0007" minlength="1" maxlength="1" title="Merchant URL" hint="undefined"  advanced="true"/>
 		</register>
-		<register id="0007" size="32" default="0000000000000000000000000000000000000000000000000000000000000000">
+		<register id="0008" size="32" default="0000000000000000000000000000000000000000000000000000000000000000">
 			<title>Merchant&apos;s Private Key</title>
-			<field type="number-h" id="tplql55h6y_reg0007_5jmntfy" title="Key slot in the internal ATECC" name="0" bitmap="FF00000000000000000000000000000000000000000000000000000000000000" />
-			<field type="raw" id="tplql55h6y_reg0007_5a737by" title="Value of ECC Private Key" name="0" bitmap="FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" />
+			<field type="number-h" id="tplql55h6y_reg0008_5jmntfy" title="Key slot in the internal ATECC" name="0" bitmap="FF00000000000000000000000000000000000000000000000000000000000000" />
+			<field type="raw" id="tplql55h6y_reg0008_5a737by" title="Value of ECC Private Key" name="0" bitmap="FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" />
 		</register>
 		<register id="0009" size="32" default="" dynamic="true">
 			<title>Merchant ID (second)</title>
