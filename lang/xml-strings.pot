@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SpringCard MultiConf\n"
 "POT-Creation-Date: 2022-09-26T10:22:04\n"
-"PO-Revision-Date: 2022-09-30T14:19:49\n"
+"PO-Revision-Date: 2022-10-04T11:57:55\n"
 "Last-Translator: johann.d <*******@springcard.com>\n"
 "Language-Team: SpringCard <support@springcard.com>\n"
 "MIME-Version: 1.0\n"
@@ -2494,20 +2494,7 @@ msgstr ""
 msgid "CCID"
 msgstr ""
  
-#: D:\dev\softs\software.multiconf\conf\afcare-two.xml:27
-#: D:\dev\softs\software.multiconf\conf\crazy-uhf-net.xml:36
-#: D:\dev\softs\software.multiconf\conf\crazy-uhf-usb.xml:27
-#: D:\dev\softs\software.multiconf\conf\evaluation-kit-net.xml:36
-#: D:\dev\softs\software.multiconf\conf\evaluation-kit-usb.xml:27
 #: D:\dev\softs\software.multiconf\conf\m519-full.xml:27
-#: D:\dev\softs\software.multiconf\conf\m519.xml:27
-#: D:\dev\softs\software.multiconf\conf\puck-base.xml:27
-#: D:\dev\softs\software.multiconf\conf\puck-blue.xml:27
-#: D:\dev\softs\software.multiconf\conf\puck-one.xml:27
-#: D:\dev\softs\software.multiconf\conf\puck-point.xml:27
-#: D:\dev\softs\software.multiconf\conf\puck-ultimate.xml:27
-#: D:\dev\softs\software.multiconf\conf\socket-mobile-s550.xml:27
-#: D:\dev\softs\software.multiconf\conf\springpark.xml:36
 msgid "CCID (PC/SC or PC/SC-Like)"
 msgstr ""
  
@@ -6237,20 +6224,7 @@ msgstr ""
 msgid "HID Ringer is enabled"
 msgstr ""
  
-#: D:\dev\softs\software.multiconf\conf\afcare-two.xml:28
-#: D:\dev\softs\software.multiconf\conf\crazy-uhf-net.xml:37
-#: D:\dev\softs\software.multiconf\conf\crazy-uhf-usb.xml:28
-#: D:\dev\softs\software.multiconf\conf\evaluation-kit-net.xml:37
-#: D:\dev\softs\software.multiconf\conf\evaluation-kit-usb.xml:28
 #: D:\dev\softs\software.multiconf\conf\m519-full.xml:28
-#: D:\dev\softs\software.multiconf\conf\m519.xml:28
-#: D:\dev\softs\software.multiconf\conf\puck-base.xml:28
-#: D:\dev\softs\software.multiconf\conf\puck-blue.xml:28
-#: D:\dev\softs\software.multiconf\conf\puck-one.xml:28
-#: D:\dev\softs\software.multiconf\conf\puck-point.xml:28
-#: D:\dev\softs\software.multiconf\conf\puck-ultimate.xml:28
-#: D:\dev\softs\software.multiconf\conf\socket-mobile-s550.xml:28
-#: D:\dev\softs\software.multiconf\conf\springpark.xml:37
 msgid "HID, keyboard-emulation"
 msgstr ""
  
@@ -7925,20 +7899,7 @@ msgstr ""
 msgid "Mask RFU TA1 values in ATR"
 msgstr ""
  
-#: D:\dev\softs\software.multiconf\conf\afcare-two.xml:31
-#: D:\dev\softs\software.multiconf\conf\crazy-uhf-net.xml:40
-#: D:\dev\softs\software.multiconf\conf\crazy-uhf-usb.xml:31
-#: D:\dev\softs\software.multiconf\conf\evaluation-kit-net.xml:40
-#: D:\dev\softs\software.multiconf\conf\evaluation-kit-usb.xml:31
 #: D:\dev\softs\software.multiconf\conf\m519-full.xml:31
-#: D:\dev\softs\software.multiconf\conf\m519.xml:31
-#: D:\dev\softs\software.multiconf\conf\puck-base.xml:31
-#: D:\dev\softs\software.multiconf\conf\puck-blue.xml:31
-#: D:\dev\softs\software.multiconf\conf\puck-one.xml:31
-#: D:\dev\softs\software.multiconf\conf\puck-point.xml:31
-#: D:\dev\softs\software.multiconf\conf\puck-ultimate.xml:31
-#: D:\dev\softs\software.multiconf\conf\socket-mobile-s550.xml:31
-#: D:\dev\softs\software.multiconf\conf\springpark.xml:40
 msgid "Mass Storage"
 msgstr ""
  
@@ -9376,20 +9337,7 @@ msgstr ""
 msgid "NXP ICODE1"
 msgstr ""
  
-#: D:\dev\softs\software.multiconf\conf\afcare-two.xml:32
-#: D:\dev\softs\software.multiconf\conf\crazy-uhf-net.xml:41
-#: D:\dev\softs\software.multiconf\conf\crazy-uhf-usb.xml:32
-#: D:\dev\softs\software.multiconf\conf\evaluation-kit-net.xml:41
-#: D:\dev\softs\software.multiconf\conf\evaluation-kit-usb.xml:32
 #: D:\dev\softs\software.multiconf\conf\m519-full.xml:32
-#: D:\dev\softs\software.multiconf\conf\m519.xml:32
-#: D:\dev\softs\software.multiconf\conf\puck-base.xml:32
-#: D:\dev\softs\software.multiconf\conf\puck-blue.xml:32
-#: D:\dev\softs\software.multiconf\conf\puck-one.xml:32
-#: D:\dev\softs\software.multiconf\conf\puck-point.xml:32
-#: D:\dev\softs\software.multiconf\conf\puck-ultimate.xml:32
-#: D:\dev\softs\software.multiconf\conf\socket-mobile-s550.xml:32
-#: D:\dev\softs\software.multiconf\conf\springpark.xml:41
 msgid "NXP NFC Cockpit host protocol, Serial or CDC"
 msgstr ""
  
@@ -12236,20 +12184,7 @@ msgstr ""
 msgid "Smart Reader features"
 msgstr ""
  
-#: D:\dev\softs\software.multiconf\conf\afcare-two.xml:29
-#: D:\dev\softs\software.multiconf\conf\crazy-uhf-net.xml:38
-#: D:\dev\softs\software.multiconf\conf\crazy-uhf-usb.xml:29
-#: D:\dev\softs\software.multiconf\conf\evaluation-kit-net.xml:38
-#: D:\dev\softs\software.multiconf\conf\evaluation-kit-usb.xml:29
 #: D:\dev\softs\software.multiconf\conf\m519-full.xml:29
-#: D:\dev\softs\software.multiconf\conf\m519.xml:29
-#: D:\dev\softs\software.multiconf\conf\puck-base.xml:29
-#: D:\dev\softs\software.multiconf\conf\puck-blue.xml:29
-#: D:\dev\softs\software.multiconf\conf\puck-one.xml:29
-#: D:\dev\softs\software.multiconf\conf\puck-point.xml:29
-#: D:\dev\softs\software.multiconf\conf\puck-ultimate.xml:29
-#: D:\dev\softs\software.multiconf\conf\socket-mobile-s550.xml:29
-#: D:\dev\softs\software.multiconf\conf\springpark.xml:38
 msgid "Smart Reader mode, Serial or CDC"
 msgstr ""
  
@@ -12553,20 +12488,7 @@ msgstr ""
 msgid "SpringCore devices"
 msgstr ""
  
-#: D:\dev\softs\software.multiconf\conf\afcare-two.xml:25
-#: D:\dev\softs\software.multiconf\conf\crazy-uhf-net.xml:34
-#: D:\dev\softs\software.multiconf\conf\crazy-uhf-usb.xml:25
-#: D:\dev\softs\software.multiconf\conf\evaluation-kit-net.xml:34
-#: D:\dev\softs\software.multiconf\conf\evaluation-kit-usb.xml:25
 #: D:\dev\softs\software.multiconf\conf\m519-full.xml:25
-#: D:\dev\softs\software.multiconf\conf\m519.xml:25
-#: D:\dev\softs\software.multiconf\conf\puck-base.xml:25
-#: D:\dev\softs\software.multiconf\conf\puck-blue.xml:25
-#: D:\dev\softs\software.multiconf\conf\puck-one.xml:25
-#: D:\dev\softs\software.multiconf\conf\puck-point.xml:25
-#: D:\dev\softs\software.multiconf\conf\puck-ultimate.xml:25
-#: D:\dev\softs\software.multiconf\conf\socket-mobile-s550.xml:25
-#: D:\dev\softs\software.multiconf\conf\springpark.xml:34
 msgid "SpringCore Direct"
 msgstr ""
  
@@ -12648,20 +12570,7 @@ msgstr ""
 msgid "SpringPark"
 msgstr ""
  
-#: D:\dev\softs\software.multiconf\conf\afcare-two.xml:26
-#: D:\dev\softs\software.multiconf\conf\crazy-uhf-net.xml:35
-#: D:\dev\softs\software.multiconf\conf\crazy-uhf-usb.xml:26
-#: D:\dev\softs\software.multiconf\conf\evaluation-kit-net.xml:35
-#: D:\dev\softs\software.multiconf\conf\evaluation-kit-usb.xml:26
 #: D:\dev\softs\software.multiconf\conf\m519-full.xml:26
-#: D:\dev\softs\software.multiconf\conf\m519.xml:26
-#: D:\dev\softs\software.multiconf\conf\puck-base.xml:26
-#: D:\dev\softs\software.multiconf\conf\puck-blue.xml:26
-#: D:\dev\softs\software.multiconf\conf\puck-one.xml:26
-#: D:\dev\softs\software.multiconf\conf\puck-point.xml:26
-#: D:\dev\softs\software.multiconf\conf\puck-ultimate.xml:26
-#: D:\dev\softs\software.multiconf\conf\socket-mobile-s550.xml:26
-#: D:\dev\softs\software.multiconf\conf\springpark.xml:35
 msgid "SpringProx Legacy mode, Serial or CDC"
 msgstr ""
  
@@ -12691,20 +12600,7 @@ msgstr ""
 msgid "ST MicroElectronics ST Family"
 msgstr ""
  
-#: D:\dev\softs\software.multiconf\conf\afcare-two.xml:30
-#: D:\dev\softs\software.multiconf\conf\crazy-uhf-net.xml:39
-#: D:\dev\softs\software.multiconf\conf\crazy-uhf-usb.xml:30
-#: D:\dev\softs\software.multiconf\conf\evaluation-kit-net.xml:39
-#: D:\dev\softs\software.multiconf\conf\evaluation-kit-usb.xml:30
 #: D:\dev\softs\software.multiconf\conf\m519-full.xml:30
-#: D:\dev\softs\software.multiconf\conf\m519.xml:30
-#: D:\dev\softs\software.multiconf\conf\puck-base.xml:30
-#: D:\dev\softs\software.multiconf\conf\puck-blue.xml:30
-#: D:\dev\softs\software.multiconf\conf\puck-one.xml:30
-#: D:\dev\softs\software.multiconf\conf\puck-point.xml:30
-#: D:\dev\softs\software.multiconf\conf\puck-ultimate.xml:30
-#: D:\dev\softs\software.multiconf\conf\socket-mobile-s550.xml:30
-#: D:\dev\softs\software.multiconf\conf\springpark.xml:39
 msgid "ST UHF reader host protocol, Serial or CDC"
 msgstr ""
  

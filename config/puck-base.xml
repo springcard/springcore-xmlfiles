@@ -5,7 +5,7 @@
 	firmware="springcore/h518/puck"
 	implements="usb,ccid,rdr,micore,7816,samav,atecc,vegas"
 	hardware="FPF18175"
-	version=""
+	version="1.23"
 	author="JDA"
 	templatesnfc="true"
 	templatesble="false"
@@ -21,15 +21,15 @@ This register defines how the product is seen by the hosts: USB or BLE profile, 
 				<field type="hidden" id="reg02c0_m6awtjl" name="rfu0" bitmap="80" value="0" />
 				<!-- Ignoring Network (no network) -->
 				<field type="hidden" id="reg02c0_eph722y" name="rfu0" bitmap="08" value="0" />
-				<field type="radios" id="reg02c0_kspmojd" title="Primary profile" name="Select" bitmap="07">
-					<option value="0" title="SpringCore Direct"/>
-					<option value="1" title="SpringProx Legacy mode, Serial or CDC"/>
-					<option value="2" title="CCID (PC/SC or PC/SC-Like)"/>
-					<option value="3" title="HID, keyboard-emulation"/>
-					<option value="4" title="Smart Reader mode, Serial or CDC"/>
-					<option value="5" title="ST UHF reader host protocol, Serial or CDC" advanced="true"/>
-					<option value="6" title="Mass Storage" advanced="true"/>
-					<option value="7" title="NXP NFC Cockpit host protocol, Serial or CDC" advanced="true"/>
+				<field type="buttons" id="reg02c0_kspmojd" title="Primary profile" name="Select" bitmap="07">
+					<option value="0" title="SpringCore Direct" icon="icon-mode-direct.png"/>
+					<option value="1" title="SpringProx Legacy mode, Serial or CDC" icon="icon-mode-springprox.png"/>
+					<option value="2" title="CCID (PC/SC or PC/SC-Like)" icon="icon-mode-ccid.png"/>
+					<option value="3" title="HID, keyboard-emulation" icon="icon-mode-rfidscanner.png"/>
+					<option value="4" title="Smart Reader mode, Serial or CDC" icon="icon-mode-smartreader.png"/>
+					<option value="5" title="ST UHF reader host protocol, Serial or CDC" advanced="true" icon="icon-mode-stuhf.png"/>
+					<option value="6" title="Mass Storage" advanced="true" icon="icon-mode-massstorage.png"/>
+					<option value="7" title="NXP NFC Cockpit host protocol, Serial or CDC" advanced="true" icon="icon-mode-nxpnfcockpit.png"/>
 				</field>
 			</register>
 			<register id="02C1" size="1" default="10">

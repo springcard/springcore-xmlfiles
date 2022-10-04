@@ -184,6 +184,7 @@ The `type` attribute selects the way the field shall be displayed. Allowed value
 | `checkbox`     | The field is a single check box (checked / not checked)      |
 | `checkboxes`   | The field is a list of check boxes                           |
 | `radios`       | The field is a list of radio boxes (only one can be checked) |
+| `buttons`      | The field is a list of buttons (only one can be selected)    |
 | `dropdownlist` | The field is a list of values, as a drop down list           |
 | `ip`           | The field is an IPv4 address                                 |
 | `ipv6`         | The field is an IPv6 address                                 |
@@ -198,6 +199,7 @@ Under a `<field>` XML node with a `type` attribute equal to `checkboxes`, `radio
 | ----------- | ----------------------------------- | ------------------------------------------------------------ |
 | `value`     | The value of the option             | Value is expressed in decimal                                |
 | `title`     | Title of the option                 | Main label to be associated to the value                     |
+| `icon`      | Icon of the button                  | Only for `buttons`-type fields                               |
 | `advanced`  | Is the option reserved for experts? | If true, the option is hidden by default, until the user enables advanced features |
 | `visibleif` | Condition to display this option    | See `visibleif` paragraph at the end of the document         |
 
