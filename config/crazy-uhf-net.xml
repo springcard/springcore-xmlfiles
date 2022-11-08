@@ -10,6 +10,16 @@
 	templatesnfc="false"
 	templatesble="false"
 >
+	<modes>
+		<mode value="direct" icon="product+mode-direct" />
+		<mode value="springprox" icon="product+mode-springprox" />
+		<mode value="pcsc" icon="product+mode-pcsc" />
+		<mode value="rfidscanner" icon="product+mode-rfidscanner" />
+		<mode value="smartreader" icon="product+mode-smartreader" />
+		<mode value="stuhf" icon="product+mode-stuhf" />
+		<mode value="disk" icon="product+mode-disk" />
+		<mode value="nxpnfc" icon="product+mode-nxpnfc" />
+	</modes>
 	<tree>
 	<!-- Empty node Constants, title=Constants, type=SpringCoreMeta.NodeRegisters -->
 		<node title="Main configuration">
@@ -31,14 +41,14 @@ This register defines how the product is seen by the hosts: USB or BLE profile, 
 				</field>
 				<field type="hidden" id="reg02c0_eph722y" name="rfu0" bitmap="08" value="0" />
 				<field type="buttons" id="reg02c0_kspmojd" title="Primary profile" name="Select" bitmap="07">
-					<option value="0" title="SpringCore Direct" icon="icon-mode-direct.png"/>
-					<option value="1" title="SpringProx Legacy mode, Serial or CDC" icon="icon-mode-springprox.png"/>
-					<option value="2" title="CCID (PC/SC or PC/SC-Like)" icon="icon-mode-ccid.png"/>
-					<option value="3" title="HID, keyboard-emulation" icon="icon-mode-rfidscanner.png"/>
-					<option value="4" title="Smart Reader mode, Serial or CDC" icon="icon-mode-smartreader.png"/>
-					<option value="5" title="ST UHF reader host protocol, Serial or CDC" advanced="true" icon="icon-mode-stuhf.png"/>
-					<option value="6" title="Mass Storage" advanced="true" icon="icon-mode-massstorage.png"/>
-					<option value="7" title="NXP NFC Cockpit host protocol, Serial or CDC" advanced="true" icon="icon-mode-nxpnfcockpit.png"/>
+					<option value="0" title="SpringCore Direct" icon="button-mode-direct"/>
+					<option value="1" title="SpringProx Legacy mode, Serial or CDC" icon="button-mode-springprox"/>
+					<option value="2" title="CCID (PC/SC or PC/SC-Like)" icon="button-mode-ccid"/>
+					<option value="3" title="HID, keyboard-emulation" icon="button-mode-rfidscanner"/>
+					<option value="4" title="Smart Reader mode, Serial or CDC" icon="button-mode-smartreader"/>
+					<option value="5" title="ST UHF reader host protocol, Serial or CDC" advanced="true" icon="button-mode-stuhf"/>
+					<option value="6" title="Mass Storage" advanced="true" icon="button-mode-disk"/>
+					<option value="7" title="NXP NFC Cockpit host protocol, Serial or CDC" advanced="true" icon="button-mode-nxpnfc"/>
 				</field>
 			</register>
 			<register id="02C1" size="1" default="00">

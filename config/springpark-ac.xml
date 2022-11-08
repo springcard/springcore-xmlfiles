@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <springcard-multiconf-registers
-	title="Evaluation kit USB"
-	path="SpringCore/Misc/Evaluation kit USB"
-	firmware="springcore/h518/reference"
-	implements="usb,ccid,rdr,micore,7816,7816_id1,7816_sam_x4,samav,atecc"
-	hardware="EAN17115"
+	title="SpringPark-AC"
+	path="SpringCore/SpringPark/SpringPark-AC"
+	firmware="springcore/e518/springpark"
+	implements="usb,serial,network,ccid,rdr,micore,7816,7816_id1,7816_sam_x4,samav,atecc,vegas"
+	hardware="EAN19217"
+	icon="product-springpark+variant-ac"
 	version="1.23"
 	author="JDA"
 	templatesnfc="true"
@@ -29,7 +30,16 @@
 This register defines how the product is seen by the hosts: USB or BLE profile, primary interface, primary communication protocol. It implicitly activates either [Operating mode](../../../Introduction/Operating_Modes).
 				</description>
 				<field type="hidden" id="reg02c0_m6awtjl" name="rfu0" bitmap="80" value="0" />
-				<!-- Ignoring Network (no network) -->
+				<field type="radios" id="reg02c0_dlvtahl" title="Network operation" name="Network" bitmap="70" remark="If the product has no network interface, these bits are ignored.">
+					<option value="0" title="Disabled"/>
+					<option value="1" title="HTTP client"/>
+					<option value="2" title="TCP server"/>
+					<option value="3" title="TCP server and UDP server"/>
+					<option value="4" title="UDP server"/>
+					<option value="5" title="RFU5"/>
+					<option value="6" title="MQTT client"/>
+					<option value="7" title="RFU7"/>
+				</field>
 				<field type="hidden" id="reg02c0_eph722y" name="rfu0" bitmap="08" value="0" />
 				<field type="buttons" id="reg02c0_kspmojd" title="Primary profile" name="Select" bitmap="07">
 					<option value="0" title="SpringCore Direct" icon="button-mode-direct"/>
@@ -42,7 +52,7 @@ This register defines how the product is seen by the hosts: USB or BLE profile, 
 					<option value="7" title="NXP NFC Cockpit host protocol, Serial or CDC" advanced="true" icon="button-mode-nxpnfc"/>
 				</field>
 			</register>
-			<register id="02C1" size="1" default="00">
+			<register id="02C1" size="1" default="10">
 				<title>USB options</title>
 				<description>
 Control various options related to the USB interface.
@@ -50,7 +60,10 @@ Control various options related to the USB interface.
 				<remark>
 If the product has no USB interface, this register is ignored.
 				</remark>
-				<!-- Ignoring Disabled (no serial|ble|network) -->
+				<field type="radios" id="reg02c1_m6awtjl" title="Disable USB" name="Disabled" bitmap="80">
+					<option value="0" title="USB is enabled"/>
+					<option value="1" title="USB is disabled, all the other settings are ignored"/>
+				</field>
 				<field type="radios" id="reg02c1_5ymphln_op23zml" title="Disable serial number" name="No Serno" bitmap="40" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0">
 					<option value="0" title="The actual serial number of the product is provided in the USB descriptor" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0"/>
 					<option value="1" title="A constant serial number is provided in the USB descriptor" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0"/>
@@ -133,9 +146,294 @@ This register is available to store the name of application or to identify the i
 			<!-- Hiding RfuE (phony register) -->
 			<!-- Hiding RfuF (phony register) -->
 		</node>
-		<!-- Ignoring Network (no network) -->
-		<!-- Ignoring MQTT Client (no network) -->
-		<!-- Ignoring HTTP Client (no network) -->
+		<node title="Configuration of the network interface">
+			<!-- Hiding IPv4 Settings (individual register) -->
+			<!-- Hiding IPv6 Settings (individual register) -->
+			<register id="0283" size="1" default="00">
+				<title>Network options</title>
+				<description>
+Control various options related to the Network interface.
+				</description>
+				<remark>
+If the product has no Network interface, this register is ignored.
+				</remark>
+				<field type="radios" id="reg0283_m6awtjl" title="Disable Network" name="Disabled" bitmap="80">
+					<option value="0" title="Network is enabled"/>
+					<option value="1" title="Network is disabled, all the other settings are ignored"/>
+				</field>
+				<field type="radios" id="reg0283_op23zml" title="Disable Auto-protection module" name="Disable Auto-protection" bitmap="40">
+					<option value="0" title="Auto-protection is enabled"/>
+					<option value="1" title="Auto-protection is disabled"/>
+				</field>
+				<field type="hidden" id="reg0283_5lnxfcy" name="rfu0" bitmap="38" value="0" />
+				<field type="radios" id="reg0283_kspmojd" title="Link speed" name="Link speed" bitmap="07" remark="This setting is only effective if Auto-negotiation is disabled">
+					<option value="0" title="Auto-negotiation"/>
+					<option value="1" title="10MB Half duplex"/>
+					<option value="2" title="10MB Full duplex"/>
+					<option value="3" title="100MB Half duplex"/>
+					<option value="4" title="100MB Full duplex"/>
+				</field>
+			</register>
+			<register id="0284" size="1" default="04">
+				<title>Activate network services</title>
+				<field type="hidden" id="reg0284_g65secl" name="rfu0" bitmap="F0" value="0" />
+				<field type="radios" id="reg0284_efr3mkd" title="SpringCard Network Direct server mode" name="DirectD mode" bitmap="0C">
+					<option value="0" title="Disable"/>
+					<option value="1" title="Enable over UDP"/>
+					<option value="2" title="Enable over TCP"/>
+					<option value="3" title="RFU"/>
+				</field>
+				<field type="radios" id="reg0284_mdwlall" title="Telnet server" name="Telnet disabled" bitmap="02">
+					<option value="1" title="True"/>
+					<option value="0" title="False"/>
+				</field>
+				<field type="radios" id="reg0284_ooba6wy" title="SpringCard Network Devices Discovery server" name="NDDU disabled" bitmap="01">
+					<option value="0" title="True"/>
+					<option value="1" title="False"/>
+				</field>
+			</register>
+			<register id="0285" size="14" default="0000000000000000000000000000">
+				<title>Ports of the various network services</title>
+				<field type="number-h" id="reg0285_r2fsrhn" title="Port of the Telnet server" name="Telnet" bitmap="FFFF000000000000000000000000" remark="If set to 0000, defaults to 23. UDP only." />
+				<field type="number-h" id="reg0285_57ht7bn" title="Port of the NDDU server" name="NDDU" bitmap="0000FFFF00000000000000000000" remark="If set to 0000, defaults to 3999. UDP only." />
+				<field type="number-h" id="reg0285_2wtrxwn" title="Port of the Direct server" name="DirectD" bitmap="00000000FFFF0000000000000000" remark="If set to 0000, defaults to 3978. Could be either UDP or TCP depending on the configuration." />
+				<field type="number-h" id="reg0285_huvv3cl" title="Port of the CCID server" name="CCID" bitmap="000000000000FFFF000000000000" remark="If set to 0000, defaults to 3999. Could be either UDP or TCP depending on the configuration." />
+				<field type="number-h" id="reg0285_5zgsj4y" title="Port for SCRDR or JSON Smart Reader communication" name="SCRDR" bitmap="0000000000000000FFFF00000000" remark="If set to 0000, defaults to 4000. Could be either UDP or TCP depending on the configuration." />
+				<field type="number-h" id="reg0285_7cpcu7y" title="Port of the MQTT server" name="MQTT" bitmap="00000000000000000000FFFF0000" remark="If set to 0000, defaults to 1883 for plain (unsecure) communication and 8883 for TLS (secure) communication. TCP only." />
+				<field type="number-h" id="reg0285_g6f77fn" title="Port of the HTTP server" name="HTTP" bitmap="000000000000000000000000FFFF" remark="If set to 0000, defaults to 80. TCP only." />
+			</register>
+		</node>
+		<node title="Configuration of the product as an MQTT client" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+			<register id="0286" size="48" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+				<title>MQTT Broker address or name</title>
+				<description>
+MQTT server IP address or FQDN
+				</description>
+				<field type="textbox" id="reg0286" maxlength="48" title="MQTT Broker address or name" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+			</register>
+			<register id="0288" size="5" default="0000000000" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+				<title>Options for MQTTS connection (MQTT over TLS)</title>
+				<field type="hidden" id="reg0288_jxfrlfn_f5bc2vy" name="rfu0" bitmap="8000000000" value="0" />
+				<field type="radios" id="reg0288_jxfrlfn_pelr6in" title="How is the verification of the Server&apos;s certificate performed?" name="Server exact" bitmap="4000000000" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+					<option value="0" title="Public key only - Another certificate could be accepted, provided that it belongs to the same key" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="1" title="Exact - The certificate exposed by the Server shall be exactly the one known by the product" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+				</field>
+				<field type="radios" id="reg0288_jxfrlfn_hz4o5wy" title="How to handle the Server&apos;s certificate" name="Server trust" bitmap="3000000000" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+					<option value="0" title="Accept any (trust all certificates)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="1" title="Verify Server" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="2" title="Verify CA (no chaining)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="3" title="Verify PKI (CA with chaining)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+				</field>
+				<field type="hidden" id="reg0288_jxfrlfn_6tkjtun" name="rfu0" bitmap="0800000000" value="0" />
+				<field type="radios" id="reg0288_jxfrlfn_wfsxvul" title="Enable or disable verification of the CN (Server Name) in the Server&apos;s certificate" name="Verify CN" bitmap="0400000000" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+					<option value="0" title="Accept any CN in the Server&apos;s certificate" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="1" title="Verify that the CN in the Server&apos;s certificate matches its Server Name" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+				</field>
+				<field type="radios" id="reg0288_jxfrlfn_ups3l5l" title="Enable or disable SNI (Server Name Indication) in TLS handshake" name="Use SNI" bitmap="0200000000" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+					<option value="0" title="SNI is disabled" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="1" title="SNI is enabled" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+				</field>
+				<field type="radios" id="reg0288_jxfrlfn_5g4gajl" title="Enable or disable TLS" name="Use TLS" bitmap="0100000000" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+					<option value="0" title="TLS is disabled (all other settings in this register are ignored)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="1" title="TLS is enabled" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+				</field>
+				<field type="hidden" id="reg0288_jxfrlfn_l4bfvfd" name="rfu0" bitmap="00F0000000" value="0" />
+				<field type="dropdownlist" id="reg0288_jxfrlfn_ptn6fqy" title="Index of the CA&apos;s or Server&apos;s certificate" name="Index" bitmap="000F000000" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+					<option value="0" title="Certificate `0` (user)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="1" title="Certificate `1` (user)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="2" title="Certificate `2` (user)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="3" title="Certificate `3` (user)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="4" title="Certificate `4` (user)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="5" title="Certificate `5` (user)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="6" title="Certificate `6` (user)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="7" title="Certificate `7` (user)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="8" title="Certificate `8` (user/out of factory: SpringCard MQTT)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="9" title="Certificate `9` (user/out of factory: AWS MQTT)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="10" title="Certificate `A` (Direct)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="11" title="Certificate `B` (Secure messaging)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="12" title="Certificate `C` (TLS server)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="13" title="Certificate `D` (TLS client)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="14" title="Certificate `E` (CA SpringCard Device, server)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="15" title="Certificate `F` (CA SpringCard Device, client)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+				</field>
+				<field type="radios" id="reg0288_jxfrlfn_czj6tml" title="Enable or disable the Client Authentication" name="Enabled" bitmap="0000800000" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+					<option value="0" title="TLS Client Auth is disabled" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="1" title="TLS Client Auth is enabled" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+				</field>
+				<field type="hidden" id="reg0288_jxfrlfn_qjkt6pl" name="rfu0" bitmap="0000700000" value="0" />
+				<field type="dropdownlist" id="reg0288_jxfrlfn_ti5jnln" title="Index of the Client&apos;s certificate" name="Index" bitmap="00000F0000" visibleif="REGBITS(0x02C0, 4, 3) is 6" remark="The certificat must match the private key stored defined in byte 3">
+					<option value="0" title="Certificate `0` (user)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="1" title="Certificate `1` (user)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="2" title="Certificate `2` (user)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="3" title="Certificate `3` (user)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="4" title="Certificate `4` (user)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="5" title="Certificate `5` (user)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="6" title="Certificate `6` (user)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="7" title="Certificate `7` (user)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="8" title="Certificate `8` (user/out of factory: SpringCard MQTT)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="9" title="Certificate `9` (user/out of factory: AWS MQTT)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="10" title="Certificate `A` (Direct)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="11" title="Certificate `B` (Secure messaging)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="12" title="Certificate `C` (TLS server)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="13" title="Certificate `D` (TLS client)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="14" title="Certificate `E` (CA SpringCard Device, server)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="15" title="Certificate `F` (CA SpringCard Device, client)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+				</field>
+				<field type="radios" id="reg0288_jxfrlfn_4uhbnoy" title="Which Secure Elements contains the Client&apos;s private key" name="SE" bitmap="000000C000" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+					<option value="0" title="Raw (private key is stored in the NVM - DO NOT USE)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="1" title="ATECC" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="2" title="RFU (ECC)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="3" title="RFU (RSA)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+				</field>
+				<field type="hidden" id="reg0288_jxfrlfn_vxqhved" name="rfu0" bitmap="0000003000" value="0" />
+				<field type="dropdownlist" id="reg0288_jxfrlfn_lwafuod" title="Index of the Client&apos;s private key" name="Index" bitmap="0000000F00" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+					<option value="0" title="Key at index `0` (ATECC: user key)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="1" title="Key at index `1` (ATECC: user key)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="2" title="Key at index `2` (ATECC: user key)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="3" title="Key at index `3` (ATECC: user key)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="4" title="Key at index `4` (ATECC: user key)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="5" title="Key at index `5` (ATECC: user key)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="6" title="Key at index `6` (ATECC: user key)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="7" title="Key at index `7` (ATECC: user key)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="8" title="Key at index `8` (ATECC: user key)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="9" title="Key at index `9` (ATECC: user key)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="10" title="Key at index `A` (ATECC: key associated to Certificate `A`)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="11" title="Key at index `B` (ATECC: key associated to Certificate `B`)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="12" title="Key at index `C` (ATECC: key associated to Certificate `C`)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="13" title="Key at index `D` (ATECC: key associated to Certificate `D`)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="14" title="Key at index `E` (ATECC: non-existing key)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="15" title="Key at index `F` (ATECC: non-existing key)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+				</field>
+				<field type="radios" id="reg0288_jxfrlfn_xfgml2l" title="Chain the CA certificate with the client certificate" name="Chaining" bitmap="0000000080" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+					<option value="0" title="Don&apos;t chain CA certicate with client certificate" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="1" title="Chain CA certificate with client certificate" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+				</field>
+				<field type="hidden" id="reg0288_jxfrlfn_qypyhll" name="rfu0" bitmap="0000000070" value="0" />
+				<field type="dropdownlist" id="reg0288_jxfrlfn_3rf6ivn" title="Index of the Client CA certificate" name="Index" bitmap="000000000F" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+					<option value="0" title="Certificate `0` (user)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="1" title="Certificate `1` (user)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="2" title="Certificate `2` (user)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="3" title="Certificate `3` (user)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="4" title="Certificate `4` (user)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="5" title="Certificate `5` (user)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="6" title="Certificate `6` (user)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="7" title="Certificate `7` (user)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="8" title="Certificate `8` (user/out of factory: SpringCard MQTT)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="9" title="Certificate `9` (user/out of factory: AWS MQTT)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="10" title="Certificate `A` (Direct)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="11" title="Certificate `B` (Secure messaging)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="12" title="Certificate `C` (TLS server)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="13" title="Certificate `D` (TLS client)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="14" title="Certificate `E` (CA SpringCard Device, server)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="15" title="Certificate `F` (CA SpringCard Device, client)" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+				</field>
+			</register>
+			<register id="0289" size="6" default="5314030A1E1E" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+				<title>Options for the MQTT client</title>
+				<remark>
+For AWS, value shall be set to `5614030A1E1E`
+				</remark>
+				<field type="radios" id="reg0289_jxfrlfn_onij6xy" title="QoS used for subscribing" name="Subscribe QoS" bitmap="C00000000000" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+					<option value="0" title="QoS_0" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="1" title="QoS_1" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="2" title="QoS_2" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="3" title="RFU" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+				</field>
+				<field type="radios" id="reg0289_jxfrlfn_77z3hvd" title="QoS used for publishing" name="Publish QoS" bitmap="300000000000" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+					<option value="0" title="QoS_0" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="1" title="QoS_1" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="2" title="QoS_2" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="3" title="RFU" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+				</field>
+				<field type="hidden" id="reg0289_jxfrlfn_j7lqmpd" name="rfu0" bitmap="080000000000" value="0" />
+				<field type="radios" id="reg0289_jxfrlfn_xkk6mgl" title="Shall we create the topics before subscribing to them?" name="Create before subscribe" bitmap="040000000000" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+					<option value="0" title="Disable Create before Subscribe" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="1" title="Enable Create before Subscribe" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+				</field>
+				<field type="radios" id="reg0289_jxfrlfn_5dxn43n" title="Does the server accept a Last Will Message?" name="Last Will Message" bitmap="020000000000" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+					<option value="0" title="Disable Last Will Message" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="1" title="Enable Last Will Message" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+				</field>
+				<field type="radios" id="reg0289_jxfrlfn_232mc4d" title="Does the server accept Retained Messages?" name="Retained Messages" bitmap="010000000000" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+					<option value="0" title="Disable Retained Messages" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+					<option value="1" title="Enable Retained Messages" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+				</field>
+				<field type="number-h" id="reg0289_jxfrlfn_2fpwhjy" title="Connection timeout" name="Connection timeout" bitmap="00FF00000000" visibleif="REGBITS(0x02C0, 4, 3) is 6" remark="Timeout when connecting to the server, in seconds" />
+				<field type="number-h" id="reg0289_jxfrlfn_g5vrfod" title="Response timeout" name="Response timeout" bitmap="0000FF000000" visibleif="REGBITS(0x02C0, 4, 3) is 6" remark="Timeout when waiting for a response from the server, in seconds" />
+				<field type="number-h" id="reg0289_jxfrlfn_4agk3pd" title="Keep alive interval" name="Keep alive interval" bitmap="000000FF0000" visibleif="REGBITS(0x02C0, 4, 3) is 6" remark="Interval between PINGREQ/PINGRES, in seconds" />
+				<field type="number-h" id="reg0289_jxfrlfn_cjpxtol" title="Status publish interval" name="Status publish interval" bitmap="00000000FF00" visibleif="REGBITS(0x02C0, 4, 3) is 6" remark="Interval between publications in the `status` topic, in seconds" />
+				<field type="number-h" id="reg0289_jxfrlfn_ppnczjd" title="Reconnect interval" name="Reconnect interval" bitmap="0000000000FF" visibleif="REGBITS(0x02C0, 4, 3) is 6" remark="Interval before reconnecting to the server if the connection is lost, in seconds" />
+			</register>
+			<register id="028B" size="16" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+				<title>MQTT user Login name</title>
+				<description>
+Login to get authenticated onto the MQTT server
+				</description>
+				<field type="textbox" id="reg028b" maxlength="16" title="MQTT user Login name" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+			</register>
+			<register id="028C" size="16" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+				<title>MQTT user Password</title>
+				<description>
+Password to get authenticated onto the MQTT server
+				</description>
+				<field type="textbox" id="reg028c" maxlength="16" title="MQTT user Password" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+			</register>
+			<register id="028D" size="24" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+				<title>MQTT Client ID</title>
+				<description>
+ID of the MQTT client
+				</description>
+				<remark>
+If this register is not set, the ClientID defaults to the [Serial Number](../../Constants/Main/Serial_Number)
+				</remark>
+				<field type="textbox" id="reg028d" maxlength="24" title="MQTT Client ID" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+			</register>
+			<register id="028E" size="32" default="737072696E67636172642F737072696E67636F7265" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+				<title>MQTT Topic prefix</title>
+				<description>
+Prefix for all MQTT topics
+				</description>
+				<field type="textbox" id="reg028e" maxlength="32" title="MQTT Topic prefix" default="springcard/springcore" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+			</register>
+			<register id="028F" size="24" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+				<title>MQTT Device ID</title>
+				<description>
+Device ID in the topics and in the data
+				</description>
+				<remark>
+If this register is not set, the Device ID in the topics defaults to the [Serial Number](../../Constants/Main/Serial_Number)
+				</remark>
+				<field type="textbox" id="reg028f" maxlength="24" title="MQTT Device ID" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+			</register>
+		</node>
+		<node title="Configuration of the product as an HTTP client" visibleif="REGBITS(0x02C0, 4, 3) is 1">
+			<register id="0290" size="48" default="7264722E737072696E67636172642E636F6D" visibleif="REGBITS(0x02C0, 4, 3) is 1">
+				<title>HTTP server address or name</title>
+				<description>
+HTTP server IP address or FQDN
+				</description>
+				<field type="textbox" id="reg0290" maxlength="48" title="HTTP server address or name" default="rdr.springcard.com" visibleif="REGBITS(0x02C0, 4, 3) is 1"/>
+			</register>
+			<register id="0291" size="48" default="69776D322F69776D325F706F73742E706870" visibleif="REGBITS(0x02C0, 4, 3) is 1">
+				<title>Query path</title>
+				<description>
+Base URL of this service
+				</description>
+				<field type="textbox" id="reg0291" maxlength="48" title="Query path" default="iwm2/iwm2_post.php" visibleif="REGBITS(0x02C0, 4, 3) is 1"/>
+			</register>
+			<register id="0292" size="2" default="1E3C" visibleif="REGBITS(0x02C0, 4, 3) is 1">
+				<title>Options</title>
+				<field type="number-h" id="reg0292_yzzpvwy_rj665vl" title="Number of seconds after which the connection is reported as gone." name="timeout" bitmap="FF00" visibleif="REGBITS(0x02C0, 4, 3) is 1" remark="If this register is not set (or set to 00), the default value is 30s" />
+				<field type="number-h" id="reg0292_yzzpvwy_gpg5rzd" title="Number of seconds after which the product will send a keep-alive frame to the server" name="Keep alive" bitmap="00FF" visibleif="REGBITS(0x02C0, 4, 3) is 1" remark="If this register is not set (or set to 00), the default value is 60s" />
+			</register>
+			<register id="0293" size="32" default="" visibleif="REGBITS(0x02C0, 4, 3) is 1" dynamic="true">
+				<title>HMAC key</title>
+				<description>
+HMAC key used for authentication
+				</description>
+				<field type="raw" id="reg0293" minlength="0" maxlength="32" title="HMAC key" visibleif="REGBITS(0x02C0, 4, 3) is 1" dynamic="true"/>
+			</register>
+		</node>
 		<node title="Configuration of the user interface">
 			<register id="02D0" size="1" default="00">
 				<title>Global UI options</title>
@@ -406,14 +704,72 @@ Defines the layout of the keyboard when the product runs in keyboard-emulation m
 					<option value="2" title="Secure"/>
 					<option value="3" title="RFU"/>
 				</field>
-				<!-- Ignoring Remote (no ble|network) -->
-				<!-- Ignoring Remote console (no network) -->
+				<field type="radios" id="reg02f0_vjvofiy" title="Protect the firmware" name="Firmware Protect" bitmap="00008000">
+					<option value="0" title="The firmware can be upgraded with no restriction through the Remote host interface"/>
+					<option value="1" title="Authentication using *HostCommAdminKey* is required to upgrade the firmware"/>
+				</field>
+				<field type="radios" id="reg02f0_rc6tnwl" title="Limit sensitive instructions" name="Admin protect" bitmap="00004000">
+					<option value="0" title="No restriction"/>
+					<option value="1" title="Authentication using *HostCommAdminKey* is required to run sensitive instructions"/>
+				</field>
+				<field type="radios" id="reg02f0_5y4fpey" title="Configuration" name="Config" bitmap="00003000">
+					<option value="0" title="Full access (read/write)"/>
+					<option value="1" title="Write only"/>
+					<option value="2" title="Admin write only"/>
+					<option value="3" title="Locked"/>
+				</field>
+				<field type="radios" id="reg02f0_awfi3xn" title="Disable Admin key" name="No admin key" bitmap="00000800">
+					<option value="0" title="Remote host can authenticate using *HostCommAdminKey*"/>
+					<option value="1" title="Authentication using *HostCommAdminKey* is forbidden"/>
+				</field>
+				<field type="radios" id="reg02f0_loo4own" title="Disable User key" name="No user key" bitmap="00000400">
+					<option value="0" title="Remote host can authenticate using *HostCommUserKey*"/>
+					<option value="1" title="Authentication using *HostCommUserKey* is forbidden"/>
+				</field>
+				<field type="radios" id="reg02f0_4koytuy" title="Usage" name="Usage" bitmap="00000300">
+					<option value="0" title="Free"/>
+					<option value="1" title="Authenticated"/>
+					<option value="2" title="Secure"/>
+					<option value="3" title="RFU"/>
+				</field>
+				<field type="hidden" id="reg02f0_uld4ejn" name="rfu0" bitmap="000000C0" value="0" />
+				<field type="radios" id="reg02f0_n6f65hn" title="Configuration" name="Config" bitmap="00000030">
+					<option value="0" title="The configuration is readable and writable through the Remote console"/>
+					<option value="1" title="The configuration is only writable through the Remote console"/>
+					<option value="2" title="Authentication using [Admin Password](Admin_Password) is required to gain write access to the configuration"/>
+					<option value="3" title="The configuration is locked (no read / no write over the Remote console)"/>
+				</field>
+				<field type="radios" id="reg02f0_x62ifjd" title="Disable Admin password" name="No admin password" bitmap="00000008">
+					<option value="0" title="Remote user can authenticate using [Admin Password](Admin_Password)"/>
+					<option value="1" title="Authentication using [Admin Password](Admin_Password) is forbidden"/>
+				</field>
+				<field type="radios" id="reg02f0_cyos74l" title="Disable User password" name="No user key" bitmap="00000004">
+					<option value="0" title="Remote user can authenticate using [User Password](User_Password)"/>
+					<option value="1" title="Authentication using [User Password](User_Password) is forbidden"/>
+				</field>
+				<field type="hidden" id="reg02f0_taxjzhn" name="rfu0" bitmap="00000002" value="0" />
+				<field type="radios" id="reg02f0_3t465bd" title="Telnet access" name="Telnet" bitmap="00000001">
+					<option value="0" title="Telnet accces is enabled"/>
+					<option value="1" title="Telnet accces is disabled"/>
+				</field>
 				<note>
 Whatever the settings in bits 5-4 of bytes 1 and 2, the registers holding the two passwords (`02FE` and `02FF`) can never be read back, and the [Inventory](../Inventory) and [License](../License) registers (`0200` to `020F`) are always readable.
 When the &quot;Protect admin key and sensitive registers&quot; bit in bytes 1 (Local) and 2 (Remote) is set, the *HostCommAdminKey* and the registers 02F0 to 02FF (including this Access Conditions register itself) can be changed only after an authentication using *HostCommAdminKey*. If this bit is not set, they are treated as all other configuration entries.
 				</note>
 			</register>
-			<!-- Ignoring Authentication counters (no ble|network|serial) -->
+			<register id="02F1" size="2" default="0000">
+				<title>Failed authentication counters</title>
+				<description>
+Protect the product against brute-force attacks
+				</description>
+				<remark>
+Choose value 0 to disable locking
+				</remark>
+				<field type="number-d" id="reg02f1_3iq5wdd" title="Counter to lock the Admin password in case of repeated authentication failures" name="Admin" bitmap="F000" remark="Set to 0 to disable password locking" />
+				<field type="number-d" id="reg02f1_ytndzhn" title="Counter to lock the User password in case of repeated authentication failures" name="User" bitmap="0F00" remark="Set to 0 to disable password locking" />
+				<field type="number-d" id="reg02f1_5sqf4yy" title="Counter to lock the Admin authentication key in case of repeated authentication failures" name="Admin" bitmap="00F0" remark="Set to 0 to disable password locking" />
+				<field type="number-d" id="reg02f1_rxpn6ed" title="Counter to lock the User authentication key in case of repeated authentication failures" name="User" bitmap="000F" remark="Set to 0 to disable password locking" />
+			</register>
 			<register id="02F2" size="1" default="00">
 				<title>Options for Master Card and Config push</title>
 				<description>
@@ -774,9 +1130,42 @@ A card that does not belong to the specified Application Family remains silent (
 				</field>
 			</register>
 		</node>
-		<!-- Ignoring UDP Server (no network) -->
+		<node title="UDP Server Configuration" visibleif="(REGBITS(0x02C0, 4, 3) is 3) or (REGBITS(0x02C0, 4, 3) is 4)">
+			<register id="0294" size="48" default="3235352E3235352E3235352E323535" visibleif="(REGBITS(0x02C0, 4, 3) is 3) or (REGBITS(0x02C0, 4, 3) is 4)">
+				<title>Address of remote server</title>
+				<description>
+The UDP Sender sends its events to this server
+				</description>
+				<remark>
+Leave empty or set to 255.255.255.255 for broadcast
+				</remark>
+				<field type="textbox" id="reg0294" maxlength="48" title="Address of remote server" default="255.255.255.255" visibleif="(REGBITS(0x02C0, 4, 3) is 3) or (REGBITS(0x02C0, 4, 3) is 4)"/>
+			</register>
+			<register id="0295" size="1" default="00" visibleif="(REGBITS(0x02C0, 4, 3) is 3) or (REGBITS(0x02C0, 4, 3) is 4)">
+				<title>Options for UDP listener</title>
+				<field type="hidden" id="reg0295_u4kds4n_hycivfd" name="rfu0" bitmap="FC" value="00" />
+				<field type="radios" id="reg0295_u4kds4n_mdwlall" title="Check remote port" name="Check remote port" bitmap="02" visibleif="(REGBITS(0x02C0, 4, 3) is 3) or (REGBITS(0x02C0, 4, 3) is 4)">
+					<option value="0" title="Don&apos;t care of remote port" visibleif="(REGBITS(0x02C0, 4, 3) is 3) or (REGBITS(0x02C0, 4, 3) is 4)"/>
+					<option value="1" title="Discard frames coming from the wrong port" visibleif="(REGBITS(0x02C0, 4, 3) is 3) or (REGBITS(0x02C0, 4, 3) is 4)"/>
+				</field>
+				<field type="radios" id="reg0295_u4kds4n_ooba6wy" title="Check remote address" name="Check remote address" bitmap="01" visibleif="(REGBITS(0x02C0, 4, 3) is 3) or (REGBITS(0x02C0, 4, 3) is 4)">
+					<option value="0" title="Don&apos;t care of remote address" visibleif="(REGBITS(0x02C0, 4, 3) is 3) or (REGBITS(0x02C0, 4, 3) is 4)"/>
+					<option value="1" title="Accept commands only from the specified remote address" visibleif="(REGBITS(0x02C0, 4, 3) is 3) or (REGBITS(0x02C0, 4, 3) is 4)"/>
+				</field>
+			</register>
+		</node>
 		<!-- Ignoring WiFi settings (no network&wifi) -->
-		<!-- Ignoring Serial (no serial) -->
+		<node title="Configuration of the serial interface">
+			<register id="029C" size="2" default="0103">
+				<title>Legacy options</title>
+				<field type="hidden" id="reg029c_t2pgapn" name="rfu0" bitmap="FE00" value="00" />
+				<field type="radios" id="reg029c_jv4bm2d" title="Control whether Legacy communication drives the UI automatically" name="Auto UI" bitmap="0100">
+					<option value="0" title="No automatic UI control, UI shall be controlled explicitly by the host"/>
+					<option value="1" title="Automatic UI control, the product signals the host actions on its LEDs"/>
+				</field>
+				<field type="number-h" id="reg029c_gpg5rzd" title="Number of seconds after which the RF field is switched OFF and the host is reported has missing" name="Idle timeout" bitmap="00FF" remark="Set to 00 to disable this feature (warning: the RF field may remain ON forever if the host does not switch it OFF itself)" />
+			</register>
+		</node>
 		<node title="Configuration for PC/SC (CCID) operation" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 			<register id="02B0" size="1" default="00" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 				<title>Which PC/SC slots are announced to the computer</title>

@@ -46,12 +46,6 @@
 			implements="usb,ccid,rdr,micore,7816,7816_id1,7816_sam_x4,samav,atecc"
 			individuals="0201,0202,0209,020A"
 			/>
-		<device title="SpringPark"
-			firmware="springcore/e518/springpark"
-			hardware="EAN19217"
-			implements="usb,serial,network,ccid,rdr,micore,7816,7816_id1,7816_sam_x4,samav,atecc,vegas"
-			individuals="0201,0202,0209,020A,0280,0281,02FE,02FF"
-			/>
 		<device title="Puck Base"
 			firmware="springcore/h518/puck"
 			hardware="FPF18175"
@@ -81,6 +75,18 @@
 			hardware="FPF18170"
 			implements="usb,ble,ccid,rdr,micore,7816,7816_sam,samav,atecc,vegas,battery"
 			individuals="0201,0202,0209,020A,0244"
+			/>
+		<device title="SpringPark-AC"
+			firmware="springcore/e518/springpark"
+			hardware="EAN19217"
+			implements="usb,serial,network,ccid,rdr,micore,7816,7816_id1,7816_sam_x4,samav,atecc,vegas"
+			individuals="0201,0202,0209,020A,0280,0281,02FE,02FF"
+			/>
+		<device title="SpringPark-SD"
+			firmware="springcore/e518/springpark"
+			hardware="TBD"
+			implements="usb,serial,network,ccid,rdr,micore,7816,7816_id1,7816_sam_x4,samav,atecc,vegas"
+			individuals="0201,0202,0209,020A,0280,0281,02FE,02FF"
 			/>
 	</devices>
 	<tree>
