@@ -5,7 +5,7 @@
 	firmware="springcore/h518/puck"
 	implements="usb,ble,ccid,rdr,micore,7816,samav,atecc,vegas"
 	hardware="FPF18176"
-	icon="product-puck+variant-blue"
+	icon="product-puck-blue"
 	version="1.23"
 	author="JDA"
 	templatesnfc="true"

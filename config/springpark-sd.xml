@@ -5,7 +5,7 @@
 	firmware="springcore/e518/springpark"
 	implements="usb,serial,network,ccid,rdr,micore,7816,7816_id1,7816_sam_x4,samav,atecc,vegas"
 	hardware="TBD"
-	icon="product-springpark+variant-sd"
+	icon="product-springpark-sd"
 	version="1.23"
 	author="JDA"
 	templatesnfc="true"
