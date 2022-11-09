@@ -48,6 +48,7 @@ Since the root node describes a device, its content is closely related to the DE
 | `firmware`     | Unique identifier of the firmware                            | `Firmware`                                               |
 | `implements`   | Features that the device has; see below                      | Closely related to `Characteristics`, but not equivalent |
 | `hardware`     | Unique identifier of the hardware                            | `Hardware`                                               |
+| `icon`         | Product's icon                                               |                                                          |
 | `version`      | Version of the firmware when the XML file has been generated | `Version`                                                |
 | `author`       | Person who has approved the configuration                    | *None*                                                   |
 | `templatesnfc` | Is the device a NFC SmartReader?                             |                                                          |
@@ -101,6 +102,7 @@ The features are:
 	firmware="springcore/h518/puck"
 	implements="usb,ble,ccid,rdr,micore,7816,7816_sam,samav,atecc,vegas,battery"
 	hardware="FPF18170"
+	icon="product-puck"
 	version="1.23"
 	author="JDA"
 	templatesnfc="true"
@@ -109,6 +111,32 @@ The features are:
     <tree>
         (...)
 ```
+
+## `modes` and `mode` XML structure
+
+Under the XML root node, an <u>optional</u> `<modes>` node contains a collection of `<mode>`.
+
+The goal is to (possibly) personalize the product's icon based on the operating mode.
+
+### Attributes for the `mode` XML node
+
+| Name    | Description                                                  |
+| ------- | ------------------------------------------------------------ |
+| `value` | Value of the mode (matching the `Mode` field in Companion's DEVICE object) |
+| `icon`  | Badge to add on top of the product's icon if the product is currently operating in this mode |
+
+## `channels` and `channel` XML structure
+
+Under the XML root node, an <u>optional</u> `<channels>` node contains a collection of `<channel>`.
+
+The goal is to (possibly) personalize the product's icon based on the communication channel.
+
+### Attributes for the `channel` XML node
+
+| Name    | Description                                                  |
+| ------- | ------------------------------------------------------------ |
+| `value` | Value of the channel (matching the `Channel` field in Companion's DEVICE object) |
+| `icon`  | Badge to add on top of the product's icon if the product is currently using this channel |
 
 ## `tree` and `node` XML structure
 
