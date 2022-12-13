@@ -610,21 +610,32 @@ Configure the contactless interface to comply with various standards.
 					<option value="4" title="NFC_FORUM"/>
 				</field>
 			</register>
+			<register id="0239" size="20" default="6A01000002" dynamic="true">
+				<title>VASUP frame for Enhanced Contactless Polling (Apple VAS)</title>
+				<remark>
+This is the complete VASUP-A and VASUP-B frames, including the start byte (6A) and the version byte (02 for v2) but without the CRC_A/CRC_B. Default is the basic ECP version 1 frame.
+				</remark>
+				<field type="raw" id="reg0239" minlength="0" maxlength="20" title="VASUP frame for Enhanced Contactless Polling (Apple VAS)" dynamic="true"/>
+			</register>
 			<register id="023A" size="1" default="00">
 				<title>NFC-A specific options</title>
 				<field type="hidden" id="reg023a_m6awtjl" name="rfu0" bitmap="80" value="0" />
 				<field type="checkbox" id="reg023a_op23zml" title="NFC Forum polling: bail-out after NFC-A response" name="Bail-out" bitmap="40" />
 				<field type="hidden" id="reg023a_bgs5ckd" name="rfu0" bitmap="3E" value="00" />
-				<field type="radios" id="reg023a_ooba6wy" title="Control whether NFC-A uses Apple VAS Enhanced Contactless Polling" name="Apple VAS ECP" bitmap="01">
-					<option value="0" title="Apple VAS ECP is disabled"/>
-					<option value="1" title="Apple VAS ECP is enabled"/>
+				<field type="radios" id="reg023a_ooba6wy" title="Control whether NFC-A polling loop implements Apple VAS Enhanced Contactless Polling" name="Apple VAS ECP" bitmap="01">
+					<option value="0" title="ECP is disabled"/>
+					<option value="1" title="ECP is enabled"/>
 				</field>
 			</register>
 			<register id="023B" size="2" default="0000">
 				<title>NFC-B specific options</title>
 				<field type="hidden" id="reg023b_2kglign" name="rfu0" bitmap="8000" value="0" />
 				<field type="checkbox" id="reg023b_7wdxe6d" title="NFC Forum polling: bail-out after NFC-B response" name="Bail-out" bitmap="4000" />
-				<field type="hidden" id="reg023b_nnfnpnd" name="rfu0" bitmap="3E00" value="00" />
+				<field type="hidden" id="reg023b_wliw7nn" name="rfu0" bitmap="3C00" value="0" />
+				<field type="radios" id="reg023b_f2uun5l" title="Control whether NFC-B polling loop implements Apple VAS Enhanced Contactless Polling" name="Apple VAS ECP" bitmap="0200" remark="Only ECP v2 is supported with NFC-B. Register 0239 shall be set accordingly.">
+					<option value="0" title="ECP is disabled"/>
+					<option value="1" title="ECP is enabled"/>
+				</field>
 				<field type="radios" id="reg023b_jv4bm2d" title="Control whether NFC-B uses extended ATQB or not" name="Extended ATQB" bitmap="0100">
 					<option value="0" title="Short ATQB requested in REQB/WUPB"/>
 					<option value="1" title="Extended ATQB requested in REQB/WUPB"/>

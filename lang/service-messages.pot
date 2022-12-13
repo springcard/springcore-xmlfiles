@@ -1,0 +1,252 @@
+# LANGUAGE translation of Companion Service's Messages
+# Copyright 2022 Springcard <contact@springcard.com>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: SpringCard Companion Service Messages\n"
+"POT-Creation-Date: 2022-12-13 16:40+0100\n"
+"PO-Revision-Date: 2017-11-23T16:19:46\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n>1);\n"
+"X-Generator: Poedit 3.2\n"
+"X-Poedit-Basepath: ../SpringCardCompanionServiceCore\n"
+"X-Poedit-KeywordsList: ;T._\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: Device/DeviceObjectConfig.cs:25
+msgid "No error"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:28
+msgid "Device rejected our data"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:30
+msgid "Device rejected our parameters"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:32
+msgid "Device rejected our length"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:34
+msgid "Device rejected our INStruction"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:36
+msgid "Device authentication error"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:38
+msgid "Device reported a protocol violation"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:40
+msgid "Device reported a buffer overflow"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:42
+msgid "Device reported an internal error"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:44
+msgid "Device rejected our CLAss"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:46
+msgid "Device is busy"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:48
+msgid "Operation cancelled on device"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:50
+msgid "Device access denied"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:52
+msgid "Device reported an execution error"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:55
+msgid "Protocol violation - Unexpected time extension"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:57
+msgid "Protocol violation - Unexpected chaining"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:73
+msgid "The communication channel is closed"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:75
+msgid "A communication error as occurred"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:77
+msgid "Protocol violation - Device error"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:79
+msgid "Protocol violation - Response truncated"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:81
+msgid "Protocol violation - Response empty"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:83
+msgid "Protocol violation - Response is invalid"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:85
+msgid "Internal error - Function not implemented"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:153
+msgid "Only registers 0200 to 03FF can be written"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:172
+msgid "Non-invididual registers can't be written using this method"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:181
+msgid "Keys and certificates can't be written using this method"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:207
+msgid "Factory configuration not set"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:207 Device/DeviceObjectConfig.cs:213
+#: Device/DeviceObjectConfig.cs:259
+msgid "Device has not been manufactured correctly"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:213
+msgid "Fuse register is empty"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:251
+msgid "Failed to erase a register"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:259
+msgid "Out-of-factory configuration not set"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:350
+msgid "Only SAM symmetric key enties 00 to 7F can be written"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:357
+msgid "Failed to write a SAM AV symmetric key entry"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:380
+msgid "Only SAM RSA key entries 00 to 02 can be written"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:387
+msgid "Failed to write a SAM AV RSA key entry"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:410
+msgid "Only ATECC key entries 00 to 0D can be written"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:417
+msgid "Failed to write a ATECC key entry"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:440
+msgid "Failed to write a PKI certificate"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:482
+msgid "Failed to write a register"
+msgstr ""
+
+#: Device/DeviceObjectConfig.cs:567
+msgid "JSON object is invalid"
+msgstr ""
+
+#: LookupSetup/LookupCore.cs:121 LookupSetup/LookupCore.cs:127
+#: LookupSetup/LookupCore.cs:167 LookupSetup/LookupCore.cs:203
+#: LookupSetup/LookupCore.cs:209 LookupSetup/SetupNetwork.cs:200
+#: LookupSetup/SetupNetwork.cs:206
+msgid "Invalid Parameter"
+msgstr ""
+
+#: LookupSetup/LookupCore.cs:137
+msgid "Support of network devices is disabled by configuration"
+msgstr ""
+
+#: LookupSetup/LookupCore.cs:145
+msgid "Support of serial devices is disabled by configuration"
+msgstr ""
+
+#: LookupSetup/LookupCore.cs:153
+msgid "Support of BLE devices is disabled by configuration"
+msgstr ""
+
+#: LookupSetup/LookupCore.cs:156
+msgid "Not Yet Implemented"
+msgstr ""
+
+#: LookupSetup/LookupCore.cs:161
+msgid "Support of virtual devices is disabled by configuration"
+msgstr ""
+
+#: LookupSetup/LookupCore.cs:182
+msgid "Internal Error"
+msgstr ""
+
+#: LookupSetup/LookupCore.cs:215
+msgid "Wrong Channel"
+msgstr ""
+
+#: LookupSetup/SetupNetwork.cs:163
+msgid "NDDU Port Already In Use"
+msgstr ""
+
+#: LookupSetup/SetupNetwork.cs:214
+msgid "Invalid Address"
+msgstr ""
+
+#: LookupSetup/SetupNetwork.cs:219
+msgid "Invalid Mask"
+msgstr ""
+
+#: LookupSetup/SetupNetwork.cs:224
+msgid "Invalid Gateway"
+msgstr ""
+
+#: Rest/CompanionRestController.cs:840
+msgid "Already Running"
+msgstr ""
+
+#: Rest/CompanionRestController.cs:870
+msgid "Not Active"
+msgstr ""
+
+#: Rest/CompanionRestController.cs:905
+msgid "Lookup is Running"
+msgstr ""
+
+#: Rest/CompanionRestController.cs:909
+msgid "Setup is Running"
+msgstr ""
+
+#: Rest/CompanionRestController.cs:913
+msgid "Lookup or Setup is Running"
+msgstr ""

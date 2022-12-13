@@ -1,0 +1,264 @@
+# LANGUAGE translation of Companion Service's Messages
+# Copyright 2022 Springcard <contact@springcard.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SpringCard Companion Service Messages\n"
+"POT-Creation-Date: 2022-12-13 16:40+0100\n"
+"PO-Revision-Date: 2022-12-13 16:42+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.2\n"
+"X-Poedit-Basepath: ../SpringCardCompanionServiceCore\n"
+"X-Poedit-KeywordsList: T._\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: Device/DeviceObjectConfig.cs:25
+msgid "No error"
+msgstr "Pas d'erreur"
+
+#: Device/DeviceObjectConfig.cs:28
+msgid "Device rejected our data"
+msgstr "Le périphérique a refusé ces données"
+
+#: Device/DeviceObjectConfig.cs:30
+msgid "Device rejected our parameters"
+msgstr "Le périphérique a refusé ces paramètres"
+
+#: Device/DeviceObjectConfig.cs:32
+msgid "Device rejected our length"
+msgstr "Le périphérique a refusé cette longueur"
+
+#: Device/DeviceObjectConfig.cs:34
+msgid "Device rejected our INStruction"
+msgstr "Le périphérique a refusé cette INStruction"
+
+#: Device/DeviceObjectConfig.cs:36
+msgid "Device authentication error"
+msgstr "Erreur d'authentication avec le périphérique"
+
+#: Device/DeviceObjectConfig.cs:38
+msgid "Device reported a protocol violation"
+msgstr "Le périphérique a signalé une erreur de protocole"
+
+#: Device/DeviceObjectConfig.cs:40
+msgid "Device reported a buffer overflow"
+msgstr "Le périphérique a signalé un débordement de capacité"
+
+#: Device/DeviceObjectConfig.cs:42
+msgid "Device reported an internal error"
+msgstr "Le périphérique a signalé une erreur interne"
+
+#: Device/DeviceObjectConfig.cs:44
+msgid "Device rejected our CLAss"
+msgstr "Le périphérique a refusé cette CLAsse"
+
+#: Device/DeviceObjectConfig.cs:46
+msgid "Device is busy"
+msgstr "Le périphérique est occupé"
+
+#: Device/DeviceObjectConfig.cs:48
+msgid "Operation cancelled on device"
+msgstr "L'opération a été annulée sur le périphérique"
+
+#: Device/DeviceObjectConfig.cs:50
+msgid "Device access denied"
+msgstr "L'accès au périphérique est refusé"
+
+#: Device/DeviceObjectConfig.cs:52
+msgid "Device reported an execution error"
+msgstr "Le périphérique a signalé une erreur d'exécution"
+
+#: Device/DeviceObjectConfig.cs:55
+msgid "Protocol violation - Unexpected time extension"
+msgstr "Violation de protocole - Extension de temps inattendue"
+
+#: Device/DeviceObjectConfig.cs:57
+msgid "Protocol violation - Unexpected chaining"
+msgstr "Violation de protocole - Chaînage inattendu"
+
+#: Device/DeviceObjectConfig.cs:73
+msgid "The communication channel is closed"
+msgstr "Le canal de communication est fermé"
+
+#: Device/DeviceObjectConfig.cs:75
+msgid "A communication error as occurred"
+msgstr "Une erreur de communication est survenue"
+
+#: Device/DeviceObjectConfig.cs:77
+msgid "Protocol violation - Device error"
+msgstr "Violation de protocole - Erreur du périphérique"
+
+#: Device/DeviceObjectConfig.cs:79
+msgid "Protocol violation - Response truncated"
+msgstr "Violation de protocole - La réponse a été tronquée"
+
+#: Device/DeviceObjectConfig.cs:81
+msgid "Protocol violation - Response empty"
+msgstr "Violation de protocole - La réponse est vide"
+
+#: Device/DeviceObjectConfig.cs:83
+msgid "Protocol violation - Response is invalid"
+msgstr "Violation du protocole - La réponse n'est pas valide"
+
+#: Device/DeviceObjectConfig.cs:85
+msgid "Internal error - Function not implemented"
+msgstr "Erreur interne - Fonction non implémentée"
+
+#: Device/DeviceObjectConfig.cs:153
+msgid "Only registers 0200 to 03FF can be written"
+msgstr "Seuls les registres 0200 à 03FF peuvent être écrits"
+
+#: Device/DeviceObjectConfig.cs:172
+msgid "Non-invididual registers can't be written using this method"
+msgstr ""
+"Les registres non-inviduels ne peuvent pas être écrits en utilisant cette "
+"méthode"
+
+#: Device/DeviceObjectConfig.cs:181
+msgid "Keys and certificates can't be written using this method"
+msgstr ""
+"Les clés et les certificats ne peuvent pas être écrits en utilisant cette "
+"méthode"
+
+#: Device/DeviceObjectConfig.cs:207
+msgid "Factory configuration not set"
+msgstr "Configuration d'usine non définie"
+
+#: Device/DeviceObjectConfig.cs:207 Device/DeviceObjectConfig.cs:213
+#: Device/DeviceObjectConfig.cs:259
+msgid "Device has not been manufactured correctly"
+msgstr "Le produit n'a pas été initialisé correctement"
+
+#: Device/DeviceObjectConfig.cs:213
+msgid "Fuse register is empty"
+msgstr "Le registre des fusibles est vide"
+
+#: Device/DeviceObjectConfig.cs:251
+msgid "Failed to erase a register"
+msgstr "Échec de l'effacement d'un registre"
+
+#: Device/DeviceObjectConfig.cs:259
+msgid "Out-of-factory configuration not set"
+msgstr "La configuration d'usine n'a pas été définie"
+
+#: Device/DeviceObjectConfig.cs:350
+msgid "Only SAM symmetric key enties 00 to 7F can be written"
+msgstr ""
+"Seules les entrées de clés symétriques 00 à 7F peuvent être écrites dans le "
+"SAM"
+
+#: Device/DeviceObjectConfig.cs:357
+msgid "Failed to write a SAM AV symmetric key entry"
+msgstr "Échec de l'écriture d'une entrée de clé symétrique SAM AV"
+
+#: Device/DeviceObjectConfig.cs:380
+msgid "Only SAM RSA key entries 00 to 02 can be written"
+msgstr ""
+"Seules les entrées de clés RSA 00 à 02 peuvent être écrites dans le SAM"
+
+#: Device/DeviceObjectConfig.cs:387
+msgid "Failed to write a SAM AV RSA key entry"
+msgstr "Échec de l'écriture d'une entrée de clé SAM AV RSA"
+
+#: Device/DeviceObjectConfig.cs:410
+msgid "Only ATECC key entries 00 to 0D can be written"
+msgstr "Seules les entrées de clés 00 à 0D peuvent être écrites dans l'ATECC"
+
+#: Device/DeviceObjectConfig.cs:417
+msgid "Failed to write a ATECC key entry"
+msgstr "Échec de l'écriture d'une entrée de clé ATECC"
+
+#: Device/DeviceObjectConfig.cs:440
+msgid "Failed to write a PKI certificate"
+msgstr "Échec de l'écriture d'un certificat PKI"
+
+#: Device/DeviceObjectConfig.cs:482
+msgid "Failed to write a register"
+msgstr "Échec de l'écriture d'un registre"
+
+#: Device/DeviceObjectConfig.cs:567
+msgid "JSON object is invalid"
+msgstr "Un objet JSON invalide a été reçu"
+
+#: LookupSetup/LookupCore.cs:121 LookupSetup/LookupCore.cs:127
+#: LookupSetup/LookupCore.cs:167 LookupSetup/LookupCore.cs:203
+#: LookupSetup/LookupCore.cs:209 LookupSetup/SetupNetwork.cs:200
+#: LookupSetup/SetupNetwork.cs:206
+msgid "Invalid Parameter"
+msgstr "Paramètre incorrect"
+
+#: LookupSetup/LookupCore.cs:137
+msgid "Support of network devices is disabled by configuration"
+msgstr ""
+"La prise en charge des périphériques réseau est désactivée par configuration"
+
+#: LookupSetup/LookupCore.cs:145
+msgid "Support of serial devices is disabled by configuration"
+msgstr ""
+"La prise en charge des périphériques série est désactivée par la "
+"configuration"
+
+#: LookupSetup/LookupCore.cs:153
+msgid "Support of BLE devices is disabled by configuration"
+msgstr ""
+"La prise en charge des dispositifs BLE est désactivée par configuration"
+
+#: LookupSetup/LookupCore.cs:156
+msgid "Not Yet Implemented"
+msgstr "Pas encore implémenté"
+
+#: LookupSetup/LookupCore.cs:161
+msgid "Support of virtual devices is disabled by configuration"
+msgstr ""
+"La prise en charge des dispositifs virtuels est désactivée par la "
+"configuration"
+
+#: LookupSetup/LookupCore.cs:182
+msgid "Internal Error"
+msgstr "Erreur interne"
+
+#: LookupSetup/LookupCore.cs:215
+msgid "Wrong Channel"
+msgstr "Canal incorrect"
+
+#: LookupSetup/SetupNetwork.cs:163
+msgid "NDDU Port Already In Use"
+msgstr "Le port de NDDU est déjà utilisé par un autre programme"
+
+#: LookupSetup/SetupNetwork.cs:214
+msgid "Invalid Address"
+msgstr "Adresse incorrecte"
+
+#: LookupSetup/SetupNetwork.cs:219
+msgid "Invalid Mask"
+msgstr "Masque incorrect"
+
+#: LookupSetup/SetupNetwork.cs:224
+msgid "Invalid Gateway"
+msgstr "Passerelle incorrecte"
+
+#: Rest/CompanionRestController.cs:840
+msgid "Already Running"
+msgstr "Déjà en cours d'exécution"
+
+#: Rest/CompanionRestController.cs:870
+msgid "Not Active"
+msgstr "Pas actif"
+
+#: Rest/CompanionRestController.cs:905
+msgid "Lookup is Running"
+msgstr "La tâche de recherche est déjà en cours"
+
+#: Rest/CompanionRestController.cs:909
+msgid "Setup is Running"
+msgstr "La tâche d'installation en cours"
+
+#: Rest/CompanionRestController.cs:913
+msgid "Lookup or Setup is Running"
+msgstr "La tâche de recherche ou d'installation est déjà en cours"
