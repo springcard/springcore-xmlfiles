@@ -40,15 +40,7 @@
       </trans-unit>
       
       
-      <trans-unit id="6259514782404019381" datatype="html">
-        <source>Associated</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">81</context>
-        </context-group>
-        <note priority="1" from="description">_UI_</note>
-        <target>Associés</target>
-      </trans-unit>
+      
       
       
       
@@ -61,15 +53,7 @@
         <note priority="1" from="description">_UI_</note>
         <target>Importer</target>
       </trans-unit>
-      <trans-unit id="4616223000803151716" datatype="html">
-        <source>Go on the site</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">109</context>
-        </context-group>
-        <note priority="1" from="description">_UI_</note>
-        <target>Aller sur le site</target>
-      </trans-unit>
+      
       <trans-unit id="6090931838305354672" datatype="html">
         <source>Privacy policy</source>
         <context-group purpose="location">
@@ -207,114 +191,8 @@
         </context-group>
         <target>Valeur</target>
       </trans-unit>
-      <trans-unit id="9043007645932969969" datatype="html">
-        <source>Error during a network request</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/about/about-home/about-home.component.ts</context>
-          <context context-type="linenumber">41</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/configuredevice/configuredevice.component.ts</context>
-          <context context-type="linenumber">121</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/device/device.component.ts</context>
-          <context context-type="linenumber">307</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/device/device.component.ts</context>
-          <context context-type="linenumber">592</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.ts</context>
-          <context context-type="linenumber">116</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.ts</context>
-          <context context-type="linenumber">171</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.ts</context>
-          <context context-type="linenumber">202</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.ts</context>
-          <context context-type="linenumber">229</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.ts</context>
-          <context context-type="linenumber">256</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.ts</context>
-          <context context-type="linenumber">309</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.ts</context>
-          <context context-type="linenumber">335</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/savewrite/savewrite.component.ts</context>
-          <context context-type="linenumber">387</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/savewrite/savewrite.component.ts</context>
-          <context context-type="linenumber">451</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/savewrite/savewrite.component.ts</context>
-          <context context-type="linenumber">527</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/templates/templates.component.ts</context>
-          <context context-type="linenumber">148</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/core/device-informations/device-informations.component.ts</context>
-          <context context-type="linenumber">102</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/detection/home-detection/home-detection.component.ts</context>
-          <context context-type="linenumber">151</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/flash/home-flash/home-flash.component.ts</context>
-          <context context-type="linenumber">195</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/flash/home-flash/home-flash.component.ts</context>
-          <context context-type="linenumber">306</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/scriptor/scriptor/scriptor.component.ts</context>
-          <context context-type="linenumber">520</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/scriptor/scriptor/scriptor.component.ts</context>
-          <context context-type="linenumber">571</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/scriptor/scriptor/scriptor.component.ts</context>
-          <context context-type="linenumber">706</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/system-information/system-information-home/system-information-home.component.ts</context>
-          <context context-type="linenumber">41</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/user/support/support.component.ts</context>
-          <context context-type="linenumber">80</context>
-        </context-group>
-        <target>Erreur durant une requête réseau</target>
-      </trans-unit>
-      <trans-unit id="150645400610868849" datatype="html">
-        <source>There was an error while asking for service information</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/about/about-home/about-home.component.ts</context>
-          <context context-type="linenumber">42</context>
-        </context-group>
-        <target>Une erreur s'est produite lors de la demande d'informations sur le service</target>
-      </trans-unit>
+      
+      
 
       <trans-unit id="8663109612515467486" datatype="html">
         <source>List of protocols (or family of cards) to poll *</source>
@@ -14267,14 +14145,7 @@
         </context-group>
         <target>Vos configurations</target>
       </trans-unit>
-      <trans-unit id="4163272119298020373" datatype="html">
-        <source>Filters</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.html</context>
-          <context context-type="linenumber">6</context>
-        </context-group>
-        <target>Filtres</target>
-      </trans-unit>
+      
       <trans-unit id="6028508186058635993" datatype="html">
         <source>Filter by product</source>
         <context-group purpose="location">
@@ -14299,30 +14170,9 @@
         </context-group>
         <target>Ne choisir que :</target>
       </trans-unit>
-      <trans-unit id="4085930761302974863" datatype="html">
-        <source>Favorites</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.html</context>
-          <context context-type="linenumber">27</context>
-        </context-group>
-        <target>Favoris</target>
-      </trans-unit>
-      <trans-unit id="7549703039782147365" datatype="html">
-        <source>Not favorite</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.html</context>
-          <context context-type="linenumber">28</context>
-        </context-group>
-        <target>Non favoris</target>
-      </trans-unit>
-      <trans-unit id="1616102757855967475" datatype="html">
-        <source>All</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.html</context>
-          <context context-type="linenumber">29</context>
-        </context-group>
-        <target>Tous</target>
-      </trans-unit>
+      
+      
+      
       
       <trans-unit id="5876310061207144989" datatype="html">
         <source>You don't have any configuration for this moment.</source>
@@ -17437,16 +17287,16 @@
         </context-group>
       </trans-unit>
       <trans-unit id="validation.message.hexadecimalValue" datatype="html">
-        <source>Your hexadecimal value is invalid</source>
-        <target>Votre valeur hexadécimale n'est pas valide</target>
+        <source>Provide a valid hexadecimal value</source>
+        <target>Indiquez une valeur hexadécimale valide</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
           <context context-type="linenumber">199</context>
         </context-group>
       </trans-unit>
       <trans-unit id="validation.message.ipValue" datatype="html">
-        <source>Your IPv4 address is invalid</source>
-        <target>Votre adresse IPv4 n'est pas valide</target>
+        <source>Provide a valid IPv4 address</source>
+        <target>Fournissez une adresse IPv4 valide</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
           <context context-type="linenumber">203</context>
@@ -32726,13 +32576,7 @@ The services rely on a general-purpose cardlet, loaded into a NFC-enabled smartp
           <context context-type="linenumber">74</context>
         </context-group>
         <note priority="1" from="description">_UI_</note>
-      <target>Faire en sorte</target></trans-unit><trans-unit id="4767331611242151595" datatype="html">
-        <source>Update service</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">187</context>
-        </context-group>
-      <target>Service de mise à jour</target></trans-unit><trans-unit id="3099741642167775297" datatype="html">
+      <target>Faire en sorte</target></trans-unit><trans-unit id="3099741642167775297" datatype="html">
         <source>Download</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/user/download/download.component.ts</context>
@@ -32750,13 +32594,7 @@ The services rely on a general-purpose cardlet, loaded into a NFC-enabled smartp
           <context context-type="sourcefile">src/app/modules/accounts/accounts/accounts.component.html</context>
           <context context-type="linenumber">10</context>
         </context-group>
-      <target>Personnalisez votre expérience avec SpringCard Companion et avec les appareils SpringCard.</target></trans-unit><trans-unit id="8423442798190332777" datatype="html">
-        <source>Manage your profile, change your password, associate your account to a SpringCard customer number.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/accounts/accounts/accounts.component.html</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-      <target>Gérez votre profil, modifiez votre mot de passe, associez votre compte à un numéro de client SpringCard.</target></trans-unit><trans-unit id="1886201805991822462" datatype="html">
+      <target>Personnalisez votre expérience avec SpringCard Companion et avec les appareils SpringCard.</target></trans-unit><trans-unit id="1886201805991822462" datatype="html">
         <source>Manage Team</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/accounts/accounts/accounts.component.html</context>
@@ -33410,13 +33248,7 @@ The services rely on a general-purpose cardlet, loaded into a NFC-enabled smartp
           <context context-type="sourcefile">src/app/modules/user/teammanage/teammanage.component.html</context>
           <context context-type="linenumber">31</context>
         </context-group>
-      <target>Adresse e-mail</target></trans-unit><trans-unit id="1230154438678955604" datatype="html">
-        <source>Change</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/user/teammanage/teammanage.component.html</context>
-          <context context-type="linenumber">77,78</context>
-        </context-group>
-      <target>Changer</target></trans-unit><trans-unit id="4814285799071780083" datatype="html">
+      <target>Adresse e-mail</target></trans-unit><trans-unit id="4814285799071780083" datatype="html">
         <source>Remove</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/user/teammanage/teammanage.component.html</context>
@@ -33470,6 +33302,355 @@ The services rely on a general-purpose cardlet, loaded into a NFC-enabled smartp
           <context context-type="sourcefile">src/app/modules/user/teammanage/teammanage.component.ts</context>
           <context context-type="linenumber">182</context>
         </context-group>
-      <target>Erreur lors de l'envoi de l'invitation.</target></trans-unit></body>
+      <target>Erreur lors de l'envoi de l'invitation.</target></trans-unit><trans-unit id="5605123772636494177" datatype="html">
+        <source>Plan</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/accountsettings/accountsettings.component.html</context>
+          <context context-type="linenumber">108</context>
+        </context-group>
+      <target>le plan</target></trans-unit><trans-unit id="3020945452788089903" datatype="html">
+        <source>Active until</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/accountsettings/accountsettings.component.html</context>
+          <context context-type="linenumber">112</context>
+        </context-group>
+      <target>Actif jusqu'à</target></trans-unit><trans-unit id="1846542227840529109" datatype="html">
+        <source>Current Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/accountsettings/changepassword-dialog.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      <target>Mot de passe actuel</target></trans-unit><trans-unit id="5635716798819067593" datatype="html">
+        <source>New Password (8 chars min)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/accountsettings/changepassword-dialog.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      <target>Nouveau mot de passe (8 caractères minimum)</target></trans-unit><trans-unit id="911145468998987410" datatype="html">
+        <source>Confirm New Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/accountsettings/changepassword-dialog.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      <target>Confirmer le nouveau mot de passe</target></trans-unit><trans-unit id="922430677868750289" datatype="html">
+        <source>Set new Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/accountsettings/changepassword-dialog.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      <target>Definir un nouveau mot de passe</target></trans-unit><trans-unit id="3388326130942494952" datatype="html">
+        <source>print</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/userhistory/userhistory.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      <target>print</target></trans-unit><trans-unit id="2681489278090545657" datatype="html">
+        <source>  Export to CSV</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/userhistory/userhistory.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      <target>  Exporter vers CSV</target></trans-unit><trans-unit id="2550642803253375332" datatype="html">
+        <source>Date / Time</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/userhistory/userhistory.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      <target>Date / Heure</target></trans-unit><trans-unit id="7292902857194439444" datatype="html">
+        <source>Device</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/userhistory/userhistory.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      <target>Dispositif</target></trans-unit><trans-unit id="9216117865911519658" datatype="html">
+        <source>Action</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/userhistory/userhistory.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      <target>Action</target></trans-unit><trans-unit id="4331081690408419153" datatype="html">
+        <source>There was an error while asking for the list of history:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/userhistory/userhistory.component.ts</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+      <target>Une erreur s'est produite lors de la demande de la liste de l'historique :</target></trans-unit><trans-unit id="81674913803663064" datatype="html">
+        <source>Configuration imported with success</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.ts</context>
+          <context context-type="linenumber">226</context>
+        </context-group>
+      <target>Configuration importée avec succès</target></trans-unit><trans-unit id="735497059059991887" datatype="html">
+        <source>There was an error while importing your configuration:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.ts</context>
+          <context context-type="linenumber">236</context>
+        </context-group>
+      <target>Une erreur s'est produite lors de l'importation de votre configuration :</target></trans-unit><trans-unit id="7213500303054935193" datatype="html">
+        <source>User Device Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/individuals/individuals.component.html</context>
+          <context context-type="linenumber">196,197</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/individuals/individuals.component.html</context>
+          <context context-type="linenumber">199</context>
+        </context-group>
+        <note priority="1" from="description">_multiconf_</note>
+      <target>Nom de l'appareil utilisateur</target></trans-unit><trans-unit id="4722766496044697761" datatype="html">
+        <source><x id="START_PARAGRAPH" ctype="x-p" equiv-text="A user-defined name to"/>A user-defined name to override the default Device Name used for BLE advertising.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/individuals/individuals.component.html</context>
+          <context context-type="linenumber">198,199</context>
+        </context-group>
+        <note priority="1" from="description">_multiconf_</note>
+      <target><x id="START_PARAGRAPH" ctype="x-p" equiv-text="A user-defined name to"/>A user-defined name to override the default Device Name used for BLE advertising.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/></target></trans-unit><trans-unit id="860492016345735416" datatype="html">
+        <source>Download as file</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.html</context>
+          <context context-type="linenumber">130</context>
+        </context-group>
+      <target>Télécharger en tant que fichier</target></trans-unit><trans-unit id="686637010314305247" datatype="html">
+        <source>Go to www.springcard.com</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">126,127</context>
+        </context-group>
+        <note priority="1" from="description">_UI_</note>
+      <target>Allez sur www.springcard.com</target></trans-unit><trans-unit id="3252439501994422846" datatype="html">
+        <source>Update Service</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">162</context>
+        </context-group>
+      <target>Service de mise à jour</target></trans-unit><trans-unit id="960101832476359322" datatype="html">
+        <source>The request has failed due to a network or back-end error</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/about/about-home/about-home.component.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/configuredevice/configuredevice.component.ts</context>
+          <context context-type="linenumber">127</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/device/device.component.ts</context>
+          <context context-type="linenumber">307</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/device/device.component.ts</context>
+          <context context-type="linenumber">576</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.ts</context>
+          <context context-type="linenumber">151</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.ts</context>
+          <context context-type="linenumber">206</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.ts</context>
+          <context context-type="linenumber">240</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.ts</context>
+          <context context-type="linenumber">269</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.ts</context>
+          <context context-type="linenumber">296</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.ts</context>
+          <context context-type="linenumber">323</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.ts</context>
+          <context context-type="linenumber">376</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.ts</context>
+          <context context-type="linenumber">418</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.ts</context>
+          <context context-type="linenumber">444</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/individuals/individuals.component.ts</context>
+          <context context-type="linenumber">139</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/individuals/individuals.component.ts</context>
+          <context context-type="linenumber">234</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/savewrite/savewrite.component.ts</context>
+          <context context-type="linenumber">414</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/savewrite/savewrite.component.ts</context>
+          <context context-type="linenumber">478</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/savewrite/savewrite.component.ts</context>
+          <context context-type="linenumber">576</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/team-configurations/team-configurations.component.ts</context>
+          <context context-type="linenumber">89</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/team-configurations/team-configurations.component.ts</context>
+          <context context-type="linenumber">121</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/team-configurations/team-configurations.component.ts</context>
+          <context context-type="linenumber">165</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/templates/templates.component.ts</context>
+          <context context-type="linenumber">148</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/core/device-informations/device-informations.component.ts</context>
+          <context context-type="linenumber">107</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/detection/home-detection/home-detection.component.ts</context>
+          <context context-type="linenumber">116</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/detection/home-detection/home-detection.component.ts</context>
+          <context context-type="linenumber">287</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/detection/team-products/team-products.component.ts</context>
+          <context context-type="linenumber">127</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/detection/team-products/team-products.component.ts</context>
+          <context context-type="linenumber">173</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/flash/flash-history/flash-history.component.ts</context>
+          <context context-type="linenumber">125</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/flash/flash-history/flash-history.component.ts</context>
+          <context context-type="linenumber">151</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/flash/flash-history/flash-history.component.ts</context>
+          <context context-type="linenumber">183</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/flash/home-flash/home-flash.component.ts</context>
+          <context context-type="linenumber">222</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/flash/home-flash/home-flash.component.ts</context>
+          <context context-type="linenumber">342</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/paypal/cancel/cancel.component.ts</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/paypal/return/return.component.ts</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/scriptor/scriptor/scriptor.component.ts</context>
+          <context context-type="linenumber">520</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/scriptor/scriptor/scriptor.component.ts</context>
+          <context context-type="linenumber">571</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/scriptor/scriptor/scriptor.component.ts</context>
+          <context context-type="linenumber">706</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/account/account.component.ts</context>
+          <context context-type="linenumber">87</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/account/account.component.ts</context>
+          <context context-type="linenumber">144</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/account/account.component.ts</context>
+          <context context-type="linenumber">206</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/contributors/contributors.component.ts</context>
+          <context context-type="linenumber">146</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/contributors/contributors.component.ts</context>
+          <context context-type="linenumber">219</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/contributors/contributors.component.ts</context>
+          <context context-type="linenumber">257</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/pricing/pricing.component.ts</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      <target>La demande a échoué en raison d'une erreur de réseau ou de back-end</target></trans-unit><trans-unit id="7012148534406486832" datatype="html">
+        <source>Failed to communicate with the Companion Service</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/about/about-home/about-home.component.ts</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/servicedata/servicedata/servicedata.component.ts</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/servicedata/servicedata/servicedata.component.ts</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/servicedata/servicedata/servicedata.component.ts</context>
+          <context context-type="linenumber">101</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/servicedata/servicedata/servicedata.component.ts</context>
+          <context context-type="linenumber">124</context>
+        </context-group>
+      <target>Impossible de communiquer avec le service d'accompagnement</target></trans-unit><trans-unit id="6883512989401450405" datatype="html">
+        <source>Manage your profile, change your password, associate your Companion account to a SpringCard customer number.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/accountsettings/accountsettings.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/summary/summary.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      <target>Gérez votre profil, modifiez votre mot de passe, associez votre compte Companion à un numéro de client SpringCard.</target></trans-unit><trans-unit id="4085930761302974863" datatype="html">
+        <source>Favorites</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      <target>Favoris</target></trans-unit><trans-unit id="7549703039782147365" datatype="html">
+        <source>Not favorite</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      <target>Non favoris</target></trans-unit><trans-unit id="1616102757855967475" datatype="html">
+        <source>All</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      <target>Tous</target></trans-unit></body>
   </file>
 </xliff>
