@@ -11980,110 +11980,8 @@
         <note priority="1" from="description">_multiconf_</note>
         <target>Message NDEF pour le mode d'émulation de Tag NFC</target>
       </trans-unit>
-      <trans-unit id="8394251620951990139" datatype="html">
-        <source>Your configuration is valid</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/ean17115-springcore-h518-reference/ean17115-springcore-h518-reference.component.html</context>
-          <context context-type="linenumber">1612</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/ean18035-springcore-h993-crazyuhf/ean18035-springcore-h993-crazyuhf.component.html</context>
-          <context context-type="linenumber">731</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/ean18036-springcore-e993-crazyuhf/ean18036-springcore-e993-crazyuhf.component.html</context>
-          <context context-type="linenumber">1340</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/ean18090-springcore-e518-reference/ean18090-springcore-e518-reference.component.html</context>
-          <context context-type="linenumber">2261</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/ean19217-springcore-e518-springpark/ean19217-springcore-e518-springpark.component.html</context>
-          <context context-type="linenumber">2295</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/fpf18170-springcore-h518-puck/fpf18170-springcore-h518-puck.component.html</context>
-          <context context-type="linenumber">2011</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/fpf18175-springcore-h518-puck/fpf18175-springcore-h518-puck.component.html</context>
-          <context context-type="linenumber">1612</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/fpf18176-springcore-h518-puck/fpf18176-springcore-h518-puck.component.html</context>
-          <context context-type="linenumber">1921</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/fpf18177-springcore-h518-puck/fpf18177-springcore-h518-puck.component.html</context>
-          <context context-type="linenumber">1612</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/fpf18178-springcore-h518-puck/fpf18178-springcore-h518-puck.component.html</context>
-          <context context-type="linenumber">2011</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/fse18283-springcore-h518-afcare-two/fse18283-springcore-h518-afcare-two.component.html</context>
-          <context context-type="linenumber">1287</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/socket_mobile_s550-springcore-h518-s550/socket_mobile_s550-springcore-h518-s550.component.html</context>
-          <context context-type="linenumber">2011</context>
-        </context-group>
-        <target>Votre configuration est valide</target>
-      </trans-unit>
-      <trans-unit id="2780005271882576324" datatype="html">
-        <source>Your configuration is INVALID, please correct it</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/ean17115-springcore-h518-reference/ean17115-springcore-h518-reference.component.html</context>
-          <context context-type="linenumber">1621</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/ean18035-springcore-h993-crazyuhf/ean18035-springcore-h993-crazyuhf.component.html</context>
-          <context context-type="linenumber">740</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/ean18036-springcore-e993-crazyuhf/ean18036-springcore-e993-crazyuhf.component.html</context>
-          <context context-type="linenumber">1349</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/ean18090-springcore-e518-reference/ean18090-springcore-e518-reference.component.html</context>
-          <context context-type="linenumber">2270</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/ean19217-springcore-e518-springpark/ean19217-springcore-e518-springpark.component.html</context>
-          <context context-type="linenumber">2304</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/fpf18170-springcore-h518-puck/fpf18170-springcore-h518-puck.component.html</context>
-          <context context-type="linenumber">2020</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/fpf18175-springcore-h518-puck/fpf18175-springcore-h518-puck.component.html</context>
-          <context context-type="linenumber">1621</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/fpf18176-springcore-h518-puck/fpf18176-springcore-h518-puck.component.html</context>
-          <context context-type="linenumber">1930</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/fpf18177-springcore-h518-puck/fpf18177-springcore-h518-puck.component.html</context>
-          <context context-type="linenumber">1621</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/fpf18178-springcore-h518-puck/fpf18178-springcore-h518-puck.component.html</context>
-          <context context-type="linenumber">2020</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/fse18283-springcore-h518-afcare-two/fse18283-springcore-h518-afcare-two.component.html</context>
-          <context context-type="linenumber">1296</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/socket_mobile_s550-springcore-h518-s550/socket_mobile_s550-springcore-h518-s550.component.html</context>
-          <context context-type="linenumber">2020</context>
-        </context-group>
-        <target>Votre configuration est invalide, veuillez la corriger</target>
-      </trans-unit>
+      
+      
       <trans-unit id="162186511356322461" datatype="html">
         <source>Counter to lock the Admin password in case of repeated authentication failures</source>
         <context-group purpose="location">
@@ -15769,14 +15667,7 @@
         </context-group>
         <target>Depuis un fichier local</target>
       </trans-unit>
-      <trans-unit id="718249813093322951" datatype="html">
-        <source>Select file</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/flash/home-flash/home-flash.component.html</context>
-          <context context-type="linenumber">58</context>
-        </context-group>
-        <target>Sélectionner un fichier</target>
-      </trans-unit>
+      
       <trans-unit id="3885497195825665706" datatype="html">
         <source>Next</source>
         <context-group purpose="location">
@@ -15809,14 +15700,7 @@
         </context-group>
         <target>Statut : </target>
       </trans-unit>
-      <trans-unit id="65984904390749158" datatype="html">
-        <source>Finish</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/flash/home-flash/home-flash.component.html</context>
-          <context context-type="linenumber">99</context>
-        </context-group>
-        <target>Fini</target>
-      </trans-unit>
+      
       <trans-unit id="6413616369185470644" datatype="html">
         <source>Change firmware of </source>
         <context-group purpose="location">
@@ -17806,13 +17690,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/shared/services/input-dialog.html</context>
           <context context-type="linenumber">10</context>
-        </context-group>
-      </trans-unit><trans-unit id="8291252298052849703" datatype="html">
-        <source>Please wait, your configuration is being shared</source>
-        <target>Veuillez patienter, votre configuration est en cours de partage</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.html</context>
-          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit><trans-unit id="7384889854251878617" datatype="html">
         <source>With your actual plan you can't enter inventory data</source>
@@ -32545,13 +32422,7 @@ The services rely on a general-purpose cardlet, loaded into a NFC-enabled smartp
           <context context-type="sourcefile">src/app/app.component.html</context>
           <context context-type="linenumber">70</context>
         </context-group>
-      <target>Démarrer le service</target></trans-unit><trans-unit id="7345458864815229276" datatype="html">
-        <source>Download Service Installer</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">73</context>
-        </context-group>
-      <target>Télécharger le programme d'installation du service</target></trans-unit><trans-unit id="5288773936418076400" datatype="html">
+      <target>Démarrer le service</target></trans-unit><trans-unit id="5288773936418076400" datatype="html">
         <source>Loading your profile please wait...</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/user/pricing/pricing.component.html</context>
@@ -33651,6 +33522,480 @@ The services rely on a general-purpose cardlet, loaded into a NFC-enabled smartp
           <context context-type="sourcefile">src/app/modules/configure/home-configure/home-configure.component.html</context>
           <context context-type="linenumber">17</context>
         </context-group>
-      <target>Tous</target></trans-unit></body>
+      <target>Tous</target></trans-unit><trans-unit id="7485525239587156302" datatype="html">
+        <source>You are connected with Google</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/user/login/login.component.ts</context>
+          <context context-type="linenumber">248</context>
+        </context-group>
+      <target>Vous êtes connecté avec Google</target></trans-unit><trans-unit id="3268372487585709905" datatype="html">
+        <source>VASUP frame for Enhanced Contactless Polling (Apple VAS)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/-springcore-m519/-springcore-m519.component.html</context>
+          <context context-type="linenumber">762,764</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/-springcore-m519/-springcore-m519.component.html</context>
+          <context context-type="linenumber">765</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/ean17115-springcore-h518-reference/ean17115-springcore-h518-reference.component.html</context>
+          <context context-type="linenumber">730,732</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/ean17115-springcore-h518-reference/ean17115-springcore-h518-reference.component.html</context>
+          <context context-type="linenumber">733</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/ean18090-springcore-e518-reference/ean18090-springcore-e518-reference.component.html</context>
+          <context context-type="linenumber">1015,1017</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/ean18090-springcore-e518-reference/ean18090-springcore-e518-reference.component.html</context>
+          <context context-type="linenumber">1018</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18170-springcore-h518-puck/fpf18170-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">972,974</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18170-springcore-h518-puck/fpf18170-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">975</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18175-springcore-h518-puck/fpf18175-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">730,732</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18175-springcore-h518-puck/fpf18175-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">733</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18176-springcore-h518-puck/fpf18176-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">892,894</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18176-springcore-h518-puck/fpf18176-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">895</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18177-springcore-h518-puck/fpf18177-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">730,732</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18177-springcore-h518-puck/fpf18177-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">733</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18178-springcore-h518-puck/fpf18178-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">972,974</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18178-springcore-h518-puck/fpf18178-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">975</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/socket_mobile_s550-springcore-h518-s550/socket_mobile_s550-springcore-h518-s550.component.html</context>
+          <context context-type="linenumber">972,974</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/socket_mobile_s550-springcore-h518-s550/socket_mobile_s550-springcore-h518-s550.component.html</context>
+          <context context-type="linenumber">975</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/tbd-springcore-e518-springpark/tbd-springcore-e518-springpark.component.html</context>
+          <context context-type="linenumber">1015,1017</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/tbd-springcore-e518-springpark/tbd-springcore-e518-springpark.component.html</context>
+          <context context-type="linenumber">1018</context>
+        </context-group>
+        <note priority="1" from="description">_multiconf_</note>
+      <target>Cadre VASUP pour l'interrogation sans contact améliorée (Apple VAS)</target></trans-unit><trans-unit id="9102918323515870802" datatype="html">
+        <source><x id="START_PARAGRAPH" ctype="x-p" equiv-text="This is the complete V"/>This is the complete VASUP-A and VASUP-B frames, including the start byte (6A) and the version byte (02 for v2) but without the CRC_A/CRC_B. Default is the basic ECP version 1 frame.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/-springcore-m519/-springcore-m519.component.html</context>
+          <context context-type="linenumber">764,765</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/ean17115-springcore-h518-reference/ean17115-springcore-h518-reference.component.html</context>
+          <context context-type="linenumber">732,733</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/ean18090-springcore-e518-reference/ean18090-springcore-e518-reference.component.html</context>
+          <context context-type="linenumber">1017,1018</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18170-springcore-h518-puck/fpf18170-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">974,975</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18175-springcore-h518-puck/fpf18175-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">732,733</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18176-springcore-h518-puck/fpf18176-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">894,895</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18177-springcore-h518-puck/fpf18177-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">732,733</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18178-springcore-h518-puck/fpf18178-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">974,975</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/socket_mobile_s550-springcore-h518-s550/socket_mobile_s550-springcore-h518-s550.component.html</context>
+          <context context-type="linenumber">974,975</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/tbd-springcore-e518-springpark/tbd-springcore-e518-springpark.component.html</context>
+          <context context-type="linenumber">1017,1018</context>
+        </context-group>
+        <note priority="1" from="description">_multiconf_</note>
+      <target><x id="START_PARAGRAPH" ctype="x-p" equiv-text="This is the complete V"/>Il s'agit des trames VASUP-A et VASUP-B complètes, y compris l'octet de début (6A) et l'octet de version (02 pour v2) mais sans le CRC_A/CRC_B. La valeur par défaut est la trame ECP version 1 de base.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/></target></trans-unit><trans-unit id="7067505686383599976" datatype="html">
+        <source>Control whether NFC-A polling loop implements Apple VAS Enhanced Contactless Polling</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/-springcore-m519/-springcore-m519.component.html</context>
+          <context context-type="linenumber">786</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/ean17115-springcore-h518-reference/ean17115-springcore-h518-reference.component.html</context>
+          <context context-type="linenumber">754</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/ean18090-springcore-e518-reference/ean18090-springcore-e518-reference.component.html</context>
+          <context context-type="linenumber">1039</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18170-springcore-h518-puck/fpf18170-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">996</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18175-springcore-h518-puck/fpf18175-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">754</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18176-springcore-h518-puck/fpf18176-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">916</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18177-springcore-h518-puck/fpf18177-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">754</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18178-springcore-h518-puck/fpf18178-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">996</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/socket_mobile_s550-springcore-h518-s550/socket_mobile_s550-springcore-h518-s550.component.html</context>
+          <context context-type="linenumber">996</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/tbd-springcore-e518-springpark/tbd-springcore-e518-springpark.component.html</context>
+          <context context-type="linenumber">1039</context>
+        </context-group>
+        <note priority="1" from="description">_multiconf_</note>
+      <target>Contrôlez si la boucle d'interrogation NFC-A implémente l'interrogation sans contact améliorée Apple VAS</target></trans-unit><trans-unit id="9214566382456118380" datatype="html">
+        <source>ECP is disabled</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/-springcore-m519/-springcore-m519.component.html</context>
+          <context context-type="linenumber">788</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/-springcore-m519/-springcore-m519.component.html</context>
+          <context context-type="linenumber">810</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/ean17115-springcore-h518-reference/ean17115-springcore-h518-reference.component.html</context>
+          <context context-type="linenumber">756</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/ean17115-springcore-h518-reference/ean17115-springcore-h518-reference.component.html</context>
+          <context context-type="linenumber">778</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/ean18090-springcore-e518-reference/ean18090-springcore-e518-reference.component.html</context>
+          <context context-type="linenumber">1041</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/ean18090-springcore-e518-reference/ean18090-springcore-e518-reference.component.html</context>
+          <context context-type="linenumber">1063</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18170-springcore-h518-puck/fpf18170-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">998</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18170-springcore-h518-puck/fpf18170-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">1020</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18175-springcore-h518-puck/fpf18175-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">756</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18175-springcore-h518-puck/fpf18175-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">778</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18176-springcore-h518-puck/fpf18176-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">918</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18176-springcore-h518-puck/fpf18176-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">940</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18177-springcore-h518-puck/fpf18177-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">756</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18177-springcore-h518-puck/fpf18177-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">778</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18178-springcore-h518-puck/fpf18178-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">998</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18178-springcore-h518-puck/fpf18178-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">1020</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/socket_mobile_s550-springcore-h518-s550/socket_mobile_s550-springcore-h518-s550.component.html</context>
+          <context context-type="linenumber">998</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/socket_mobile_s550-springcore-h518-s550/socket_mobile_s550-springcore-h518-s550.component.html</context>
+          <context context-type="linenumber">1020</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/tbd-springcore-e518-springpark/tbd-springcore-e518-springpark.component.html</context>
+          <context context-type="linenumber">1041</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/tbd-springcore-e518-springpark/tbd-springcore-e518-springpark.component.html</context>
+          <context context-type="linenumber">1063</context>
+        </context-group>
+        <note priority="1" from="description">_multiconf_</note>
+      <target>ECP est désactivé</target></trans-unit><trans-unit id="5325730012165883702" datatype="html">
+        <source>ECP is enabled</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/-springcore-m519/-springcore-m519.component.html</context>
+          <context context-type="linenumber">789</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/-springcore-m519/-springcore-m519.component.html</context>
+          <context context-type="linenumber">811</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/ean17115-springcore-h518-reference/ean17115-springcore-h518-reference.component.html</context>
+          <context context-type="linenumber">757</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/ean17115-springcore-h518-reference/ean17115-springcore-h518-reference.component.html</context>
+          <context context-type="linenumber">779</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/ean18090-springcore-e518-reference/ean18090-springcore-e518-reference.component.html</context>
+          <context context-type="linenumber">1042</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/ean18090-springcore-e518-reference/ean18090-springcore-e518-reference.component.html</context>
+          <context context-type="linenumber">1064</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18170-springcore-h518-puck/fpf18170-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">999</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18170-springcore-h518-puck/fpf18170-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">1021</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18175-springcore-h518-puck/fpf18175-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">757</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18175-springcore-h518-puck/fpf18175-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">779</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18176-springcore-h518-puck/fpf18176-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">919</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18176-springcore-h518-puck/fpf18176-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">941</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18177-springcore-h518-puck/fpf18177-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">757</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18177-springcore-h518-puck/fpf18177-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">779</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18178-springcore-h518-puck/fpf18178-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">999</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18178-springcore-h518-puck/fpf18178-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">1021</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/socket_mobile_s550-springcore-h518-s550/socket_mobile_s550-springcore-h518-s550.component.html</context>
+          <context context-type="linenumber">999</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/socket_mobile_s550-springcore-h518-s550/socket_mobile_s550-springcore-h518-s550.component.html</context>
+          <context context-type="linenumber">1021</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/tbd-springcore-e518-springpark/tbd-springcore-e518-springpark.component.html</context>
+          <context context-type="linenumber">1042</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/tbd-springcore-e518-springpark/tbd-springcore-e518-springpark.component.html</context>
+          <context context-type="linenumber">1064</context>
+        </context-group>
+        <note priority="1" from="description">_multiconf_</note>
+      <target>ECP est activé</target></trans-unit><trans-unit id="3129972929201308708" datatype="html">
+        <source>Control whether NFC-B polling loop implements Apple VAS Enhanced Contactless Polling</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/-springcore-m519/-springcore-m519.component.html</context>
+          <context context-type="linenumber">808</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/ean17115-springcore-h518-reference/ean17115-springcore-h518-reference.component.html</context>
+          <context context-type="linenumber">776</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/ean18090-springcore-e518-reference/ean18090-springcore-e518-reference.component.html</context>
+          <context context-type="linenumber">1061</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18170-springcore-h518-puck/fpf18170-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">1018</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18175-springcore-h518-puck/fpf18175-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">776</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18176-springcore-h518-puck/fpf18176-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">938</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18177-springcore-h518-puck/fpf18177-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">776</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/fpf18178-springcore-h518-puck/fpf18178-springcore-h518-puck.component.html</context>
+          <context context-type="linenumber">1018</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/socket_mobile_s550-springcore-h518-s550/socket_mobile_s550-springcore-h518-s550.component.html</context>
+          <context context-type="linenumber">1018</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/tbd-springcore-e518-springpark/tbd-springcore-e518-springpark.component.html</context>
+          <context context-type="linenumber">1061</context>
+        </context-group>
+        <note priority="1" from="description">_multiconf_</note>
+      <target>Contrôlez si la boucle d'interrogation NFC-B implémente l'interrogation sans contact améliorée Apple VAS</target></trans-unit><trans-unit id="787163983066183218" datatype="html">
+        <source>Browse</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/flash/home-flash/home-flash.component.html</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+      <target>Parcourir</target></trans-unit><trans-unit id="2572539757685539458" datatype="html">
+        <source>No file chosen</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/flash/home-flash/home-flash.component.ts</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+      <target>Aucun fichier choisi</target></trans-unit><trans-unit id="5603956455186466719" datatype="html">
+        <source>Firmware Update</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/flash/home-flash/home-flash.component.ts</context>
+          <context context-type="linenumber">267</context>
+        </context-group>
+      <target>Mise à jour du firmware</target></trans-unit><trans-unit id="9216228301701559092" datatype="html">
+        <source>You are ready to change the firmware of the device.
+    Once started, writing the firmware can't be interrupted.
+    Are you sure you want to proceed?
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/flash/home-flash/home-flash.component.ts</context>
+          <context context-type="linenumber">267,270</context>
+        </context-group>
+      <target>Vous êtes prêt à modifier le firmware de l'appareil. 
+      Une fois lancée, l'écriture du firmware ne peut plus être interrompue. 
+      Êtes-vous sur de vouloir continuer?
+      </target></trans-unit><trans-unit id="8888644659929155508" datatype="html">
+        <source>- Please do not navigate to any other page until the flash operation is completed</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/flash/home-flash/home-flash.component.html</context>
+          <context context-type="linenumber">107</context>
+        </context-group>
+      <target>- Veuillez ne pas accéder à une autre page tant que l'opération flash n'est pas terminée</target></trans-unit><trans-unit id="2445290681502141076" datatype="html">
+        <source>- Make sure your computer does not go to sleep or is turned off during the transfer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/flash/home-flash/home-flash.component.html</context>
+          <context context-type="linenumber">108</context>
+        </context-group>
+      <target>- Assurez-vous que votre ordinateur ne se met pas en veille ou qu'il est éteint pendant le transfert</target></trans-unit><trans-unit id="3914739968581453836" datatype="html">
+        <source>- Once the transfer is completed, the device resets automatically, and it takes 30-120 seconds to activate the new firmware. Do not power down or reset the device until it has been detected by SpringCard Companion again.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/flash/home-flash/home-flash.component.html</context>
+          <context context-type="linenumber">109,110</context>
+        </context-group>
+      <target>- Une fois le transfert terminé, l'appareil se réinitialise automatiquement et il faut 30 à 120 secondes pour activer le nouveau firmware. N'éteignez pas ou ne réinitialisez pas l'appareil tant qu'il n'a pas été détecté à nouveau par SpringCard Companion.</target></trans-unit><trans-unit id="7592284673319729048" datatype="html">
+        <source>Manage account</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/header-actions/header-actions.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      <target>Gérer son compte</target></trans-unit><trans-unit id="273129603496739892" datatype="html">
+        <source>Back to List</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/flash/home-flash/home-flash.component.html</context>
+          <context context-type="linenumber">103</context>
+        </context-group>
+      <target>Retour à la liste</target></trans-unit><trans-unit id="6095665081884325212" datatype="html">
+        <source>Do not use service</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">189</context>
+        </context-group>
+      <target>Ne pas utiliser le service</target></trans-unit><trans-unit id="565093928512161641" datatype="html">
+        <source>Download Installer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">192</context>
+        </context-group>
+      <target>Télécharger le programme d'installation</target></trans-unit><trans-unit id="7929383861394771050" datatype="html">
+        <source>This configuration has not yet been fully saved on the server yet. Changes will be lost if you exit this screen.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/device/device.component.ts</context>
+          <context context-type="linenumber">353,352</context>
+        </context-group>
+      <target>Cette configuration n'a pas encore été entièrement enregistrée sur le serveur. Les modifications seront perdues si vous quittez cet écran.</target></trans-unit><trans-unit id="8634190498731735152" datatype="html">
+        <source>Discard changes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/device/device.component.ts</context>
+          <context context-type="linenumber">354,352</context>
+        </context-group>
+      <target>Annuler les modifications</target></trans-unit><trans-unit id="7595252441966311163" datatype="html">
+        <source>Back to Configuration</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/configure/device/device.component.ts</context>
+          <context context-type="linenumber">354,352</context>
+        </context-group>
+      <target>Retour à Configuration</target></trans-unit></body>
   </file>
 </xliff>
