@@ -5,7 +5,7 @@
 	firmware="springcore/h518/afcare-two"
 	implements="usb,ble,ccid,7816,7816_id1_x2,ataes,battery"
 	hardware="FSE18283"
-	version="1.23"
+	version="1.24"
 	author="JDA"
 	templatesnfc="false"
 	templatesble="false"
@@ -195,6 +195,13 @@ This register is available only in debug builds of the firmware.
 					<option value="1" title="Show uptime" advanced="true" visibleif="REGVAL(0x02CD) is not 0"/>
 				</field>
 				<field type="hidden" id="reg02ce_fe5kedn_l365cmn" name="rfu0" bitmap="0F" value="0" />
+			</register>
+			<register id="02CF" size="64" default="" advanced="true" dynamic="true">
+				<title>Deferred commands</title>
+				<remark>
+This register is available only in debug builds of the firmware.
+				</remark>
+				<field type="raw" id="reg02cf" minlength="0" maxlength="64" title="Deferred commands" advanced="true" dynamic="true"/>
 			</register>
 		</node>
 		<!-- Empty node Inventory, title=Inventory data, type=SpringCoreMeta.NodeRegisters -->

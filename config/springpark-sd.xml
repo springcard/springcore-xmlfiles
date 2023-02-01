@@ -5,8 +5,8 @@
 	firmware="springcore/e518/springpark"
 	implements="usb,serial,network,ccid,rdr,micore,7816,7816_id1,7816_sam_x4,samav,atecc,vegas"
 	hardware="TBD"
-	icon="product-springpark-sd"
-	version="1.23"
+	icon="product-springpark,product-springpark+variant-sd"
+	version="1.24"
 	author="JDA"
 	templatesnfc="true"
 	templatesble="false"
@@ -127,6 +127,13 @@ This register is available only in debug builds of the firmware.
 					<option value="1" title="Show uptime" advanced="true" visibleif="REGVAL(0x02CD) is not 0"/>
 				</field>
 				<field type="hidden" id="reg02ce_fe5kedn_l365cmn" name="rfu0" bitmap="0F" value="0" />
+			</register>
+			<register id="02CF" size="64" default="" advanced="true" dynamic="true">
+				<title>Deferred commands</title>
+				<remark>
+This register is available only in debug builds of the firmware.
+				</remark>
+				<field type="raw" id="reg02cf" minlength="0" maxlength="64" title="Deferred commands" advanced="true" dynamic="true"/>
 			</register>
 		</node>
 		<!-- Empty node Inventory, title=Inventory data, type=SpringCoreMeta.NodeRegisters -->
@@ -642,6 +649,7 @@ Defines the layout of the keyboard when the product runs in keyboard-emulation m
 					<option value="9" title="Japanese (extended), QWERTY" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
 					<option value="10" title="Swedish (extended), QWERTY" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
 					<option value="11" title="Polish (extended), QWERTY" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
+					<option value="12" title="US (extended), QWERTY" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
 				</field>
 			</register>
 			<register id="02A7" size="1" default="00" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)">
@@ -1175,6 +1183,16 @@ Leave empty or set to 255.255.255.255 for broadcast
 					<option value="1" title="Automatic UI control, the product signals the host actions on its LEDs"/>
 				</field>
 				<field type="number-h" id="reg029c_gpg5rzd" title="Number of seconds after which the RF field is switched OFF and the host is reported has missing" name="Idle timeout" bitmap="00FF" remark="Set to 00 to disable this feature (warning: the RF field may remain ON forever if the host does not switch it OFF itself)" />
+			</register>
+			<register id="029F" size="1" default="00">
+				<title>Driver</title>
+				<field type="hidden" id="reg029f_hycivfd" name="rfu0" bitmap="FC" value="00" />
+				<field type="radios" id="reg029f_khxezgy" title="Select the serial interface driver" name="select" bitmap="03" remark="This feature depends on the underlying hardware. Please refer to the device&apos;s detailed datasheet and application notes.">
+					<option value="0" title="No driver (RS-TTL)"/>
+					<option value="1" title="RS-232 driver"/>
+					<option value="10" title="RS-485 driver"/>
+					<option value="11" title="RFU"/>
+				</field>
 			</register>
 		</node>
 		<node title="Configuration for PC/SC (CCID) operation" visibleif="REGBITS(0x02C0, 0, 3) is 2">

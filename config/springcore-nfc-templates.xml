@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <springcard-multiconf-templates
-	version="1.23"
+	version="1.24"
 	author="JDA"
 >
 	<tree>
@@ -456,18 +456,20 @@ Select the Desfire AID
 				<option value="2" title="RFU" visibleif="(TPLBITS(5, 8, 8) is not 0) and (TPLBITS(5, 0, 4) is not 0)"/>
 				<option value="3" title="Encrypted" visibleif="(TPLBITS(5, 8, 8) is not 0) and (TPLBITS(5, 0, 4) is not 0)"/>
 			</field>
-			<field type="radios" id="tplhvnvpdd_reg0005_hsgqnhd_bp5b7tl" title="Key Diversification" name="Key Diversification" bitmap="300000000000000000000000000000000000" visibleif="TPLBITS(5, 8, 8) is not 0">
-				<option value="0" title="No diversification" visibleif="TPLBITS(5, 8, 8) is not 0"/>
-				<option value="1" title="NXP AN10922 diversification" visibleif="TPLBITS(5, 8, 8) is not 0"/>
-				<option value="2" title="RFU" visibleif="TPLBITS(5, 8, 8) is not 0"/>
-				<option value="3" title="RFU" visibleif="TPLBITS(5, 8, 8) is not 0"/>
-			</field>
+			<field type="hidden" id="tplhvnvpdd_reg0005_hsgqnhd_bp5b7tl" name="rfu0" bitmap="300000000000000000000000000000000000" value="0" />
 			<field type="number-h" id="tplhvnvpdd_reg0005_hsgqnhd_qxqw7kl" title="Key Index inside the Desfire Application" name="Key Index" bitmap="0F0000000000000000000000000000000000" visibleif="TPLBITS(5, 8, 8) is not 0" />
-			<field type="radios" id="tplhvnvpdd_reg0005_gtnexal_ucsziid" title="Location of Secret Key" name="Location of Secret Key" bitmap="00F000000000000000000000000000000000" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0">
-				<option value="0" title="Key is specified in the Template" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
-				<option value="1" title="RFU" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
-				<option value="2" title="SAM AV, select key automatically (based on AID)" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
-				<option value="3" title="SAM AV, key slot is specified" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+			<field type="radios" id="tplhvnvpdd_reg0005_gtnexal_ittxm3y" title="Location of Secret Key" name="Location of Secret Key" bitmap="00E000000000000000000000000000000000" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0">
+				<option value="0" title="Key is provided within the Template" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+				<option value="1" title="Internal SAM AV, select key slot and version automatically" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+				<option value="2" title="Internal SAM AV, key slot is specified" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+				<option value="3" title="Internal SAM AV, key slot and version are specified" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+				<option value="5" title="SAM AV in 1st slot, select key slot and version automatically" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+				<option value="6" title="SAM AV in 1st slot, key slot is specified" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+				<option value="7" title="SAM AV in 1st slot, key slot and version are specified" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+			</field>
+			<field type="radios" id="tplhvnvpdd_reg0005_53qjfly_f4xxhhn" title="Use SAM for Session" name="Use SAM for Session" bitmap="001000000000000000000000000000000000" advanced="true" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 13, 3) is not 0)">
+				<option value="0" title="Get Session Key from the SAM" advanced="true" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 13, 3) is not 0)"/>
+				<option value="1" title="Use the SAM as passthrough" advanced="true" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 13, 3) is not 0)"/>
 			</field>
 			<field type="radios" id="tplhvnvpdd_reg0005_owh5twn" title="Authentication Method" name="Authentication Method" bitmap="000F00000000000000000000000000000000">
 				<option value="0" title="No authentication"/>
@@ -475,8 +477,10 @@ Select the Desfire AID
 				<option value="2" title="Desfire EV1 DES/3DES authentication (AuthenticateIso command)"/>
 				<option value="3" title="Desfire EV1 AES authentication (AuthenticateAes command)"/>
 				<option value="4" title="Desfire EV2 AES authentication (AuthenticateEV2 command)"/>
+				<option value="15" title="Ask the SAM AV"/>
 			</field>
-			<field type="number-h" id="tplhvnvpdd_reg0005_kla24ed_gki2gwd" title="Key slot in the internal SAM AV" name="2" bitmap="0000FF000000000000000000000000000000" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 12, 4) is 3)" />
+			<field type="number-h" id="tplhvnvpdd_reg0005_jmj5tbn_gki2gwd" title="Key slot in the SAM AV" name="2" bitmap="0000FF000000000000000000000000000000" visibleif="(TPLBITS(5, 8, 4) is not 0) and ((TPLBITS(5, 12, 4) is 2) or (TPLBITS(5, 12, 4) is 3) or (TPLBITS(5, 12, 4) is 6) or (TPLBITS(5, 12, 4) is 7))" />
+			<field type="number-h" id="tplhvnvpdd_reg0005_yaxrnmn_2gcbgsy" title="Key version" name="3" bitmap="000000FF0000000000000000000000000000" visibleif="(TPLBITS(5, 8, 4) is not 0) and ((TPLBITS(5, 12, 4) is 3) or (TPLBITS(5, 12, 4) is 7))" />
 			<field type="raw" id="tplhvnvpdd_reg0005_hcjrwjl_7dkocnd" title="Value of DES/3DES or AES Secret Key" name="2" bitmap="0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 12, 4) is 0)" />
 		</register>
 		<register id="0004" size="1" default="00">
@@ -485,7 +489,11 @@ Select the Desfire AID
 This register defines the transport protocol and the behaviour of the Reader during the handshaking.
 It is also possible for the Reader to add a token to its output, to tell the receiver what kind of credential has been read.
 			</description>
-			<field type="hidden" id="tplhvnvpdd_reg0004_kxpbr2l" name="rfu0" bitmap="C0" value="0" />
+			<field type="hidden" id="tplhvnvpdd_reg0004_m6awtjl" name="rfu0" bitmap="80" value="0" />
+			<field type="radios" id="tplhvnvpdd_reg0004_op23zml" title="ECP2 Session closing" name="ECP2 Session closing" bitmap="40">
+				<option value="0" title="Normal Desfire card"/>
+				<option value="1" title="Apple ECP2 Desfire emulation"/>
+			</field>
 			<field type="radios" id="tplhvnvpdd_reg0004_ax7h6sl" title="Iso 7816 Wrapping" name="Iso 7816 Wrapping" bitmap="20">
 				<option value="0" title="Use native Desfire command format"/>
 				<option value="1" title="Use ISO 7816 Wrapping of Desfire commands"/>
@@ -568,11 +576,18 @@ For a Linear Record File or a Cyclic Record File, this is the record size" remar
 				<option value="3" title="RFU" visibleif="TPLBITS(5, 8, 8) is not 0"/>
 			</field>
 			<field type="number-h" id="tpl2gev7yd_reg0005_hsgqnhd_qxqw7kl" title="Key Index inside the Desfire Application" name="Key Index" bitmap="0F0000000000000000000000000000000000" visibleif="TPLBITS(5, 8, 8) is not 0" />
-			<field type="radios" id="tpl2gev7yd_reg0005_gtnexal_ucsziid" title="Location of Secret Key" name="Location of Secret Key" bitmap="00F000000000000000000000000000000000" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0">
-				<option value="0" title="Key is specified in the Template" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
-				<option value="1" title="RFU" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
-				<option value="2" title="SAM AV, select key automatically (based on AID)" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
-				<option value="3" title="SAM AV, key slot is specified" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+			<field type="radios" id="tpl2gev7yd_reg0005_gtnexal_ittxm3y" title="Location of Secret Key" name="Location of Secret Key" bitmap="00E000000000000000000000000000000000" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0">
+				<option value="0" title="Key is provided within the Template" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+				<option value="1" title="Internal SAM AV, select key slot and version automatically" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+				<option value="2" title="Internal SAM AV, key slot is specified" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+				<option value="3" title="Internal SAM AV, key slot and version are specified" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+				<option value="5" title="SAM AV in 1st slot, select key slot and version automatically" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+				<option value="6" title="SAM AV in 1st slot, key slot is specified" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+				<option value="7" title="SAM AV in 1st slot, key slot and version are specified" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+			</field>
+			<field type="radios" id="tpl2gev7yd_reg0005_53qjfly_f4xxhhn" title="Use SAM for Session" name="Use SAM for Session" bitmap="001000000000000000000000000000000000" advanced="true" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 13, 3) is not 0)">
+				<option value="0" title="Get Session Key from the SAM" advanced="true" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 13, 3) is not 0)"/>
+				<option value="1" title="Use the SAM as passthrough" advanced="true" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 13, 3) is not 0)"/>
 			</field>
 			<field type="radios" id="tpl2gev7yd_reg0005_owh5twn" title="Authentication Method" name="Authentication Method" bitmap="000F00000000000000000000000000000000">
 				<option value="0" title="No authentication"/>
@@ -580,8 +595,10 @@ For a Linear Record File or a Cyclic Record File, this is the record size" remar
 				<option value="2" title="Desfire EV1 DES/3DES authentication (AuthenticateIso command)"/>
 				<option value="3" title="Desfire EV1 AES authentication (AuthenticateAes command)"/>
 				<option value="4" title="Desfire EV2 AES authentication (AuthenticateEV2 command)"/>
+				<option value="15" title="Ask the SAM AV"/>
 			</field>
-			<field type="number-h" id="tpl2gev7yd_reg0005_kla24ed_gki2gwd" title="Key slot in the internal SAM AV" name="2" bitmap="0000FF000000000000000000000000000000" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 12, 4) is 3)" />
+			<field type="number-h" id="tpl2gev7yd_reg0005_jmj5tbn_gki2gwd" title="Key slot in the SAM AV" name="2" bitmap="0000FF000000000000000000000000000000" visibleif="(TPLBITS(5, 8, 4) is not 0) and ((TPLBITS(5, 12, 4) is 2) or (TPLBITS(5, 12, 4) is 3) or (TPLBITS(5, 12, 4) is 6) or (TPLBITS(5, 12, 4) is 7))" />
+			<field type="number-h" id="tpl2gev7yd_reg0005_yaxrnmn_2gcbgsy" title="Key version" name="3" bitmap="000000FF0000000000000000000000000000" visibleif="(TPLBITS(5, 8, 4) is not 0) and ((TPLBITS(5, 12, 4) is 3) or (TPLBITS(5, 12, 4) is 7))" />
 			<field type="raw" id="tpl2gev7yd_reg0005_hcjrwjl_7dkocnd" title="Value of DES/3DES or AES Secret Key" name="2" bitmap="0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 12, 4) is 0)" />
 		</register>
 		<register id="0004" size="1" default="00">
@@ -590,7 +607,11 @@ For a Linear Record File or a Cyclic Record File, this is the record size" remar
 This register defines the transport protocol and the behaviour of the Reader during the handshaking.
 It is also possible for the Reader to add a token to its output, to tell the receiver what kind of credential has been read.
 			</description>
-			<field type="hidden" id="tpl2gev7yd_reg0004_kxpbr2l" name="rfu0" bitmap="C0" value="0" />
+			<field type="hidden" id="tpl2gev7yd_reg0004_m6awtjl" name="rfu0" bitmap="80" value="0" />
+			<field type="radios" id="tpl2gev7yd_reg0004_op23zml" title="ECP2 Session closing" name="ECP2 Session closing" bitmap="40">
+				<option value="0" title="Normal Desfire card"/>
+				<option value="1" title="Apple ECP2 Desfire emulation"/>
+			</field>
 			<field type="radios" id="tpl2gev7yd_reg0004_ax7h6sl" title="Iso 7816 Wrapping" name="Iso 7816 Wrapping" bitmap="20">
 				<option value="0" title="Use native Desfire command format"/>
 				<option value="1" title="Use ISO 7816 Wrapping of Desfire commands"/>
@@ -920,10 +941,10 @@ The number of blocks to be read is deduced from the expected length, as set in t
 				<option value="0" title="Key A"/>
 				<option value="1" title="Key B"/>
 			</field>
-			<field type="hidden" id="tplvsbmlpn_reg0005_qqotlql" name="rfu0" bitmap="4000000000000000000000000000000000" value="0" />
-			<field type="radios" id="tplvsbmlpn_reg0005_zawhwsy" title="Location of Secret Key" name="Location of Secret Key" bitmap="2000000000000000000000000000000000">
-				<option value="0" title="Key is specified in the Template"/>
-				<option value="1" title="SAM AV"/>
+			<field type="radios" id="tplvsbmlpn_reg0005_ulx3ghy" title="Location of Secret Key" name="Location of Secret Key" bitmap="6000000000000000000000000000000000">
+				<option value="0" title="Key is provided in the Template"/>
+				<option value="1" title="Internal SAM AV"/>
+				<option value="3" title="SAM AV in 1st slot"/>
 			</field>
 			<field type="hidden" id="tplvsbmlpn_reg0005_mbubfud" name="rfu0" bitmap="1800000000000000000000000000000000" value="0" />
 			<field type="radios" id="tplvsbmlpn_reg0005_ax6yead" title="Read mode" name="Read mode" bitmap="0700000000000000000000000000000000">
@@ -936,8 +957,8 @@ The number of blocks to be read is deduced from the expected length, as set in t
 				<option value="6" title="Read in plain, no MAC on command, no MAC on response"/>
 				<option value="7" title="Read in plain, no MAC on command, MAC on response"/>
 			</field>
-			<field type="number-h" id="tplvsbmlpn_reg0005_czjfdty_yq2hdrd" title="Key slot in the internal SAM AV" name="1" bitmap="00FF000000000000000000000000000000" visibleif="(TPLBITS(5, 5, 1) is 1)" />
-			<field type="raw" id="tplvsbmlpn_reg0005_mywaqkd_vjputzd" title="Value of the AES Secret Key" name="1" bitmap="00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" visibleif="(TPLBITS(5, 5, 1) is 0)" />
+			<field type="number-h" id="tplvsbmlpn_reg0005_duvyuvl_yq2hdrd" title="Key slot in the SAM AV" name="1" bitmap="00FF000000000000000000000000000000" visibleif="(TPLBITS(5, 5, 2) is not 0)" />
+			<field type="raw" id="tplvsbmlpn_reg0005_7b4gasl_vjputzd" title="Value of the AES Secret Key" name="1" bitmap="00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" visibleif="(TPLBITS(5, 5, 2) is 0)" />
 		</register>
 		<register id="0001" size="2" default="0000">
 			<title>Output Size and Format</title>
