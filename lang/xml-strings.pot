@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SpringCard MultiConf\n"
 "POT-Creation-Date: 2022-09-26T10:22:04\n"
-"PO-Revision-Date: 2023-02-01T14:16:55\n"
+"PO-Revision-Date: 2023-02-03T09:13:50\n"
 "Last-Translator: johann.d <*******@springcard.com>\n"
 "Language-Team: SpringCard <support@springcard.com>\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgid "(Apple VAS)"
 msgstr ""
  
 #: D:\dev\softs\software.multiconf\conf\springcore-nfc-templates.xml:530
-msgid "(Desfire File)"
+msgid "(Desfire Data)"
 msgstr ""
  
 #: D:\dev\softs\software.multiconf\conf\springcore-nfc-templates.xml:409
@@ -695,10 +695,6 @@ msgstr ""
 #: D:\dev\softs\software.multiconf\conf\d600-hid-registers.xml:61
 #: D:\dev\softs\software.multiconf\conf\proxnroll-rfidscanner-registers.xml:72
 msgid "75ms per character"
-msgstr ""
- 
-#: D:\dev\softs\software.multiconf\conf\springcore-nfc-templates.xml:102
-msgid "7816-4 Template"
 msgstr ""
  
 #: D:\dev\softs\software.multiconf\conf\crazywriter-registers.xml:79;97
@@ -4484,6 +4480,10 @@ msgstr ""
 msgid "Desfire Application ID (AID)"
 msgstr ""
  
+#: D:\dev\softs\software.multiconf\conf\springcore-nfc-templates.xml:529
+msgid "Desfire Data Template"
+msgstr ""
+ 
 #: D:\dev\softs\software.multiconf\conf\springcore-nfc-templates.xml:476;594
 msgid "Desfire EV0 DES/3DES authentication (Authenticate command)"
 msgstr ""
@@ -4502,10 +4502,6 @@ msgstr ""
  
 #: D:\dev\softs\software.multiconf\conf\springcore-nfc-templates.xml:548
 msgid "Desfire EV2 commands are supported only after version 1.30."
-msgstr ""
- 
-#: D:\dev\softs\software.multiconf\conf\springcore-nfc-templates.xml:529
-msgid "Desfire File Template"
 msgstr ""
  
 #: D:\dev\softs\software.multiconf\conf\springcore-nfc-templates.xml:408
@@ -7772,6 +7768,10 @@ msgstr ""
  
 #: D:\dev\softs\software.multiconf\conf\springcore-nfc-templates.xml:497;615
 msgid "Iso 7816 Wrapping"
+msgstr ""
+ 
+#: D:\dev\softs\software.multiconf\conf\springcore-nfc-templates.xml:102
+msgid "ISO Data Template"
 msgstr ""
  
 #: D:\dev\softs\software.multiconf\conf\afcare-two.xml:503;522;541
