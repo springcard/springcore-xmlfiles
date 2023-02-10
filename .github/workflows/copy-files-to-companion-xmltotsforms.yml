@@ -1,15 +1,39 @@
+# on:
+#   push:
+#     branches:
+#       - master
+# name: Push updated xml files to companion-xmltotsforms repository
+# uses: nkoppel/push-files-to-another-repository@1.1.0
+# env:
+#   API_TOKEN_GITHUB: ${{ secrets.COMPANION_XMLTOTSFOMRS_API_TOKEN }}
+# with:
+#   source-files: 'test/'
+#   destination-username: 'springcard'
+#   destination-repository: 'companion-xmltotsforms'
+#   destination-directory: 'xml'
+#   destination-branch: 'dev'
+#   commit-email: 'codechef730@gmail.com'
+
+name: CI
+
 on:
   push:
-    branches:
-      - master
-name: Push updated xml files to companion-xmltotsforms repository
-uses: nkoppel/push-files-to-another-repository@1.1.0
-env:
-  API_TOKEN_GITHUB: ${{ secrets.COMPANION_XMLTOTSFOMRS_API_TOKEN }}
-with:
-  source-files: 'test/'
-  destination-username: 'springcard'
-  destination-repository: 'companion-xmltotsforms'
-  destination-directory: 'xml'
-  destination-branch: 'dev'
-  commit-email: 'codechef730@gmail.com'
+    branches: [dev]
+  pull_request:
+    branches: [dev]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: pandoc/latex
+    steps:
+      - name: Pushes to companion-xmltotsforms repository
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.COMPANION_XMLTOTSFOMRS_API_TOKEN }}
+        with:
+          source-directory: "test/"
+          destination-github-username: "springcard"
+          destination-repository-name: "companion-xmltotsforms"
+          user-email: codechef730@gmail.com
+          target-branch: dev
