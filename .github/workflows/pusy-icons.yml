@@ -1,4 +1,4 @@
-name: CI
+name: Pushes updated icons to companion-front repository
 
 on:
   push:
