@@ -4,7 +4,7 @@ name: Copy updated xml files to companion-xmltotsforms repository
       branches:
         - master
 jobs:
-  build-and-deploy:
+  copy-xml-files:
     name: Push updates to companion-xmltotsforms repository.
     uses: nkoppel/push-files-to-another-repository@1.1.0
     env:
