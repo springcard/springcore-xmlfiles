@@ -3,15 +3,15 @@ name: CI
 on:
   push:
     branches: [master]
-  pull_request:
-    branches: [master]
+    paths:
+      - xmls
 
 jobs:
   build:
     runs-on: ubuntu-latest
     container: pandoc/latex
     steps:
-      - name: Pushes to companion-xmltoforms repository
+      - name: Pushes updated xmls to companion-xmltoforms repository
         uses: nkoppel/push-files-to-another-repository@v1.1.1
         env:
           API_TOKEN_GITHUB: ${{ secrets.COMPANION_XMLTOTSFOMRS_API_TOKEN }}

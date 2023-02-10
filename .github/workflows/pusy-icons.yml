@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - icons
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: pandoc/latex
+    steps:
+      - name: Pushes updated icons to companion-front repository
+        uses: nkoppel/push-files-to-another-repository@v1.1.1
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.COMPANION_FRONT_API_TOKEN }}
+        with:
+          source-files: 'icons'
+          destination-username: 'springcard'
+          destination-repository: 'companion-xmltoforms'
+          destination-directory: 'src/assets/img/'
+          destination-branch: 'dev'
+          commit-email: 'codechef730@gmail.com'
