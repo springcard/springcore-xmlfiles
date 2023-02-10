@@ -1,8 +1,8 @@
 name: Copy updated xml files to companion-xmltotsforms repository
-  on:
-    push:
-      branches:
-        - master
+on:
+  push:
+    branches:
+      - master
 jobs:
   copy-xml-files:
     name: Push updates to companion-xmltotsforms repository.
