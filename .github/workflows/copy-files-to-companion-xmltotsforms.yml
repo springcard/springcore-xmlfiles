@@ -20,5 +20,5 @@ jobs:
           destination-username: 'springcard'
           destination-repository: 'companion-xmltoforms'
           destination-directory: ''
-          destination-branch: 'dev'
+          destination-branch: 'master'
           commit-email: 'codechef730@gmail.com'
