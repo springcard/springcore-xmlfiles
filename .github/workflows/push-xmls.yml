@@ -3,9 +3,9 @@ name: Pushes updated xmls to companion-xmltoforms repository
 on:
   push:
     branches: 
-      - master
+    - master
     paths:
-      - xmls
+    - xmls
 
 jobs:
   build:
