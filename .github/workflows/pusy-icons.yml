@@ -3,9 +3,7 @@ name: Pushes updated icons to companion-front repository
 on:
   push:
     branches: 
-    - master
-    paths:
-    - icons
+      - master
 
 jobs:
   build:
