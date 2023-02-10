@@ -5,7 +5,7 @@ on:
     branches: 
       - master
     paths: 
-      - icons
+      - icons/**
 jobs:
   build:
     runs-on: ubuntu-latest
