@@ -1,9 +1,8 @@
-name: Push updated xml files to companion-xmltotsforms repository
 on:
   push:
     branches:
       - master
-jobs:
+- name: Push updated xml files to companion-xmltotsforms repository
   uses: nkoppel/push-files-to-another-repository@1.1.0
   env:
     API_TOKEN_GITHUB: ${{ secrets.COMPANION_XMLTOTSFOMRS_API_TOKEN }}
