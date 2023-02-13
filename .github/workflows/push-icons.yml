@@ -18,7 +18,7 @@ jobs:
         with:
           source-files: 'icons'
           destination-username: 'springcard'
-          destination-repository: 'companion-xmltoforms'
+          destination-repository: 'companion-front'
           destination-directory: 'src/assets/img/'
           destination-branch: 'dev'
           commit-email: 'codechef730@gmail.com'
