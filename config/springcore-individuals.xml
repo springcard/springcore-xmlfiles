@@ -90,8 +90,8 @@
 			/>
 	</devices>
 	<tree>
-	<!-- Empty node Constants, title=Constants, type=SpringCoreMeta.NodeRegisters -->
-		<!-- Empty node Main configuration, title=Main configuration, type=SpringCoreMeta.NodeRegisters -->
+	<!-- Empty node Constants, title=Constants, type=NvmTplMeta.NodeRegisters -->
+		<!-- Empty node Main configuration, title=Main configuration, type=NvmTplMeta.NodeRegisters -->
 		<node title="Inventory data">
 			<!-- Hiding Configuration GUID (not an individual register) -->
 			<register id="0201" size="16" default="" individual="true">
@@ -165,10 +165,10 @@ Defines the product&apos;s IPv6 address, DHCPv6.
 			<!-- Hiding Network services options (not an individual register) -->
 			<!-- Hiding Network ports (not an individual register) -->
 		</node>
-		<!-- Empty node MQTT Client, title=Configuration of the product as an MQTT client, type=SpringCoreMeta.NodeRegisters -->
-		<!-- Empty node HTTP Client, title=Configuration of the product as an HTTP client, type=SpringCoreMeta.NodeRegisters -->
-		<!-- Empty node User interface, title=Configuration of the user interface, type=SpringCoreMeta.NodeRegisters -->
-		<!-- Empty node Smart Reader, title=Configuration for Smart Reader operation, type=SpringCoreMeta.NodeRegisters -->
+		<!-- Empty node MQTT Client, title=Configuration of the product as an MQTT client, type=NvmTplMeta.NodeRegisters -->
+		<!-- Empty node HTTP Client, title=Configuration of the product as an HTTP client, type=NvmTplMeta.NodeRegisters -->
+		<!-- Empty node User interface, title=Configuration of the user interface, type=NvmTplMeta.NodeRegisters -->
+		<!-- Empty node Smart Reader, title=Configuration for Smart Reader operation, type=NvmTplMeta.NodeRegisters -->
 		<node title="Security-related configuration">
 			<!-- Hiding Access Conditions (not an individual register) -->
 			<!-- Hiding Authentication counters (not an individual register) -->
@@ -200,7 +200,7 @@ If both [User Password](User_Password) and Admin Password have the same value, t
 				<field type="textbox" id="reg02ff" maxlength="16" title="Admin password" default="springcardmaster" individual="true"/>
 			</register>
 		</node>
-		<!-- Empty node Contactless, title=Configuration of the Contactless (NFC) interface in poller (reader) mode, type=SpringCoreMeta.NodeRegisters -->
+		<!-- Empty node Contactless, title=Configuration of the Contactless (NFC) interface in poller (reader) mode, type=NvmTplMeta.NodeRegisters -->
 		<node title="Configuration of the Bluetooth interface" visibleif="REGBIT(0x02C2, 7) is 0">
 			<!-- Hiding TxPower (not an individual register) -->
 			<!-- Hiding Timings (not an individual register) -->
@@ -215,16 +215,17 @@ A user-defined name to override the default Device Name used for BLE advertising
 			</register>
 			<!-- Hiding Advertising Channel Map (not an individual register) -->
 			<!-- Hiding iBeacon ID (not an individual register) -->
+			<!-- Hiding iBeacon UUID (not an individual register) -->
 		</node>
-		<!-- Empty node UHF, title=Configuration of the RFID UHF (868/910MHz) reader, type=SpringCoreMeta.NodeRegisters -->
-		<!-- Empty node Barcode, title=Configuration of the Barcode scanner, type=SpringCoreMeta.NodeRegisters -->
-		<!-- Empty node Smartcards, title=Configuration of the smartcard interface(s), type=SpringCoreMeta.NodeRegisters -->
-		<!-- Empty node UDP Server, title=UDP Server Configuration, type=SpringCoreMeta.NodeRegisters -->
-		<!-- Empty node WiFi settings, title=WiFi interface Configuration, type=SpringCoreMeta.NodeRegisters -->
-		<!-- Empty node Serial, title=Configuration of the serial interface, type=SpringCoreMeta.NodeRegisters -->
-		<!-- Empty node PC SC, title=Configuration for PC/SC (CCID) operation, type=SpringCoreMeta.NodeRegisters -->
-		<!-- Empty node NFC Emulation and P2P, title=Configuration of the NFC interface in listener mode, type=SpringCoreMeta.NodeRegisters -->
-	<!-- Empty node Templates, title=Templates, type=SpringCoreMeta.NodeRegisters -->
-	<!-- Empty node Statistics, title=Statistics, type=SpringCoreMeta.NodeRegisters -->
+		<!-- Empty node UHF, title=Configuration of the RFID UHF (868/910MHz) reader, type=NvmTplMeta.NodeRegisters -->
+		<!-- Empty node Barcode, title=Configuration of the Barcode scanner, type=NvmTplMeta.NodeRegisters -->
+		<!-- Empty node Smartcards, title=Configuration of the smartcard interface(s), type=NvmTplMeta.NodeRegisters -->
+		<!-- Empty node UDP Server, title=UDP Server Configuration, type=NvmTplMeta.NodeRegisters -->
+		<!-- Empty node WiFi settings, title=WiFi interface Configuration, type=NvmTplMeta.NodeRegisters -->
+		<!-- Empty node Serial, title=Configuration of the serial interface, type=NvmTplMeta.NodeRegisters -->
+		<!-- Empty node PC SC, title=Configuration for PC/SC (CCID) operation, type=NvmTplMeta.NodeRegisters -->
+		<!-- Empty node NFC Emulation and P2P, title=Configuration of the NFC interface in listener mode, type=NvmTplMeta.NodeRegisters -->
+	<!-- Empty node Templates, title=Templates, type=NvmTplMeta.NodeRegisters -->
+	<!-- Empty node Statistics, title=Statistics, type=NvmTplMeta.NodeRegisters -->
 	</tree>
 </springcard-multiconf-individuals>

@@ -6,7 +6,7 @@
 	implements="usb,ble,ccid,rdr,micore,7816,samav,atecc,vegas"
 	hardware="FPF18176"
 	icon="product-puck,product-puck+variant-blue"
-	version="1.24"
+	version="1.27"
 	author="JDA"
 	templatesnfc="true"
 	templatesble="true"
@@ -22,7 +22,7 @@
 		<mode value="nxpnfc" icon="product+mode-nxpnfc" />
 	</modes>
 	<tree>
-	<!-- Empty node Constants, title=Constants, type=SpringCoreMeta.NodeRegisters -->
+	<!-- Empty node Constants, title=Constants, type=NvmTplMeta.NodeRegisters -->
 		<node title="Main configuration">
 			<register id="02C0" size="1" default="00">
 				<title>Profile</title>
@@ -120,7 +120,7 @@ If the product has no BLE interface, this register is ignored.
 					<option value="2" title="Beacon; use the BLE interface for iBeacon brodcasting." visibleif="REGBIT(0x02C2, 7) is 0"/>
 					<option value="3" title="RFU; do not use." visibleif="REGBIT(0x02C2, 7) is 0"/>
 				</field>
-				<!-- Empty node , title=BLE device *vs* BLE reader/broadcaster mode, type=SpringCoreMeta.NodeSection -->
+				<!-- Empty node , title=BLE device *vs* BLE reader/broadcaster mode, type=NvmTplMeta.NodeSection -->
 			</register>
 			<!-- Ignoring USB BLE switching (no usb&ble) -->
 			<register id="02C4" size="1" default="00" advanced="true">
@@ -128,13 +128,18 @@ If the product has no BLE interface, this register is ignored.
 				<description>
 Control various options related to the current profile.
 				</description>
-				<field type="hidden" id="reg02c4_snvp4xd" name="rfu0" bitmap="FE" value="00" />
+				<field type="hidden" id="reg02c4_hycivfd" name="rfu0" bitmap="FC" value="00" />
+				<field type="radios" id="reg02c4_s27wvjn_mdwlall" title="enable profile overrider (product specific)." name="Profile overrider" bitmap="02" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3">
+					<option value="0" title="Profile overrider is disabled" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3"/>
+					<option value="1" title="Profile overrider is enabled" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3"/>
+				</field>
 				<field type="radios" id="reg02c4_s27wvjn_ooba6wy" title="Enable HID Ringer addon used by Telephony services (experimental)." name="Enable Ringer" bitmap="01" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3">
 					<option value="0" title="HID Ringer is enabled" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3"/>
 					<option value="1" title="HID Ringer is disabled" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3"/>
 				</field>
 			</register>
 			<!-- Ignoring Battery (no battery) -->
+			<!-- Ignoring Battery storage guard (no battery) -->
 			<register id="02CD" size="4" default="00000000" advanced="true">
 				<title>Trace level</title>
 				<remark>
@@ -147,7 +152,11 @@ This register is available only in debug builds of the firmware.
 				<remark>
 This register is available only in debug builds of the firmware.
 				</remark>
-				<field type="hidden" id="reg02ce_fe5kedn_kxpbr2l" name="rfu0" bitmap="C0" value="0" />
+				<field type="hidden" id="reg02ce_fe5kedn_m6awtjl" name="rfu0" bitmap="80" value="0" />
+				<field type="radios" id="reg02ce_fe5kedn_op23zml" title="Use Serial" name="Use Serial" bitmap="40" advanced="true" visibleif="REGVAL(0x02CD) is not 0">
+					<option value="0" title="Use dedicated serial line for traces (if some)" advanced="true" visibleif="REGVAL(0x02CD) is not 0"/>
+					<option value="1" title="Send traces to main serial line" advanced="true" visibleif="REGVAL(0x02CD) is not 0"/>
+				</field>
 				<field type="radios" id="reg02ce_fe5kedn_ax7h6sl" title="Use Syslog" name="Use Syslog" bitmap="20" advanced="true" visibleif="REGVAL(0x02CD) is not 0">
 					<option value="0" title="Don&apos;t use syslog" advanced="true" visibleif="REGVAL(0x02CD) is not 0"/>
 					<option value="1" title="Send traces to syslog" advanced="true" visibleif="REGVAL(0x02CD) is not 0"/>
@@ -166,7 +175,7 @@ This register is available only in debug builds of the firmware.
 				<field type="raw" id="reg02cf" minlength="0" maxlength="64" title="Deferred commands" advanced="true" dynamic="true"/>
 			</register>
 		</node>
-		<!-- Empty node Inventory, title=Inventory data, type=SpringCoreMeta.NodeRegisters -->
+		<!-- Empty node Inventory, title=Inventory data, type=NvmTplMeta.NodeRegisters -->
 		<node title="Integrator's license">
 			<register id="0208" size="32" default="">
 				<title>Application name</title>
@@ -397,9 +406,16 @@ Defines the layout of the keyboard when the product runs in keyboard-emulation m
 					<option value="12" title="US (extended), QWERTY" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
 				</field>
 			</register>
-			<register id="02A7" size="1" default="00" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)">
+			<register id="02A7" size="1" default="22" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)">
 				<title>Misc. options when running in keyboard mode</title>
-				<field type="number-h" id="reg02a7" minlength="1" maxlength="1" title="Misc. options when running in keyboard mode" hint="undefined"  visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
+				<field type="hidden" id="reg02a7_iwadzvy_kxpbr2l" name="rfu0" bitmap="C0" value="0" />
+				<field type="dropdownlist" id="reg02a7_iwadzvy_6pga6ll" title="How are the slot numbers created" name="interval between two identical character" bitmap="30" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)">
+					<option value="0" title="none" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
+					<option value="1" title="2x typing speed" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
+					<option value="2" title="3x typing speed" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
+					<option value="3" title="4x typing speed" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
+				</field>
+				<field type="number-h" id="reg02a7_iwadzvy_l365cmn" title="delay between 2 characters (5ms unit)" name="Typing speed" bitmap="0F" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" />
 			</register>
 			<register id="02A8" size="8" default="" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)">
 				<title>Prefix: string sent before the data in keyboard mode</title>
@@ -642,7 +658,10 @@ This register is not used in Smart Reader mode (the Templates define how the car
 				<field type="hidden" id="reg0233_35gzn7y_m6awtjl" name="rfu0" bitmap="80" value="0" />
 				<field type="hidden" id="reg0233_35gzn7y_op23zml" name="rfu0" bitmap="40" value="0" />
 				<field type="hidden" id="reg0233_35gzn7y_ax7h6sl" name="rfu0" bitmap="20" value="0" />
-				<field type="hidden" id="reg0233_35gzn7y_t6r55rl" name="rfu0" bitmap="10" value="0" />
+				<field type="radios" id="reg0233_35gzn7y_t6r55rl" title="Consider any NFC-A card as being a Mifare Classic" name="Force Mifare Classic" bitmap="10" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+					<option value="0" title="NFC-A cards are activated normally" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
+					<option value="1" title="All NFC-A cards are assumed to be Mifare Classic" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
+				</field>
 				<field type="radios" id="reg0233_35gzn7y_eph722y" title="Prevent targets using the NFC-F protocol to enter NFC DEP level" name="No NFC DEP F" bitmap="08" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 					<option value="0" title="NFC-F targets are activated according to ISO 18092 (DEQ_REQ)" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="1" title="NFC-F targets are kept at Felica read/write level" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
@@ -712,17 +731,17 @@ This is the complete VASUP-A and VASUP-B frames, including the start byte (6A) a
 				<field type="hidden" id="reg023a_m6awtjl" name="rfu0" bitmap="80" value="0" />
 				<field type="checkbox" id="reg023a_op23zml" title="NFC Forum polling: bail-out after NFC-A response" name="Bail-out" bitmap="40" />
 				<field type="hidden" id="reg023a_bgs5ckd" name="rfu0" bitmap="3E" value="00" />
-				<field type="radios" id="reg023a_ooba6wy" title="Control whether NFC-A polling loop implements Apple VAS Enhanced Contactless Polling" name="Apple VAS ECP" bitmap="01">
+				<field type="radios" id="reg023a_ooba6wy" title="Control whether NFC-A polling loop implements Apple Enhanced Contactless Polling" name="Apple ECP" bitmap="01">
 					<option value="0" title="ECP is disabled"/>
 					<option value="1" title="ECP is enabled"/>
 				</field>
 			</register>
 			<register id="023B" size="2" default="0000">
 				<title>NFC-B specific options</title>
-				<field type="hidden" id="reg023b_2kglign" name="rfu0" bitmap="8000" value="0" />
+				<field type="checkbox" id="reg023b_7wdxe6d" title="NFC Forum polling: discard NFC-B polling for reactivation feature" name="discard-for-reactivation" bitmap="4000" />
 				<field type="checkbox" id="reg023b_7wdxe6d" title="NFC Forum polling: bail-out after NFC-B response" name="Bail-out" bitmap="4000" />
 				<field type="hidden" id="reg023b_wliw7nn" name="rfu0" bitmap="3C00" value="0" />
-				<field type="radios" id="reg023b_f2uun5l" title="Control whether NFC-B polling loop implements Apple VAS Enhanced Contactless Polling" name="Apple VAS ECP" bitmap="0200" remark="Only ECP v2 is supported with NFC-B. Register 0239 shall be set accordingly.">
+				<field type="radios" id="reg023b_f2uun5l" title="Control whether NFC-B polling loop implements Apple Enhanced Contactless Polling" name="Apple ECP" bitmap="0200" remark="Only ECP v2 is supported with NFC-B. Register 0239 shall be set accordingly.">
 					<option value="0" title="ECP is disabled"/>
 					<option value="1" title="ECP is enabled"/>
 				</field>
@@ -794,14 +813,19 @@ The client must register to notifications/indication before this timeout occurs.
 				</description>
 				<field type="number-h" id="reg0242" minlength="1" maxlength="1" title="Notifications Registration Timeout" hint="byte"  visibleif="REGBIT(0x02C2, 7) is 0"/>
 			</register>
-			<register id="0243" size="1" default="00" visibleif="REGBIT(0x02C2, 7) is 0">
+			<register id="0243" size="3" default="008500" visibleif="REGBIT(0x02C2, 7) is 0">
 				<title>Extra options</title>
 				<description>
 Extra BLE options
 				</description>
-				<field type="hidden" id="reg0243_bozlrly_hycivfd" name="rfu0" bitmap="FC" value="00" />
-				<field type="number-h" id="reg0243_bozlrly_mdwlall" title="Force legacy advertising frame." name="force_legacy_advertising_frame" bitmap="02" visibleif="REGBIT(0x02C2, 7) is 0" />
-				<field type="number-h" id="reg0243_bozlrly_ooba6wy" title="Disable pairing re-initiator." name="disable_pairing_re_initiator" bitmap="01" visibleif="REGBIT(0x02C2, 7) is 0" />
+				<field type="hidden" id="reg0243_bozlrly_lqj276d" name="rfu0" bitmap="F80000" value="00" />
+				<field type="number-h" id="reg0243_bozlrly_54cmvpd" title="Force legacy ble power state feature." name="use_battery_power_state" bitmap="040000" visibleif="REGBIT(0x02C2, 7) is 0" />
+				<field type="number-h" id="reg0243_bozlrly_5pbdr5n" title="Force legacy advertising frame." name="force_legacy_advertising_frame" bitmap="020000" visibleif="REGBIT(0x02C2, 7) is 0" />
+				<field type="number-h" id="reg0243_bozlrly_5r4ewkl" title="Disable pairing re-initiator." name="disable_pairing_re_initiator" bitmap="010000" visibleif="REGBIT(0x02C2, 7) is 0" />
+				<field type="number-h" id="reg0243_bozlrly_a26psjy" title="number of exchanges to slow down on connect" name="number of exchanges" bitmap="00F000" visibleif="REGBIT(0x02C2, 7) is 0" />
+				<field type="number-h" id="reg0243_bozlrly_2vhzjul" title="in 10 ms unit" name="delay" bitmap="000F00" visibleif="REGBIT(0x02C2, 7) is 0" />
+				<field type="hidden" id="reg0243_bozlrly_lj6b7vd" name="rfu0" bitmap="0000F0" value="0" />
+				<field type="number-h" id="reg0243_bozlrly_g55hkny" title="in 1 ms unit" name="delay" bitmap="00000F" visibleif="REGBIT(0x02C2, 7) is 0" />
 			</register>
 			<!-- Hiding User Device Name (individual register) -->
 			<register id="0248" size="1" default="77" visibleif="REGBIT(0x02C2, 7) is 0">
@@ -820,6 +844,13 @@ Channels used while advertising.
 Major ID and Minor ID used for iBeacon broadcasting
 				</description>
 				<field type="raw" id="reg0249" minlength="4" maxlength="4" title="iBeacon ID" visibleif="REGBIT(0x02C2, 7) is 0"/>
+			</register>
+			<register id="024A" size="16" default="f7826da64fa24e988024bc5b71e0893e" visibleif="REGBIT(0x02C2, 7) is 0">
+				<title>iBeacon UUID</title>
+				<description>
+16 bytes UUID used for iBeacon broadcasting
+				</description>
+				<field type="raw" id="reg024a" minlength="16" maxlength="16" title="iBeacon UUID" visibleif="REGBIT(0x02C2, 7) is 0"/>
 			</register>
 		</node>
 		<!-- Ignoring UHF (no uhf) -->
@@ -844,7 +875,7 @@ Major ID and Minor ID used for iBeacon broadcasting
 					<option value="7" title="Class A or Class B or Class C (5V, 3.3V or 1.8V)"/>
 				</field>
 			</register>
-			<register id="0272" size="1" default="82">
+			<register id="0272" size="1" default="92">
 				<title>Configuration of the first ID-000 slot (&quot;SAM A&quot;)</title>
 				<field type="checkbox" id="reg0272_m6awtjl" title="Auto pps" name="Auto PPS" bitmap="80" />
 				<field type="checkbox" id="reg0272_op23zml" title="HSP (Calypso SAM)" name="HSP" bitmap="40" advanced="true" />
@@ -863,7 +894,7 @@ Major ID and Minor ID used for iBeacon broadcasting
 					<option value="7" title="Class A or Class B or Class C (5V, 3.3V or 1.8V)"/>
 				</field>
 			</register>
-			<register id="0273" size="1" default="82">
+			<register id="0273" size="1" default="92">
 				<title>Configuration of the other ID-000 slots (&quot;SAM B&quot;, &quot;SAM C&quot; and &quot;SAM D&quot;)</title>
 				<field type="checkbox" id="reg0273_m6awtjl" title="Auto pps" name="Auto PPS" bitmap="80" />
 				<field type="checkbox" id="reg0273_op23zml" title="HSP (Calypso SAM)" name="HSP" bitmap="40" advanced="true" />
@@ -985,7 +1016,16 @@ Major ID and Minor ID used for iBeacon broadcasting
 			</register>
 			<register id="02BC" size="1" default="00" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 				<title>Driver support</title>
-				<field type="hidden" id="reg02bc_35gzn7y_g65secl" name="rfu0" bitmap="F0" value="0" />
+				<field type="hidden" id="reg02bc_35gzn7y_m6awtjl" name="rfu0" bitmap="80" value="0" />
+				<field type="radios" id="reg02bc_35gzn7y_op23zml" title="Don&apos;t start the contact slots automatically" name="No auto-start contact" bitmap="40" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+					<option value="0" title="The Contact slots start automatically" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
+					<option value="1" title="The Contact slots must be started manually" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
+				</field>
+				<field type="hidden" id="reg02bc_35gzn7y_ax7h6sl" name="rfu0" bitmap="20" value="0" />
+				<field type="radios" id="reg02bc_35gzn7y_t6r55rl" title="Don&apos;t start the contactless slots automatically" name="No auto-start contactless" bitmap="10" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+					<option value="0" title="The Contactless slot starts automatically" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
+					<option value="1" title="The Contactless slot must be started manually" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
+				</field>
 				<field type="radios" id="reg02bc_35gzn7y_efr3mkd" title="Method for CCID Time Extension (empty) data-blocks" name="Time Extension mode" bitmap="0C" visibleif="REGBITS(0x02C0, 0, 3) is 2" remark="The Time Extension frames are mandatory with the CCID driver from the PC/SC-Lite project.">
 					<option value="0" title="Send a Time Extension frame when the card has sent a WTX or a 60 procedure byte" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="1" title="Send a Time Extension frame every 1s" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
@@ -1001,10 +1041,16 @@ Major ID and Minor ID used for iBeacon broadcasting
 					<option value="1" title="The USB class of the CCID interface is FF (vendor specific)" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 				</field>
 			</register>
-			<register id="02BE" size="2" default="0000" visibleif="REGBITS(0x02C0, 0, 3) is 2">
-				<title>Advanced CCID timers</title>
-				<field type="number-h" id="reg02be_35gzn7y_rj665vl" title="Time to wait before CCID operation after the SET_CONFIGURATION control (10th of second)" name="Wait after start" bitmap="FF00" visibleif="REGBITS(0x02C0, 0, 3) is 2" />
-				<field type="number-h" id="reg02be_35gzn7y_gpg5rzd" title="Time to wait before CCID operation after the first GET_STATUS request (10th of second)" name="Wait after probe" bitmap="00FF" visibleif="REGBITS(0x02C0, 0, 3) is 2" />
+			<register id="02BE" size="8" default="0000000000000000" advanced="true" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+				<title>CCID host timers</title>
+				<field type="number-h" id="reg02be_35gzn7y_lgoapvy" title="Time to wait before CCID operation after the SET_CONFIGURATION control (10th of second)" name="Wait after start" bitmap="FF00000000000000" advanced="true" visibleif="REGBITS(0x02C0, 0, 3) is 2" remark="Slowing down the sequence is necessary on hosts where the driver is activated long before the PC/SC middleware is ready" />
+				<field type="number-h" id="reg02be_35gzn7y_6z3k37l" title="Time to wait before CCID operation after the first CONTROL request (10th of second)" name="Wait after probe Windows" bitmap="00FF000000000000" advanced="true" visibleif="REGBITS(0x02C0, 0, 3) is 2" remark="The CONTROL request allows recognizing the driver for Windows" />
+				<field type="number-h" id="reg02be_35gzn7y_dmpmkkl" title="Time to wait before CCID operation after the first GET_STATUS request (10th of second)" name="Wait after probe PCSC Lite" bitmap="0000FF0000000000" advanced="true" visibleif="REGBITS(0x02C0, 0, 3) is 2" remark="The GET_STATUS request allows recognizing the driver for Linux and macOS" />
+				<field type="number-h" id="reg02be_35gzn7y_iav4stl" title="Time to wait between two notifications of card insertion/eject on the same slot (milliseconds)" name="Debounce card movements" bitmap="000000FF00000000" advanced="true" visibleif="REGBITS(0x02C0, 0, 3) is 2" remark="Slowing down the sequence is necessary when the computer&apos;s PC/SC stack takes some time to accept the next state change" />
+				<field type="number-h" id="reg02be_35gzn7y_uhpapwn" title="Time to wait between two interrupt events (milliseconds)" name="Debounce interrupts" bitmap="00000000FF000000" advanced="true" visibleif="REGBITS(0x02C0, 0, 3) is 2" remark="Slowing down the sequence is necessary when the computer&apos;s PC/SC stack takes some time to react to the interrupt" />
+				<field type="number-h" id="reg02be_35gzn7y_efafu4n" title="Time to wait between a card removed interrupt and the (interrupted) pending response (milliseconds)" name="Postpone response after remove" bitmap="0000000000FF0000" advanced="true" visibleif="REGBITS(0x02C0, 0, 3) is 2" remark="Delaying the answer is necessary when the computer&apos;s PC/SC stack takes some time to handle the interrupt" />
+				<field type="number-h" id="reg02be_35gzn7y_6yvbcwy" title="Time offered to the host to process interrupts (seconds)" name="Host timeout" bitmap="000000000000FF00" advanced="true" visibleif="REGBITS(0x02C0, 0, 3) is 2" />
+				<field type="number-h" id="reg02be_35gzn7y_kndv4tn" title="Time to reset the USB interface in case of host failure (seconds)" name="USB reset time" bitmap="00000000000000FF" advanced="true" visibleif="REGBITS(0x02C0, 0, 3) is 2" />
 			</register>
 			<register id="02BF" size="1" default="FF" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 				<title>Class of the embedded APDU interpreter</title>
@@ -1047,18 +1093,18 @@ Global Bytes transmitted in NFC ATR_REQ or ATR_RES when a ISO/IEC 18092 peer is 
 		<node title="BLE Smart Reader template">
 			<register id="0300" size="1" default="00">
 				<title>Operating mode of BLE reader</title>
-				<!-- Empty node Spy, title=Spy, type=SpringCoreMeta.NodeListValue -->
-				<!-- Empty node Extended Spy, title=Extended Spy, type=SpringCoreMeta.NodeListValue -->
-				<!-- Empty node iBeacon, title=iBeacon, type=SpringCoreMeta.NodeListValue -->
-				<!-- Empty node Eddystone, title=Eddystone, type=SpringCoreMeta.NodeListValue -->
-				<!-- Empty node SpringBlue, title=SpringBlue, type=SpringCoreMeta.NodeListValue -->
-				<!-- Empty node Orange Pack ID, title=Orange Pack ID, type=SpringCoreMeta.NodeListValue -->
+				<!-- Empty node Spy, title=Spy, type=NvmTplMeta.NodeListValue -->
+				<!-- Empty node Extended Spy, title=Extended Spy, type=NvmTplMeta.NodeListValue -->
+				<!-- Empty node iBeacon, title=iBeacon, type=NvmTplMeta.NodeListValue -->
+				<!-- Empty node Eddystone, title=Eddystone, type=NvmTplMeta.NodeListValue -->
+				<!-- Empty node SpringBlue, title=SpringBlue, type=NvmTplMeta.NodeListValue -->
+				<!-- Empty node Orange Pack ID, title=Orange Pack ID, type=NvmTplMeta.NodeListValue -->
 			</register>
 		</node>
-		<!-- Empty node Contactless template 1, title=NFC/RFID HF Smart Reader template 1, type=SpringCoreMeta.NodeRegisters -->
-		<!-- Empty node Contactless template 2, title=NFC/RFID HF Smart Reader template 2, type=SpringCoreMeta.NodeRegisters -->
-		<!-- Empty node Contactless template 3, title=NFC/RFID HF Smart Reader template 3, type=SpringCoreMeta.NodeRegisters -->
-		<!-- Empty node Contactless template 4, title=NFC/RFID HF Smart Reader template 4, type=SpringCoreMeta.NodeRegisters -->
-	<!-- Empty node Statistics, title=Statistics, type=SpringCoreMeta.NodeRegisters -->
+		<!-- Empty node Contactless template 1, title=NFC/RFID HF Smart Reader template 1, type=NvmTplMeta.NodeRegisters -->
+		<!-- Empty node Contactless template 2, title=NFC/RFID HF Smart Reader template 2, type=NvmTplMeta.NodeRegisters -->
+		<!-- Empty node Contactless template 3, title=NFC/RFID HF Smart Reader template 3, type=NvmTplMeta.NodeRegisters -->
+		<!-- Empty node Contactless template 4, title=NFC/RFID HF Smart Reader template 4, type=NvmTplMeta.NodeRegisters -->
+	<!-- Empty node Statistics, title=Statistics, type=NvmTplMeta.NodeRegisters -->
 	</tree>
 </springcard-multiconf-registers>

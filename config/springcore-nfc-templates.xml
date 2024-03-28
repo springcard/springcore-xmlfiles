@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <springcard-multiconf-templates
-	version="1.24"
+	version="1.27"
 	author="JDA"
 >
 	<tree>
-	<!-- Empty node , title=NFC Templates, type=SpringCoreMeta.NodeTemplateEntries -->
-	<!-- Empty node , title=NFC Templates, type=SpringCoreMeta.NodeTemplateRegisters -->
+	<!-- Empty node , title=NFC Templates, type=NvmTplMeta.NodeTemplateEntries -->
+	<!-- Empty node , title=NFC Templates, type=NvmTplMeta.NodeTemplateRegisters -->
 	<template id="id_only" name="ID Only" title="ID Only Template" hash="24hhu7n">
 		<lookups>
 			<lkl value="FF" title="All supported protocols" />
@@ -531,7 +531,7 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 			<lkl value="71" title="(Desfire Data)" />
 		</lookups>
 		<description>
-Use the Desfire File Template to read data from a NXP Desfire PICC. The PICC could be either a Desfire EV0 or a Desfire EV1.
+Use the Desfire File Template to read data from a NXP Desfire PICC. The PICC could be either a Desfire EV0, Desfire EV1 or Desfire EV2 (including the Desfire EV3 that uses the same cryptography).
 The Reader may either
 * Read arbitrary data; the data will be transmitted in hexadecimal format. To do so, select the RAW mode in TOF register.
 * Read a number (decimal output). To do so, select the decimal mode in TOF register.
@@ -1492,6 +1492,32 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 		<lookups>
 			<lkl value="D2" title="(Google SmartTap)" />
 		</lookups>
+		<description>
+Read data from an Android mobile phone using the Google SmartTap protocol.
+		</description>
+		<remark>
+When configuring the Google SmartTap template in the Smart Reader, always activate both NFC-A and NFC-B protocol, and activate EMV compliance in the &quot;NFC/RFID HF compliance in poller mode&quot; configuration register.
+The SpringCore firmware is only suitable to read Google SmartTap data, not to run Google Pay transactions. SpringCore devices are not payment terminals.
+		</remark>
+		<register id="0003" size="4" default="00000000">
+			<title>Collector ID</title>
+			<description>
+Collector ID of merchant system.
+			</description>
+			<field type="raw" id="tplbqdrmad_reg0003" minlength="4" maxlength="4" title="Collector ID"/>
+		</register>
+		<register id="0004" size="4" default="00000000">
+			<title>Long Term Key Version</title>
+			<description>
+Version of the private key.
+			</description>
+			<field type="raw" id="tplbqdrmad_reg0004" minlength="4" maxlength="4" title="Long Term Key Version"/>
+		</register>
+		<register id="0005" size="32" default="0000000000000000000000000000000000000000000000000000000000000000">
+			<title>Long Term Private Key</title>
+			<field type="number-h" id="tplbqdrmad_reg0005_5jmntfy" title="Key slot in the internal ATECC" name="0" bitmap="FF00000000000000000000000000000000000000000000000000000000000000" />
+			<field type="raw" id="tplbqdrmad_reg0005_5a737by" title="Value of ECC Private Key" name="0" bitmap="FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" />
+		</register>
 	</template>
 	<template id="pan" name="PAN" title="PAN Template" hash="a2a63zl">
 		<lookups>

@@ -5,7 +5,7 @@
 	firmware="springcore/h518/afcare-two"
 	implements="usb,ble,ccid,7816,7816_id1_x2,ataes,battery"
 	hardware="FSE18283"
-	version="1.24"
+	version="1.27"
 	author="JDA"
 	templatesnfc="false"
 	templatesble="false"
@@ -21,7 +21,7 @@
 		<mode value="nxpnfc" icon="product+mode-nxpnfc" />
 	</modes>
 	<tree>
-	<!-- Empty node Constants, title=Constants, type=SpringCoreMeta.NodeRegisters -->
+	<!-- Empty node Constants, title=Constants, type=NvmTplMeta.NodeRegisters -->
 		<node title="Main configuration">
 			<register id="02C0" size="1" default="00">
 				<title>Profile</title>
@@ -119,7 +119,7 @@ If the product has no BLE interface, this register is ignored.
 					<option value="2" title="Beacon; use the BLE interface for iBeacon brodcasting." visibleif="REGBIT(0x02C2, 7) is 0"/>
 					<option value="3" title="RFU; do not use." visibleif="REGBIT(0x02C2, 7) is 0"/>
 				</field>
-				<!-- Empty node , title=BLE device *vs* BLE reader/broadcaster mode, type=SpringCoreMeta.NodeSection -->
+				<!-- Empty node , title=BLE device *vs* BLE reader/broadcaster mode, type=NvmTplMeta.NodeSection -->
 			</register>
 			<!-- Ignoring USB BLE switching (no usb&ble) -->
 			<register id="02C4" size="1" default="00" advanced="true">
@@ -127,13 +127,17 @@ If the product has no BLE interface, this register is ignored.
 				<description>
 Control various options related to the current profile.
 				</description>
-				<field type="hidden" id="reg02c4_snvp4xd" name="rfu0" bitmap="FE" value="00" />
+				<field type="hidden" id="reg02c4_hycivfd" name="rfu0" bitmap="FC" value="00" />
+				<field type="radios" id="reg02c4_s27wvjn_mdwlall" title="enable profile overrider (product specific)." name="Profile overrider" bitmap="02" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3">
+					<option value="0" title="Profile overrider is disabled" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3"/>
+					<option value="1" title="Profile overrider is enabled" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3"/>
+				</field>
 				<field type="radios" id="reg02c4_s27wvjn_ooba6wy" title="Enable HID Ringer addon used by Telephony services (experimental)." name="Enable Ringer" bitmap="01" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3">
 					<option value="0" title="HID Ringer is enabled" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3"/>
 					<option value="1" title="HID Ringer is disabled" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3"/>
 				</field>
 			</register>
-			<register id="02C5" size="3" default="000203">
+			<register id="02C5" size="5" default="0002035A64">
 				<title>Battery configuration</title>
 				<description>
 When the product has a battery, this register controls the behaviour of the power button and the power-saving policy.
@@ -141,37 +145,53 @@ When the product has a battery, this register controls the behaviour of the powe
 				<remark>
 This register is ignored if the product does not have a battery.
 				</remark>
-				<field type="hidden" id="reg02c5_vtrhxcd" name="rfu0" bitmap="800000" value="0" />
-				<field type="radios" id="reg02c5_s5gikod" title="Disable power button while connected" name="Lock power button while connected" bitmap="400000" advanced="true">
+				<field type="radios" id="reg02c5_f5bc2vy" title="Disable new battery detection" name="Never new" bitmap="8000000000" advanced="true">
+					<option value="0" title="The new battery detection is activated (battery may be new)." advanced="true"/>
+					<option value="1" title="The new battery detection is dicarded (battery is not new)." advanced="true"/>
+				</field>
+				<field type="radios" id="reg02c5_pelr6in" title="Disable power button while connected" name="Lock power button while connected" bitmap="4000000000" advanced="true">
 					<option value="0" title="The power button is free to use." advanced="true"/>
 					<option value="1" title="The power button is disabled if host connected." advanced="true"/>
 				</field>
-				<field type="radios" id="reg02c5_yzwk5zd" title="Allow 1A charge mode (JCH test)" name="Allow 1A charge mode" bitmap="200000" advanced="true">
+				<field type="radios" id="reg02c5_n5sadwl" title="Allow 1A charge mode (JCH test)" name="Allow 1A charge mode" bitmap="2000000000" advanced="true">
 					<option value="0" title="The product can not use 1A mode." advanced="true"/>
 					<option value="1" title="The product can use 1A mode." advanced="true"/>
 				</field>
-				<field type="radios" id="reg02c5_zgpuoyd" title="Force High charge mode" name="Force High charge mode" bitmap="100000" advanced="true">
+				<field type="radios" id="reg02c5_oe4w4my" title="Force High charge mode" name="Force High charge mode" bitmap="1000000000" advanced="true">
 					<option value="0" title="The product detects and selects LOW or HIGH charge mode." advanced="true"/>
 					<option value="1" title="The product forces HIGH charge mode." advanced="true"/>
 				</field>
-				<field type="radios" id="reg02c5_6xkls3d" title="Sleep allowed on charger" name="Sleep allowed on charger" bitmap="080000" advanced="true">
+				<field type="radios" id="reg02c5_6tkjtun" title="Sleep allowed on charger" name="Sleep allowed on charger" bitmap="0800000000" advanced="true">
 					<option value="0" title="The product can&apos;t sleep when connected to a charger." advanced="true"/>
 					<option value="1" title="The product can sleep when connected to a charger." advanced="true"/>
 				</field>
-				<field type="radios" id="reg02c5_54cmvpd" title="Wake up provided by the BLE chip" name="Wake up from BGM" bitmap="040000">
+				<field type="radios" id="reg02c5_wfsxvul" title="Wake up provided by the BLE chip" name="Wake up from BGM" bitmap="0400000000">
 					<option value="0" title="The product can&apos;t be wake up by the BLE chip."/>
 					<option value="1" title="The product can be wake up by the BLE chip."/>
 				</field>
-				<field type="radios" id="reg02c5_5pbdr5n" title="behaviour when power loss" name="Stop button only" bitmap="020000">
+				<field type="radios" id="reg02c5_ups3l5l" title="behaviour when power loss" name="Stop button only" bitmap="0200000000">
 					<option value="0" title="The product stops immediately when the external power supply is unplugged"/>
 					<option value="1" title="The power button must be pressed to stop the product"/>
 				</field>
-				<field type="radios" id="reg02c5_5r4ewkl" title="behaviour when power arrives" name="Start button only" bitmap="010000">
+				<field type="radios" id="reg02c5_5g4gajl" title="behaviour when power arrives" name="Start button only" bitmap="0100000000">
 					<option value="0" title="The product starts immediately when an external power supply is plugged"/>
 					<option value="1" title="The power button must be pressed to start the product"/>
 				</field>
-				<field type="number-h" id="reg02c5_gsqqlyn" title="Power saving delay, unconnected" name="Power saving unconnected" bitmap="00FF00" description="Number of minutes before shutting down, when the product is running on battery and is not connected to a remote host." remark="Default is 3 minutes." />
-				<field type="number-h" id="reg02c5_rk4pgmy" title="Power saving delay, connected but idle" name="Power saving connected" bitmap="0000FF" description="Number of minutes before shutting down, when the product is running on battery and is connected to a remote host, but the remote host does not send any command to the product." remark="Disabled by default (the product remains powered as long as the remote host is connected)." />
+				<field type="number-h" id="reg02c5_vnp5ven" title="Power saving delay, unconnected" name="Power saving unconnected" bitmap="00FF000000" description="Number of minutes before shutting down, when the product is running on battery and is not connected to a remote host." remark="Default is 3 minutes." />
+				<field type="number-h" id="reg02c5_2bahmzn" title="Power saving delay, connected but idle" name="Power saving connected" bitmap="0000FF0000" description="Number of minutes before shutting down, when the product is running on battery and is connected to a remote host, but the remote host does not send any command to the product." remark="Disabled by default (the product remains powered as long as the remote host is connected)." />
+				<field type="number-h" id="reg02c5_3ovnoey" title="charge will restart when the battery level goes below this value" name="Low charge Threshold" bitmap="000000FF00" description="This could be use to avoid charge  stress on the battery." remark="Default is 95%." />
+				<field type="number-h" id="reg02c5_ahd4scn" title="charge will stop when the battery level reaches this value" name="High charge Threshold" bitmap="00000000FF" description="This could be use to avoid charge stress on the battery." remark="Default is 100%." />
+			</register>
+			<register id="02C6" size="3" default="000000">
+				<title>Battery storage guard</title>
+				<description>
+Some products that have a battery are not fully powered down when &apos;off&apos;, but use a &apos;deep-sleep&apos; mode to be able to start-up immediately in response to external events. To prevent emptying its battery when the product is not used for a few weeks or months, the Battery Storage Guard reads the battery level periodically, and sets the product in &apos;full off&apos; when this level becomes too low. This register controls this feature.
+				</description>
+				<remark>
+This feature is only applicable on some specific products.
+				</remark>
+				<field type="number-h" id="reg02c6_rj6s4vl" title="Interval for the periodic measurement" name="Interval" bitmap="FFFF00" remark="Set to `0000` to disable this feature" />
+				<field type="number-h" id="reg02c6_rk4pgmy" title="Minimum battery level (in percent)" name="threshold" bitmap="0000FF" remark="Set to `00` to disable this feature" />
 			</register>
 			<register id="02CD" size="4" default="00000000" advanced="true">
 				<title>Trace level</title>
@@ -185,7 +205,11 @@ This register is available only in debug builds of the firmware.
 				<remark>
 This register is available only in debug builds of the firmware.
 				</remark>
-				<field type="hidden" id="reg02ce_fe5kedn_kxpbr2l" name="rfu0" bitmap="C0" value="0" />
+				<field type="hidden" id="reg02ce_fe5kedn_m6awtjl" name="rfu0" bitmap="80" value="0" />
+				<field type="radios" id="reg02ce_fe5kedn_op23zml" title="Use Serial" name="Use Serial" bitmap="40" advanced="true" visibleif="REGVAL(0x02CD) is not 0">
+					<option value="0" title="Use dedicated serial line for traces (if some)" advanced="true" visibleif="REGVAL(0x02CD) is not 0"/>
+					<option value="1" title="Send traces to main serial line" advanced="true" visibleif="REGVAL(0x02CD) is not 0"/>
+				</field>
 				<field type="radios" id="reg02ce_fe5kedn_ax7h6sl" title="Use Syslog" name="Use Syslog" bitmap="20" advanced="true" visibleif="REGVAL(0x02CD) is not 0">
 					<option value="0" title="Don&apos;t use syslog" advanced="true" visibleif="REGVAL(0x02CD) is not 0"/>
 					<option value="1" title="Send traces to syslog" advanced="true" visibleif="REGVAL(0x02CD) is not 0"/>
@@ -204,7 +228,7 @@ This register is available only in debug builds of the firmware.
 				<field type="raw" id="reg02cf" minlength="0" maxlength="64" title="Deferred commands" advanced="true" dynamic="true"/>
 			</register>
 		</node>
-		<!-- Empty node Inventory, title=Inventory data, type=SpringCoreMeta.NodeRegisters -->
+		<!-- Empty node Inventory, title=Inventory data, type=NvmTplMeta.NodeRegisters -->
 		<node title="Integrator's license">
 			<register id="0208" size="32" default="">
 				<title>Application name</title>
@@ -463,14 +487,19 @@ The client must register to notifications/indication before this timeout occurs.
 				</description>
 				<field type="number-h" id="reg0242" minlength="1" maxlength="1" title="Notifications Registration Timeout" hint="byte"  visibleif="REGBIT(0x02C2, 7) is 0"/>
 			</register>
-			<register id="0243" size="1" default="00" visibleif="REGBIT(0x02C2, 7) is 0">
+			<register id="0243" size="3" default="008500" visibleif="REGBIT(0x02C2, 7) is 0">
 				<title>Extra options</title>
 				<description>
 Extra BLE options
 				</description>
-				<field type="hidden" id="reg0243_bozlrly_hycivfd" name="rfu0" bitmap="FC" value="00" />
-				<field type="number-h" id="reg0243_bozlrly_mdwlall" title="Force legacy advertising frame." name="force_legacy_advertising_frame" bitmap="02" visibleif="REGBIT(0x02C2, 7) is 0" />
-				<field type="number-h" id="reg0243_bozlrly_ooba6wy" title="Disable pairing re-initiator." name="disable_pairing_re_initiator" bitmap="01" visibleif="REGBIT(0x02C2, 7) is 0" />
+				<field type="hidden" id="reg0243_bozlrly_lqj276d" name="rfu0" bitmap="F80000" value="00" />
+				<field type="number-h" id="reg0243_bozlrly_54cmvpd" title="Force legacy ble power state feature." name="use_battery_power_state" bitmap="040000" visibleif="REGBIT(0x02C2, 7) is 0" />
+				<field type="number-h" id="reg0243_bozlrly_5pbdr5n" title="Force legacy advertising frame." name="force_legacy_advertising_frame" bitmap="020000" visibleif="REGBIT(0x02C2, 7) is 0" />
+				<field type="number-h" id="reg0243_bozlrly_5r4ewkl" title="Disable pairing re-initiator." name="disable_pairing_re_initiator" bitmap="010000" visibleif="REGBIT(0x02C2, 7) is 0" />
+				<field type="number-h" id="reg0243_bozlrly_a26psjy" title="number of exchanges to slow down on connect" name="number of exchanges" bitmap="00F000" visibleif="REGBIT(0x02C2, 7) is 0" />
+				<field type="number-h" id="reg0243_bozlrly_2vhzjul" title="in 10 ms unit" name="delay" bitmap="000F00" visibleif="REGBIT(0x02C2, 7) is 0" />
+				<field type="hidden" id="reg0243_bozlrly_lj6b7vd" name="rfu0" bitmap="0000F0" value="0" />
+				<field type="number-h" id="reg0243_bozlrly_g55hkny" title="in 1 ms unit" name="delay" bitmap="00000F" visibleif="REGBIT(0x02C2, 7) is 0" />
 			</register>
 			<!-- Hiding User Device Name (individual register) -->
 			<register id="0248" size="1" default="77" visibleif="REGBIT(0x02C2, 7) is 0">
@@ -489,6 +518,13 @@ Channels used while advertising.
 Major ID and Minor ID used for iBeacon broadcasting
 				</description>
 				<field type="raw" id="reg0249" minlength="4" maxlength="4" title="iBeacon ID" visibleif="REGBIT(0x02C2, 7) is 0"/>
+			</register>
+			<register id="024A" size="16" default="f7826da64fa24e988024bc5b71e0893e" visibleif="REGBIT(0x02C2, 7) is 0">
+				<title>iBeacon UUID</title>
+				<description>
+16 bytes UUID used for iBeacon broadcasting
+				</description>
+				<field type="raw" id="reg024a" minlength="16" maxlength="16" title="iBeacon UUID" visibleif="REGBIT(0x02C2, 7) is 0"/>
 			</register>
 		</node>
 		<!-- Ignoring UHF (no uhf) -->
@@ -513,7 +549,7 @@ Major ID and Minor ID used for iBeacon broadcasting
 					<option value="7" title="Class A or Class B or Class C (5V, 3.3V or 1.8V)"/>
 				</field>
 			</register>
-			<register id="0272" size="1" default="82">
+			<register id="0272" size="1" default="92">
 				<title>Configuration of the first ID-000 slot (&quot;SAM A&quot;)</title>
 				<field type="checkbox" id="reg0272_m6awtjl" title="Auto pps" name="Auto PPS" bitmap="80" />
 				<field type="checkbox" id="reg0272_op23zml" title="HSP (Calypso SAM)" name="HSP" bitmap="40" advanced="true" />
@@ -532,7 +568,7 @@ Major ID and Minor ID used for iBeacon broadcasting
 					<option value="7" title="Class A or Class B or Class C (5V, 3.3V or 1.8V)"/>
 				</field>
 			</register>
-			<register id="0273" size="1" default="82">
+			<register id="0273" size="1" default="92">
 				<title>Configuration of the other ID-000 slots (&quot;SAM B&quot;, &quot;SAM C&quot; and &quot;SAM D&quot;)</title>
 				<field type="checkbox" id="reg0273_m6awtjl" title="Auto pps" name="Auto PPS" bitmap="80" />
 				<field type="checkbox" id="reg0273_op23zml" title="HSP (Calypso SAM)" name="HSP" bitmap="40" advanced="true" />
@@ -654,7 +690,16 @@ Major ID and Minor ID used for iBeacon broadcasting
 			</register>
 			<register id="02BC" size="1" default="00" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 				<title>Driver support</title>
-				<field type="hidden" id="reg02bc_35gzn7y_g65secl" name="rfu0" bitmap="F0" value="0" />
+				<field type="hidden" id="reg02bc_35gzn7y_m6awtjl" name="rfu0" bitmap="80" value="0" />
+				<field type="radios" id="reg02bc_35gzn7y_op23zml" title="Don&apos;t start the contact slots automatically" name="No auto-start contact" bitmap="40" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+					<option value="0" title="The Contact slots start automatically" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
+					<option value="1" title="The Contact slots must be started manually" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
+				</field>
+				<field type="hidden" id="reg02bc_35gzn7y_ax7h6sl" name="rfu0" bitmap="20" value="0" />
+				<field type="radios" id="reg02bc_35gzn7y_t6r55rl" title="Don&apos;t start the contactless slots automatically" name="No auto-start contactless" bitmap="10" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+					<option value="0" title="The Contactless slot starts automatically" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
+					<option value="1" title="The Contactless slot must be started manually" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
+				</field>
 				<field type="radios" id="reg02bc_35gzn7y_efr3mkd" title="Method for CCID Time Extension (empty) data-blocks" name="Time Extension mode" bitmap="0C" visibleif="REGBITS(0x02C0, 0, 3) is 2" remark="The Time Extension frames are mandatory with the CCID driver from the PC/SC-Lite project.">
 					<option value="0" title="Send a Time Extension frame when the card has sent a WTX or a 60 procedure byte" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="1" title="Send a Time Extension frame every 1s" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
@@ -670,10 +715,16 @@ Major ID and Minor ID used for iBeacon broadcasting
 					<option value="1" title="The USB class of the CCID interface is FF (vendor specific)" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 				</field>
 			</register>
-			<register id="02BE" size="2" default="0000" visibleif="REGBITS(0x02C0, 0, 3) is 2">
-				<title>Advanced CCID timers</title>
-				<field type="number-h" id="reg02be_35gzn7y_rj665vl" title="Time to wait before CCID operation after the SET_CONFIGURATION control (10th of second)" name="Wait after start" bitmap="FF00" visibleif="REGBITS(0x02C0, 0, 3) is 2" />
-				<field type="number-h" id="reg02be_35gzn7y_gpg5rzd" title="Time to wait before CCID operation after the first GET_STATUS request (10th of second)" name="Wait after probe" bitmap="00FF" visibleif="REGBITS(0x02C0, 0, 3) is 2" />
+			<register id="02BE" size="8" default="0000000000000000" advanced="true" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+				<title>CCID host timers</title>
+				<field type="number-h" id="reg02be_35gzn7y_lgoapvy" title="Time to wait before CCID operation after the SET_CONFIGURATION control (10th of second)" name="Wait after start" bitmap="FF00000000000000" advanced="true" visibleif="REGBITS(0x02C0, 0, 3) is 2" remark="Slowing down the sequence is necessary on hosts where the driver is activated long before the PC/SC middleware is ready" />
+				<field type="number-h" id="reg02be_35gzn7y_6z3k37l" title="Time to wait before CCID operation after the first CONTROL request (10th of second)" name="Wait after probe Windows" bitmap="00FF000000000000" advanced="true" visibleif="REGBITS(0x02C0, 0, 3) is 2" remark="The CONTROL request allows recognizing the driver for Windows" />
+				<field type="number-h" id="reg02be_35gzn7y_dmpmkkl" title="Time to wait before CCID operation after the first GET_STATUS request (10th of second)" name="Wait after probe PCSC Lite" bitmap="0000FF0000000000" advanced="true" visibleif="REGBITS(0x02C0, 0, 3) is 2" remark="The GET_STATUS request allows recognizing the driver for Linux and macOS" />
+				<field type="number-h" id="reg02be_35gzn7y_iav4stl" title="Time to wait between two notifications of card insertion/eject on the same slot (milliseconds)" name="Debounce card movements" bitmap="000000FF00000000" advanced="true" visibleif="REGBITS(0x02C0, 0, 3) is 2" remark="Slowing down the sequence is necessary when the computer&apos;s PC/SC stack takes some time to accept the next state change" />
+				<field type="number-h" id="reg02be_35gzn7y_uhpapwn" title="Time to wait between two interrupt events (milliseconds)" name="Debounce interrupts" bitmap="00000000FF000000" advanced="true" visibleif="REGBITS(0x02C0, 0, 3) is 2" remark="Slowing down the sequence is necessary when the computer&apos;s PC/SC stack takes some time to react to the interrupt" />
+				<field type="number-h" id="reg02be_35gzn7y_efafu4n" title="Time to wait between a card removed interrupt and the (interrupted) pending response (milliseconds)" name="Postpone response after remove" bitmap="0000000000FF0000" advanced="true" visibleif="REGBITS(0x02C0, 0, 3) is 2" remark="Delaying the answer is necessary when the computer&apos;s PC/SC stack takes some time to handle the interrupt" />
+				<field type="number-h" id="reg02be_35gzn7y_6yvbcwy" title="Time offered to the host to process interrupts (seconds)" name="Host timeout" bitmap="000000000000FF00" advanced="true" visibleif="REGBITS(0x02C0, 0, 3) is 2" />
+				<field type="number-h" id="reg02be_35gzn7y_kndv4tn" title="Time to reset the USB interface in case of host failure (seconds)" name="USB reset time" bitmap="00000000000000FF" advanced="true" visibleif="REGBITS(0x02C0, 0, 3) is 2" />
 			</register>
 			<register id="02BF" size="1" default="FF" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 				<title>Class of the embedded APDU interpreter</title>
@@ -689,18 +740,18 @@ This register allows to change this value. Setting it to `00` totally disables t
 		<node title="BLE Smart Reader template">
 			<register id="0300" size="1" default="00">
 				<title>Operating mode of BLE reader</title>
-				<!-- Empty node Spy, title=Spy, type=SpringCoreMeta.NodeListValue -->
-				<!-- Empty node Extended Spy, title=Extended Spy, type=SpringCoreMeta.NodeListValue -->
-				<!-- Empty node iBeacon, title=iBeacon, type=SpringCoreMeta.NodeListValue -->
-				<!-- Empty node Eddystone, title=Eddystone, type=SpringCoreMeta.NodeListValue -->
-				<!-- Empty node SpringBlue, title=SpringBlue, type=SpringCoreMeta.NodeListValue -->
-				<!-- Empty node Orange Pack ID, title=Orange Pack ID, type=SpringCoreMeta.NodeListValue -->
+				<!-- Empty node Spy, title=Spy, type=NvmTplMeta.NodeListValue -->
+				<!-- Empty node Extended Spy, title=Extended Spy, type=NvmTplMeta.NodeListValue -->
+				<!-- Empty node iBeacon, title=iBeacon, type=NvmTplMeta.NodeListValue -->
+				<!-- Empty node Eddystone, title=Eddystone, type=NvmTplMeta.NodeListValue -->
+				<!-- Empty node SpringBlue, title=SpringBlue, type=NvmTplMeta.NodeListValue -->
+				<!-- Empty node Orange Pack ID, title=Orange Pack ID, type=NvmTplMeta.NodeListValue -->
 			</register>
 		</node>
-		<!-- Empty node Contactless template 1, title=NFC/RFID HF Smart Reader template 1, type=SpringCoreMeta.NodeRegisters -->
-		<!-- Empty node Contactless template 2, title=NFC/RFID HF Smart Reader template 2, type=SpringCoreMeta.NodeRegisters -->
-		<!-- Empty node Contactless template 3, title=NFC/RFID HF Smart Reader template 3, type=SpringCoreMeta.NodeRegisters -->
-		<!-- Empty node Contactless template 4, title=NFC/RFID HF Smart Reader template 4, type=SpringCoreMeta.NodeRegisters -->
-	<!-- Empty node Statistics, title=Statistics, type=SpringCoreMeta.NodeRegisters -->
+		<!-- Empty node Contactless template 1, title=NFC/RFID HF Smart Reader template 1, type=NvmTplMeta.NodeRegisters -->
+		<!-- Empty node Contactless template 2, title=NFC/RFID HF Smart Reader template 2, type=NvmTplMeta.NodeRegisters -->
+		<!-- Empty node Contactless template 3, title=NFC/RFID HF Smart Reader template 3, type=NvmTplMeta.NodeRegisters -->
+		<!-- Empty node Contactless template 4, title=NFC/RFID HF Smart Reader template 4, type=NvmTplMeta.NodeRegisters -->
+	<!-- Empty node Statistics, title=Statistics, type=NvmTplMeta.NodeRegisters -->
 	</tree>
 </springcard-multiconf-registers>

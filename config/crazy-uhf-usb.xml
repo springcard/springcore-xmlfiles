@@ -5,7 +5,7 @@
 	firmware="springcore/h993/crazyuhf"
 	implements="usb,serial,rdr,uhf"
 	hardware="EAN18035"
-	version="1.24"
+	version="1.27"
 	author="JDA"
 	templatesnfc="false"
 	templatesble="false"
@@ -21,7 +21,7 @@
 		<mode value="nxpnfc" icon="product+mode-nxpnfc" />
 	</modes>
 	<tree>
-	<!-- Empty node Constants, title=Constants, type=SpringCoreMeta.NodeRegisters -->
+	<!-- Empty node Constants, title=Constants, type=NvmTplMeta.NodeRegisters -->
 		<node title="Main configuration">
 			<register id="02C0" size="1" default="00">
 				<title>Profile</title>
@@ -88,13 +88,18 @@ If the product has no USB interface, this register is ignored.
 				<description>
 Control various options related to the current profile.
 				</description>
-				<field type="hidden" id="reg02c4_snvp4xd" name="rfu0" bitmap="FE" value="00" />
+				<field type="hidden" id="reg02c4_hycivfd" name="rfu0" bitmap="FC" value="00" />
+				<field type="radios" id="reg02c4_s27wvjn_mdwlall" title="enable profile overrider (product specific)." name="Profile overrider" bitmap="02" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3">
+					<option value="0" title="Profile overrider is disabled" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3"/>
+					<option value="1" title="Profile overrider is enabled" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3"/>
+				</field>
 				<field type="radios" id="reg02c4_s27wvjn_ooba6wy" title="Enable HID Ringer addon used by Telephony services (experimental)." name="Enable Ringer" bitmap="01" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3">
 					<option value="0" title="HID Ringer is enabled" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3"/>
 					<option value="1" title="HID Ringer is disabled" advanced="true" visibleif="REGBIT(0x02C1, 7) is 0 and REGBITS(0x02C0, 0, 3) is 3"/>
 				</field>
 			</register>
 			<!-- Ignoring Battery (no battery) -->
+			<!-- Ignoring Battery storage guard (no battery) -->
 			<register id="02CD" size="4" default="00000000" advanced="true">
 				<title>Trace level</title>
 				<remark>
@@ -107,7 +112,11 @@ This register is available only in debug builds of the firmware.
 				<remark>
 This register is available only in debug builds of the firmware.
 				</remark>
-				<field type="hidden" id="reg02ce_fe5kedn_kxpbr2l" name="rfu0" bitmap="C0" value="0" />
+				<field type="hidden" id="reg02ce_fe5kedn_m6awtjl" name="rfu0" bitmap="80" value="0" />
+				<field type="radios" id="reg02ce_fe5kedn_op23zml" title="Use Serial" name="Use Serial" bitmap="40" advanced="true" visibleif="REGVAL(0x02CD) is not 0">
+					<option value="0" title="Use dedicated serial line for traces (if some)" advanced="true" visibleif="REGVAL(0x02CD) is not 0"/>
+					<option value="1" title="Send traces to main serial line" advanced="true" visibleif="REGVAL(0x02CD) is not 0"/>
+				</field>
 				<field type="radios" id="reg02ce_fe5kedn_ax7h6sl" title="Use Syslog" name="Use Syslog" bitmap="20" advanced="true" visibleif="REGVAL(0x02CD) is not 0">
 					<option value="0" title="Don&apos;t use syslog" advanced="true" visibleif="REGVAL(0x02CD) is not 0"/>
 					<option value="1" title="Send traces to syslog" advanced="true" visibleif="REGVAL(0x02CD) is not 0"/>
@@ -126,7 +135,7 @@ This register is available only in debug builds of the firmware.
 				<field type="raw" id="reg02cf" minlength="0" maxlength="64" title="Deferred commands" advanced="true" dynamic="true"/>
 			</register>
 		</node>
-		<!-- Empty node Inventory, title=Inventory data, type=SpringCoreMeta.NodeRegisters -->
+		<!-- Empty node Inventory, title=Inventory data, type=NvmTplMeta.NodeRegisters -->
 		<node title="Integrator's license">
 			<register id="0208" size="32" default="">
 				<title>Application name</title>
@@ -357,9 +366,16 @@ Defines the layout of the keyboard when the product runs in keyboard-emulation m
 					<option value="12" title="US (extended), QWERTY" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
 				</field>
 			</register>
-			<register id="02A7" size="1" default="00" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)">
+			<register id="02A7" size="1" default="22" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)">
 				<title>Misc. options when running in keyboard mode</title>
-				<field type="number-h" id="reg02a7" minlength="1" maxlength="1" title="Misc. options when running in keyboard mode" hint="undefined"  visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
+				<field type="hidden" id="reg02a7_iwadzvy_kxpbr2l" name="rfu0" bitmap="C0" value="0" />
+				<field type="dropdownlist" id="reg02a7_iwadzvy_6pga6ll" title="How are the slot numbers created" name="interval between two identical character" bitmap="30" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)">
+					<option value="0" title="none" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
+					<option value="1" title="2x typing speed" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
+					<option value="2" title="3x typing speed" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
+					<option value="3" title="4x typing speed" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
+				</field>
+				<field type="number-h" id="reg02a7_iwadzvy_l365cmn" title="delay between 2 characters (5ms unit)" name="Typing speed" bitmap="0F" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" />
 			</register>
 			<register id="02A8" size="8" default="" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)">
 				<title>Prefix: string sent before the data in keyboard mode</title>
@@ -453,10 +469,10 @@ Select the UHF protocols that the product is looking for.
 				<description>
 Select the UHF standard to comply with.
 				</description>
-				<!-- Empty node ETSI_302208, title=Europe, ETSI 302-208, type=SpringCoreMeta.NodeListValue -->
-				<!-- Empty node ETSI_302220, title=Europe, ETSI 302-220, type=SpringCoreMeta.NodeListValue -->
-				<!-- Empty node FCC_US, title=USA, FCC, type=SpringCoreMeta.NodeListValue -->
-				<!-- Empty node Custom, title=Custom parameters (for test only), type=SpringCoreMeta.NodeListValue -->
+				<!-- Empty node ETSI_302208, title=Europe, ETSI 302-208, type=NvmTplMeta.NodeListValue -->
+				<!-- Empty node ETSI_302220, title=Europe, ETSI 302-220, type=NvmTplMeta.NodeListValue -->
+				<!-- Empty node FCC_US, title=USA, FCC, type=NvmTplMeta.NodeListValue -->
+				<!-- Empty node Custom, title=Custom parameters (for test only), type=NvmTplMeta.NodeListValue -->
 			</register>
 			<register id="0263" size="1" default="00">
 				<title>RFID UHF USB protocol</title>
@@ -509,7 +525,7 @@ This parameter is ignored unless the [local regulations](Regulations) parameter 
 		</node>
 		<!-- Ignoring PC SC (no ccid) -->
 		<!-- Ignoring NFC Emulation and P2P (no micore) -->
-	<!-- Empty node Templates, title=Templates, type=SpringCoreMeta.NodeRegisters -->
-	<!-- Empty node Statistics, title=Statistics, type=SpringCoreMeta.NodeRegisters -->
+	<!-- Empty node Templates, title=Templates, type=NvmTplMeta.NodeRegisters -->
+	<!-- Empty node Statistics, title=Statistics, type=NvmTplMeta.NodeRegisters -->
 	</tree>
 </springcard-multiconf-registers>
