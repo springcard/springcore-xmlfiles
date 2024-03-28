@@ -1,0 +1,24 @@
+name: Pushes updated xmls to companion-xmltoforms repository
+
+on:
+  push:
+    branches: 
+      - master
+    paths: 
+      - xmls/**
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: pandoc/latex
+    steps:
+      - name: Pushes updated xmls to companion-xmltoforms repository
+        uses: nkoppel/push-files-to-another-repository@v1.1.1
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.COMPANION_XMLTOTSFOMRS_API_TOKEN }}
+        with:
+          source-files: 'xmls'
+          destination-username: 'springcard'
+          destination-repository: 'companion-xmltoforms'
+          destination-directory: ''
+          destination-branch: 'master'
+          commit-email: 'codechef730@gmail.com'
