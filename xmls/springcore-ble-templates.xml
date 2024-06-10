@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<springcard-multiconf-templates
+	version="1.28"
+	author="JDA"
+>
+	<tree>
+	<!-- Empty node , title=BLE Templates, type=NvmTplMeta.NodeTemplateEntries -->
+	<!-- Empty node , title=BLE Templates, type=NvmTplMeta.NodeTemplateRegisters -->
+	<template id="spy" name="Spy" title="Spy Template" hash="qaf5pxl">
+		<lookups>
+			<lkl value="0E" title="(Spy)" />
+		</lookups>
+		<register id="0003" size="4" default="00000000">
+			<title>Settings</title>
+			<field type="number-h" id="tplqaf5pxl_reg0003_5anapel" title="Repeat Interval Min" name="Repeat Interval Min" bitmap="FF000000" />
+			<field type="number-h" id="tplqaf5pxl_reg0003_p5ffuzl" title="Repeat Interval Max" name="Repeat Interval Max" bitmap="00FF0000" />
+			<field type="number-h" id="tplqaf5pxl_reg0003_7kdbced" title="Presence Timeout" name="Presence Timeout" bitmap="0000FF00" />
+			<field type="number-h" id="tplqaf5pxl_reg0003_4svv4cl" title="RSSI Threshold" name="RSSI Threshold" bitmap="000000FF" />
+		</register>
+	</template>
+	<template id="extended_spy" name="Extended Spy" title="Extended Spy Template" hash="mb2oacd">
+		<lookups>
+			<lkl value="0F" title="(Extended Spy)" />
+		</lookups>
+		<register id="0003" size="4" default="00000000">
+			<title>Settings</title>
+			<field type="number-h" id="tplmb2oacd_reg0003_5anapel" title="Repeat Interval Min" name="Repeat Interval Min" bitmap="FF000000" />
+			<field type="number-h" id="tplmb2oacd_reg0003_p5ffuzl" title="Repeat Interval Max" name="Repeat Interval Max" bitmap="00FF0000" />
+			<field type="number-h" id="tplmb2oacd_reg0003_7kdbced" title="Presence Timeout" name="Presence Timeout" bitmap="0000FF00" />
+			<field type="number-h" id="tplmb2oacd_reg0003_4svv4cl" title="RSSI Threshold" name="RSSI Threshold" bitmap="000000FF" />
+		</register>
+	</template>
+	<template id="ibeacon" name="iBeacon" title="iBeacon Template" hash="bxqx7fd">
+		<lookups>
+			<lkl value="A1" title="(iBeacon)" />
+		</lookups>
+	</template>
+	<template id="eddystone" name="Eddystone" title="Eddystone Template" hash="ikapoey">
+		<lookups>
+			<lkl value="A2" title="(Eddystone)" />
+		</lookups>
+	</template>
+	<template id="springblue" name="SpringBlue" title="SpringBlue Template" hash="756ugod">
+		<lookups>
+			<lkl value="B0" title="(SpringBlue)" />
+		</lookups>
+	</template>
+	<template id="orange_pack_id" name="Orange Pack ID" title="Orange Pack ID Template" hash="tgfrdcn">
+		<lookups>
+			<lkl value="C2" title="(Orange Pack ID)" />
+		</lookups>
+	</template>
+	<template id="stid_mobile_id_ble" name="STid Mobile ID BLE" title="STid Mobile ID BLE Template" hash="oomv5ky">
+		<lookups>
+			<lkl value="C3" title="(STid Mobile ID BLE)" />
+		</lookups>
+		<register id="0003" size="2" default="0000">
+			<title>Site Code</title>
+			<field type="number-h" id="tploomv5ky_reg0003" minlength="2" maxlength="2" title="Site Code" hint="word" />
+		</register>
+		<register id="0006" size="5" default="0000000000">
+			<title>Settings</title>
+			<field type="number-h" id="tploomv5ky_reg0006_4svv4cl" title="Config" name="Config" bitmap="FF00000000" />
+			<field type="number-h" id="tploomv5ky_reg0006_vnp5ven" title="Modes" name="Modes" bitmap="00FF000000" />
+			<field type="number-h" id="tploomv5ky_reg0006_af2vand" title="Thresholds" name="Thresholds" bitmap="0000FFFF00" />
+			<field type="number-h" id="tploomv5ky_reg0006_ahd4scn" title="Interval" name="Interval" bitmap="00000000FF" />
+		</register>
+		<register id="0005" size="16" default="00000000000000000000000000000000">
+			<title>Secret Key</title>
+			<field type="raw" id="tploomv5ky_reg0005" minlength="16" maxlength="16" title="Secret Key"/>
+		</register>
+	</template>
+	</tree>
+</springcard-multiconf-templates>

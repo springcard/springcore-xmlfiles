@@ -5,7 +5,7 @@
 	firmware="springcore/e993/crazyuhf"
 	implements="usb,network,serial,rdr,uhf"
 	hardware="EAN18036"
-	version="1.27"
+	version=""
 	author="JDA"
 	templatesnfc="false"
 	templatesble="false"
@@ -811,57 +811,6 @@ Master Cards are protected by a key-set, combining AES keys to read the Master C
 		</node>
 		<!-- Ignoring Contactless (no micore) -->
 		<!-- Ignoring Bluetooth (no ble) -->
-		<node title="Configuration of the RFID UHF (868/910MHz) reader">
-			<register id="0261" size="1" default="04">
-				<title>RFID UHF protocols</title>
-				<description>
-Select the UHF protocols that the product is looking for.
-				</description>
-				<field type="checkboxes" id="reg0261" title="RFID UHF protocols" name="Protocols" bitmap="FF" description="Select the UHF protocols that the product is looking for.">
-					<option value="80" title="RFU"/>
-					<option value="40" title="RFU"/>
-					<option value="20" title="RFU"/>
-					<option value="10" title="RFU"/>
-					<option value="08" title="RFU"/>
-					<option value="04" title="EPC Class 1 Gen 2 UHF (ISO/IEC 18000-6C)"/>
-					<option value="02" title="RFU"/>
-					<option value="01" title="RFU"/>
-				</field>
-			</register>
-			<register id="0262" size="1" default="00">
-				<title>Local regulations for RFID UHF</title>
-				<description>
-Select the UHF standard to comply with.
-				</description>
-				<!-- Empty node ETSI_302208, title=Europe, ETSI 302-208, type=NvmTplMeta.NodeListValue -->
-				<!-- Empty node ETSI_302220, title=Europe, ETSI 302-220, type=NvmTplMeta.NodeListValue -->
-				<!-- Empty node FCC_US, title=USA, FCC, type=NvmTplMeta.NodeListValue -->
-				<!-- Empty node Custom, title=Custom parameters (for test only), type=NvmTplMeta.NodeListValue -->
-			</register>
-			<register id="0263" size="1" default="00">
-				<title>RFID UHF USB protocol</title>
-				<description>
-Use ST reader suite or SpringCard Companion service
-				</description>
-				<field type="checkboxes" id="reg0263" title="RFID UHF USB protocol" name="USB Protocols" bitmap="FF" description="Use ST reader suite or SpringCard Companion service">
-					<option value="80" title="RFU"/>
-					<option value="40" title="RFU"/>
-					<option value="20" title="RFU"/>
-					<option value="10" title="RFU"/>
-					<option value="08" title="RFU"/>
-					<option value="04" title="RFU"/>
-					<option value="02" title="RFU"/>
-					<option value="01" title="Use ST Reader Suite or not"/>
-				</field>
-			</register>
-			<register id="0267" size="1" default="00">
-				<title>Main carrier frequency</title>
-				<remark>
-This parameter is ignored unless the [local regulations](Regulations) parameter is see to `FF` (Custom).
-				</remark>
-				<field type="number-h" id="reg0267" minlength="1" maxlength="1" title="Main carrier frequency" hint="undefined" />
-			</register>
-		</node>
 		<!-- Ignoring Barcode (no barcode) -->
 		<!-- Ignoring Smartcards (no 7816) -->
 		<node title="UDP Server Configuration" visibleif="(REGBITS(0x02C0, 4, 3) is 3) or (REGBITS(0x02C0, 4, 3) is 4)">

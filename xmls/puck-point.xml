@@ -6,7 +6,7 @@
 	implements="usb,ble,ccid,rdr,micore,7816,samav,atecc,vegas,battery"
 	hardware="FPF18178"
 	icon="product-puck,product-puck+variant-point"
-	version="1.27"
+	version=""
 	author="JDA"
 	templatesnfc="true"
 	templatesble="true"
@@ -761,7 +761,7 @@ The reader shall theoritically return NN=`0000` for all the cards that are not i
 Configure the contactless interface to comply with various standards.
 				</description>
 				<field type="radios" id="reg0237_m6awtjl" title="Control EMD Suppression feature" name="No EMD Suppress" bitmap="80">
-					<option value="0" title="EMD Suppress is active"/>
+					<option value="0" title="EMD Suppress is enabled"/>
 					<option value="1" title="EMD Suppress is disabled"/>
 				</field>
 				<field type="hidden" id="reg0237_spf4gny" name="rfu0" bitmap="78" value="0" />
@@ -772,6 +772,12 @@ Configure the contactless interface to comply with various standards.
 					<option value="3" title="CEN_TS_16794"/>
 					<option value="4" title="NFC_FORUM"/>
 				</field>
+			</register>
+			<register id="0238" size="3" default="000000">
+				<title>Advanced power control</title>
+				<field type="number-h" id="reg0238_lmh6e5y" title="RFU" name="RFU" bitmap="FF0000" />
+				<field type="number-h" id="reg0238_gsqqlyn" title="VDDPA maximum output voltage in case the DPC is enabled in reader mode." name="Vmax" bitmap="00FF00" description="starting at 1.5v (`00`), in 0.1v step, up to 5.7v (`2A`)" />
+				<field type="number-h" id="reg0238_rk4pgmy" title="VDDPA target current in mA." name="Imax" bitmap="0000FF" description="in 5mA unit, up to 350mA (`46`)" />
 			</register>
 			<register id="0239" size="20" default="6A01000002" dynamic="true">
 				<title>VASUP frame for Enhanced Contactless Polling (Apple VAS)</title>
@@ -792,7 +798,7 @@ This is the complete VASUP-A and VASUP-B frames, including the start byte (6A) a
 			</register>
 			<register id="023B" size="2" default="0000">
 				<title>NFC-B specific options</title>
-				<field type="checkbox" id="reg023b_7wdxe6d" title="NFC Forum polling: discard NFC-B polling for reactivation feature" name="discard-for-reactivation" bitmap="4000" />
+				<field type="checkbox" id="reg023b_2kglign" title="NFC Forum polling: discard NFC-B polling for reactivation feature" name="discard-for-reactivation" bitmap="8000" />
 				<field type="checkbox" id="reg023b_7wdxe6d" title="NFC Forum polling: bail-out after NFC-B response" name="Bail-out" bitmap="4000" />
 				<field type="hidden" id="reg023b_wliw7nn" name="rfu0" bitmap="3C00" value="0" />
 				<field type="radios" id="reg023b_f2uun5l" title="Control whether NFC-B polling loop implements Apple Enhanced Contactless Polling" name="Apple ECP" bitmap="0200" remark="Only ECP v2 is supported with NFC-B. Register 0239 shall be set accordingly.">
@@ -839,7 +845,8 @@ A card that does not belong to the specified Application Family remains silent (
 			</register>
 			<register id="023F" size="3" default="000000">
 				<title>Analog test</title>
-				<field type="hidden" id="reg023f_lngy2qn" name="rfu0" bitmap="FE0000" value="00" />
+				<field type="hidden" id="reg023f_lf2imkd" name="rfu0" bitmap="FC0000" value="00" />
+				<field type="number-h" id="reg023f_5pbdr5n" title="disable_thermal_protection" name="disable_thermal_protection" bitmap="020000" />
 				<field type="number-h" id="reg023f_5r4ewkl" title="enable" name="enable" bitmap="010000" />
 				<field type="number-h" id="reg023f_gsqqlyn" title="Defines test signal to be provided on AUX2" name="aux2" bitmap="00FF00" />
 				<field type="number-h" id="reg023f_rk4pgmy" title="Defines test signal to be provided on AUX1" name="aux1" bitmap="0000FF" />
@@ -907,7 +914,6 @@ Major ID and Minor ID used for iBeacon broadcasting
 				<field type="raw" id="reg024a" minlength="16" maxlength="16" title="iBeacon UUID" visibleif="REGBIT(0x02C2, 7) is 0"/>
 			</register>
 		</node>
-		<!-- Ignoring UHF (no uhf) -->
 		<!-- Ignoring Barcode (no barcode) -->
 		<node title="Configuration of the smartcard interface(s)">
 			<register id="0271" size="1" default="83">
@@ -1068,6 +1074,14 @@ Major ID and Minor ID used for iBeacon broadcasting
 				</field>
 				<field type="hidden" id="reg02b1_35gzn7y_ooba6wy" name="rfu0" bitmap="01" value="0" />
 			</register>
+			<register id="02B2" size="1" default="00" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+				<title>Options for the PC/SC contactless slot</title>
+				<field type="hidden" id="reg02b2_35gzn7y_snvp4xd" name="rfu0" bitmap="FE" value="00" />
+				<field type="radios" id="reg02b2_35gzn7y_ooba6wy" title="Enable multi-activation (experimental)" name="Multi-activation" bitmap="01" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+					<option value="0" title="Contactless multi-activation is disabled" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
+					<option value="1" title="Contactless multi-activation is enabled" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
+				</field>
+			</register>
 			<register id="02BC" size="1" default="00" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 				<title>Driver support</title>
 				<field type="hidden" id="reg02bc_35gzn7y_m6awtjl" name="rfu0" bitmap="80" value="0" />
@@ -1144,21 +1158,6 @@ Global Bytes transmitted in NFC ATR_REQ or ATR_RES when a ISO/IEC 18092 peer is 
 				<field type="raw" id="reg02ed" minlength="0" maxlength="64" title="NDEF message in NFC Tag emulation mode" dynamic="true"/>
 			</register>
 		</node>
-		<node title="BLE Smart Reader template">
-			<register id="0300" size="1" default="00">
-				<title>Operating mode of BLE reader</title>
-				<!-- Empty node Spy, title=Spy, type=NvmTplMeta.NodeListValue -->
-				<!-- Empty node Extended Spy, title=Extended Spy, type=NvmTplMeta.NodeListValue -->
-				<!-- Empty node iBeacon, title=iBeacon, type=NvmTplMeta.NodeListValue -->
-				<!-- Empty node Eddystone, title=Eddystone, type=NvmTplMeta.NodeListValue -->
-				<!-- Empty node SpringBlue, title=SpringBlue, type=NvmTplMeta.NodeListValue -->
-				<!-- Empty node Orange Pack ID, title=Orange Pack ID, type=NvmTplMeta.NodeListValue -->
-			</register>
-		</node>
-		<!-- Empty node Contactless template 1, title=NFC/RFID HF Smart Reader template 1, type=NvmTplMeta.NodeRegisters -->
-		<!-- Empty node Contactless template 2, title=NFC/RFID HF Smart Reader template 2, type=NvmTplMeta.NodeRegisters -->
-		<!-- Empty node Contactless template 3, title=NFC/RFID HF Smart Reader template 3, type=NvmTplMeta.NodeRegisters -->
-		<!-- Empty node Contactless template 4, title=NFC/RFID HF Smart Reader template 4, type=NvmTplMeta.NodeRegisters -->
 	<!-- Empty node Statistics, title=Statistics, type=NvmTplMeta.NodeRegisters -->
 	</tree>
 </springcard-multiconf-registers>

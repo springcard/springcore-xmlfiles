@@ -5,7 +5,7 @@
 	firmware="springcore/h518/afcare-two"
 	implements="usb,ble,ccid,7816,7816_id1_x2,ataes,battery"
 	hardware="FSE18283"
-	version="1.27"
+	version=""
 	author="JDA"
 	templatesnfc="false"
 	templatesble="false"
@@ -527,7 +527,6 @@ Major ID and Minor ID used for iBeacon broadcasting
 				<field type="raw" id="reg024a" minlength="16" maxlength="16" title="iBeacon UUID" visibleif="REGBIT(0x02C2, 7) is 0"/>
 			</register>
 		</node>
-		<!-- Ignoring UHF (no uhf) -->
 		<!-- Ignoring Barcode (no barcode) -->
 		<node title="Configuration of the smartcard interface(s)">
 			<register id="0271" size="1" default="83">
@@ -688,6 +687,14 @@ Major ID and Minor ID used for iBeacon broadcasting
 				</field>
 				<field type="hidden" id="reg02b1_35gzn7y_ooba6wy" name="rfu0" bitmap="01" value="0" />
 			</register>
+			<register id="02B2" size="1" default="00" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+				<title>Options for the PC/SC contactless slot</title>
+				<field type="hidden" id="reg02b2_35gzn7y_snvp4xd" name="rfu0" bitmap="FE" value="00" />
+				<field type="radios" id="reg02b2_35gzn7y_ooba6wy" title="Enable multi-activation (experimental)" name="Multi-activation" bitmap="01" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+					<option value="0" title="Contactless multi-activation is disabled" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
+					<option value="1" title="Contactless multi-activation is enabled" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
+				</field>
+			</register>
 			<register id="02BC" size="1" default="00" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 				<title>Driver support</title>
 				<field type="hidden" id="reg02bc_35gzn7y_m6awtjl" name="rfu0" bitmap="80" value="0" />
@@ -737,21 +744,6 @@ This register allows to change this value. Setting it to `00` totally disables t
 			</register>
 		</node>
 		<!-- Ignoring NFC Emulation and P2P (no micore) -->
-		<node title="BLE Smart Reader template">
-			<register id="0300" size="1" default="00">
-				<title>Operating mode of BLE reader</title>
-				<!-- Empty node Spy, title=Spy, type=NvmTplMeta.NodeListValue -->
-				<!-- Empty node Extended Spy, title=Extended Spy, type=NvmTplMeta.NodeListValue -->
-				<!-- Empty node iBeacon, title=iBeacon, type=NvmTplMeta.NodeListValue -->
-				<!-- Empty node Eddystone, title=Eddystone, type=NvmTplMeta.NodeListValue -->
-				<!-- Empty node SpringBlue, title=SpringBlue, type=NvmTplMeta.NodeListValue -->
-				<!-- Empty node Orange Pack ID, title=Orange Pack ID, type=NvmTplMeta.NodeListValue -->
-			</register>
-		</node>
-		<!-- Empty node Contactless template 1, title=NFC/RFID HF Smart Reader template 1, type=NvmTplMeta.NodeRegisters -->
-		<!-- Empty node Contactless template 2, title=NFC/RFID HF Smart Reader template 2, type=NvmTplMeta.NodeRegisters -->
-		<!-- Empty node Contactless template 3, title=NFC/RFID HF Smart Reader template 3, type=NvmTplMeta.NodeRegisters -->
-		<!-- Empty node Contactless template 4, title=NFC/RFID HF Smart Reader template 4, type=NvmTplMeta.NodeRegisters -->
 	<!-- Empty node Statistics, title=Statistics, type=NvmTplMeta.NodeRegisters -->
 	</tree>
 </springcard-multiconf-registers>

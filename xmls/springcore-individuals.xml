@@ -4,18 +4,6 @@
 	firmware="springcore/*"
 >
 	<devices>
-		<device title="Crazy UHF Net"
-			firmware="springcore/e993/crazyuhf"
-			hardware="EAN18036"
-			implements="usb,network,serial,rdr,uhf"
-			individuals="0201,0202,0209,020A,0280,0281,02FE,02FF"
-			/>
-		<device title="Crazy UHF USB"
-			firmware="springcore/h993/crazyuhf"
-			hardware="EAN18035"
-			implements="usb,serial,rdr,uhf"
-			individuals="0201,0202,0209,020A,02FE,02FF"
-			/>
 		<device title="AFCare Two"
 			firmware="springcore/h518/afcare-two"
 			hardware="FSE18283"
@@ -217,7 +205,6 @@ A user-defined name to override the default Device Name used for BLE advertising
 			<!-- Hiding iBeacon ID (not an individual register) -->
 			<!-- Hiding iBeacon UUID (not an individual register) -->
 		</node>
-		<!-- Empty node UHF, title=Configuration of the RFID UHF (868/910MHz) reader, type=NvmTplMeta.NodeRegisters -->
 		<!-- Empty node Barcode, title=Configuration of the Barcode scanner, type=NvmTplMeta.NodeRegisters -->
 		<!-- Empty node Smartcards, title=Configuration of the smartcard interface(s), type=NvmTplMeta.NodeRegisters -->
 		<!-- Empty node UDP Server, title=UDP Server Configuration, type=NvmTplMeta.NodeRegisters -->
@@ -225,7 +212,6 @@ A user-defined name to override the default Device Name used for BLE advertising
 		<!-- Empty node Serial, title=Configuration of the serial interface, type=NvmTplMeta.NodeRegisters -->
 		<!-- Empty node PC SC, title=Configuration for PC/SC (CCID) operation, type=NvmTplMeta.NodeRegisters -->
 		<!-- Empty node NFC Emulation and P2P, title=Configuration of the NFC interface in listener mode, type=NvmTplMeta.NodeRegisters -->
-	<!-- Empty node Templates, title=Templates, type=NvmTplMeta.NodeRegisters -->
 	<!-- Empty node Statistics, title=Statistics, type=NvmTplMeta.NodeRegisters -->
 	</tree>
 </springcard-multiconf-individuals>
