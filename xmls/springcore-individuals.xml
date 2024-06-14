@@ -82,19 +82,19 @@
 		<!-- Empty node Main configuration, title=Main configuration, type=NvmTplMeta.NodeRegisters -->
 		<node title="Inventory data">
 			<!-- Hiding Configuration GUID (not an individual register) -->
-			<register id="0201" size="16" default="" individual="true">
+			<register id="0201" size="16" default="" dynamic="true" individual="true">
 				<title>Inventory number</title>
 				<description>
 A free-use string to store the product&apos;s ID in your inventory database.
 				</description>
-				<field type="textbox" id="reg0201" maxlength="16" title="Inventory number" default="" individual="true"/>
+				<field type="textbox" id="reg0201" maxlength="16" title="Inventory number" default="" dynamic="true" individual="true"/>
 			</register>
-			<register id="0202" size="16" default="" individual="true">
+			<register id="0202" size="16" default="" dynamic="true" individual="true">
 				<title>Location</title>
 				<description>
 A free-use string to store the product&apos;s location.
 				</description>
-				<field type="textbox" id="reg0202" maxlength="16" title="Location" default="" individual="true"/>
+				<field type="textbox" id="reg0202" maxlength="16" title="Location" default="" dynamic="true" individual="true"/>
 			</register>
 			<!-- Hiding Rfu3 (not an individual register) -->
 			<!-- Hiding Rfu4 (not an individual register) -->
@@ -104,12 +104,12 @@ A free-use string to store the product&apos;s location.
 		</node>
 		<node title="Integrator's license">
 			<!-- Hiding Application name (not an individual register) -->
-			<register id="0209" size="32" default="" individual="true">
+			<register id="0209" size="32" default="" dynamic="true" individual="true">
 				<title>License key</title>
 				<description>
 This register is available to store an application-specific license key or license number. See the [license cryptogram](License_cryptogram) paragraph for details.
 				</description>
-				<field type="textbox" id="reg0209" maxlength="32" title="License key" default="" individual="true"/>
+				<field type="textbox" id="reg0209" maxlength="32" title="License key" default="" dynamic="true" individual="true"/>
 			</register>
 			<register id="020A" size="32" default="" dynamic="true" individual="true">
 				<title>License cryptogram</title>
@@ -167,7 +167,7 @@ Defines the product&apos;s IPv6 address, DHCPv6.
 			<!-- Hiding ECC device Key and Options (not an individual register) -->
 			<!-- Hiding ECC User Key (not an individual register) -->
 			<!-- Hiding ECC Admin Key (not an individual register) -->
-			<register id="02FE" size="16" default="737072696E6763617264" individual="true">
+			<register id="02FE" size="16" default="737072696E6763617264" dynamic="true" individual="true">
 				<title>User password</title>
 				<description>
 User password to protect console (serial and telnet) accesses to the product. See [Access Conditions](Access_Conditions).
@@ -175,9 +175,9 @@ User password to protect console (serial and telnet) accesses to the product. Se
 				<remark>
 If both User Password and [Admin Password](Admin_Password) have the same value, the product assumes that [Admin Password](Admin_Password) is entered.
 				</remark>
-				<field type="textbox" id="reg02fe" maxlength="16" title="User password" default="springcard" individual="true"/>
+				<field type="textbox" id="reg02fe" maxlength="16" title="User password" default="springcard" dynamic="true" individual="true"/>
 			</register>
-			<register id="02FF" size="16" default="737072696E67636172646D6173746572" individual="true">
+			<register id="02FF" size="16" default="737072696E67636172646D6173746572" dynamic="true" individual="true">
 				<title>Admin password</title>
 				<description>
 Admin password to protect console (serial and telnet) accesses to the product. See [Access Conditions](Access_Conditions).
@@ -185,7 +185,7 @@ Admin password to protect console (serial and telnet) accesses to the product. S
 				<remark>
 If both [User Password](User_Password) and Admin Password have the same value, the product assumes that Admin Password is entered.
 				</remark>
-				<field type="textbox" id="reg02ff" maxlength="16" title="Admin password" default="springcardmaster" individual="true"/>
+				<field type="textbox" id="reg02ff" maxlength="16" title="Admin password" default="springcardmaster" dynamic="true" individual="true"/>
 			</register>
 		</node>
 		<!-- Empty node Contactless, title=Configuration of the Contactless (NFC) interface in poller (reader) mode, type=NvmTplMeta.NodeRegisters -->
@@ -194,12 +194,12 @@ If both [User Password](User_Password) and Admin Password have the same value, t
 			<!-- Hiding Timings (not an individual register) -->
 			<!-- Hiding Notifications Registration Timeout (not an individual register) -->
 			<!-- Hiding Extra options (not an individual register) -->
-			<register id="0244" size="29" default="" visibleif="REGBIT(0x02C2, 7) is 0" individual="true">
+			<register id="0244" size="29" default="" visibleif="REGBIT(0x02C2, 7) is 0" dynamic="true" individual="true">
 				<title>User Device Name</title>
 				<description>
 A user-defined name to override the default Device Name used for BLE advertising.
 				</description>
-				<field type="textbox" id="reg0244" maxlength="29" title="User Device Name" default="" visibleif="REGBIT(0x02C2, 7) is 0" individual="true"/>
+				<field type="textbox" id="reg0244" maxlength="29" title="User Device Name" default="" visibleif="REGBIT(0x02C2, 7) is 0" dynamic="true" individual="true"/>
 			</register>
 			<!-- Hiding Advertising Channel Map (not an individual register) -->
 			<!-- Hiding iBeacon ID (not an individual register) -->

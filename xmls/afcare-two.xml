@@ -5,7 +5,7 @@
 	firmware="springcore/h518/afcare-two"
 	implements="usb,ble,ccid,7816,7816_id1_x2,ataes,battery"
 	hardware="FSE18283"
-	version=""
+	version="1.28"
 	author="JDA"
 	templatesnfc="false"
 	templatesble="false"
@@ -230,12 +230,12 @@ This register is available only in debug builds of the firmware.
 		</node>
 		<!-- Empty node Inventory, title=Inventory data, type=NvmTplMeta.NodeRegisters -->
 		<node title="Integrator's license">
-			<register id="0208" size="32" default="">
+			<register id="0208" size="32" default="" dynamic="true">
 				<title>Application name</title>
 				<description>
 This register is available to store the name of application or to identify the integrator who has loaded its license in the product. See the [license cryptogram](License_cryptogram) paragraph for details.
 				</description>
-				<field type="textbox" id="reg0208" maxlength="32" title="Application name" default=""/>
+				<field type="textbox" id="reg0208" maxlength="32" title="Application name" default="" dynamic="true"/>
 			</register>
 			<!-- Hiding License key (individual register) -->
 			<!-- Hiding License cryptogram (individual register) -->

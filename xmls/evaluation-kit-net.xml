@@ -5,7 +5,7 @@
 	firmware="springcore/e518/reference"
 	implements="usb,network,ccid,rdr,micore,7816,7816_id1,7816_sam_x4,samav,atecc"
 	hardware="EAN18090"
-	version=""
+	version="1.28"
 	author="JDA"
 	templatesnfc="true"
 	templatesble="false"
@@ -146,12 +146,12 @@ This register is available only in debug builds of the firmware.
 		</node>
 		<!-- Empty node Inventory, title=Inventory data, type=NvmTplMeta.NodeRegisters -->
 		<node title="Integrator's license">
-			<register id="0208" size="32" default="">
+			<register id="0208" size="32" default="" dynamic="true">
 				<title>Application name</title>
 				<description>
 This register is available to store the name of application or to identify the integrator who has loaded its license in the product. See the [license cryptogram](License_cryptogram) paragraph for details.
 				</description>
-				<field type="textbox" id="reg0208" maxlength="32" title="Application name" default=""/>
+				<field type="textbox" id="reg0208" maxlength="32" title="Application name" default="" dynamic="true"/>
 			</register>
 			<!-- Hiding License key (individual register) -->
 			<!-- Hiding License cryptogram (individual register) -->
@@ -219,12 +219,12 @@ If the product has no Network interface, this register is ignored.
 			</register>
 		</node>
 		<node title="Configuration of the product as an MQTT client" visibleif="REGBITS(0x02C0, 4, 3) is 6">
-			<register id="0286" size="48" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+			<register id="0286" size="48" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6" dynamic="true">
 				<title>MQTT Broker address or name</title>
 				<description>
 MQTT server IP address or FQDN
 				</description>
-				<field type="textbox" id="reg0286" maxlength="48" title="MQTT Broker address or name" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+				<field type="textbox" id="reg0286" maxlength="48" title="MQTT Broker address or name" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6" dynamic="true"/>
 			</register>
 			<register id="0288" size="5" default="0000000000" visibleif="REGBITS(0x02C0, 4, 3) is 6">
 				<title>Options for MQTTS connection (MQTT over TLS)</title>
@@ -379,21 +379,21 @@ For AWS, value shall be set to `5614030A1E1E`
 				<field type="number-h" id="reg0289_jxfrlfn_cjpxtol" title="Status publish interval" name="Status publish interval" bitmap="00000000FF00" visibleif="REGBITS(0x02C0, 4, 3) is 6" remark="Interval between publications in the `status` topic, in seconds" />
 				<field type="number-h" id="reg0289_jxfrlfn_ppnczjd" title="Reconnect interval" name="Reconnect interval" bitmap="0000000000FF" visibleif="REGBITS(0x02C0, 4, 3) is 6" remark="Interval before reconnecting to the server if the connection is lost, in seconds" />
 			</register>
-			<register id="028B" size="16" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+			<register id="028B" size="16" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6" dynamic="true">
 				<title>MQTT user Login name</title>
 				<description>
 Login to get authenticated onto the MQTT server
 				</description>
-				<field type="textbox" id="reg028b" maxlength="16" title="MQTT user Login name" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+				<field type="textbox" id="reg028b" maxlength="16" title="MQTT user Login name" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6" dynamic="true"/>
 			</register>
-			<register id="028C" size="16" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+			<register id="028C" size="16" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6" dynamic="true">
 				<title>MQTT user Password</title>
 				<description>
 Password to get authenticated onto the MQTT server
 				</description>
-				<field type="textbox" id="reg028c" maxlength="16" title="MQTT user Password" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+				<field type="textbox" id="reg028c" maxlength="16" title="MQTT user Password" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6" dynamic="true"/>
 			</register>
-			<register id="028D" size="24" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+			<register id="028D" size="24" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6" dynamic="true">
 				<title>MQTT Client ID</title>
 				<description>
 ID of the MQTT client
@@ -401,16 +401,16 @@ ID of the MQTT client
 				<remark>
 If this register is not set, the ClientID defaults to the [Serial Number](../../Constants/Main/Serial_Number)
 				</remark>
-				<field type="textbox" id="reg028d" maxlength="24" title="MQTT Client ID" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+				<field type="textbox" id="reg028d" maxlength="24" title="MQTT Client ID" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6" dynamic="true"/>
 			</register>
-			<register id="028E" size="32" default="737072696E67636172642F737072696E67636F7265" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+			<register id="028E" size="32" default="737072696E67636172642F737072696E67636F7265" visibleif="REGBITS(0x02C0, 4, 3) is 6" dynamic="true">
 				<title>MQTT Topic prefix</title>
 				<description>
 Prefix for all MQTT topics
 				</description>
-				<field type="textbox" id="reg028e" maxlength="32" title="MQTT Topic prefix" default="springcard/springcore" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+				<field type="textbox" id="reg028e" maxlength="32" title="MQTT Topic prefix" default="springcard/springcore" visibleif="REGBITS(0x02C0, 4, 3) is 6" dynamic="true"/>
 			</register>
-			<register id="028F" size="24" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6">
+			<register id="028F" size="24" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6" dynamic="true">
 				<title>MQTT Device ID</title>
 				<description>
 Device ID in the topics and in the data
@@ -418,23 +418,23 @@ Device ID in the topics and in the data
 				<remark>
 If this register is not set, the Device ID in the topics defaults to the [Serial Number](../../Constants/Main/Serial_Number)
 				</remark>
-				<field type="textbox" id="reg028f" maxlength="24" title="MQTT Device ID" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6"/>
+				<field type="textbox" id="reg028f" maxlength="24" title="MQTT Device ID" default="" visibleif="REGBITS(0x02C0, 4, 3) is 6" dynamic="true"/>
 			</register>
 		</node>
 		<node title="Configuration of the product as an HTTP client" visibleif="REGBITS(0x02C0, 4, 3) is 1">
-			<register id="0290" size="48" default="7264722E737072696E67636172642E636F6D" visibleif="REGBITS(0x02C0, 4, 3) is 1">
+			<register id="0290" size="48" default="7264722E737072696E67636172642E636F6D" visibleif="REGBITS(0x02C0, 4, 3) is 1" dynamic="true">
 				<title>HTTP server address or name</title>
 				<description>
 HTTP server IP address or FQDN
 				</description>
-				<field type="textbox" id="reg0290" maxlength="48" title="HTTP server address or name" default="rdr.springcard.com" visibleif="REGBITS(0x02C0, 4, 3) is 1"/>
+				<field type="textbox" id="reg0290" maxlength="48" title="HTTP server address or name" default="rdr.springcard.com" visibleif="REGBITS(0x02C0, 4, 3) is 1" dynamic="true"/>
 			</register>
-			<register id="0291" size="48" default="69776D322F69776D325F706F73742E706870" visibleif="REGBITS(0x02C0, 4, 3) is 1">
+			<register id="0291" size="48" default="69776D322F69776D325F706F73742E706870" visibleif="REGBITS(0x02C0, 4, 3) is 1" dynamic="true">
 				<title>Query path</title>
 				<description>
 Base URL of this service
 				</description>
-				<field type="textbox" id="reg0291" maxlength="48" title="Query path" default="iwm2/iwm2_post.php" visibleif="REGBITS(0x02C0, 4, 3) is 1"/>
+				<field type="textbox" id="reg0291" maxlength="48" title="Query path" default="iwm2/iwm2_post.php" visibleif="REGBITS(0x02C0, 4, 3) is 1" dynamic="true"/>
 			</register>
 			<register id="0292" size="2" default="1E3C" visibleif="REGBITS(0x02C0, 4, 3) is 1">
 				<title>Options</title>
@@ -671,13 +671,13 @@ Defines the layout of the keyboard when the product runs in keyboard-emulation m
 				</field>
 				<field type="number-h" id="reg02a7_iwadzvy_l365cmn" title="delay between 2 characters (5ms unit)" name="Typing speed" bitmap="0F" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" />
 			</register>
-			<register id="02A8" size="8" default="" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)">
+			<register id="02A8" size="8" default="" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" dynamic="true">
 				<title>Prefix: string sent before the data in keyboard mode</title>
-				<field type="textbox" id="reg02a8" maxlength="8" title="Prefix: string sent before the data in keyboard mode" default="" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
+				<field type="textbox" id="reg02a8" maxlength="8" title="Prefix: string sent before the data in keyboard mode" default="" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" dynamic="true"/>
 			</register>
-			<register id="02A9" size="8" default="0A" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)">
+			<register id="02A9" size="8" default="0A" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" dynamic="true">
 				<title>Suffix: string sent after the data in keyboard mode</title>
-				<field type="textbox" id="reg02a9" maxlength="8" title="Suffix: string sent after the data in keyboard mode" default="\n" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
+				<field type="textbox" id="reg02a9" maxlength="8" title="Suffix: string sent after the data in keyboard mode" default="\n" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" dynamic="true"/>
 			</register>
 		</node>
 		<node title="Security-related configuration">
@@ -1174,7 +1174,7 @@ A card that does not belong to the specified Application Family remains silent (
 			</register>
 		</node>
 		<node title="UDP Server Configuration" visibleif="(REGBITS(0x02C0, 4, 3) is 3) or (REGBITS(0x02C0, 4, 3) is 4)">
-			<register id="0294" size="48" default="3235352E3235352E3235352E323535" visibleif="(REGBITS(0x02C0, 4, 3) is 3) or (REGBITS(0x02C0, 4, 3) is 4)">
+			<register id="0294" size="48" default="3235352E3235352E3235352E323535" visibleif="(REGBITS(0x02C0, 4, 3) is 3) or (REGBITS(0x02C0, 4, 3) is 4)" dynamic="true">
 				<title>Address of remote server</title>
 				<description>
 The UDP Sender sends its events to this server
@@ -1182,7 +1182,7 @@ The UDP Sender sends its events to this server
 				<remark>
 Leave empty or set to 255.255.255.255 for broadcast
 				</remark>
-				<field type="textbox" id="reg0294" maxlength="48" title="Address of remote server" default="255.255.255.255" visibleif="(REGBITS(0x02C0, 4, 3) is 3) or (REGBITS(0x02C0, 4, 3) is 4)"/>
+				<field type="textbox" id="reg0294" maxlength="48" title="Address of remote server" default="255.255.255.255" visibleif="(REGBITS(0x02C0, 4, 3) is 3) or (REGBITS(0x02C0, 4, 3) is 4)" dynamic="true"/>
 			</register>
 			<register id="0295" size="1" default="00" visibleif="(REGBITS(0x02C0, 4, 3) is 3) or (REGBITS(0x02C0, 4, 3) is 4)">
 				<title>Options for UDP listener</title>

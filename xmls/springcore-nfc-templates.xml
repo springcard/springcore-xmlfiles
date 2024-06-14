@@ -120,12 +120,12 @@ Merchant ID of the 1st (or only) merchant. This is SHA256(*Merchant Name*).
 			</description>
 			<field type="raw" id="tplql55h6y_reg0006" minlength="0" maxlength="32" title="Merchant ID" dynamic="true"/>
 		</register>
-		<register id="0007" size="64" default="" advanced="true">
+		<register id="0007" size="64" default="" advanced="true" dynamic="true">
 			<title>Merchant URL</title>
 			<description>
 *Not used*.
 			</description>
-			<field type="textbox" id="tplql55h6y_reg0007" maxlength="64" title="Merchant URL" default="" advanced="true"/>
+			<field type="textbox" id="tplql55h6y_reg0007" maxlength="64" title="Merchant URL" default="" advanced="true" dynamic="true"/>
 		</register>
 		<register id="0008" size="32" default="0000000000000000000000000000000000000000000000000000000000000000">
 			<title>Merchant&apos;s Private Key</title>
@@ -139,12 +139,12 @@ Merchant ID of the 2nd merchant. This is SHA256(*Merchant Name*).
 			</description>
 			<field type="raw" id="tplql55h6y_reg0009" minlength="0" maxlength="32" title="Merchant ID (second)" dynamic="true"/>
 		</register>
-		<register id="000A" size="64" default="" advanced="true">
+		<register id="000A" size="64" default="" advanced="true" dynamic="true">
 			<title>Merchant URL (second)</title>
 			<description>
 *Not used*.
 			</description>
-			<field type="textbox" id="tplql55h6y_reg000a" maxlength="64" title="Merchant URL (second)" default="" advanced="true"/>
+			<field type="textbox" id="tplql55h6y_reg000a" maxlength="64" title="Merchant URL (second)" default="" advanced="true" dynamic="true"/>
 		</register>
 		<register id="000B" size="32" default="0000000000000000000000000000000000000000000000000000000000000000">
 			<title>Merchant&apos;s Private Key (second)</title>
@@ -1200,7 +1200,7 @@ Specify the TNF of the NDEF messages to accept. Messages with another TNF will b
 				<option value="255" title="Read either a SpringCard data entry, a Text or an URI"/>
 			</field>
 		</register>
-		<register id="0006" size="32" default="" visibleif="TPLBITS(5, 4, 4) is 0">
+		<register id="0006" size="32" default="" visibleif="TPLBITS(5, 4, 4) is 0" dynamic="true">
 			<title>Type Filter</title>
 			<description>
 Specify the actual Type of the NDEF Record you want to read.
@@ -1209,7 +1209,7 @@ Please refer to the specifications of NFC Forum NDEF Data and Records, and to th
 			<remark>
 This field is relevant only if TNF is either `01`, `02`, `03` or `04`; otherwise, its content is ignored.
 			</remark>
-			<field type="textbox" id="tpl25z45sd_reg0006" maxlength="32" title="Type Filter" default="" visibleif="TPLBITS(5, 4, 4) is 0"/>
+			<field type="textbox" id="tpl25z45sd_reg0006" maxlength="32" title="Type Filter" default="" visibleif="TPLBITS(5, 4, 4) is 0" dynamic="true"/>
 		</register>
 		<register id="0001" size="2" default="0000">
 			<title>Output Size and Format</title>

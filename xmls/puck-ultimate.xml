@@ -6,7 +6,7 @@
 	implements="usb,ble,ccid,rdr,micore,7816,7816_sam,samav,atecc,vegas,battery"
 	hardware="FPF18170"
 	icon="product-puck"
-	version=""
+	version="1.28"
 	author="JDA"
 	templatesnfc="true"
 	templatesble="true"
@@ -231,12 +231,12 @@ This register is available only in debug builds of the firmware.
 		</node>
 		<!-- Empty node Inventory, title=Inventory data, type=NvmTplMeta.NodeRegisters -->
 		<node title="Integrator's license">
-			<register id="0208" size="32" default="">
+			<register id="0208" size="32" default="" dynamic="true">
 				<title>Application name</title>
 				<description>
 This register is available to store the name of application or to identify the integrator who has loaded its license in the product. See the [license cryptogram](License_cryptogram) paragraph for details.
 				</description>
-				<field type="textbox" id="reg0208" maxlength="32" title="Application name" default=""/>
+				<field type="textbox" id="reg0208" maxlength="32" title="Application name" default="" dynamic="true"/>
 			</register>
 			<!-- Hiding License key (individual register) -->
 			<!-- Hiding License cryptogram (individual register) -->
@@ -471,13 +471,13 @@ Defines the layout of the keyboard when the product runs in keyboard-emulation m
 				</field>
 				<field type="number-h" id="reg02a7_iwadzvy_l365cmn" title="delay between 2 characters (5ms unit)" name="Typing speed" bitmap="0F" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" />
 			</register>
-			<register id="02A8" size="8" default="" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)">
+			<register id="02A8" size="8" default="" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" dynamic="true">
 				<title>Prefix: string sent before the data in keyboard mode</title>
-				<field type="textbox" id="reg02a8" maxlength="8" title="Prefix: string sent before the data in keyboard mode" default="" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
+				<field type="textbox" id="reg02a8" maxlength="8" title="Prefix: string sent before the data in keyboard mode" default="" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" dynamic="true"/>
 			</register>
-			<register id="02A9" size="8" default="0A" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)">
+			<register id="02A9" size="8" default="0A" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" dynamic="true">
 				<title>Suffix: string sent after the data in keyboard mode</title>
-				<field type="textbox" id="reg02a9" maxlength="8" title="Suffix: string sent after the data in keyboard mode" default="\n" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
+				<field type="textbox" id="reg02a9" maxlength="8" title="Suffix: string sent after the data in keyboard mode" default="\n" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" dynamic="true"/>
 			</register>
 		</node>
 		<node title="Security-related configuration">
