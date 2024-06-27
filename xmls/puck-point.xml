@@ -6,7 +6,7 @@
 	implements="usb,ble,ccid,rdr,micore,7816,samav,atecc,vegas,battery"
 	hardware="FPF18178"
 	icon="product-puck,product-puck+variant-point"
-	version="1.28"
+	version="1.29"
 	author="JDA"
 	templatesnfc="true"
 	templatesble="true"
@@ -22,7 +22,6 @@
 		<mode value="nxpnfc" icon="product+mode-nxpnfc" />
 	</modes>
 	<tree>
-	<!-- Empty node Constants, title=Constants, type=NvmTplMeta.NodeRegisters -->
 		<node title="Main configuration">
 			<register id="02C0" size="1" default="00">
 				<title>Profile</title>
@@ -33,14 +32,14 @@ This register defines how the product is seen by the hosts: USB or BLE profile, 
 				<!-- Ignoring Network (no network) -->
 				<field type="hidden" id="reg02c0_eph722y" name="rfu0" bitmap="08" value="0" />
 				<field type="buttons" id="reg02c0_kspmojd" title="Primary profile" name="Select" bitmap="07">
-					<option value="0" title="SpringCore Direct" icon="button-mode-direct"/>
-					<option value="1" title="SpringProx Legacy mode, Serial or CDC" icon="button-mode-springprox"/>
-					<option value="2" title="CCID (PC/SC or PC/SC-Like)" icon="button-mode-ccid"/>
-					<option value="3" title="HID, keyboard-emulation" icon="button-mode-rfidscanner"/>
-					<option value="4" title="Smart Reader mode, Serial or CDC" icon="button-mode-smartreader"/>
-					<option value="5" title="ST UHF reader host protocol, Serial or CDC" advanced="true" icon="button-mode-stuhf"/>
-					<option value="6" title="Mass Storage" advanced="true" icon="button-mode-disk"/>
-					<option value="7" title="NXP NFC Cockpit host protocol, Serial or CDC" advanced="true" icon="button-mode-nxpnfc"/>
+					<option value="0" title="SpringCore Direct" icon="button-mode-direct" />
+					<option value="1" title="SpringProx Legacy mode, Serial or CDC" icon="button-mode-springprox" />
+					<option value="2" title="CCID (PC/SC or PC/SC-Like)" icon="button-mode-ccid" />
+					<option value="3" title="HID, keyboard-emulation" icon="button-mode-rfidscanner" />
+					<option value="4" title="Smart Reader mode, Serial or CDC" icon="button-mode-smartreader" />
+					<option value="5" title="ST UHF reader host protocol, Serial or CDC" advanced="true" icon="button-mode-stuhf" />
+					<option value="6" title="Mass Storage" advanced="true" icon="button-mode-disk" />
+					<option value="7" title="NXP NFC Cockpit host protocol, Serial or CDC" advanced="true" icon="button-mode-nxpnfc" />
 				</field>
 			</register>
 			<register id="02C1" size="1" default="10">
@@ -120,7 +119,6 @@ If the product has no BLE interface, this register is ignored.
 					<option value="2" title="Beacon; use the BLE interface for iBeacon brodcasting." visibleif="REGBIT(0x02C2, 7) is 0"/>
 					<option value="3" title="RFU; do not use." visibleif="REGBIT(0x02C2, 7) is 0"/>
 				</field>
-				<!-- Empty node , title=BLE device *vs* BLE reader/broadcaster mode, type=NvmTplMeta.NodeSection -->
 			</register>
 			<!-- Ignoring USB BLE switching (no usb&ble) -->
 			<register id="02C4" size="1" default="00" advanced="true">
@@ -229,7 +227,6 @@ This register is available only in debug builds of the firmware.
 				<field type="raw" id="reg02cf" minlength="0" maxlength="64" title="Deferred commands" advanced="true" dynamic="true"/>
 			</register>
 		</node>
-		<!-- Empty node Inventory, title=Inventory data, type=NvmTplMeta.NodeRegisters -->
 		<node title="Integrator's license">
 			<register id="0208" size="32" default="" dynamic="true">
 				<title>Application name</title>
@@ -445,29 +442,29 @@ All the timings are specified in tenth of seconds. Normal values go from 1 (100m
 Defines the layout of the keyboard when the product runs in keyboard-emulation mode (HID over USB or HID over BLE).
 				</description>
 				<field type="dropdownlist" id="reg02a6" title="Keyboard layout" name="Keyboard layout" bitmap="FF" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" description="Defines the layout of the keyboard when the product runs in keyboard-emulation mode (HID over USB or HID over BLE).">
-					<option value="0" title="US, QWERTY" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
-					<option value="1" title="French, AZERTY, complete (with num. padd)" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
-					<option value="2" title="German, QWERTZ" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
-					<option value="3" title="French, AZERTY, laptop (no num. padd)" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
-					<option value="4" title="English (extended), QWERTY" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
-					<option value="5" title="French (extended), AZERTY" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
-					<option value="6" title="German (extended), QWERTZ" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
-					<option value="7" title="Spanish (extended), QWERTY" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
-					<option value="8" title="Italian (extended), QWERTY" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
-					<option value="9" title="Japanese (extended), QWERTY" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
-					<option value="10" title="Swedish (extended), QWERTY" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
-					<option value="11" title="Polish (extended), QWERTY" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
-					<option value="12" title="US (extended), QWERTY" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
+					<option value="0" title="US, QWERTY" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" />
+					<option value="1" title="French, AZERTY, complete (with num. padd)" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" />
+					<option value="2" title="German, QWERTZ" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" />
+					<option value="3" title="French, AZERTY, laptop (no num. padd)" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" />
+					<option value="4" title="English (extended), QWERTY" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" />
+					<option value="5" title="French (extended), AZERTY" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" />
+					<option value="6" title="German (extended), QWERTZ" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" />
+					<option value="7" title="Spanish (extended), QWERTY" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" />
+					<option value="8" title="Italian (extended), QWERTY" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" />
+					<option value="9" title="Japanese (extended), QWERTY" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" />
+					<option value="10" title="Swedish (extended), QWERTY" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" />
+					<option value="11" title="Polish (extended), QWERTY" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" />
+					<option value="12" title="US (extended), QWERTY" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" />
 				</field>
 			</register>
 			<register id="02A7" size="1" default="22" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)">
 				<title>Misc. options when running in keyboard mode</title>
 				<field type="hidden" id="reg02a7_iwadzvy_kxpbr2l" name="rfu0" bitmap="C0" value="0" />
 				<field type="dropdownlist" id="reg02a7_iwadzvy_6pga6ll" title="How are the slot numbers created" name="interval between two identical character" bitmap="30" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)">
-					<option value="0" title="none" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
-					<option value="1" title="2x typing speed" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
-					<option value="2" title="3x typing speed" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
-					<option value="3" title="4x typing speed" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)"/>
+					<option value="0" title="none" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" />
+					<option value="1" title="2x typing speed" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" />
+					<option value="2" title="3x typing speed" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" />
+					<option value="3" title="4x typing speed" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" />
 				</field>
 				<field type="number-h" id="reg02a7_iwadzvy_l365cmn" title="delay between 2 characters (5ms unit)" name="Typing speed" bitmap="0F" visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C0, 0, 3) is 3)" />
 			</register>
@@ -921,18 +918,18 @@ Major ID and Minor ID used for iBeacon broadcasting
 				<field type="checkbox" id="reg0271_m6awtjl" title="Auto pps" name="Auto PPS" bitmap="80" />
 				<field type="checkbox" id="reg0271_op23zml" title="HSP (Calypso SAM)" name="HSP" bitmap="40" advanced="true" />
 				<field type="radios" id="reg0271_6pga6ll" title="Activation mode" name="Activation" bitmap="30">
-					<option value="0" title="EMV, then ISO"/>
-					<option value="1" title="ISO only"/>
-					<option value="2" title="EMV only"/>
+					<option value="0" title="EMV, then ISO" />
+					<option value="1" title="ISO only" />
+					<option value="2" title="EMV only" />
 				</field>
 				<field type="hidden" id="reg0271_eph722y" name="rfu0" bitmap="08" value="0" />
 				<field type="radios" id="reg0271_kspmojd" title="Power class" name="Power" bitmap="07">
-					<option value="1" title="Class A only (5V)"/>
-					<option value="2" title="Class B only (3.3V)"/>
-					<option value="4" title="Class C only (1.8V)"/>
-					<option value="3" title="Class A or Class B (5V or 3.3V)"/>
-					<option value="6" title="Class B or Class C (3.3V or 1.8V)"/>
-					<option value="7" title="Class A or Class B or Class C (5V, 3.3V or 1.8V)"/>
+					<option value="1" title="Class A only (5V)" />
+					<option value="2" title="Class B only (3.3V)" />
+					<option value="4" title="Class C only (1.8V)" />
+					<option value="3" title="Class A or Class B (5V or 3.3V)" />
+					<option value="6" title="Class B or Class C (3.3V or 1.8V)" />
+					<option value="7" title="Class A or Class B or Class C (5V, 3.3V or 1.8V)" />
 				</field>
 			</register>
 			<register id="0272" size="1" default="92">
@@ -940,18 +937,18 @@ Major ID and Minor ID used for iBeacon broadcasting
 				<field type="checkbox" id="reg0272_m6awtjl" title="Auto pps" name="Auto PPS" bitmap="80" />
 				<field type="checkbox" id="reg0272_op23zml" title="HSP (Calypso SAM)" name="HSP" bitmap="40" advanced="true" />
 				<field type="radios" id="reg0272_6pga6ll" title="Activation mode" name="Activation" bitmap="30">
-					<option value="0" title="EMV, then ISO"/>
-					<option value="1" title="ISO only"/>
-					<option value="2" title="EMV only"/>
+					<option value="0" title="EMV, then ISO" />
+					<option value="1" title="ISO only" />
+					<option value="2" title="EMV only" />
 				</field>
 				<field type="hidden" id="reg0272_eph722y" name="rfu0" bitmap="08" value="0" />
 				<field type="radios" id="reg0272_kspmojd" title="Power class" name="Power" bitmap="07">
-					<option value="1" title="Class A only (5V)"/>
-					<option value="2" title="Class B only (3.3V)"/>
-					<option value="4" title="Class C only (1.8V)"/>
-					<option value="3" title="Class A or Class B (5V or 3.3V)"/>
-					<option value="6" title="Class B or Class C (3.3V or 1.8V)"/>
-					<option value="7" title="Class A or Class B or Class C (5V, 3.3V or 1.8V)"/>
+					<option value="1" title="Class A only (5V)" />
+					<option value="2" title="Class B only (3.3V)" />
+					<option value="4" title="Class C only (1.8V)" />
+					<option value="3" title="Class A or Class B (5V or 3.3V)" />
+					<option value="6" title="Class B or Class C (3.3V or 1.8V)" />
+					<option value="7" title="Class A or Class B or Class C (5V, 3.3V or 1.8V)" />
 				</field>
 			</register>
 			<register id="0273" size="1" default="92">
@@ -959,18 +956,18 @@ Major ID and Minor ID used for iBeacon broadcasting
 				<field type="checkbox" id="reg0273_m6awtjl" title="Auto pps" name="Auto PPS" bitmap="80" />
 				<field type="checkbox" id="reg0273_op23zml" title="HSP (Calypso SAM)" name="HSP" bitmap="40" advanced="true" />
 				<field type="radios" id="reg0273_6pga6ll" title="Activation mode" name="Activation" bitmap="30">
-					<option value="0" title="EMV, then ISO"/>
-					<option value="1" title="ISO only"/>
-					<option value="2" title="EMV only"/>
+					<option value="0" title="EMV, then ISO" />
+					<option value="1" title="ISO only" />
+					<option value="2" title="EMV only" />
 				</field>
 				<field type="hidden" id="reg0273_eph722y" name="rfu0" bitmap="08" value="0" />
 				<field type="radios" id="reg0273_kspmojd" title="Power class" name="Power" bitmap="07">
-					<option value="1" title="Class A only (5V)"/>
-					<option value="2" title="Class B only (3.3V)"/>
-					<option value="4" title="Class C only (1.8V)"/>
-					<option value="3" title="Class A or Class B (5V or 3.3V)"/>
-					<option value="6" title="Class B or Class C (3.3V or 1.8V)"/>
-					<option value="7" title="Class A or Class B or Class C (5V, 3.3V or 1.8V)"/>
+					<option value="1" title="Class A only (5V)" />
+					<option value="2" title="Class B only (3.3V)" />
+					<option value="4" title="Class C only (1.8V)" />
+					<option value="3" title="Class A or Class B (5V or 3.3V)" />
+					<option value="6" title="Class B or Class C (3.3V or 1.8V)" />
+					<option value="7" title="Class A or Class B or Class C (5V, 3.3V or 1.8V)" />
 				</field>
 			</register>
 			<register id="0279" size="1" default="00">
@@ -1051,18 +1048,18 @@ Major ID and Minor ID used for iBeacon broadcasting
 			<register id="02B1" size="1" default="00" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 				<title>Options to control how the slots are named, and their order of enumeration</title>
 				<field type="dropdownlist" id="reg02b1_35gzn7y_flcneal" title="How are the slot numbers created" name="Order" bitmap="E0" visibleif="REGBITS(0x02C0, 0, 3) is 2">
-					<option value="0" title="Contactless, Contact, SAM(s)" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
-					<option value="1" title="Contactless, SAM(s), Contact" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
-					<option value="2" title="Contact, Contactless, SAM(s)" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
-					<option value="3" title="Contact, SAM(s), Contactless" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
-					<option value="4" title="SAM(s), Contact, Contactless" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
-					<option value="5" title="SAM(s), Contactless, Contact" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
+					<option value="0" title="Contactless, Contact, SAM(s)" visibleif="REGBITS(0x02C0, 0, 3) is 2" />
+					<option value="1" title="Contactless, SAM(s), Contact" visibleif="REGBITS(0x02C0, 0, 3) is 2" />
+					<option value="2" title="Contact, Contactless, SAM(s)" visibleif="REGBITS(0x02C0, 0, 3) is 2" />
+					<option value="3" title="Contact, SAM(s), Contactless" visibleif="REGBITS(0x02C0, 0, 3) is 2" />
+					<option value="4" title="SAM(s), Contact, Contactless" visibleif="REGBITS(0x02C0, 0, 3) is 2" />
+					<option value="5" title="SAM(s), Contactless, Contact" visibleif="REGBITS(0x02C0, 0, 3) is 2" />
 				</field>
 				<field type="dropdownlist" id="reg02b1_35gzn7y_yxum27y" title="Add a part of the device identification data into the names of the slots" name="Add device id" bitmap="18" visibleif="REGBITS(0x02C0, 0, 3) is 2">
-					<option value="0" title="Do not add a device id" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
-					<option value="1" title="Add the complete serial number (in hex)" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
-					<option value="2" title="Add the last 2 bytes of the serial number (in hex)" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
-					<option value="3" title="Add the IPv4 address (if the device as a network interface)" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
+					<option value="0" title="Do not add a device id" visibleif="REGBITS(0x02C0, 0, 3) is 2" />
+					<option value="1" title="Add the complete serial number (in hex)" visibleif="REGBITS(0x02C0, 0, 3) is 2" />
+					<option value="2" title="Add the last 2 bytes of the serial number (in hex)" visibleif="REGBITS(0x02C0, 0, 3) is 2" />
+					<option value="3" title="Add the IPv4 address (if the device as a network interface)" visibleif="REGBITS(0x02C0, 0, 3) is 2" />
 				</field>
 				<field type="radios" id="reg02b1_35gzn7y_riuquxn" title="Force a letter in the name of the SAM slots (eg &quot;SAM A&quot;, &quot;SAM B&quot; etc)" name="Force SAM index" bitmap="04" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 					<option value="0" title="No letter for a single SAM (&quot;SAM&quot; only)" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
@@ -1158,6 +1155,5 @@ Global Bytes transmitted in NFC ATR_REQ or ATR_RES when a ISO/IEC 18092 peer is 
 				<field type="raw" id="reg02ed" minlength="0" maxlength="64" title="NDEF message in NFC Tag emulation mode" dynamic="true"/>
 			</register>
 		</node>
-	<!-- Empty node Statistics, title=Statistics, type=NvmTplMeta.NodeRegisters -->
 	</tree>
 </springcard-multiconf-registers>

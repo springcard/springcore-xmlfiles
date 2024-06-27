@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <springcard-multiconf-templates
-	version="1.28"
+	version="1.29"
 	author="JDA"
 >
 	<tree>
-	<!-- Empty node , title=NFC Templates, type=NvmTplMeta.NodeTemplateEntries -->
-	<!-- Empty node , title=NFC Templates, type=NvmTplMeta.NodeTemplateRegisters -->
 	<template id="id_only" name="ID Only" title="ID Only Template" hash="24hhu7n">
 		<lookups>
 			<lkl value="FF" title="All supported protocols" />
@@ -153,13 +151,13 @@ Merchant ID of the 2nd merchant. This is SHA256(*Merchant Name*).
 		</register>
 		<register id="0001" size="2" default="0000">
 			<title>Output Size and Format</title>
+			<field type="radios" id="tplql55h6y_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000">
+				<option value="0" title="RAW Mode (Data is a numerical value)"/>
+				<option value="1" title="String Mode (Data is an ASCII string)"/>
+			</field>
 			<field type="radios" id="tplql55h6y_reg0001_ut4pn2n_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Transmit the sequence of bytes as is" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Transmit the sequence of bytes in reverse order" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
-			</field>
-			<field type="radios" id="tplql55h6y_reg0001_ut4pn2n_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 0)">
-				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
-				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
 			<field type="radios" id="tplql55h6y_reg0001_ut4pn2n_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Padd with `0` on the left" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
@@ -190,10 +188,6 @@ Merchant ID of the 2nd merchant. This is SHA256(*Merchant Name*).
 			<field type="radios" id="tplql55h6y_reg0001_oahnb5l_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Transmit the sequence of characters as is" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Transmit the sequence of characters in reverse order" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
-			</field>
-			<field type="radios" id="tplql55h6y_reg0001_oahnb5l_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 1)">
-				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
-				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
 			<field type="radios" id="tplql55h6y_reg0001_oahnb5l_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Variable length (no padding)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
@@ -312,13 +306,13 @@ The word number is specified in the LOC register.
 		</register>
 		<register id="0001" size="2" default="0000">
 			<title>Output Size and Format</title>
+			<field type="radios" id="tplphfd7cn_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000">
+				<option value="0" title="RAW Mode (Data is a numerical value)"/>
+				<option value="1" title="String Mode (Data is an ASCII string)"/>
+			</field>
 			<field type="radios" id="tplphfd7cn_reg0001_ut4pn2n_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Transmit the sequence of bytes as is" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Transmit the sequence of bytes in reverse order" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
-			</field>
-			<field type="radios" id="tplphfd7cn_reg0001_ut4pn2n_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 0)">
-				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
-				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
 			<field type="radios" id="tplphfd7cn_reg0001_ut4pn2n_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Padd with `0` on the left" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
@@ -349,10 +343,6 @@ The word number is specified in the LOC register.
 			<field type="radios" id="tplphfd7cn_reg0001_oahnb5l_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Transmit the sequence of characters as is" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Transmit the sequence of characters in reverse order" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
-			</field>
-			<field type="radios" id="tplphfd7cn_reg0001_oahnb5l_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 1)">
-				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
-				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
 			<field type="radios" id="tplphfd7cn_reg0001_oahnb5l_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Variable length (no padding)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
@@ -444,13 +434,13 @@ Version of the private key.
 		</register>
 		<register id="0001" size="2" default="0000">
 			<title>Output Size and Format</title>
+			<field type="radios" id="tplbqdrmad_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000">
+				<option value="0" title="RAW Mode (Data is a numerical value)"/>
+				<option value="1" title="String Mode (Data is an ASCII string)"/>
+			</field>
 			<field type="radios" id="tplbqdrmad_reg0001_ut4pn2n_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Transmit the sequence of bytes as is" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Transmit the sequence of bytes in reverse order" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
-			</field>
-			<field type="radios" id="tplbqdrmad_reg0001_ut4pn2n_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 0)">
-				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
-				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
 			<field type="radios" id="tplbqdrmad_reg0001_ut4pn2n_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Padd with `0` on the left" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
@@ -481,10 +471,6 @@ Version of the private key.
 			<field type="radios" id="tplbqdrmad_reg0001_oahnb5l_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Transmit the sequence of characters as is" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Transmit the sequence of characters in reverse order" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
-			</field>
-			<field type="radios" id="tplbqdrmad_reg0001_oahnb5l_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 1)">
-				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
-				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
 			<field type="radios" id="tplbqdrmad_reg0001_oahnb5l_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Variable length (no padding)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
@@ -567,13 +553,13 @@ Valid range depends on the memory size of the actual VICC" note="The number of p
 		</register>
 		<register id="0001" size="2" default="0000">
 			<title>Output Size and Format</title>
+			<field type="radios" id="tplsoaav3l_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000">
+				<option value="0" title="RAW Mode (Data is a numerical value)"/>
+				<option value="1" title="String Mode (Data is an ASCII string)"/>
+			</field>
 			<field type="radios" id="tplsoaav3l_reg0001_ut4pn2n_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Transmit the sequence of bytes as is" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Transmit the sequence of bytes in reverse order" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
-			</field>
-			<field type="radios" id="tplsoaav3l_reg0001_ut4pn2n_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 0)">
-				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
-				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
 			<field type="radios" id="tplsoaav3l_reg0001_ut4pn2n_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Padd with `0` on the left" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
@@ -604,10 +590,6 @@ Valid range depends on the memory size of the actual VICC" note="The number of p
 			<field type="radios" id="tplsoaav3l_reg0001_oahnb5l_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Transmit the sequence of characters as is" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Transmit the sequence of characters in reverse order" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
-			</field>
-			<field type="radios" id="tplsoaav3l_reg0001_oahnb5l_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 1)">
-				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
-				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
 			<field type="radios" id="tplsoaav3l_reg0001_oahnb5l_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Variable length (no padding)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
@@ -684,13 +666,13 @@ The AID or the block address is specified in the LOC register.
 		</description>
 		<register id="0001" size="2" default="0000">
 			<title>Output Size and Format</title>
+			<field type="radios" id="tplnqitimn_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000">
+				<option value="0" title="RAW Mode (Data is a numerical value)"/>
+				<option value="1" title="String Mode (Data is an ASCII string)"/>
+			</field>
 			<field type="radios" id="tplnqitimn_reg0001_ut4pn2n_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Transmit the sequence of bytes as is" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Transmit the sequence of bytes in reverse order" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
-			</field>
-			<field type="radios" id="tplnqitimn_reg0001_ut4pn2n_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 0)">
-				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
-				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
 			<field type="radios" id="tplnqitimn_reg0001_ut4pn2n_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Padd with `0` on the left" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
@@ -721,10 +703,6 @@ The AID or the block address is specified in the LOC register.
 			<field type="radios" id="tplnqitimn_reg0001_oahnb5l_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Transmit the sequence of characters as is" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Transmit the sequence of characters in reverse order" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
-			</field>
-			<field type="radios" id="tplnqitimn_reg0001_oahnb5l_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 1)">
-				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
-				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
 			<field type="radios" id="tplnqitimn_reg0001_oahnb5l_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Variable length (no padding)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
@@ -829,13 +807,13 @@ Valid range depends on the memory size of the actual PICC" note="The number of p
 		</register>
 		<register id="0001" size="2" default="0000">
 			<title>Output Size and Format</title>
+			<field type="radios" id="tplzyob5bl_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000">
+				<option value="0" title="RAW Mode (Data is a numerical value)"/>
+				<option value="1" title="String Mode (Data is an ASCII string)"/>
+			</field>
 			<field type="radios" id="tplzyob5bl_reg0001_ut4pn2n_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Transmit the sequence of bytes as is" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Transmit the sequence of bytes in reverse order" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
-			</field>
-			<field type="radios" id="tplzyob5bl_reg0001_ut4pn2n_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 0)">
-				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
-				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
 			<field type="radios" id="tplzyob5bl_reg0001_ut4pn2n_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Padd with `0` on the left" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
@@ -866,10 +844,6 @@ Valid range depends on the memory size of the actual PICC" note="The number of p
 			<field type="radios" id="tplzyob5bl_reg0001_oahnb5l_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Transmit the sequence of characters as is" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Transmit the sequence of characters in reverse order" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
-			</field>
-			<field type="radios" id="tplzyob5bl_reg0001_oahnb5l_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 1)">
-				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
-				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
 			<field type="radios" id="tplzyob5bl_reg0001_oahnb5l_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Variable length (no padding)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
@@ -1190,14 +1164,14 @@ Use the NDEF Data Template to read the content of either a card formatted accord
 Specify the TNF of the NDEF messages to accept. Messages with another TNF will be discarded.
 			</description>
 			<field type="radios" id="tpl25z45sd_reg0005_5znnnnn" title="Type Name and Format" name="" bitmap="FF" description="TNF Filter">
-				<option value="1" title="NFC Forum Well-known record (NFC RTD)"/>
-				<option value="2" title="NFC Forum Media record (RFC 2046)"/>
-				<option value="3" title="Absolute URI record (RFC 3986)"/>
-				<option value="4" title="NFC Forum External record (NFC RTD)"/>
-				<option value="83" title="Read a SpringCard data entry"/>
-				<option value="84" title="Read a Text (either a Well-known record with type `T` or a `text/plain` Media record)"/>
-				<option value="85" title="Read an URI (either a Well-known record with type `U` or an Absolute URI record)"/>
-				<option value="255" title="Read either a SpringCard data entry, a Text or an URI"/>
+				<option value="1" title="NFC Forum Well-known record (NFC RTD)" />
+				<option value="2" title="NFC Forum Media record (RFC 2046)" />
+				<option value="3" title="Absolute URI record (RFC 3986)" />
+				<option value="4" title="NFC Forum External record (NFC RTD)" />
+				<option value="83" title="Read a SpringCard data entry" />
+				<option value="84" title="Read a Text (either a Well-known record with type `T` or a `text/plain` Media record)" />
+				<option value="85" title="Read an URI (either a Well-known record with type `U` or an Absolute URI record)" />
+				<option value="255" title="Read either a SpringCard data entry, a Text or an URI" />
 			</field>
 		</register>
 		<register id="0006" size="32" default="" visibleif="TPLBITS(5, 4, 4) is 0" dynamic="true">
@@ -1213,13 +1187,13 @@ This field is relevant only if TNF is either `01`, `02`, `03` or `04`; otherwise
 		</register>
 		<register id="0001" size="2" default="0000">
 			<title>Output Size and Format</title>
+			<field type="radios" id="tpl25z45sd_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000">
+				<option value="0" title="RAW Mode (Data is a numerical value)"/>
+				<option value="1" title="String Mode (Data is an ASCII string)"/>
+			</field>
 			<field type="radios" id="tpl25z45sd_reg0001_ut4pn2n_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Transmit the sequence of bytes as is" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Transmit the sequence of bytes in reverse order" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
-			</field>
-			<field type="radios" id="tpl25z45sd_reg0001_ut4pn2n_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 0)">
-				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
-				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
 			<field type="radios" id="tpl25z45sd_reg0001_ut4pn2n_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Padd with `0` on the left" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
@@ -1250,10 +1224,6 @@ This field is relevant only if TNF is either `01`, `02`, `03` or `04`; otherwise
 			<field type="radios" id="tpl25z45sd_reg0001_oahnb5l_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Transmit the sequence of characters as is" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Transmit the sequence of characters in reverse order" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
-			</field>
-			<field type="radios" id="tpl25z45sd_reg0001_oahnb5l_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 1)">
-				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
-				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
 			<field type="radios" id="tpl25z45sd_reg0001_oahnb5l_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Variable length (no padding)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
@@ -1369,13 +1339,13 @@ The Reader checks the Status Word. In case of any error (SW!=`9xxx`), the Templa
 		</register>
 		<register id="0001" size="2" default="0000">
 			<title>Output Size and Format</title>
+			<field type="radios" id="tpl33v6b6l_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000">
+				<option value="0" title="RAW Mode (Data is a numerical value)"/>
+				<option value="1" title="String Mode (Data is an ASCII string)"/>
+			</field>
 			<field type="radios" id="tpl33v6b6l_reg0001_ut4pn2n_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Transmit the sequence of bytes as is" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Transmit the sequence of bytes in reverse order" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
-			</field>
-			<field type="radios" id="tpl33v6b6l_reg0001_ut4pn2n_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 0)">
-				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
-				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
 			<field type="radios" id="tpl33v6b6l_reg0001_ut4pn2n_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Padd with `0` on the left" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
@@ -1406,10 +1376,6 @@ The Reader checks the Status Word. In case of any error (SW!=`9xxx`), the Templa
 			<field type="radios" id="tpl33v6b6l_reg0001_oahnb5l_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Transmit the sequence of characters as is" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Transmit the sequence of characters in reverse order" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
-			</field>
-			<field type="radios" id="tpl33v6b6l_reg0001_oahnb5l_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 1)">
-				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
-				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
 			<field type="radios" id="tpl33v6b6l_reg0001_oahnb5l_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Variable length (no padding)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
@@ -1530,13 +1496,13 @@ The number of blocks to be read is deduced from the expected length, as set in t
 		</register>
 		<register id="0001" size="2" default="0000">
 			<title>Output Size and Format</title>
+			<field type="radios" id="tplvsbmlpn_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000">
+				<option value="0" title="RAW Mode (Data is a numerical value)"/>
+				<option value="1" title="String Mode (Data is an ASCII string)"/>
+			</field>
 			<field type="radios" id="tplvsbmlpn_reg0001_ut4pn2n_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Transmit the sequence of bytes as is" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 				<option value="1" title="Transmit the sequence of bytes in reverse order" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
-			</field>
-			<field type="radios" id="tplvsbmlpn_reg0001_ut4pn2n_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 0)">
-				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
-				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
 			</field>
 			<field type="radios" id="tplvsbmlpn_reg0001_ut4pn2n_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
 				<option value="0" title="Padd with `0` on the left" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
@@ -1567,10 +1533,6 @@ The number of blocks to be read is deduced from the expected length, as set in t
 			<field type="radios" id="tplvsbmlpn_reg0001_oahnb5l_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Transmit the sequence of characters as is" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 				<option value="1" title="Transmit the sequence of characters in reverse order" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
-			</field>
-			<field type="radios" id="tplvsbmlpn_reg0001_oahnb5l_7wdxe6d" title="Mode" name="Mode" bitmap="4000" visibleif="(TPLBITS(1, 6, 1) is 1)">
-				<option value="0" title="RAW Mode (Data is a numerical value)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
-				<option value="1" title="String Mode (Data is an ASCII string)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
 			</field>
 			<field type="radios" id="tplvsbmlpn_reg0001_oahnb5l_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
 				<option value="0" title="Variable length (no padding)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>

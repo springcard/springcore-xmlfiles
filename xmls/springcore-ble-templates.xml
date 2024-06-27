@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <springcard-multiconf-templates
-	version="1.28"
+	version="1.29"
 	author="JDA"
 >
 	<tree>
-	<!-- Empty node , title=BLE Templates, type=NvmTplMeta.NodeTemplateEntries -->
-	<!-- Empty node , title=BLE Templates, type=NvmTplMeta.NodeTemplateRegisters -->
 	<template id="spy" name="Spy" title="Spy Template" hash="qaf5pxl">
 		<lookups>
 			<lkl value="0E" title="(Spy)" />
