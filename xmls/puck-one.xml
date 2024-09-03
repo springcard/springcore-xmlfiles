@@ -3,6 +3,7 @@
 	title="Puck One"
 	path="SpringCore/Puck/Puck One"
 	firmware="springcore/h518/puck"
+	variant="One"
 	implements="usb,ccid,rdr,micore,7816,7816_sam,samav,atecc,vegas"
 	hardware="FPF18177"
 	icon="product-puck,product-puck+variant-one"

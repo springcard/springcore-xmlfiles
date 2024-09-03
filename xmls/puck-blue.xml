@@ -3,6 +3,7 @@
 	title="Puck Blue"
 	path="SpringCore/Puck/Puck Blue"
 	firmware="springcore/h518/puck"
+	variant="Blue"
 	implements="usb,ble,ccid,rdr,micore,7816,samav,atecc,vegas"
 	hardware="FPF18176"
 	icon="product-puck,product-puck+variant-blue"

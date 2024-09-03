@@ -3,6 +3,7 @@
 	title="Puck Base"
 	path="SpringCore/Puck/Puck Base"
 	firmware="springcore/h518/puck"
+	variant="Base"
 	implements="usb,ccid,rdr,micore,7816,samav,atecc,vegas"
 	hardware="FPF18175"
 	icon="product-puck,product-puck+variant-base"

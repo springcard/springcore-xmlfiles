@@ -3,6 +3,7 @@
 	title="SpringPark AC"
 	path="SpringCore/SpringPark/SpringPark AC"
 	firmware="springcore/e518/springpark"
+	variant="AC"
 	implements="usb,serial,network,ccid,rdr,micore,7816,7816_id1,7816_sam_x4,samav,atecc,vegas"
 	hardware="EAN19217"
 	icon="product-springpark,product-springpark+variant-ac"

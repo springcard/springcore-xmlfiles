@@ -9,73 +9,80 @@
 			hardware="FSE18283"
 			implements="usb,ble,ccid,7816,7816_id1_x2,ataes,battery"
 			individuals="0201,0202,0209,020A,0244"
-			/>
+		/>
 		<device title="Socket Mobile S550"
 			firmware="springcore/h518/s550"
 			hardware="*"
 			implements="usb,ble,ccid,rdr,micore,7816,7816_sam,samav,atecc,battery"
 			individuals="0201,0202,0209,020A,0244"
-			/>
+		/>
 		<device title="M519"
 			firmware="springcore/m519"
 			hardware=""
 			implements="usb,serial,ccid,rdr,micore,7816,atecc"
 			individuals="0201,0202,0209,020A,02FE,02FF"
-			/>
+		/>
 		<device title="Evaluation kit Net"
 			firmware="springcore/e518/reference"
 			hardware="EAN18090"
 			implements="usb,network,ccid,rdr,micore,7816,7816_id1,7816_sam_x4,samav,atecc"
 			individuals="0201,0202,0209,020A,0280,0281,02FE,02FF"
-			/>
+		/>
 		<device title="Evaluation kit USB"
 			firmware="springcore/h518/reference"
 			hardware="EAN17115"
 			implements="usb,ccid,rdr,micore,7816,7816_id1,7816_sam_x4,samav,atecc"
 			individuals="0201,0202,0209,020A"
-			/>
+		/>
 		<device title="Puck Base"
 			firmware="springcore/h518/puck"
+			variant="Base"
 			hardware="FPF18175"
 			implements="usb,ccid,rdr,micore,7816,samav,atecc,vegas"
 			individuals="0201,0202,0209,020A"
-			/>
+		/>
 		<device title="Puck Blue"
 			firmware="springcore/h518/puck"
+			variant="Blue"
 			hardware="FPF18176"
 			implements="usb,ble,ccid,rdr,micore,7816,samav,atecc,vegas"
 			individuals="0201,0202,0209,020A,0244"
-			/>
+		/>
 		<device title="Puck One"
 			firmware="springcore/h518/puck"
+			variant="One"
 			hardware="FPF18177"
 			implements="usb,ccid,rdr,micore,7816,7816_sam,samav,atecc,vegas"
 			individuals="0201,0202,0209,020A"
-			/>
+		/>
 		<device title="Puck Point"
 			firmware="springcore/h518/puck"
+			variant="Point"
 			hardware="FPF18178"
 			implements="usb,ble,ccid,rdr,micore,7816,samav,atecc,vegas,battery"
 			individuals="0201,0202,0209,020A,0244"
-			/>
+		/>
 		<device title="Puck Ultimate"
 			firmware="springcore/h518/puck"
+			variant="Ultimate"
 			hardware="FPF18170"
 			implements="usb,ble,ccid,rdr,micore,7816,7816_sam,samav,atecc,vegas,battery"
 			individuals="0201,0202,0209,020A,0244"
-			/>
+		/>
 		<device title="SpringPark AC"
 			firmware="springcore/e518/springpark"
+			variant="AC"
 			hardware="EAN19217"
 			implements="usb,serial,network,ccid,rdr,micore,7816,7816_id1,7816_sam_x4,samav,atecc,vegas"
 			individuals="0201,0202,0209,020A,0280,0281,02FE,02FF"
-			/>
+		/>
 		<device title="SpringPark SD"
 			firmware="springcore/e518/springpark"
-			hardware="TBD"
+			variant="SD"
+			hardware="FSE20237"
 			implements="usb,serial,network,ccid,rdr,micore,7816,7816_id1,7816_sam_x4,samav,atecc,vegas"
 			individuals="0201,0202,0209,020A,0280,0281,02FE,02FF"
-			/>
+		/>
 	</devices>
 	<tree>
 		<node title="Inventory data">

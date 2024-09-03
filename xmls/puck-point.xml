@@ -3,6 +3,7 @@
 	title="Puck Point"
 	path="SpringCore/Puck/Puck Point"
 	firmware="springcore/h518/puck"
+	variant="Point"
 	implements="usb,ble,ccid,rdr,micore,7816,samav,atecc,vegas,battery"
 	hardware="FPF18178"
 	icon="product-puck,product-puck+variant-point"

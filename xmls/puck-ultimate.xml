@@ -3,6 +3,7 @@
 	title="Puck Ultimate"
 	path="SpringCore/Puck/Puck Ultimate"
 	firmware="springcore/h518/puck"
+	variant="Ultimate"
 	implements="usb,ble,ccid,rdr,micore,7816,7816_sam,samav,atecc,vegas,battery"
 	hardware="FPF18170"
 	icon="product-puck"
