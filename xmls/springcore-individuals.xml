@@ -64,13 +64,13 @@
 			implements="usb,ble,ccid,rdr,micore,7816,7816_sam,samav,atecc,vegas,battery"
 			individuals="0201,0202,0209,020A,0244"
 			/>
-		<device title="SpringPark-AC"
+		<device title="SpringPark AC"
 			firmware="springcore/e518/springpark"
 			hardware="EAN19217"
 			implements="usb,serial,network,ccid,rdr,micore,7816,7816_id1,7816_sam_x4,samav,atecc,vegas"
 			individuals="0201,0202,0209,020A,0280,0281,02FE,02FF"
 			/>
-		<device title="SpringPark-SD"
+		<device title="SpringPark SD"
 			firmware="springcore/e518/springpark"
 			hardware="TBD"
 			implements="usb,serial,network,ccid,rdr,micore,7816,7816_id1,7816_sam_x4,samav,atecc,vegas"
@@ -197,6 +197,8 @@ A user-defined name to override the default Device Name used for BLE advertising
 			<!-- Hiding Advertising Channel Map (not an individual register) -->
 			<!-- Hiding iBeacon ID (not an individual register) -->
 			<!-- Hiding iBeacon UUID (not an individual register) -->
+			<!-- Hiding custom integration (not an individual register) -->
+			<!-- Hiding custom integration settings (not an individual register) -->
 		</node>
 	</tree>
 </springcard-multiconf-individuals>

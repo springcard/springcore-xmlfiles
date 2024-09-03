@@ -2,6 +2,7 @@
 <springcard-multiconf-templates
 	version="1.29"
 	author="JDA"
+	visibleif="REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4"
 >
 	<tree>
 	<template id="id_only" name="ID Only" title="ID Only Template" hash="24hhu7n">
@@ -111,12 +112,12 @@ As per Apple requirements, Apple VAS should only run on top of a NFC reader that
 When configuring the Apple VAS template in the Smart Reader, always enable ECP in the &quot;NFC-A specific options&quot; configuration register and EMV compliance in the &quot;NFC/RFID HF compliance in poller mode&quot; configuration register.
 The SpringCore firmware is only suitable to read Apple Pay VAS data, not to run Apple Pay transactions. SpringCore devices are not payment terminals.
 		</remark>
-		<register id="0006" size="32" default="" dynamic="true">
+		<register id="0006" size="32" default="73F1639ABB7AB7AE44A69DCCF6A73DC2ED6D6453363D18E7BC28191EFFFDC3D3">
 			<title>Merchant ID</title>
 			<description>
 Merchant ID of the 1st (or only) merchant. This is SHA256(*Merchant Name*).
 			</description>
-			<field type="raw" id="tplql55h6y_reg0006" minlength="0" maxlength="32" title="Merchant ID" dynamic="true"/>
+			<field type="raw" id="tplql55h6y_reg0006" minlength="32" maxlength="32" title="Merchant ID"/>
 		</register>
 		<register id="0007" size="64" default="" advanced="true" dynamic="true">
 			<title>Merchant URL</title>
@@ -125,10 +126,10 @@ Merchant ID of the 1st (or only) merchant. This is SHA256(*Merchant Name*).
 			</description>
 			<field type="textbox" id="tplql55h6y_reg0007" maxlength="64" title="Merchant URL" default="" advanced="true" dynamic="true"/>
 		</register>
-		<register id="0008" size="32" default="0000000000000000000000000000000000000000000000000000000000000000">
+		<register id="0008" size="32" default="2A7E3D3ECAF054123A2D87103D40AF946AC7137612488A24C0927DA2F886D60D" dynamic="true">
 			<title>Merchant&apos;s Private Key</title>
-			<field type="number-h" id="tplql55h6y_reg0008_5jmntfy" title="Key slot in the internal ATECC" name="Slot" bitmap="FF00000000000000000000000000000000000000000000000000000000000000" />
-			<field type="raw" id="tplql55h6y_reg0008_5a737by" title="Value of ECC Private Key" name="Value" bitmap="FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" />
+			<field type="number-h" id="tplql55h6y_reg0008_yvko2sy_5jmntfy" title="Key slot in the internal ATECC" name="Slot" bitmap="FF00000000000000000000000000000000000000000000000000000000000000" visibleif="REGSIZE is 1" />
+			<field type="raw" id="tplql55h6y_reg0008_xosis7y_5a737by" title="Value of ECC Private Key" name="Value" bitmap="FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" visibleif="REGSIZE is 32" />
 		</register>
 		<register id="0009" size="32" default="" dynamic="true">
 			<title>Merchant ID (second)</title>
@@ -144,12 +145,12 @@ Merchant ID of the 2nd merchant. This is SHA256(*Merchant Name*).
 			</description>
 			<field type="textbox" id="tplql55h6y_reg000a" maxlength="64" title="Merchant URL (second)" default="" advanced="true" dynamic="true"/>
 		</register>
-		<register id="000B" size="32" default="0000000000000000000000000000000000000000000000000000000000000000">
+		<register id="000B" size="32" default="" dynamic="true">
 			<title>Merchant&apos;s Private Key (second)</title>
-			<field type="number-h" id="tplql55h6y_reg000b_5jmntfy" title="Key slot in the internal ATECC" name="Slot" bitmap="FF00000000000000000000000000000000000000000000000000000000000000" />
-			<field type="raw" id="tplql55h6y_reg000b_5a737by" title="Value of ECC Private Key" name="Value" bitmap="FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" />
+			<field type="number-h" id="tplql55h6y_reg000b_yvko2sy_5jmntfy" title="Key slot in the internal ATECC" name="Slot" bitmap="FF00000000000000000000000000000000000000000000000000000000000000" visibleif="REGSIZE is 1" />
+			<field type="raw" id="tplql55h6y_reg000b_xosis7y_5a737by" title="Value of ECC Private Key" name="Value" bitmap="FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" visibleif="REGSIZE is 32" />
 		</register>
-		<register id="0001" size="2" default="0000">
+		<register id="0001" size="2" default="5000">
 			<title>Output Size and Format</title>
 			<field type="radios" id="tplql55h6y_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000">
 				<option value="0" title="RAW Mode (Data is a numerical value)"/>
@@ -252,10 +253,88 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 			<lkl value="C3" title="(STid Mobile ID NFC)" />
 		</lookups>
 		<description>
-Read an identifier from the Orange NFC Office application running on a smartphone.
-Use this template to read an identifier from the Orange NFC Office application running on a smartphone.
-Orange NFC APIs for Office is a framework for NFC services, offered by Mobile Network Operator Orange. It targets user identification applications (access control, private e-purse, car park &amp; card sharing, and alikes). The services are provided by the smartphone either in host-based card emulation mode (HCE) or through a SIM card. Organisations are identified by an ApplicationId (variable length) and their organisation units by a ZoneId (on 6 bytes). A diversified AES key protects the data. Every user “belonging” to the organisation is identified by a Badge number on 10 bytes.
+Read an identifier from the STID Mobile ID application running on a smartphone.
 		</description>
+		<register id="0003" size="2" default="12AB">
+			<title>Site Code</title>
+			<field type="number-h" id="tplu6hl75n_reg0003" minlength="2" maxlength="2" title="Site Code" hint="word" />
+		</register>
+		<register id="0006" size="1" default="00">
+			<title>Settings</title>
+			<field type="number-h" id="tplu6hl75n_reg0006_5znnnnn" title="Unlock" name="Unlock" bitmap="FF" />
+		</register>
+		<register id="0005" size="16" default="11223344556677889900AABBCCDDEEFF">
+			<title>Secret Key</title>
+			<field type="raw" id="tplu6hl75n_reg0005" minlength="16" maxlength="16" title="Secret Key"/>
+		</register>
+		<register id="0001" size="2" default="5000">
+			<title>Output Size and Format</title>
+			<field type="radios" id="tplu6hl75n_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000">
+				<option value="0" title="RAW Mode (Data is a numerical value)"/>
+				<option value="1" title="String Mode (Data is an ASCII string)"/>
+			</field>
+			<field type="radios" id="tplu6hl75n_reg0001_ut4pn2n_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+				<option value="0" title="Transmit the sequence of bytes as is" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="1" title="Transmit the sequence of bytes in reverse order" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+			</field>
+			<field type="radios" id="tplu6hl75n_reg0001_ut4pn2n_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+				<option value="0" title="Padd with `0` on the left" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="1" title="Padd with `F` on the right" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+			</field>
+			<field type="radios" id="tplu6hl75n_reg0001_ut4pn2n_4hgd4jd" title="Remove leading zeroes?" name="Clean" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+				<option value="0" title="Keep all digits" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="1" title="Suppress `0` digits on the left of the Data" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+			</field>
+			<field type="radios" id="tplu6hl75n_reg0001_ut4pn2n_ytndzhn" title="Length and Format" name="Length and Format" bitmap="0F00" visibleif="(TPLBITS(1, 6, 1) is 0)">
+				<option value="0" title="Decimal, 10 digits (truncation on 4-B)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="1" title="Raw (hex), 4 bytes (32 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="2" title="Raw (hex), 8 bytes (64 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="3" title="Raw (hex), 5 bytes (40 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="4" title="Raw (hex), 10 bytes (80 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="5" title="Raw (hex), 7 bytes (56 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="6" title="Raw (hex), 11 bytes (88 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="7" title="RFU" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="8" title="Raw (hex), 16 bytes (128 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="9" title="Raw (hex), 20 bytes (160 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="10" title="Raw (hex), 24 bytes (196 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="11" title="Raw (hex), 32 bytes (256 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="12" title="Decimal, 12 digits (truncation on 5-B)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="13" title="Decimal, 13 digits (truncation on 5-B)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="14" title="Decimal, variable length" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="15" title="Raw (hex), variable length" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+			</field>
+			<field type="radios" id="tplu6hl75n_reg0001_oahnb5l_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+				<option value="0" title="Transmit the sequence of characters as is" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
+				<option value="1" title="Transmit the sequence of characters in reverse order" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
+			</field>
+			<field type="radios" id="tplu6hl75n_reg0001_oahnb5l_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+				<option value="0" title="Variable length (no padding)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
+				<option value="1" title="Padd with ` ` (space characters) on the right until the specified length" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
+			</field>
+			<field type="radios" id="tplu6hl75n_reg0001_oahnb5l_4hgd4jd" title="Short string or Long string?" name="Long" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+				<option value="0" title="Short string (truncate to 16 characters or less)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
+				<option value="1" title="Long string (more than 16 characters)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
+			</field>
+			<field type="dropdownlist" id="tplu6hl75n_reg0001_ovqgvtl_ytndzhn" title="Length" name="Length" bitmap="0F00" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))">
+				<option value="0" title="16 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="1" title="1 character" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="2" title="2 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="3" title="3 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="4" title="4 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="5" title="5 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="6" title="6 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="7" title="7 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="8" title="8 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="9" title="9 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="10" title="10 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="11" title="11 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="12" title="12 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="13" title="13 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="14" title="14 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="15" title="15 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+			</field>
+			<field type="number-d" id="tplu6hl75n_reg0001_inpjjkn_gpg5rzd" title="Options for Long String" name="Options for Long String" bitmap="00FF" visibleif="(TPLBITS(1, 6, 1) is 1) and (TPLBITS(1, 4, 1) is 1)" description="Use this byte to specify the exact length to read from the card. Valid range is `1` to `255`." />
+		</register>
 	</template>
 	<template id="orange_nfc_office" name="Orange NFC Office" title="Orange NFC Office Template" hash="fpocwxd">
 		<lookups>
@@ -413,26 +492,26 @@ Read data from an Android mobile phone using the Google SmartTap protocol.
 When configuring the Google SmartTap template in the Smart Reader, always activate both NFC-A and NFC-B protocol, and activate EMV compliance in the &quot;NFC/RFID HF compliance in poller mode&quot; configuration register.
 The SpringCore firmware is only suitable to read Google SmartTap data, not to run Google Pay transactions. SpringCore devices are not payment terminals.
 		</remark>
-		<register id="0003" size="4" default="00000000">
+		<register id="0003" size="4" default="03087EA3">
 			<title>Collector ID</title>
 			<description>
 Collector ID of merchant system.
 			</description>
 			<field type="raw" id="tplbqdrmad_reg0003" minlength="4" maxlength="4" title="Collector ID"/>
 		</register>
-		<register id="0004" size="4" default="00000000">
+		<register id="0004" size="4" default="00000001">
 			<title>Long Term Key Version</title>
 			<description>
 Version of the private key.
 			</description>
 			<field type="raw" id="tplbqdrmad_reg0004" minlength="4" maxlength="4" title="Long Term Key Version"/>
 		</register>
-		<register id="0005" size="32" default="0000000000000000000000000000000000000000000000000000000000000000">
+		<register id="0005" size="32" default="A2977C3661CD84CAF4E0FE9D3468493A5AC8F75679E22601AAD2DCD5979FCB83" dynamic="true">
 			<title>Long Term Private Key</title>
-			<field type="number-h" id="tplbqdrmad_reg0005_5jmntfy" title="Key slot in the internal ATECC" name="Slot" bitmap="FF00000000000000000000000000000000000000000000000000000000000000" />
-			<field type="raw" id="tplbqdrmad_reg0005_5a737by" title="Value of ECC Private Key" name="Value" bitmap="FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" />
+			<field type="number-h" id="tplbqdrmad_reg0005_yvko2sy_5jmntfy" title="Key slot in the internal ATECC" name="Slot" bitmap="FF00000000000000000000000000000000000000000000000000000000000000" visibleif="REGSIZE is 1" />
+			<field type="raw" id="tplbqdrmad_reg0005_xosis7y_5a737by" title="Value of ECC Private Key" name="Value" bitmap="FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" visibleif="REGSIZE is 32" />
 		</register>
-		<register id="0001" size="2" default="0000">
+		<register id="0001" size="2" default="5000">
 			<title>Output Size and Format</title>
 			<field type="radios" id="tplbqdrmad_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000">
 				<option value="0" title="RAW Mode (Data is a numerical value)"/>

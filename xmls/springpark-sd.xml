@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <springcard-multiconf-registers
-	title="SpringPark-SD"
-	path="SpringCore/SpringPark/SpringPark-SD"
+	title="SpringPark SD"
+	path="SpringCore/SpringPark/SpringPark SD"
 	firmware="springcore/e518/springpark"
 	implements="usb,serial,network,ccid,rdr,micore,7816,7816_id1,7816_sam_x4,samav,atecc,vegas"
 	hardware="TBD"

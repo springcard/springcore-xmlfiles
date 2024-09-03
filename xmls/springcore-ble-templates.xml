@@ -2,6 +2,7 @@
 <springcard-multiconf-templates
 	version="1.29"
 	author="JDA"
+	visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C2, 0, 2) is 1)"
 >
 	<tree>
 	<template id="spy" name="Spy" title="Spy Template" hash="qaf5pxl">
@@ -20,7 +21,7 @@
 		<lookups>
 			<lkl value="0F" title="(Extended Spy)" />
 		</lookups>
-		<register id="0003" size="4" default="00000000">
+		<register id="0003" size="4" default="020A1E05">
 			<title>Settings</title>
 			<field type="number-h" id="tplmb2oacd_reg0003_5anapel" title="Repeat Interval Min" name="Repeat Interval Min" bitmap="FF000000" />
 			<field type="number-h" id="tplmb2oacd_reg0003_p5ffuzl" title="Repeat Interval Max" name="Repeat Interval Max" bitmap="00FF0000" />
@@ -31,11 +32,6 @@
 	<template id="ibeacon" name="iBeacon" title="iBeacon Template" hash="bxqx7fd">
 		<lookups>
 			<lkl value="A1" title="(iBeacon)" />
-		</lookups>
-	</template>
-	<template id="eddystone" name="Eddystone" title="Eddystone Template" hash="ikapoey">
-		<lookups>
-			<lkl value="A2" title="(Eddystone)" />
 		</lookups>
 	</template>
 	<template id="springblue" name="SpringBlue" title="SpringBlue Template" hash="756ugod">
@@ -52,20 +48,87 @@
 		<lookups>
 			<lkl value="C3" title="(STid Mobile ID BLE)" />
 		</lookups>
-		<register id="0003" size="2" default="0000">
+		<register id="0003" size="2" default="12AB">
 			<title>Site Code</title>
 			<field type="number-h" id="tploomv5ky_reg0003" minlength="2" maxlength="2" title="Site Code" hint="word" />
 		</register>
-		<register id="0006" size="5" default="0000000000">
+		<register id="0006" size="4" default="411E0A44">
 			<title>Settings</title>
-			<field type="number-h" id="tploomv5ky_reg0006_4svv4cl" title="Config" name="Config" bitmap="FF00000000" />
-			<field type="number-h" id="tploomv5ky_reg0006_vnp5ven" title="Modes" name="Modes" bitmap="00FF000000" />
-			<field type="number-h" id="tploomv5ky_reg0006_af2vand" title="Thresholds" name="Thresholds" bitmap="0000FFFF00" />
-			<field type="number-h" id="tploomv5ky_reg0006_ahd4scn" title="Interval" name="Interval" bitmap="00000000FF" />
+			<field type="number-h" id="tploomv5ky_reg0006_5anapel" title="Config" name="Config" bitmap="FF000000" />
+			<field type="number-h" id="tploomv5ky_reg0006_p5ffuzl" title="Modes" name="Modes" bitmap="00FF0000" />
+			<field type="number-h" id="tploomv5ky_reg0006_pasheyy" title="Thresholds" name="Thresholds" bitmap="0000FFFF" />
 		</register>
-		<register id="0005" size="16" default="00000000000000000000000000000000">
+		<register id="0005" size="16" default="11223344556677889900AABBCCDDEEFF">
 			<title>Secret Key</title>
 			<field type="raw" id="tploomv5ky_reg0005" minlength="16" maxlength="16" title="Secret Key"/>
+		</register>
+		<register id="0001" size="2" default="5000">
+			<title>Output Size and Format</title>
+			<field type="radios" id="tploomv5ky_reg0001_7wdxe6d" title="Mode" name="Mode" bitmap="4000">
+				<option value="0" title="RAW Mode (Data is a numerical value)"/>
+				<option value="1" title="String Mode (Data is an ASCII string)"/>
+			</field>
+			<field type="radios" id="tploomv5ky_reg0001_ut4pn2n_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+				<option value="0" title="Transmit the sequence of bytes as is" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="1" title="Transmit the sequence of bytes in reverse order" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+			</field>
+			<field type="radios" id="tploomv5ky_reg0001_ut4pn2n_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+				<option value="0" title="Padd with `0` on the left" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="1" title="Padd with `F` on the right" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+			</field>
+			<field type="radios" id="tploomv5ky_reg0001_ut4pn2n_4hgd4jd" title="Remove leading zeroes?" name="Clean" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 0)">
+				<option value="0" title="Keep all digits" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="1" title="Suppress `0` digits on the left of the Data" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+			</field>
+			<field type="radios" id="tploomv5ky_reg0001_ut4pn2n_ytndzhn" title="Length and Format" name="Length and Format" bitmap="0F00" visibleif="(TPLBITS(1, 6, 1) is 0)">
+				<option value="0" title="Decimal, 10 digits (truncation on 4-B)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="1" title="Raw (hex), 4 bytes (32 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="2" title="Raw (hex), 8 bytes (64 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="3" title="Raw (hex), 5 bytes (40 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="4" title="Raw (hex), 10 bytes (80 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="5" title="Raw (hex), 7 bytes (56 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="6" title="Raw (hex), 11 bytes (88 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="7" title="RFU" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="8" title="Raw (hex), 16 bytes (128 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="9" title="Raw (hex), 20 bytes (160 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="10" title="Raw (hex), 24 bytes (196 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="11" title="Raw (hex), 32 bytes (256 bits)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="12" title="Decimal, 12 digits (truncation on 5-B)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="13" title="Decimal, 13 digits (truncation on 5-B)" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="14" title="Decimal, variable length" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+				<option value="15" title="Raw (hex), variable length" visibleif="(TPLBITS(1, 6, 1) is 0)"/>
+			</field>
+			<field type="radios" id="tploomv5ky_reg0001_oahnb5l_2kglign" title="Invert Data?" name="Swap" bitmap="8000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+				<option value="0" title="Transmit the sequence of characters as is" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
+				<option value="1" title="Transmit the sequence of characters in reverse order" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
+			</field>
+			<field type="radios" id="tploomv5ky_reg0001_oahnb5l_rsfphul" title="Padding if Data is shorted than specified length" name="Padding" bitmap="2000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+				<option value="0" title="Variable length (no padding)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
+				<option value="1" title="Padd with ` ` (space characters) on the right until the specified length" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
+			</field>
+			<field type="radios" id="tploomv5ky_reg0001_oahnb5l_4hgd4jd" title="Short string or Long string?" name="Long" bitmap="1000" visibleif="(TPLBITS(1, 6, 1) is 1)">
+				<option value="0" title="Short string (truncate to 16 characters or less)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
+				<option value="1" title="Long string (more than 16 characters)" visibleif="(TPLBITS(1, 6, 1) is 1)"/>
+			</field>
+			<field type="dropdownlist" id="tploomv5ky_reg0001_ovqgvtl_ytndzhn" title="Length" name="Length" bitmap="0F00" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))">
+				<option value="0" title="16 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="1" title="1 character" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="2" title="2 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="3" title="3 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="4" title="4 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="5" title="5 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="6" title="6 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="7" title="7 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="8" title="8 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="9" title="9 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="10" title="10 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="11" title="11 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="12" title="12 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="13" title="13 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="14" title="14 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+				<option value="15" title="15 characters" visibleif="((TPLBITS(1, 6, 1) is 1)) and ((TPLBITS(1, 4, 1) is 0))"/>
+			</field>
+			<field type="number-d" id="tploomv5ky_reg0001_inpjjkn_gpg5rzd" title="Options for Long String" name="Options for Long String" bitmap="00FF" visibleif="(TPLBITS(1, 6, 1) is 1) and (TPLBITS(1, 4, 1) is 1)" description="Use this byte to specify the exact length to read from the card. Valid range is `1` to `255`." />
 		</register>
 	</template>
 	</tree>

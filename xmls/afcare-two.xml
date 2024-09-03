@@ -7,6 +7,7 @@
 	hardware="FSE18283"
 	version="1.29"
 	author="JDA"
+	private="true"
 	templatesnfc="false"
 	templatesble="false"
 >
@@ -509,19 +510,33 @@ Channels used while advertising.
 				<field type="hidden" id="reg0248_bozlrly_eph722y" name="rfu0" bitmap="08" value="0" />
 				<field type="number-h" id="reg0248_bozlrly_kspmojd" title="set 0 (application)." name="set_0" bitmap="07" visibleif="REGBIT(0x02C2, 7) is 0" />
 			</register>
-			<register id="0249" size="4" default="00000000" visibleif="REGBIT(0x02C2, 7) is 0">
+			<register id="0249" size="4" default="00000000" visibleif="(REGBIT(0x02C2, 7) is 0) and (REGBITS(0x02C2, 0, 2) is 2)">
 				<title>iBeacon ID</title>
 				<description>
 Major ID and Minor ID used for iBeacon broadcasting
 				</description>
-				<field type="raw" id="reg0249" minlength="4" maxlength="4" title="iBeacon ID" visibleif="REGBIT(0x02C2, 7) is 0"/>
+				<field type="raw" id="reg0249" minlength="4" maxlength="4" title="iBeacon ID" visibleif="(REGBIT(0x02C2, 7) is 0) and (REGBITS(0x02C2, 0, 2) is 2)"/>
 			</register>
-			<register id="024A" size="16" default="f7826da64fa24e988024bc5b71e0893e" visibleif="REGBIT(0x02C2, 7) is 0">
+			<register id="024A" size="16" default="f7826da64fa24e988024bc5b71e0893e" visibleif="(REGBIT(0x02C2, 7) is 0) and (REGBITS(0x02C2, 0, 2) is 2)">
 				<title>iBeacon UUID</title>
 				<description>
 16 bytes UUID used for iBeacon broadcasting
 				</description>
-				<field type="raw" id="reg024a" minlength="16" maxlength="16" title="iBeacon UUID" visibleif="REGBIT(0x02C2, 7) is 0"/>
+				<field type="raw" id="reg024a" minlength="16" maxlength="16" title="iBeacon UUID" visibleif="(REGBIT(0x02C2, 7) is 0) and (REGBITS(0x02C2, 0, 2) is 2)"/>
+			</register>
+			<register id="024B" size="32" default="" visibleif="REGBIT(0x02C2, 7) is 0" dynamic="true">
+				<title>custom integration</title>
+				<description>
+Specific customer related register
+				</description>
+				<field type="raw" id="reg024b" minlength="0" maxlength="32" title="custom integration" visibleif="REGBIT(0x02C2, 7) is 0" dynamic="true"/>
+			</register>
+			<register id="024C" size="32" default="" visibleif="REGBIT(0x02C2, 7) is 0" dynamic="true">
+				<title>custom integration settings</title>
+				<description>
+Specific customer related register
+				</description>
+				<field type="raw" id="reg024c" minlength="0" maxlength="32" title="custom integration settings" visibleif="REGBIT(0x02C2, 7) is 0" dynamic="true"/>
 			</register>
 		</node>
 		<!-- Ignoring Barcode (no barcode) -->
