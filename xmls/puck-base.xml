@@ -7,7 +7,7 @@
 	implements="usb,ccid,rdr,micore,7816,samav,atecc,vegas"
 	hardware="FPF18175"
 	icon="product-puck,product-puck+variant-base"
-	version="1.29"
+	version="1.31"
 	author="JDA"
 	templatesnfc="true"
 	templatesble="false"
@@ -21,6 +21,7 @@
 		<mode value="stuhf" icon="product+mode-stuhf" />
 		<mode value="disk" icon="product+mode-disk" />
 		<mode value="nxpnfc" icon="product+mode-nxpnfc" />
+		<mode value="sscp" />
 	</modes>
 	<tree>
 		<node title="Main configuration">
@@ -38,7 +39,7 @@ This register defines how the product is seen by the hosts: USB or BLE profile, 
 					<option value="2" title="CCID (PC/SC or PC/SC-Like)" icon="button-mode-ccid" />
 					<option value="3" title="HID, keyboard-emulation" icon="button-mode-rfidscanner" />
 					<option value="4" title="Smart Reader mode, Serial or CDC" icon="button-mode-smartreader" />
-					<option value="5" title="ST UHF reader host protocol, Serial or CDC" advanced="true" icon="button-mode-stuhf" />
+					<!-- Ignoring CDC_UHF_ST_READER (no stuhf) -->
 					<option value="6" title="Mass Storage" advanced="true" icon="button-mode-disk" />
 					<option value="7" title="NXP NFC Cockpit host protocol, Serial or CDC" advanced="true" icon="button-mode-nxpnfc" />
 				</field>
@@ -258,7 +259,7 @@ Options for the single-tone beeper (aka buzzer) or volume for the enhanced sound
 This register is ignored if the product does not have a buzzer nor an enhanced sound driver.
 				</remark>
 				<field type="hidden" id="reg02d8_hxqkjly" name="rfu0" bitmap="F8" value="00" />
-				<field type="number-h" id="reg02d8_kspmojd" title="Control whether the product is allowed to beep or define the Volume level. Set to 0 to disable sound. The maximum volume level depends on the product type." name="Volume" bitmap="07" />
+				<field type="number-d" id="reg02d8_kspmojd" title="Control whether the product is allowed to beep or define the Volume level. Set to 0 to disable sound. The maximum volume level depends on the product type." name="Volume" bitmap="07" />
 			</register>
 			<register id="02D9" size="64" default="" advanced="true" dynamic="true">
 				<title>Product Specific</title>
@@ -495,11 +496,18 @@ Select how the 13.56MHz interface behaves.
 					<option value="0" title="Disable carrier collision detection"/>
 					<option value="1" title="Enable carrier collision detection"/>
 				</field>
-				<field type="radios" id="reg0230_efr3mkd" title="Activity cycle policy" name="Policy" bitmap="0C">
-					<option value="0" title="Aggressive (be a poller approx 80% of the time)"/>
-					<option value="1" title="Fast (be a poller approx 50% of the time)"/>
-					<option value="2" title="Intermediate (be a poller approx 25% of the time)"/>
-					<option value="3" title="Power saving (be a poller approx 10% of the time)"/>
+				<field type="hidden" id="reg0230_op23zml" name="rfu0" bitmap="40" value="0" />
+				<field type="radios" id="reg0230_6pga6ll" title="Tracking policy" name="Tracking policy" bitmap="30">
+					<option value="0" title="Normal (keep the RF field active and watch the card periodically)"/>
+					<option value="1" title="Power saving (reduce the RF field and watch the card periodically)"/>
+					<option value="2" title="Low power (shut down the RF field, resume every 0.5 second to look for the card)"/>
+					<option value="3" title="Very low power (shut down the RF field, resume every 1.0 second to look for the card)"/>
+				</field>
+				<field type="radios" id="reg0230_efr3mkd" title="Polling policy" name="Polling policy" bitmap="0C">
+					<option value="0" title="Normal (be a poller all the time)"/>
+					<option value="1" title="Power saving (be a poller approx twice per second)"/>
+					<option value="2" title="Low power (be a poller approx once per second)"/>
+					<option value="3" title="LPCD"/>
 				</field>
 				<field type="hidden" id="reg0230_mdwlall" name="rfu0" bitmap="02" value="0" />
 				<field type="radios" id="reg0230_ooba6wy" title="Be a NFC poller (reader)" name="Poller" bitmap="01">
@@ -575,7 +583,10 @@ This register is not used in Smart Reader mode (the Templates define how the car
 				</remark>
 				<field type="hidden" id="reg0233_35gzn7y_m6awtjl" name="rfu0" bitmap="80" value="0" />
 				<field type="hidden" id="reg0233_35gzn7y_op23zml" name="rfu0" bitmap="40" value="0" />
-				<field type="hidden" id="reg0233_35gzn7y_ax7h6sl" name="rfu0" bitmap="20" value="0" />
+				<field type="radios" id="reg0233_35gzn7y_ax7h6sl" title="Use REQuest instead of WakeUP in NFC-A and NFC-B" name="Use REQ not WUP" bitmap="20" visibleif="REGBITS(0x02C0, 0, 3) is 2">
+					<option value="0" title="Use WUPA and WUPB" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
+					<option value="1" title="Use REQA and REQB" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
+				</field>
 				<field type="radios" id="reg0233_35gzn7y_t6r55rl" title="Consider any NFC-A card as being a Mifare Classic" name="Force Mifare Classic" bitmap="10" visibleif="REGBITS(0x02C0, 0, 3) is 2">
 					<option value="0" title="NFC-A cards are activated normally" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
 					<option value="1" title="All NFC-A cards are assumed to be Mifare Classic" visibleif="REGBITS(0x02C0, 0, 3) is 2"/>
@@ -640,8 +651,8 @@ Configure the contactless interface to comply with various standards.
 			<register id="0238" size="3" default="000000">
 				<title>Advanced power control</title>
 				<field type="number-h" id="reg0238_lmh6e5y" title="RFU" name="RFU" bitmap="FF0000" />
-				<field type="number-h" id="reg0238_gsqqlyn" title="VDDPA maximum output voltage in case the DPC is enabled in reader mode." name="Vmax" bitmap="00FF00" description="starting at 1.5v (`00`), in 0.1v step, up to 5.7v (`2A`)" />
-				<field type="number-h" id="reg0238_rk4pgmy" title="VDDPA target current in mA." name="Imax" bitmap="0000FF" description="in 5mA unit, up to 350mA (`46`)" />
+				<field type="number-d" id="reg0238_gsqqlyn" title="VDDPA maximum output voltage in case the DPC is enabled in reader mode." name="Vmax" bitmap="00FF00" description="starting at 1.5v (`0`), in 0.1v step, up to 5.7v (`42`)" />
+				<field type="number-d" id="reg0238_rk4pgmy" title="VDDPA target current in mA." name="Imax" bitmap="0000FF" description="in 5mA unit, up to 350mA (`70`)" />
 			</register>
 			<register id="0239" size="20" default="6A01000002" dynamic="true">
 				<title>VASUP frame for Enhanced Contactless Polling (Apple VAS)</title>
@@ -701,17 +712,18 @@ The Service Code to be used depends on the card&apos;s application and configura
 				<field type="number-h" id="reg023d_gpg5rzd" title="AFI for NFC-V polling" name="AFI" bitmap="00FF" description="The AFI (Application Family IDentifier) is a parameter broadcasted by the reader within its NFC-V polling frames.
 A card that does not belong to the specified Application Family remains silent (this aims to speed-up the anti-collision loop and avoid the reader to initiate a transaction with &quot;useless&quot; cards)." remark="Set to `00` to target all cards (default)" />
 			</register>
-			<register id="023E" size="3" default="000000">
-				<title>Advanced NFC timers</title>
-				<field type="number-h" id="reg023e_lmh6e5y" title="Min. polling interval (10th of second)" name="Poll interval" bitmap="FF0000" description="Use this parameter to slow down the reader (this is the first step to reduce average power consumption)." remark="If set to `00` (default), the reader operates at maximum speed." />
-				<field type="number-h" id="reg023e_gsqqlyn" title="Min. time before restarting polling after card removal (10th of second)" name="Wait after poll" bitmap="00FF00" description="Use this parameter if the host system is unable to handle a new card immediately after the previous one." remark="If set to `00` (default), the reader doesn&apos;t add a pause after a card removal." />
-				<field type="number-h" id="reg023e_rk4pgmy" title="Shutdown RF if a card remains in the field during a long time (seconds)" name="Protect card" bitmap="0000FF" description="Use this parameter to prevent a card from overheating (and maybe being destroyed) if it stays in the RF field for a long time." remark="If set to `00` (default), the reader never stops the RF field while a card is present." />
+			<register id="023E" size="4" default="00000000">
+				<title>Advanced NFC timings</title>
+				<field type="number-d" id="reg023e_5anapel" title="Card protection timeout (seconds)" name="Protect card" bitmap="FF000000" description="Use this parameter to shutdown the RF if a card remains in the field during a very long time. This is useful to protect the cards from overheating (since this may destroy the chip)." remark="If set to 0 (default), the reader never stops the RF field while a card is present." />
+				<field type="number-d" id="reg023e_p5ffuzl" title="Min. time before restarting polling after a card removal event (10th of second, 0.0 to 2.55 s)" name="Wait between cards" bitmap="00FF0000" description="Use this parameter if the host system is unable to handle a new card immediately after the previous one." remark="If set to `0` (default), the reader doesn&apos;t add a pause after a card removal." />
+				<field type="number-d" id="reg023e_7kdbced" title="Interval between LPCD pings (10th of second, 0.1 to 2.55s)" name="LPCD ping period" bitmap="0000FF00" description="LPCD uses short pings (Dirac pulses) to monitor the RF environment without actually activating the RF field. This settings control the interval between pulses." remark="For convenience, `0` (default) maps to 250ms" />
+				<field type="number-d" id="reg023e_4svv4cl" title="Interval between pollings when LPCD is enabled (seconds, 1 to 254s)" name="LPCD wakeup period" bitmap="000000FF" description="Small tags may be unable to wake-up a reader that is using LPCD. Use the wake-up period to poll periodically, even if no LPCD event has been signaled." remark="For convenience, `0` (default) maps to 2500ms. Set to `255` to disable this feature." />
 			</register>
 			<register id="023F" size="3" default="000000">
 				<title>Analog test</title>
 				<field type="hidden" id="reg023f_lf2imkd" name="rfu0" bitmap="FC0000" value="00" />
-				<field type="number-h" id="reg023f_5pbdr5n" title="disable_thermal_protection" name="disable_thermal_protection" bitmap="020000" />
-				<field type="number-h" id="reg023f_5r4ewkl" title="enable" name="enable" bitmap="010000" />
+				<field type="checkbox" id="reg023f_5pbdr5n" title="disable_thermal_protection" name="disable_thermal_protection" bitmap="020000" />
+				<field type="checkbox" id="reg023f_5r4ewkl" title="enable" name="enable" bitmap="010000" />
 				<field type="number-h" id="reg023f_gsqqlyn" title="Defines test signal to be provided on AUX2" name="aux2" bitmap="00FF00" />
 				<field type="number-h" id="reg023f_rk4pgmy" title="Defines test signal to be provided on AUX1" name="aux1" bitmap="0000FF" />
 			</register>
@@ -719,17 +731,17 @@ A card that does not belong to the specified Application Family remains silent (
 		<!-- Ignoring Bluetooth (no ble) -->
 		<!-- Ignoring Barcode (no barcode) -->
 		<node title="Configuration of the smartcard interface(s)">
-			<register id="0271" size="1" default="83">
+			<register id="0271" size="2" default="8395">
 				<title>Configuration of the main smartcard slot (ID-1)</title>
-				<field type="checkbox" id="reg0271_m6awtjl" title="Auto pps" name="Auto PPS" bitmap="80" />
-				<field type="checkbox" id="reg0271_op23zml" title="HSP (Calypso SAM)" name="HSP" bitmap="40" advanced="true" />
-				<field type="radios" id="reg0271_6pga6ll" title="Activation mode" name="Activation" bitmap="30">
+				<field type="checkbox" id="reg0271_2kglign" title="Auto pps" name="Auto PPS" bitmap="8000" />
+				<field type="checkbox" id="reg0271_7wdxe6d" title="HSP (Calypso SAM)" name="HSP" bitmap="4000" advanced="true" />
+				<field type="radios" id="reg0271_pr2qlvn" title="Activation mode" name="Activation" bitmap="3000">
 					<option value="0" title="EMV, then ISO" />
 					<option value="1" title="ISO only" />
 					<option value="2" title="EMV only" />
 				</field>
-				<field type="hidden" id="reg0271_eph722y" name="rfu0" bitmap="08" value="0" />
-				<field type="radios" id="reg0271_kspmojd" title="Power class" name="Power" bitmap="07">
+				<field type="hidden" id="reg0271_scnksay" name="rfu0" bitmap="0800" value="0" />
+				<field type="radios" id="reg0271_4rhllfn" title="Power class" name="Power" bitmap="0700">
 					<option value="1" title="Class A only (5V)" />
 					<option value="2" title="Class B only (3.3V)" />
 					<option value="4" title="Class C only (1.8V)" />
@@ -737,43 +749,70 @@ A card that does not belong to the specified Application Family remains silent (
 					<option value="6" title="Class B or Class C (3.3V or 1.8V)" />
 					<option value="7" title="Class A or Class B or Class C (5V, 3.3V or 1.8V)" />
 				</field>
+				<field type="dropdownlist" id="reg0271_gpg5rzd" title="Bitrate max" name="max_fidi" bitmap="00FF" remark="Default value TA1=95 (125000bit/s) is considered &apos;failsafe&apos; and should work even with OEM devices having some distance between the CPU and the card slot. Higher bitrates are possible only on suitable hardware.">
+					<option value="17" title="TA1=11" />
+					<option value="18" title="TA1=12" />
+					<option value="19" title="TA1=13" />
+					<option value="24" title="TA1=18" />
+					<option value="149" title="TA1=95" />
+					<option value="150" title="TA1=96" />
+					<option value="151" title="TA1=97" />
+				</field>
 			</register>
-			<register id="0272" size="1" default="92">
+			<register id="0272" size="2" default="9295">
 				<title>Configuration of the first ID-000 slot (&quot;SAM A&quot;)</title>
-				<field type="checkbox" id="reg0272_m6awtjl" title="Auto pps" name="Auto PPS" bitmap="80" />
-				<field type="checkbox" id="reg0272_op23zml" title="HSP (Calypso SAM)" name="HSP" bitmap="40" advanced="true" />
-				<field type="radios" id="reg0272_6pga6ll" title="Activation mode" name="Activation" bitmap="30">
+				<field type="checkbox" id="reg0272_2kglign" title="Auto pps" name="Auto PPS" bitmap="8000" />
+				<field type="checkbox" id="reg0272_7wdxe6d" title="HSP (Calypso SAM)" name="HSP" bitmap="4000" advanced="true" />
+				<field type="radios" id="reg0272_pr2qlvn" title="Activation mode" name="Activation" bitmap="3000">
 					<option value="0" title="EMV, then ISO" />
 					<option value="1" title="ISO only" />
 					<option value="2" title="EMV only" />
 				</field>
-				<field type="hidden" id="reg0272_eph722y" name="rfu0" bitmap="08" value="0" />
-				<field type="radios" id="reg0272_kspmojd" title="Power class" name="Power" bitmap="07">
+				<field type="hidden" id="reg0272_scnksay" name="rfu0" bitmap="0800" value="0" />
+				<field type="radios" id="reg0272_4rhllfn" title="Power class" name="Power" bitmap="0700">
 					<option value="1" title="Class A only (5V)" />
 					<option value="2" title="Class B only (3.3V)" />
 					<option value="4" title="Class C only (1.8V)" />
 					<option value="3" title="Class A or Class B (5V or 3.3V)" />
 					<option value="6" title="Class B or Class C (3.3V or 1.8V)" />
 					<option value="7" title="Class A or Class B or Class C (5V, 3.3V or 1.8V)" />
+				</field>
+				<field type="dropdownlist" id="reg0272_gpg5rzd" title="Bitrate max" name="max_fidi" bitmap="00FF" remark="Default value TA1=95 (125000bit/s) is considered &apos;failsafe&apos; and should work even with OEM devices having some distance between the CPU and the card slot. Higher bitrates are possible only on suitable hardware.">
+					<option value="17" title="TA1=11" />
+					<option value="18" title="TA1=12" />
+					<option value="19" title="TA1=13" />
+					<option value="24" title="TA1=18" />
+					<option value="149" title="TA1=95" />
+					<option value="150" title="TA1=96" />
+					<option value="151" title="TA1=97" />
 				</field>
 			</register>
-			<register id="0273" size="1" default="92">
+			<register id="0273" size="2" default="9295">
 				<title>Configuration of the other ID-000 slots (&quot;SAM B&quot;, &quot;SAM C&quot; and &quot;SAM D&quot;)</title>
-				<field type="checkbox" id="reg0273_m6awtjl" title="Auto pps" name="Auto PPS" bitmap="80" />
-				<field type="checkbox" id="reg0273_op23zml" title="HSP (Calypso SAM)" name="HSP" bitmap="40" advanced="true" />
-				<field type="radios" id="reg0273_6pga6ll" title="Activation mode" name="Activation" bitmap="30">
+				<field type="checkbox" id="reg0273_2kglign" title="Auto pps" name="Auto PPS" bitmap="8000" />
+				<field type="checkbox" id="reg0273_7wdxe6d" title="HSP (Calypso SAM)" name="HSP" bitmap="4000" advanced="true" />
+				<field type="radios" id="reg0273_pr2qlvn" title="Activation mode" name="Activation" bitmap="3000">
 					<option value="0" title="EMV, then ISO" />
 					<option value="1" title="ISO only" />
 					<option value="2" title="EMV only" />
 				</field>
-				<field type="hidden" id="reg0273_eph722y" name="rfu0" bitmap="08" value="0" />
-				<field type="radios" id="reg0273_kspmojd" title="Power class" name="Power" bitmap="07">
+				<field type="hidden" id="reg0273_scnksay" name="rfu0" bitmap="0800" value="0" />
+				<field type="radios" id="reg0273_4rhllfn" title="Power class" name="Power" bitmap="0700">
 					<option value="1" title="Class A only (5V)" />
 					<option value="2" title="Class B only (3.3V)" />
 					<option value="4" title="Class C only (1.8V)" />
 					<option value="3" title="Class A or Class B (5V or 3.3V)" />
 					<option value="6" title="Class B or Class C (3.3V or 1.8V)" />
 					<option value="7" title="Class A or Class B or Class C (5V, 3.3V or 1.8V)" />
+				</field>
+				<field type="dropdownlist" id="reg0273_gpg5rzd" title="Bitrate max" name="max_fidi" bitmap="00FF" remark="Default value TA1=95 (125000bit/s) is considered &apos;failsafe&apos; and should work even with OEM devices having some distance between the CPU and the card slot. Higher bitrates are possible only on suitable hardware.">
+					<option value="17" title="TA1=11" />
+					<option value="18" title="TA1=12" />
+					<option value="19" title="TA1=13" />
+					<option value="24" title="TA1=18" />
+					<option value="149" title="TA1=95" />
+					<option value="150" title="TA1=96" />
+					<option value="151" title="TA1=97" />
 				</field>
 			</register>
 			<register id="0279" size="1" default="00">

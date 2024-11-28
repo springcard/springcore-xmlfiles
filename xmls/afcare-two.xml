@@ -5,7 +5,7 @@
 	firmware="springcore/h518/afcare-two"
 	implements="usb,ble,ccid,7816,7816_id1_x2,ataes,battery"
 	hardware="FSE18283"
-	version="1.29"
+	version="1.31"
 	author="JDA"
 	private="true"
 	templatesnfc="false"
@@ -20,6 +20,7 @@
 		<mode value="stuhf" icon="product+mode-stuhf" />
 		<mode value="disk" icon="product+mode-disk" />
 		<mode value="nxpnfc" icon="product+mode-nxpnfc" />
+		<mode value="sscp" />
 	</modes>
 	<tree>
 		<node title="Main configuration">
@@ -37,7 +38,7 @@ This register defines how the product is seen by the hosts: USB or BLE profile, 
 					<option value="2" title="CCID (PC/SC or PC/SC-Like)" icon="button-mode-ccid" />
 					<option value="3" title="HID, keyboard-emulation" icon="button-mode-rfidscanner" />
 					<option value="4" title="Smart Reader mode, Serial or CDC" icon="button-mode-smartreader" />
-					<option value="5" title="ST UHF reader host protocol, Serial or CDC" advanced="true" icon="button-mode-stuhf" />
+					<!-- Ignoring CDC_UHF_ST_READER (no stuhf) -->
 					<option value="6" title="Mass Storage" advanced="true" icon="button-mode-disk" />
 					<option value="7" title="NXP NFC Cockpit host protocol, Serial or CDC" advanced="true" icon="button-mode-nxpnfc" />
 				</field>
@@ -352,7 +353,7 @@ Options for the single-tone beeper (aka buzzer) or volume for the enhanced sound
 This register is ignored if the product does not have a buzzer nor an enhanced sound driver.
 				</remark>
 				<field type="hidden" id="reg02d8_hxqkjly" name="rfu0" bitmap="F8" value="00" />
-				<field type="number-h" id="reg02d8_kspmojd" title="Control whether the product is allowed to beep or define the Volume level. Set to 0 to disable sound. The maximum volume level depends on the product type." name="Volume" bitmap="07" />
+				<field type="number-d" id="reg02d8_kspmojd" title="Control whether the product is allowed to beep or define the Volume level. Set to 0 to disable sound. The maximum volume level depends on the product type." name="Volume" bitmap="07" />
 			</register>
 			<register id="02D9" size="64" default="" advanced="true" dynamic="true">
 				<title>Product Specific</title>
@@ -491,13 +492,13 @@ The client must register to notifications/indication before this timeout occurs.
 Extra BLE options
 				</description>
 				<field type="hidden" id="reg0243_bozlrly_lqj276d" name="rfu0" bitmap="F80000" value="00" />
-				<field type="number-h" id="reg0243_bozlrly_54cmvpd" title="Force legacy ble power state feature." name="use_battery_power_state" bitmap="040000" visibleif="REGBIT(0x02C2, 7) is 0" />
-				<field type="number-h" id="reg0243_bozlrly_5pbdr5n" title="Force legacy advertising frame." name="force_legacy_advertising_frame" bitmap="020000" visibleif="REGBIT(0x02C2, 7) is 0" />
-				<field type="number-h" id="reg0243_bozlrly_5r4ewkl" title="Disable pairing re-initiator." name="disable_pairing_re_initiator" bitmap="010000" visibleif="REGBIT(0x02C2, 7) is 0" />
-				<field type="number-h" id="reg0243_bozlrly_a26psjy" title="number of exchanges to slow down on connect" name="number of exchanges" bitmap="00F000" visibleif="REGBIT(0x02C2, 7) is 0" />
-				<field type="number-h" id="reg0243_bozlrly_2vhzjul" title="in 10 ms unit" name="delay" bitmap="000F00" visibleif="REGBIT(0x02C2, 7) is 0" />
+				<field type="checkbox" id="reg0243_bozlrly_54cmvpd" title="Force legacy ble power state feature." name="use_battery_power_state" bitmap="040000" visibleif="REGBIT(0x02C2, 7) is 0" />
+				<field type="checkbox" id="reg0243_bozlrly_5pbdr5n" title="Force legacy advertising frame." name="force_legacy_advertising_frame" bitmap="020000" visibleif="REGBIT(0x02C2, 7) is 0" />
+				<field type="checkbox" id="reg0243_bozlrly_5r4ewkl" title="Disable pairing re-initiator." name="disable_pairing_re_initiator" bitmap="010000" visibleif="REGBIT(0x02C2, 7) is 0" />
+				<field type="number-d" id="reg0243_bozlrly_a26psjy" title="number of exchanges to slow down on connect" name="number of exchanges" bitmap="00F000" visibleif="REGBIT(0x02C2, 7) is 0" />
+				<field type="number-d" id="reg0243_bozlrly_2vhzjul" title="in 10 ms unit" name="delay" bitmap="000F00" visibleif="REGBIT(0x02C2, 7) is 0" />
 				<field type="hidden" id="reg0243_bozlrly_lj6b7vd" name="rfu0" bitmap="0000F0" value="0" />
-				<field type="number-h" id="reg0243_bozlrly_g55hkny" title="in 1 ms unit" name="delay" bitmap="00000F" visibleif="REGBIT(0x02C2, 7) is 0" />
+				<field type="number-d" id="reg0243_bozlrly_g55hkny" title="in 1 ms unit" name="delay" bitmap="00000F" visibleif="REGBIT(0x02C2, 7) is 0" />
 			</register>
 			<!-- Hiding User Device Name (individual register) -->
 			<register id="0248" size="1" default="77" visibleif="REGBIT(0x02C2, 7) is 0">
@@ -506,9 +507,9 @@ Extra BLE options
 Channels used while advertising.
 				</description>
 				<field type="hidden" id="reg0248_bozlrly_m6awtjl" name="rfu1" bitmap="80" value="1" />
-				<field type="number-h" id="reg0248_bozlrly_dlvtahl" title="set 1 (beacon)." name="set_1" bitmap="70" visibleif="REGBIT(0x02C2, 7) is 0" />
+				<field type="number-d" id="reg0248_bozlrly_dlvtahl" title="set 1 (beacon)." name="set_1" bitmap="70" visibleif="REGBIT(0x02C2, 7) is 0" />
 				<field type="hidden" id="reg0248_bozlrly_eph722y" name="rfu0" bitmap="08" value="0" />
-				<field type="number-h" id="reg0248_bozlrly_kspmojd" title="set 0 (application)." name="set_0" bitmap="07" visibleif="REGBIT(0x02C2, 7) is 0" />
+				<field type="number-d" id="reg0248_bozlrly_kspmojd" title="set 0 (application)." name="set_0" bitmap="07" visibleif="REGBIT(0x02C2, 7) is 0" />
 			</register>
 			<register id="0249" size="4" default="00000000" visibleif="(REGBIT(0x02C2, 7) is 0) and (REGBITS(0x02C2, 0, 2) is 2)">
 				<title>iBeacon ID</title>
@@ -541,17 +542,17 @@ Specific customer related register
 		</node>
 		<!-- Ignoring Barcode (no barcode) -->
 		<node title="Configuration of the smartcard interface(s)">
-			<register id="0271" size="1" default="83">
+			<register id="0271" size="2" default="8395">
 				<title>Configuration of the main smartcard slot (ID-1)</title>
-				<field type="checkbox" id="reg0271_m6awtjl" title="Auto pps" name="Auto PPS" bitmap="80" />
-				<field type="checkbox" id="reg0271_op23zml" title="HSP (Calypso SAM)" name="HSP" bitmap="40" advanced="true" />
-				<field type="radios" id="reg0271_6pga6ll" title="Activation mode" name="Activation" bitmap="30">
+				<field type="checkbox" id="reg0271_2kglign" title="Auto pps" name="Auto PPS" bitmap="8000" />
+				<field type="checkbox" id="reg0271_7wdxe6d" title="HSP (Calypso SAM)" name="HSP" bitmap="4000" advanced="true" />
+				<field type="radios" id="reg0271_pr2qlvn" title="Activation mode" name="Activation" bitmap="3000">
 					<option value="0" title="EMV, then ISO" />
 					<option value="1" title="ISO only" />
 					<option value="2" title="EMV only" />
 				</field>
-				<field type="hidden" id="reg0271_eph722y" name="rfu0" bitmap="08" value="0" />
-				<field type="radios" id="reg0271_kspmojd" title="Power class" name="Power" bitmap="07">
+				<field type="hidden" id="reg0271_scnksay" name="rfu0" bitmap="0800" value="0" />
+				<field type="radios" id="reg0271_4rhllfn" title="Power class" name="Power" bitmap="0700">
 					<option value="1" title="Class A only (5V)" />
 					<option value="2" title="Class B only (3.3V)" />
 					<option value="4" title="Class C only (1.8V)" />
@@ -559,43 +560,70 @@ Specific customer related register
 					<option value="6" title="Class B or Class C (3.3V or 1.8V)" />
 					<option value="7" title="Class A or Class B or Class C (5V, 3.3V or 1.8V)" />
 				</field>
+				<field type="dropdownlist" id="reg0271_gpg5rzd" title="Bitrate max" name="max_fidi" bitmap="00FF" remark="Default value TA1=95 (125000bit/s) is considered &apos;failsafe&apos; and should work even with OEM devices having some distance between the CPU and the card slot. Higher bitrates are possible only on suitable hardware.">
+					<option value="17" title="TA1=11" />
+					<option value="18" title="TA1=12" />
+					<option value="19" title="TA1=13" />
+					<option value="24" title="TA1=18" />
+					<option value="149" title="TA1=95" />
+					<option value="150" title="TA1=96" />
+					<option value="151" title="TA1=97" />
+				</field>
 			</register>
-			<register id="0272" size="1" default="92">
+			<register id="0272" size="2" default="9295">
 				<title>Configuration of the first ID-000 slot (&quot;SAM A&quot;)</title>
-				<field type="checkbox" id="reg0272_m6awtjl" title="Auto pps" name="Auto PPS" bitmap="80" />
-				<field type="checkbox" id="reg0272_op23zml" title="HSP (Calypso SAM)" name="HSP" bitmap="40" advanced="true" />
-				<field type="radios" id="reg0272_6pga6ll" title="Activation mode" name="Activation" bitmap="30">
+				<field type="checkbox" id="reg0272_2kglign" title="Auto pps" name="Auto PPS" bitmap="8000" />
+				<field type="checkbox" id="reg0272_7wdxe6d" title="HSP (Calypso SAM)" name="HSP" bitmap="4000" advanced="true" />
+				<field type="radios" id="reg0272_pr2qlvn" title="Activation mode" name="Activation" bitmap="3000">
 					<option value="0" title="EMV, then ISO" />
 					<option value="1" title="ISO only" />
 					<option value="2" title="EMV only" />
 				</field>
-				<field type="hidden" id="reg0272_eph722y" name="rfu0" bitmap="08" value="0" />
-				<field type="radios" id="reg0272_kspmojd" title="Power class" name="Power" bitmap="07">
+				<field type="hidden" id="reg0272_scnksay" name="rfu0" bitmap="0800" value="0" />
+				<field type="radios" id="reg0272_4rhllfn" title="Power class" name="Power" bitmap="0700">
 					<option value="1" title="Class A only (5V)" />
 					<option value="2" title="Class B only (3.3V)" />
 					<option value="4" title="Class C only (1.8V)" />
 					<option value="3" title="Class A or Class B (5V or 3.3V)" />
 					<option value="6" title="Class B or Class C (3.3V or 1.8V)" />
 					<option value="7" title="Class A or Class B or Class C (5V, 3.3V or 1.8V)" />
+				</field>
+				<field type="dropdownlist" id="reg0272_gpg5rzd" title="Bitrate max" name="max_fidi" bitmap="00FF" remark="Default value TA1=95 (125000bit/s) is considered &apos;failsafe&apos; and should work even with OEM devices having some distance between the CPU and the card slot. Higher bitrates are possible only on suitable hardware.">
+					<option value="17" title="TA1=11" />
+					<option value="18" title="TA1=12" />
+					<option value="19" title="TA1=13" />
+					<option value="24" title="TA1=18" />
+					<option value="149" title="TA1=95" />
+					<option value="150" title="TA1=96" />
+					<option value="151" title="TA1=97" />
 				</field>
 			</register>
-			<register id="0273" size="1" default="92">
+			<register id="0273" size="2" default="9295">
 				<title>Configuration of the other ID-000 slots (&quot;SAM B&quot;, &quot;SAM C&quot; and &quot;SAM D&quot;)</title>
-				<field type="checkbox" id="reg0273_m6awtjl" title="Auto pps" name="Auto PPS" bitmap="80" />
-				<field type="checkbox" id="reg0273_op23zml" title="HSP (Calypso SAM)" name="HSP" bitmap="40" advanced="true" />
-				<field type="radios" id="reg0273_6pga6ll" title="Activation mode" name="Activation" bitmap="30">
+				<field type="checkbox" id="reg0273_2kglign" title="Auto pps" name="Auto PPS" bitmap="8000" />
+				<field type="checkbox" id="reg0273_7wdxe6d" title="HSP (Calypso SAM)" name="HSP" bitmap="4000" advanced="true" />
+				<field type="radios" id="reg0273_pr2qlvn" title="Activation mode" name="Activation" bitmap="3000">
 					<option value="0" title="EMV, then ISO" />
 					<option value="1" title="ISO only" />
 					<option value="2" title="EMV only" />
 				</field>
-				<field type="hidden" id="reg0273_eph722y" name="rfu0" bitmap="08" value="0" />
-				<field type="radios" id="reg0273_kspmojd" title="Power class" name="Power" bitmap="07">
+				<field type="hidden" id="reg0273_scnksay" name="rfu0" bitmap="0800" value="0" />
+				<field type="radios" id="reg0273_4rhllfn" title="Power class" name="Power" bitmap="0700">
 					<option value="1" title="Class A only (5V)" />
 					<option value="2" title="Class B only (3.3V)" />
 					<option value="4" title="Class C only (1.8V)" />
 					<option value="3" title="Class A or Class B (5V or 3.3V)" />
 					<option value="6" title="Class B or Class C (3.3V or 1.8V)" />
 					<option value="7" title="Class A or Class B or Class C (5V, 3.3V or 1.8V)" />
+				</field>
+				<field type="dropdownlist" id="reg0273_gpg5rzd" title="Bitrate max" name="max_fidi" bitmap="00FF" remark="Default value TA1=95 (125000bit/s) is considered &apos;failsafe&apos; and should work even with OEM devices having some distance between the CPU and the card slot. Higher bitrates are possible only on suitable hardware.">
+					<option value="17" title="TA1=11" />
+					<option value="18" title="TA1=12" />
+					<option value="19" title="TA1=13" />
+					<option value="24" title="TA1=18" />
+					<option value="149" title="TA1=95" />
+					<option value="150" title="TA1=96" />
+					<option value="151" title="TA1=97" />
 				</field>
 			</register>
 			<register id="0279" size="1" default="00">

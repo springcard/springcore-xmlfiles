@@ -2,7 +2,7 @@
 <springcard-multiconf-templates
 	version="1.29"
 	author="JDA"
-	visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C2, 0, 2) is 1)"
+	visibleif="(REGBITS(0x02C0, 0, 3) is 0 or REGBITS(0x02C0, 0, 3) is 3 or REGBITS(0x02C0, 0, 3) is 4) and (REGBITS(0x02C2, 0, 2) is 1) and (REGBIT(0x02C2, 7) is 0)"
 >
 	<tree>
 	<template id="spy" name="Spy" title="Spy Template" hash="qaf5pxl">
