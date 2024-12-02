@@ -65,8 +65,8 @@ Pay attention that such IDs may easily be cloned or spoofed, and that NFC mobile
 		</register>
 		<register id="0003" size="2" default="0000">
 			<title>Location of Data</title>
-			<field type="number-d" id="tpl24hhu7n_reg0003_rj665vl" title="Shift Bytes" name="Shift Bytes" bitmap="FF00" advanced="true" description="Leading bytes to suppress." />
-			<field type="number-d" id="tpl24hhu7n_reg0003_gpg5rzd" title="Shift Bits" name="Shift Bits" bitmap="00FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
+			<field type="number-d" id="tpl24hhu7n_reg0003_rj665vl" title="Shift Bytes" name="Shift Bytes" bitmap="FF00" description="Leading bytes to suppress." advanced="true" />
+			<field type="number-d" id="tpl24hhu7n_reg0003_gpg5rzd" title="Shift Bits" name="Shift Bits" bitmap="00FF" description="Leading bits to suppress; valid range is `0` to `7`." advanced="true" />
 		</register>
 		<register id="0004" size="1" default="00" advanced="true">
 			<title>Options</title>
@@ -74,17 +74,17 @@ Pay attention that such IDs may easily be cloned or spoofed, and that NFC mobile
 If this register is set, the Reader adds a token to its output to tell the receiver what kind of credential has been read.
 			</description>
 			<field type="hidden" id="tpl24hhu7n_reg0004_g65secl" name="rfu0" bitmap="F0" value="0" />
-			<field type="radios" id="tpl24hhu7n_reg0004_rgq7qed_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
-				<option value="0" title="Before the Prefix" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="1" title="After the Prefix, before the Data" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="2" title="After the Data (before the Suffix)" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="3" title="RFU" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+			<field type="radios" id="tpl24hhu7n_reg0004_rgq7qed_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" visibleif="TPLBITS(4, 2, 2) is not 0">
+				<option value="0" title="Before the Prefix" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="1" title="After the Prefix, before the Data" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="2" title="After the Data (before the Suffix)" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="3" title="RFU" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 			</field>
-			<field type="radios" id="tpl24hhu7n_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
-				<option value="0" title="Do not add a Card Type Token" advanced="true"/>
-				<option value="1" title="Add Card Type Token in hex" advanced="true"/>
-				<option value="2" title="Add Card Type Token as char" advanced="true"/>
-				<option value="3" title="RFU" advanced="true"/>
+			<field type="radios" id="tpl24hhu7n_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03">
+				<option value="0" title="Do not add a Card Type Token"/>
+				<option value="1" title="Add Card Type Token in hex"/>
+				<option value="2" title="Add Card Type Token as char"/>
+				<option value="3" title="RFU"/>
 			</field>
 		</register>
 		<register id="0002" size="8" default="">
@@ -98,7 +98,7 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 			<field type="textbox" id="tpl24hhu7n_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template id="pan" name="PAN" title="PAN Template" hash="a2a63zl">
+	<template id="pan" name="PAN" title="PAN Template" hash="a2a63zl" private="true">
 		<lookups>
 			<lkl value="73" title="(PAN)" />
 		</lookups>
@@ -106,7 +106,7 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 Read a 16-digit PAN
 		</description>
 	</template>
-	<template id="google_smarttap" name="Google SmartTap" title="Google SmartTap Template" hash="bqdrmad">
+	<template id="google_smarttap" name="Google SmartTap" title="Google SmartTap Template" hash="bqdrmad" restricted="true" confidential="true">
 		<lookups>
 			<lkl value="D2" title="(Google SmartTap)" />
 		</lookups>
@@ -210,17 +210,17 @@ Version of the private key.
 If this register is set, the Reader adds a token to its output to tell the receiver what kind of credential has been read.
 			</description>
 			<field type="hidden" id="tplbqdrmad_reg0004_g65secl" name="rfu0" bitmap="F0" value="0" />
-			<field type="radios" id="tplbqdrmad_reg0004_rgq7qed_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
-				<option value="0" title="Before the Prefix" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="1" title="After the Prefix, before the Data" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="2" title="After the Data (before the Suffix)" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="3" title="RFU" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+			<field type="radios" id="tplbqdrmad_reg0004_rgq7qed_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" visibleif="TPLBITS(4, 2, 2) is not 0">
+				<option value="0" title="Before the Prefix" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="1" title="After the Prefix, before the Data" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="2" title="After the Data (before the Suffix)" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="3" title="RFU" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 			</field>
-			<field type="radios" id="tplbqdrmad_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
-				<option value="0" title="Do not add a Card Type Token" advanced="true"/>
-				<option value="1" title="Add Card Type Token in hex (`D2`)" advanced="true"/>
-				<option value="2" title="Add Card Type Token as char (`g`)" advanced="true"/>
-				<option value="3" title="RFU" advanced="true"/>
+			<field type="radios" id="tplbqdrmad_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03">
+				<option value="0" title="Do not add a Card Type Token"/>
+				<option value="1" title="Add Card Type Token in hex (`D2`)"/>
+				<option value="2" title="Add Card Type Token as char (`g`)"/>
+				<option value="3" title="RFU"/>
 			</field>
 		</register>
 		<register id="0002" size="8" default="">
@@ -234,7 +234,7 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 			<field type="textbox" id="tplbqdrmad_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template id="apple_vas" name="Apple VAS" title="Apple VAS Template" hash="ql55h6y">
+	<template id="apple_vas" name="Apple VAS" title="Apple VAS Template" hash="ql55h6y" restricted="true" confidential="true">
 		<lookups>
 			<lkl value="D1" title="(Apple VAS)" />
 		</lookups>
@@ -360,17 +360,17 @@ Merchant ID of the 2nd merchant. This is SHA256(*Merchant Name*).
 If this register is set, the Reader adds a token to its output to tell the receiver what kind of credential has been read.
 			</description>
 			<field type="hidden" id="tplql55h6y_reg0004_g65secl" name="rfu0" bitmap="F0" value="0" />
-			<field type="radios" id="tplql55h6y_reg0004_rgq7qed_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
-				<option value="0" title="Before the Prefix" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="1" title="After the Prefix, before the Data" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="2" title="After the Data (before the Suffix)" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="3" title="RFU" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+			<field type="radios" id="tplql55h6y_reg0004_rgq7qed_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" visibleif="TPLBITS(4, 2, 2) is not 0">
+				<option value="0" title="Before the Prefix" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="1" title="After the Prefix, before the Data" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="2" title="After the Data (before the Suffix)" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="3" title="RFU" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 			</field>
-			<field type="radios" id="tplql55h6y_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
-				<option value="0" title="Do not add a Card Type Token" advanced="true"/>
-				<option value="1" title="Add Card Type Token in hex (`D1`)" advanced="true"/>
-				<option value="2" title="Add Card Type Token as char (`a`)" advanced="true"/>
-				<option value="3" title="RFU" advanced="true"/>
+			<field type="radios" id="tplql55h6y_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03">
+				<option value="0" title="Do not add a Card Type Token"/>
+				<option value="1" title="Add Card Type Token in hex (`D1`)"/>
+				<option value="2" title="Add Card Type Token as char (`a`)"/>
+				<option value="3" title="RFU"/>
 			</field>
 		</register>
 		<register id="0002" size="8" default="">
@@ -384,7 +384,7 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 			<field type="textbox" id="tplql55h6y_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template id="stid_mobile_id_nfc" name="STid Mobile ID NFC" title="STid Mobile ID NFC Template" hash="u6hl75n">
+	<template id="stid_mobile_id_nfc" name="STid Mobile ID NFC" title="STid Mobile ID NFC Template" hash="u6hl75n" restricted="true" private="true">
 		<lookups>
 			<lkl value="C3" title="(STid Mobile ID NFC)" />
 		</lookups>
@@ -472,7 +472,7 @@ Read an identifier from the STID Mobile ID application running on a smartphone.
 			<field type="number-d" id="tplu6hl75n_reg0001_inpjjkn_gpg5rzd" title="Options for Long String" name="Options for Long String" bitmap="00FF" visibleif="(TPLBITS(1, 6, 1) is 1) and (TPLBITS(1, 4, 1) is 1)" description="Use this byte to specify the exact length to read from the card. Valid range is `1` to `255`." />
 		</register>
 	</template>
-	<template id="orange_nfc_office" name="Orange NFC Office" title="Orange NFC Office Template" hash="fpocwxd">
+	<template id="orange_nfc_office" name="Orange NFC Office" title="Orange NFC Office Template" hash="fpocwxd" restricted="true" private="true">
 		<lookups>
 			<lkl value="C1" title="(Orange NFC Office)" />
 		</lookups>
@@ -482,7 +482,7 @@ Use this template to read an identifier from the Orange NFC Office application r
 Orange NFC APIs for Office is a framework for NFC services, offered by Mobile Network Operator Orange. It targets user identification applications (access control, private e-purse, car park &amp; card sharing, and alikes). The services are provided by the smartphone either in host-based card emulation mode (HCE) or through a SIM card. Organisations are identified by an ApplicationId (variable length) and their organisation units by a ZoneId (on 6 bytes). A diversified AES key protects the data. Every user “belonging” to the organisation is identified by a Badge number on 10 bytes.
 		</description>
 	</template>
-	<template id="orange_nfc_retail" name="Orange NFC Retail" title="Orange NFC Retail Template" hash="5hyjhnl">
+	<template id="orange_nfc_retail" name="Orange NFC Retail" title="Orange NFC Retail Template" hash="5hyjhnl" restricted="true" private="true">
 		<lookups>
 			<lkl value="C0" title="(Orange NFC Retail)" />
 		</lookups>
@@ -492,7 +492,7 @@ Orange NFC APIs for Retail is a framework for NFC services, offered by Mobile Ne
 The services rely on a general-purpose cardlet, loaded into a NFC-enabled smartphone&apos;s SIM card. Merchants and service providers are identified by a unique RetailerId (on 4 bytes). Every user “belonging” to this merchant or service provider is identified by either a unique HolderId (on 20 bytes), assigned by Orange to this very user, a CustomerId, defined freely by the merchant or service provider in association with a customer account, a LoyaltyId, defined freely by the merchant or service provider in association with a loyalty card or coupons.
 		</description>
 	</template>
-	<template id="springblue" name="SpringBlue" title="SpringBlue Template" hash="756ugod">
+	<template id="springblue" name="SpringBlue" title="SpringBlue Template" hash="756ugod" restricted="true" private="true">
 		<lookups>
 			<lkl value="B0" title="(SpringBlue)" />
 		</lookups>
@@ -500,14 +500,14 @@ The services rely on a general-purpose cardlet, loaded into a NFC-enabled smartp
 Read a credential from **SpringCard**&apos;s SpringBlue mobile app.
 		</description>
 	</template>
-	<template id="calypso" name="Calypso" title="Calypso Template" hash="ad6b2cy">
+	<template id="calypso" name="Calypso" title="Calypso Template" hash="ad6b2cy" private="true">
 		<lookups>
 			<lkl value="78" title="(Calypso)" />
 		</lookups>
 		<description>
 Read a Calypso card
 		</description>
-		<register id="0006" size="16" default="" dynamic="true">
+		<register id="0006" size="16" default="315449432E494341" dynamic="true">
 			<title>Calypso Application IDentifier</title>
 			<field type="raw" id="tplad6b2cy_reg0006" minlength="0" maxlength="16" title="Calypso Application IDentifier" dynamic="true"/>
 		</register>
@@ -528,7 +528,7 @@ If this field is &apos;FFFFFF&apos; (default), no filter is applied
 			</field>
 			<field type="hidden" id="tplad6b2cy_reg0005_hsqhxhn" name="rfu0" bitmap="3F" value="00" />
 		</register>
-		<register id="0001" size="3" default="0D010A">
+		<register id="0001" size="3" default="0E01FF">
 			<title>Output Size and Format</title>
 			<field type="hidden" id="tplad6b2cy_reg0001_k3bridd" name="rfu0" bitmap="F00000" value="0" />
 			<field type="radios" id="tplad6b2cy_reg0001_6dftzjy" title="Length and Format" name="Length and Format" bitmap="0F0000">
@@ -588,8 +588,8 @@ The word number is specified in the LOC register.
 		<register id="0003" size="3" default="000000">
 			<title>Location of Data</title>
 			<field type="number-h" id="tplphfd7cn_reg0003_lmh6e5y" title="Address" name="Address" bitmap="FF0000" description="This is the Address of the 1st word to read; valid range is `1` to `15` (in decimal)." note="The number of words to be read is deduced from the expected length, as set in the TOF register." />
-			<field type="number-d" id="tplphfd7cn_reg0003_gsqqlyn" title="Shift Bytes" name="Shift Bytes" bitmap="00FF00" advanced="true" description="Leading bytes to suppress; valid range is `0` to `3`." />
-			<field type="number-d" id="tplphfd7cn_reg0003_rk4pgmy" title="Shift Bits" name="Shift Bits" bitmap="0000FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
+			<field type="number-d" id="tplphfd7cn_reg0003_gsqqlyn" title="Shift Bytes" name="Shift Bytes" bitmap="00FF00" description="Leading bytes to suppress; valid range is `0` to `3`." advanced="true" />
+			<field type="number-d" id="tplphfd7cn_reg0003_rk4pgmy" title="Shift Bits" name="Shift Bits" bitmap="0000FF" description="Leading bits to suppress; valid range is `0` to `7`." advanced="true" />
 		</register>
 		<register id="0001" size="2" default="0000">
 			<title>Output Size and Format</title>
@@ -665,17 +665,17 @@ The word number is specified in the LOC register.
 If this register is set, the Reader adds a token to its output to tell the receiver what kind of credential has been read.
 			</description>
 			<field type="hidden" id="tplphfd7cn_reg0004_g65secl" name="rfu0" bitmap="F0" value="0" />
-			<field type="radios" id="tplphfd7cn_reg0004_rgq7qed_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
-				<option value="0" title="Before the Prefix" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="1" title="After the Prefix, before the Data" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="2" title="After the Data (before the Suffix)" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="3" title="RFU" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+			<field type="radios" id="tplphfd7cn_reg0004_rgq7qed_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" visibleif="TPLBITS(4, 2, 2) is not 0">
+				<option value="0" title="Before the Prefix" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="1" title="After the Prefix, before the Data" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="2" title="After the Data (before the Suffix)" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="3" title="RFU" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 			</field>
-			<field type="radios" id="tplphfd7cn_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
-				<option value="0" title="Do not add a Card Type Token" advanced="true"/>
-				<option value="1" title="Add Card Type Token in hex (`56`)" advanced="true"/>
-				<option value="2" title="Add Card Type Token as char (`V`)" advanced="true"/>
-				<option value="3" title="RFU" advanced="true"/>
+			<field type="radios" id="tplphfd7cn_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03">
+				<option value="0" title="Do not add a Card Type Token"/>
+				<option value="1" title="Add Card Type Token in hex (`56`)"/>
+				<option value="2" title="Add Card Type Token as char (`V`)"/>
+				<option value="3" title="RFU"/>
 			</field>
 		</register>
 		<register id="0002" size="8" default="">
@@ -712,8 +712,8 @@ Reading can cross sector boundaries, but sector trailers are always discarded.
 			<field type="number-h" id="tplvsbmlpn_reg0003_rk4phyn" title="AID" name="AID" bitmap="FFFF000000" description="AID of the sector (MSB-first)." remark="Set to `0000` to specify an absolute address in the next byte." />
 			<field type="number-h" id="tplvsbmlpn_reg0003_2bahmzn" title="Address" name="Address" bitmap="0000FF0000" description="This is the Address of the 1st block to read.
 Valid range depends on the memory size of the PICC (1K-&gt;64 blocks, 4K-&gt;256 blocks)." remark="Set to `00` to specify an AID in the previous bytes." />
-			<field type="number-d" id="tplvsbmlpn_reg0003_3ovnoey" title="Shift Bytes" name="Shift Bytes" bitmap="000000FF00" advanced="true" description="Leading bytes to suppress; valid range is `0` to `48` (in decimal)." />
-			<field type="number-d" id="tplvsbmlpn_reg0003_ahd4scn" title="Shift Bits" name="Shift Bits" bitmap="00000000FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
+			<field type="number-d" id="tplvsbmlpn_reg0003_3ovnoey" title="Shift Bytes" name="Shift Bytes" bitmap="000000FF00" description="Leading bytes to suppress; valid range is `0` to `48` (in decimal)." advanced="true" />
+			<field type="number-d" id="tplvsbmlpn_reg0003_ahd4scn" title="Shift Bits" name="Shift Bits" bitmap="00000000FF" description="Leading bits to suppress; valid range is `0` to `7`." advanced="true" />
 			<note>
 The number of blocks to be read is deduced from the expected length, as set in the TOF register.
 			</note>
@@ -817,17 +817,17 @@ The number of blocks to be read is deduced from the expected length, as set in t
 If this register is set, the Reader adds a token to its output to tell the receiver what kind of credential has been read.
 			</description>
 			<field type="hidden" id="tplvsbmlpn_reg0004_g65secl" name="rfu0" bitmap="F0" value="0" />
-			<field type="radios" id="tplvsbmlpn_reg0004_rgq7qed_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
-				<option value="0" title="Before the Prefix" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="1" title="After the Prefix, before the Data" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="2" title="After the Data (before the Suffix)" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="3" title="RFU" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+			<field type="radios" id="tplvsbmlpn_reg0004_rgq7qed_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" visibleif="TPLBITS(4, 2, 2) is not 0">
+				<option value="0" title="Before the Prefix" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="1" title="After the Prefix, before the Data" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="2" title="After the Data (before the Suffix)" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="3" title="RFU" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 			</field>
-			<field type="radios" id="tplvsbmlpn_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
-				<option value="0" title="Do not add a Card Type Token" advanced="true"/>
-				<option value="1" title="Add Card Type Token in hex (`63`)" advanced="true"/>
-				<option value="2" title="Add Card Type Token as char (`M`)" advanced="true"/>
-				<option value="3" title="RFU" advanced="true"/>
+			<field type="radios" id="tplvsbmlpn_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03">
+				<option value="0" title="Do not add a Card Type Token"/>
+				<option value="1" title="Add Card Type Token in hex (`63`)"/>
+				<option value="2" title="Add Card Type Token as char (`M`)"/>
+				<option value="3" title="RFU"/>
 			</field>
 		</register>
 		<register id="0002" size="8" default="">
@@ -942,8 +942,8 @@ Reading can cross sector boundaries, but sector trailers are always discarded.
 			<field type="number-h" id="tplnqitimn_reg0003_rk4phyn" title="AID" name="AID" bitmap="FFFF000000" description="AID of the sector (MSB-first)." remark="Set to `0000` to specify an absolute address in the next byte." />
 			<field type="number-h" id="tplnqitimn_reg0003_2bahmzn" title="Address" name="Address" bitmap="0000FF0000" description="This is the Address of the 1st block to read.
 Valid range depends on the memory size of the PICC (1K-&gt;64 blocks, 4K-&gt;256 blocks)." remark="Set to `00` to specify an AID in the previous bytes." />
-			<field type="number-d" id="tplnqitimn_reg0003_3ovnoey" title="Shift Bytes" name="Shift Bytes" bitmap="000000FF00" advanced="true" description="Leading bytes to suppress; valid range is `0` to `48` (in decimal)." />
-			<field type="number-d" id="tplnqitimn_reg0003_ahd4scn" title="Shift Bits" name="Shift Bits" bitmap="00000000FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
+			<field type="number-d" id="tplnqitimn_reg0003_3ovnoey" title="Shift Bytes" name="Shift Bytes" bitmap="000000FF00" description="Leading bytes to suppress; valid range is `0` to `48` (in decimal)." advanced="true" />
+			<field type="number-d" id="tplnqitimn_reg0003_ahd4scn" title="Shift Bits" name="Shift Bits" bitmap="00000000FF" description="Leading bits to suppress; valid range is `0` to `7`." advanced="true" />
 			<note>
 The number of blocks to be read is deduced from the expected length, as set in the TOF register.
 			</note>
@@ -954,17 +954,17 @@ The number of blocks to be read is deduced from the expected length, as set in t
 If this register is set, the Reader adds a token to its output to tell the receiver what kind of credential has been read.
 			</description>
 			<field type="hidden" id="tplnqitimn_reg0004_g65secl" name="rfu0" bitmap="F0" value="0" />
-			<field type="radios" id="tplnqitimn_reg0004_rgq7qed_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
-				<option value="0" title="Before the Prefix" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="1" title="After the Prefix, before the Data" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="2" title="After the Data (before the Suffix)" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="3" title="RFU" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+			<field type="radios" id="tplnqitimn_reg0004_rgq7qed_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" visibleif="TPLBITS(4, 2, 2) is not 0">
+				<option value="0" title="Before the Prefix" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="1" title="After the Prefix, before the Data" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="2" title="After the Data (before the Suffix)" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="3" title="RFU" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 			</field>
-			<field type="radios" id="tplnqitimn_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
-				<option value="0" title="Do not add a Card Type Token" advanced="true"/>
-				<option value="1" title="Add Card Type Token in hex (`61`)" advanced="true"/>
-				<option value="2" title="Add Card Type Token as char (`M`)" advanced="true"/>
-				<option value="3" title="RFU" advanced="true"/>
+			<field type="radios" id="tplnqitimn_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03">
+				<option value="0" title="Do not add a Card Type Token"/>
+				<option value="1" title="Add Card Type Token in hex (`61`)"/>
+				<option value="2" title="Add Card Type Token as char (`M`)"/>
+				<option value="3" title="RFU"/>
 			</field>
 		</register>
 		<register id="0005" size="7" default="00000000000000">
@@ -994,8 +994,8 @@ The target data is pointed to by an absolute page number (yet the data may occup
 			<title>Location of Data</title>
 			<field type="number-h" id="tplzyob5bl_reg0003_lmh6e5y" title="Address" name="Address" bitmap="FF0000" description="This is the Address of the 1st page to read.
 Valid range depends on the memory size of the actual PICC" note="The number of pages to be read is deduced from the expected length, as set in the TOF register." />
-			<field type="number-d" id="tplzyob5bl_reg0003_gsqqlyn" title="Shift Bytes" name="Shift Bytes" bitmap="00FF00" advanced="true" description="Leading bytes to suppress; valid range is `0` to `48` (in decimal)." />
-			<field type="number-d" id="tplzyob5bl_reg0003_rk4pgmy" title="Shift Bits" name="Shift Bits" bitmap="0000FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
+			<field type="number-d" id="tplzyob5bl_reg0003_gsqqlyn" title="Shift Bytes" name="Shift Bytes" bitmap="00FF00" description="Leading bytes to suppress; valid range is `0` to `48` (in decimal)." advanced="true" />
+			<field type="number-d" id="tplzyob5bl_reg0003_rk4pgmy" title="Shift Bits" name="Shift Bits" bitmap="0000FF" description="Leading bits to suppress; valid range is `0` to `7`." advanced="true" />
 		</register>
 		<register id="0001" size="2" default="0000">
 			<title>Output Size and Format</title>
@@ -1071,17 +1071,17 @@ Valid range depends on the memory size of the actual PICC" note="The number of p
 If this register is set, the Reader adds a token to its output to tell the receiver what kind of credential has been read.
 			</description>
 			<field type="hidden" id="tplzyob5bl_reg0004_g65secl" name="rfu0" bitmap="F0" value="0" />
-			<field type="radios" id="tplzyob5bl_reg0004_rgq7qed_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
-				<option value="0" title="Before the Prefix" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="1" title="After the Prefix, before the Data" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="2" title="After the Data (before the Suffix)" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="3" title="RFU" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+			<field type="radios" id="tplzyob5bl_reg0004_rgq7qed_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" visibleif="TPLBITS(4, 2, 2) is not 0">
+				<option value="0" title="Before the Prefix" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="1" title="After the Prefix, before the Data" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="2" title="After the Data (before the Suffix)" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="3" title="RFU" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 			</field>
-			<field type="radios" id="tplzyob5bl_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
-				<option value="0" title="Do not add a Card Type Token" advanced="true"/>
-				<option value="1" title="Add Card Type Token in hex (`62`)" advanced="true"/>
-				<option value="2" title="Add Card Type Token as char (`U`)" advanced="true"/>
-				<option value="3" title="RFU" advanced="true"/>
+			<field type="radios" id="tplzyob5bl_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03">
+				<option value="0" title="Do not add a Card Type Token"/>
+				<option value="1" title="Add Card Type Token in hex (`62`)"/>
+				<option value="2" title="Add Card Type Token as char (`U`)"/>
+				<option value="3" title="RFU"/>
 			</field>
 		</register>
 		<register id="0002" size="8" default="">
@@ -1127,8 +1127,8 @@ Select the Desfire AID, the File ID, and the offset/length parameters to read th
 For a Linear Record File or a Cyclic Record File, this is the record number" />
 			<field type="number-h" id="tpljlg2zcl_reg0003_jokxtwy" title="Read Length or Record Size" name="Length" bitmap="00000000000000FF0000" description="For a Standard Data File or a Backup Data File, this is the Length parameter to be sent to the card. Set to `0` to read the while file at once.
 For a Linear Record File or a Cyclic Record File, this is the record size" remark="The Reader&apos;s internal buffer is limited to 256 bytes. Do not set to `0` if the file in the card is likely to be greater than this limit." />
-			<field type="number-d" id="tpljlg2zcl_reg0003_fbuk34n" title="Shift Bytes" name="Shift Bytes" bitmap="0000000000000000FF00" advanced="true" description="Leading bytes to suppress." />
-			<field type="number-d" id="tpljlg2zcl_reg0003_trcl26y" title="Shift Bits" name="Shift Bits" bitmap="000000000000000000FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
+			<field type="number-d" id="tpljlg2zcl_reg0003_fbuk34n" title="Shift Bytes" name="Shift Bytes" bitmap="0000000000000000FF00" description="Leading bytes to suppress." advanced="true" />
+			<field type="number-d" id="tpljlg2zcl_reg0003_trcl26y" title="Shift Bits" name="Shift Bits" bitmap="000000000000000000FF" description="Leading bits to suppress; valid range is `0` to `7`." advanced="true" />
 		</register>
 		<register id="0001" size="2" default="0000">
 			<title>Output Size and Format</title>
@@ -1213,18 +1213,18 @@ For a Linear Record File or a Cyclic Record File, this is the record size" remar
 				<option value="3" title="RFU" visibleif="TPLBITS(5, 8, 8) is not 0"/>
 			</field>
 			<field type="number-h" id="tpljlg2zcl_reg0005_hsgqnhd_qxqw7kl" title="Key Index inside the Desfire Application" name="Key Index" bitmap="0F0000000000000000000000000000000000" visibleif="TPLBITS(5, 8, 8) is not 0" />
-			<field type="radios" id="tpljlg2zcl_reg0005_gtnexal_ittxm3y" title="Location of Secret Key" name="Location of Secret Key" bitmap="00E000000000000000000000000000000000" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0">
-				<option value="0" title="Key is provided within the Template" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
-				<option value="1" title="Internal SAM AV, select key slot and version automatically" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
-				<option value="2" title="Internal SAM AV, key slot is specified" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
-				<option value="3" title="Internal SAM AV, key slot and version are specified" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
-				<option value="5" title="SAM AV in 1st slot, select key slot and version automatically" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
-				<option value="6" title="SAM AV in 1st slot, key slot is specified" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
-				<option value="7" title="SAM AV in 1st slot, key slot and version are specified" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+			<field type="radios" id="tpljlg2zcl_reg0005_gtnexal_ittxm3y" title="Location of Secret Key" name="Location of Secret Key" bitmap="00E000000000000000000000000000000000" visibleif="TPLBITS(5, 8, 4) is not 0" advanced="true">
+				<option value="0" title="Key is provided within the Template" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+				<option value="1" title="Internal SAM AV, select key slot and version automatically" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+				<option value="2" title="Internal SAM AV, key slot is specified" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+				<option value="3" title="Internal SAM AV, key slot and version are specified" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+				<option value="5" title="SAM AV in 1st slot, select key slot and version automatically" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+				<option value="6" title="SAM AV in 1st slot, key slot is specified" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+				<option value="7" title="SAM AV in 1st slot, key slot and version are specified" visibleif="TPLBITS(5, 8, 4) is not 0"/>
 			</field>
-			<field type="radios" id="tpljlg2zcl_reg0005_53qjfly_f4xxhhn" title="Use SAM for Session" name="Use SAM for Session" bitmap="001000000000000000000000000000000000" advanced="true" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 13, 3) is not 0)">
-				<option value="0" title="Get Session Key from the SAM" advanced="true" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 13, 3) is not 0)"/>
-				<option value="1" title="Use the SAM as passthrough" advanced="true" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 13, 3) is not 0)"/>
+			<field type="radios" id="tpljlg2zcl_reg0005_53qjfly_f4xxhhn" title="Use SAM for Session" name="Use SAM for Session" bitmap="001000000000000000000000000000000000" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 13, 3) is not 0)" advanced="true">
+				<option value="0" title="Get Session Key from the SAM" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 13, 3) is not 0)"/>
+				<option value="1" title="Use the SAM as passthrough" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 13, 3) is not 0)"/>
 			</field>
 			<field type="radios" id="tpljlg2zcl_reg0005_owh5twn" title="Authentication Method" name="Authentication Method" bitmap="000F00000000000000000000000000000000">
 				<option value="0" title="No authentication"/>
@@ -1257,17 +1257,17 @@ It is also possible for the Reader to add a token to its output, to tell the rec
 				<option value="0" title="Do not send ISO 7816 SelectApplication(Desfire)"/>
 				<option value="1" title="Send ISO 7816 SelectApplication(Desfire) before processing"/>
 			</field>
-			<field type="radios" id="tpljlg2zcl_reg0004_rgq7qed_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
-				<option value="0" title="Before the Prefix" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="1" title="After the Prefix, before the Data" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="2" title="After the Data (before the Suffix)" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="3" title="RFU" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+			<field type="radios" id="tpljlg2zcl_reg0004_rgq7qed_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" visibleif="TPLBITS(4, 2, 2) is not 0" advanced="true">
+				<option value="0" title="Before the Prefix" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="1" title="After the Prefix, before the Data" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="2" title="After the Data (before the Suffix)" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="3" title="RFU" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 			</field>
 			<field type="radios" id="tpljlg2zcl_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
-				<option value="0" title="Do not add a Card Type Token" advanced="true"/>
-				<option value="1" title="Add `71` hex value as Card Type Token" advanced="true"/>
-				<option value="2" title="Add `D` char as Card Type Token" advanced="true"/>
-				<option value="3" title="RFU" advanced="true"/>
+				<option value="0" title="Do not add a Card Type Token"/>
+				<option value="1" title="Add `71` hex value as Card Type Token"/>
+				<option value="2" title="Add `D` char as Card Type Token"/>
+				<option value="3" title="RFU"/>
 			</field>
 		</register>
 		<register id="0002" size="8" default="">
@@ -1321,8 +1321,8 @@ Use the Desfire ID Template to get the actual ID of an NXP Desfire PICC with Ran
 Select the Desfire AID
 			</description>
 			<field type="number-h" id="tplhvnvpdd_reg0003_gpgdxvl" title="Desfire Application ID (AID)" name="Application ID" bitmap="FFFFFF0000" remark="Leave empty or set to `000000` to use a plain GET VERSION command." />
-			<field type="number-d" id="tplhvnvpdd_reg0003_3ovnoey" title="Shift Bytes" name="Shift Bytes" bitmap="000000FF00" advanced="true" description="Leading bytes to suppress." />
-			<field type="number-d" id="tplhvnvpdd_reg0003_ahd4scn" title="Shift Bits" name="Shift Bits" bitmap="00000000FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
+			<field type="number-d" id="tplhvnvpdd_reg0003_3ovnoey" title="Shift Bytes" name="Shift Bytes" bitmap="000000FF00" description="Leading bytes to suppress." advanced="true" />
+			<field type="number-d" id="tplhvnvpdd_reg0003_ahd4scn" title="Shift Bits" name="Shift Bits" bitmap="00000000FF" description="Leading bits to suppress; valid range is `0` to `7`." advanced="true" />
 		</register>
 		<register id="0005" size="18" default="000000000000000000000000000000000000">
 			<title>Authentication</title>
@@ -1334,18 +1334,18 @@ Select the Desfire AID
 			</field>
 			<field type="hidden" id="tplhvnvpdd_reg0005_hsgqnhd_bp5b7tl" name="rfu0" bitmap="300000000000000000000000000000000000" value="0" />
 			<field type="number-h" id="tplhvnvpdd_reg0005_hsgqnhd_qxqw7kl" title="Key Index inside the Desfire Application" name="Key Index" bitmap="0F0000000000000000000000000000000000" visibleif="TPLBITS(5, 8, 8) is not 0" />
-			<field type="radios" id="tplhvnvpdd_reg0005_gtnexal_ittxm3y" title="Location of Secret Key" name="Location of Secret Key" bitmap="00E000000000000000000000000000000000" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0">
-				<option value="0" title="Key is provided within the Template" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
-				<option value="1" title="Internal SAM AV, select key slot and version automatically" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
-				<option value="2" title="Internal SAM AV, key slot is specified" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
-				<option value="3" title="Internal SAM AV, key slot and version are specified" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
-				<option value="5" title="SAM AV in 1st slot, select key slot and version automatically" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
-				<option value="6" title="SAM AV in 1st slot, key slot is specified" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
-				<option value="7" title="SAM AV in 1st slot, key slot and version are specified" advanced="true" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+			<field type="radios" id="tplhvnvpdd_reg0005_gtnexal_ittxm3y" title="Location of Secret Key" name="Location of Secret Key" bitmap="00E000000000000000000000000000000000" visibleif="TPLBITS(5, 8, 4) is not 0" advanced="true">
+				<option value="0" title="Key is provided within the Template" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+				<option value="1" title="Internal SAM AV, select key slot and version automatically" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+				<option value="2" title="Internal SAM AV, key slot is specified" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+				<option value="3" title="Internal SAM AV, key slot and version are specified" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+				<option value="5" title="SAM AV in 1st slot, select key slot and version automatically" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+				<option value="6" title="SAM AV in 1st slot, key slot is specified" visibleif="TPLBITS(5, 8, 4) is not 0"/>
+				<option value="7" title="SAM AV in 1st slot, key slot and version are specified" visibleif="TPLBITS(5, 8, 4) is not 0"/>
 			</field>
-			<field type="radios" id="tplhvnvpdd_reg0005_53qjfly_f4xxhhn" title="Use SAM for Session" name="Use SAM for Session" bitmap="001000000000000000000000000000000000" advanced="true" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 13, 3) is not 0)">
-				<option value="0" title="Get Session Key from the SAM" advanced="true" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 13, 3) is not 0)"/>
-				<option value="1" title="Use the SAM as passthrough" advanced="true" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 13, 3) is not 0)"/>
+			<field type="radios" id="tplhvnvpdd_reg0005_53qjfly_f4xxhhn" title="Use SAM for Session" name="Use SAM for Session" bitmap="001000000000000000000000000000000000" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 13, 3) is not 0)" advanced="true">
+				<option value="0" title="Get Session Key from the SAM" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 13, 3) is not 0)"/>
+				<option value="1" title="Use the SAM as passthrough" visibleif="(TPLBITS(5, 8, 4) is not 0) and (TPLBITS(5, 13, 3) is not 0)"/>
 			</field>
 			<field type="radios" id="tplhvnvpdd_reg0005_owh5twn" title="Authentication Method" name="Authentication Method" bitmap="000F00000000000000000000000000000000">
 				<option value="0" title="No authentication"/>
@@ -1378,17 +1378,17 @@ It is also possible for the Reader to add a token to its output, to tell the rec
 				<option value="0" title="Do not send ISO 7816 SelectApplication(Desfire)"/>
 				<option value="1" title="Send ISO 7816 SelectApplication(Desfire) before processing"/>
 			</field>
-			<field type="radios" id="tplhvnvpdd_reg0004_rgq7qed_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
-				<option value="0" title="Before the Prefix" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="1" title="After the Prefix, before the Data" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="2" title="After the Data (before the Suffix)" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="3" title="RFU" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+			<field type="radios" id="tplhvnvpdd_reg0004_rgq7qed_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" visibleif="TPLBITS(4, 2, 2) is not 0" advanced="true">
+				<option value="0" title="Before the Prefix" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="1" title="After the Prefix, before the Data" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="2" title="After the Data (before the Suffix)" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="3" title="RFU" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 			</field>
 			<field type="radios" id="tplhvnvpdd_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
-				<option value="0" title="Do not add a Card Type Token" advanced="true"/>
-				<option value="1" title="Add `70` hex value as Card Type Token" advanced="true"/>
-				<option value="2" title="Add `D` char as Card Type Token" advanced="true"/>
-				<option value="3" title="RFU" advanced="true"/>
+				<option value="0" title="Do not add a Card Type Token"/>
+				<option value="1" title="Add `70` hex value as Card Type Token"/>
+				<option value="2" title="Add `D` char as Card Type Token"/>
+				<option value="3" title="RFU"/>
 			</field>
 		</register>
 		<register id="0002" size="8" default="">
@@ -1515,8 +1515,8 @@ This field is relevant only if TNF is either `01`, `02`, `03` or `04`; otherwise
 		</register>
 		<register id="0003" size="2" default="0000">
 			<title>Location of Data</title>
-			<field type="number-d" id="tpl25z45sd_reg0003_rj665vl" title="Shift Bytes" name="Shift Bytes" bitmap="FF00" advanced="true" description="Leading bytes to suppress." />
-			<field type="number-d" id="tpl25z45sd_reg0003_gpg5rzd" title="Shift Bits" name="Shift Bits" bitmap="00FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
+			<field type="number-d" id="tpl25z45sd_reg0003_rj665vl" title="Shift Bytes" name="Shift Bytes" bitmap="FF00" description="Leading bytes to suppress." advanced="true" />
+			<field type="number-d" id="tpl25z45sd_reg0003_gpg5rzd" title="Shift Bits" name="Shift Bits" bitmap="00FF" description="Leading bits to suppress; valid range is `0` to `7`." advanced="true" />
 		</register>
 		<register id="0004" size="1" default="00">
 			<title>Options</title>
@@ -1524,17 +1524,17 @@ This field is relevant only if TNF is either `01`, `02`, `03` or `04`; otherwise
 If this register is set, the Reader adds a token to its output to tell the receiver what kind of credential has been read.
 			</description>
 			<field type="hidden" id="tpl25z45sd_reg0004_g65secl" name="rfu0" bitmap="F0" value="0" />
-			<field type="radios" id="tpl25z45sd_reg0004_rgq7qed_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
-				<option value="0" title="Before the Prefix" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="1" title="After the Prefix, before the Data" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="2" title="After the Data (before the Suffix)" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="3" title="RFU" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+			<field type="radios" id="tpl25z45sd_reg0004_rgq7qed_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" visibleif="TPLBITS(4, 2, 2) is not 0">
+				<option value="0" title="Before the Prefix" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="1" title="After the Prefix, before the Data" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="2" title="After the Data (before the Suffix)" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="3" title="RFU" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 			</field>
-			<field type="radios" id="tpl25z45sd_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
-				<option value="0" title="Do not add a Card Type Token" advanced="true"/>
-				<option value="1" title="Add Card Type Token in hex (`4F`)" advanced="true"/>
-				<option value="2" title="Add Card Type Token as char (`N`)" advanced="true"/>
-				<option value="3" title="RFU" advanced="true"/>
+			<field type="radios" id="tpl25z45sd_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03">
+				<option value="0" title="Do not add a Card Type Token"/>
+				<option value="1" title="Add Card Type Token in hex (`4F`)"/>
+				<option value="2" title="Add Card Type Token as char (`N`)"/>
+				<option value="3" title="RFU"/>
 			</field>
 		</register>
 		<register id="0002" size="8" default="">
@@ -1667,8 +1667,8 @@ The Reader checks the Status Word. In case of any error (SW!=`9xxx`), the Templa
 		</register>
 		<register id="0003" size="2" default="0000">
 			<title>Location of Data</title>
-			<field type="number-d" id="tpl33v6b6l_reg0003_rj665vl" title="Shift Bytes" name="Shift Bytes" bitmap="FF00" advanced="true" description="Leading bytes to suppress." />
-			<field type="number-d" id="tpl33v6b6l_reg0003_gpg5rzd" title="Shift Bits" name="Shift Bits" bitmap="00FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
+			<field type="number-d" id="tpl33v6b6l_reg0003_rj665vl" title="Shift Bytes" name="Shift Bytes" bitmap="FF00" description="Leading bytes to suppress." advanced="true" />
+			<field type="number-d" id="tpl33v6b6l_reg0003_gpg5rzd" title="Shift Bits" name="Shift Bits" bitmap="00FF" description="Leading bits to suppress; valid range is `0` to `7`." advanced="true" />
 		</register>
 		<register id="0004" size="1" default="00">
 			<title>Options</title>
@@ -1676,17 +1676,17 @@ The Reader checks the Status Word. In case of any error (SW!=`9xxx`), the Templa
 If this register is set, the Reader adds a token to its output to tell the receiver what kind of credential has been read.
 			</description>
 			<field type="hidden" id="tpl33v6b6l_reg0004_g65secl" name="rfu0" bitmap="F0" value="0" />
-			<field type="radios" id="tpl33v6b6l_reg0004_rgq7qed_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
-				<option value="0" title="Before the Prefix" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="1" title="After the Prefix, before the Data" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="2" title="After the Data (before the Suffix)" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="3" title="RFU" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+			<field type="radios" id="tpl33v6b6l_reg0004_rgq7qed_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" visibleif="TPLBITS(4, 2, 2) is not 0">
+				<option value="0" title="Before the Prefix" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="1" title="After the Prefix, before the Data" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="2" title="After the Data (before the Suffix)" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="3" title="RFU" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 			</field>
-			<field type="radios" id="tpl33v6b6l_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
-				<option value="0" title="Do not add a Card Type Token" advanced="true"/>
-				<option value="1" title="Add Card Type Token in hex (`1F`)" advanced="true"/>
-				<option value="2" title="Add Card Type Token as char (`T`)" advanced="true"/>
-				<option value="3" title="RFU" advanced="true"/>
+			<field type="radios" id="tpl33v6b6l_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03">
+				<option value="0" title="Do not add a Card Type Token"/>
+				<option value="1" title="Add Card Type Token in hex (`1F`)"/>
+				<option value="2" title="Add Card Type Token as char (`T`)"/>
+				<option value="3" title="RFU"/>
 			</field>
 		</register>
 		<register id="0002" size="8" default="">
@@ -1718,8 +1718,8 @@ The reader accepts block sizes up to 64 bytes. The block number is specified in 
 			<title>Location of Data</title>
 			<field type="number-h" id="tplsoaav3l_reg0003_lmh6e5y" title="Address" name="Address" bitmap="FF0000" description="This is the Address of the 1st page to read.
 Valid range depends on the memory size of the actual VICC" note="The number of pages to be read is deduced from the expected length, as set in the TOF register." />
-			<field type="number-d" id="tplsoaav3l_reg0003_gsqqlyn" title="Shift Bytes" name="Shift Bytes" bitmap="00FF00" advanced="true" description="Leading bytes to suppress; valid range is `0` to `32` (in decimal)." />
-			<field type="number-d" id="tplsoaav3l_reg0003_rk4pgmy" title="Shift Bits" name="Shift Bits" bitmap="0000FF" advanced="true" description="Leading bits to suppress; valid range is `0` to `7`." />
+			<field type="number-d" id="tplsoaav3l_reg0003_gsqqlyn" title="Shift Bytes" name="Shift Bytes" bitmap="00FF00" description="Leading bytes to suppress; valid range is `0` to `32` (in decimal)." advanced="true" />
+			<field type="number-d" id="tplsoaav3l_reg0003_rk4pgmy" title="Shift Bits" name="Shift Bits" bitmap="0000FF" description="Leading bits to suppress; valid range is `0` to `7`." advanced="true" />
 		</register>
 		<register id="0001" size="2" default="0000">
 			<title>Output Size and Format</title>
@@ -1795,17 +1795,17 @@ Valid range depends on the memory size of the actual VICC" note="The number of p
 If this register is set, the Reader adds a token to its output to tell the receiver what kind of credential has been read.
 			</description>
 			<field type="hidden" id="tplsoaav3l_reg0004_g65secl" name="rfu0" bitmap="F0" value="0" />
-			<field type="radios" id="tplsoaav3l_reg0004_rgq7qed_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
-				<option value="0" title="Before the Prefix" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="1" title="After the Prefix, before the Data" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="2" title="After the Data (before the Suffix)" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="3" title="RFU" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+			<field type="radios" id="tplsoaav3l_reg0004_rgq7qed_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" visibleif="TPLBITS(4, 2, 2) is not 0">
+				<option value="0" title="Before the Prefix" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="1" title="After the Prefix, before the Data" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="2" title="After the Data (before the Suffix)" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="3" title="RFU" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 			</field>
-			<field type="radios" id="tplsoaav3l_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
-				<option value="0" title="Do not add a Card Type Token" advanced="true"/>
-				<option value="1" title="Add Card Type Token in hex (`54`)" advanced="true"/>
-				<option value="2" title="Add Card Type Token as char (`V`)" advanced="true"/>
-				<option value="3" title="RFU" advanced="true"/>
+			<field type="radios" id="tplsoaav3l_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03">
+				<option value="0" title="Do not add a Card Type Token"/>
+				<option value="1" title="Add Card Type Token in hex (`54`)"/>
+				<option value="2" title="Add Card Type Token as char (`V`)"/>
+				<option value="3" title="RFU"/>
 			</field>
 		</register>
 		<register id="0002" size="8" default="">
@@ -1819,7 +1819,7 @@ Use `\\t` for a Tab, `\\n` for Enter, `\\b` for Back space, `\\v` for Vertical s
 			<field type="textbox" id="tplsoaav3l_reg0002" maxlength="8" title="Prefix" default=""/>
 		</register>
 	</template>
-	<template id="navigo" name="Navigo" title="Navigo Template" hash="eydso4n">
+	<template id="navigo" name="Navigo" title="Navigo Template" hash="eydso4n" restricted="true">
 		<lookups>
 			<lkl value="79" title="(Navigo)" />
 		</lookups>
@@ -1858,7 +1858,7 @@ Process a Calypso card according to Navigo rules
 			</field>
 			<field type="hidden" id="tpleydso4n_reg0005_hsqhxhn" name="rfu0" bitmap="3F" value="00" />
 		</register>
-		<register id="0001" size="3" default="0D010A">
+		<register id="0001" size="3" default="0E01FF">
 			<title>Output Size and Format</title>
 			<field type="hidden" id="tpleydso4n_reg0001_k3bridd" name="rfu0" bitmap="F00000" value="0" />
 			<field type="radios" id="tpleydso4n_reg0001_6dftzjy" title="Length and Format" name="Length and Format" bitmap="0F0000">
@@ -1907,17 +1907,17 @@ Process a Calypso card according to Navigo rules
 If this register is set, the Reader adds a token to its output to tell the receiver what kind of credential has been read.
 			</description>
 			<field type="hidden" id="tpleydso4n_reg0004_g65secl" name="rfu0" bitmap="F0" value="0" />
-			<field type="radios" id="tpleydso4n_reg0004_rgq7qed_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0">
-				<option value="0" title="Before the Prefix" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="1" title="After the Prefix, before the Data" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="2" title="After the Data (before the Suffix)" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
-				<option value="3" title="RFU" advanced="true" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+			<field type="radios" id="tpleydso4n_reg0004_rgq7qed_efr3mkd" title="Position of the Card Type Token" name="Position of the Card Type Token" bitmap="0C" visibleif="TPLBITS(4, 2, 2) is not 0">
+				<option value="0" title="Before the Prefix" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="1" title="After the Prefix, before the Data" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="2" title="After the Data (before the Suffix)" visibleif="TPLBITS(4, 2, 2) is not 0"/>
+				<option value="3" title="RFU" visibleif="TPLBITS(4, 2, 2) is not 0"/>
 			</field>
-			<field type="radios" id="tpleydso4n_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03" advanced="true">
-				<option value="0" title="Do not add a Card Type Token" advanced="true"/>
-				<option value="1" title="Add Card Type Token in hex (`79`)" advanced="true"/>
-				<option value="2" title="Add Card Type Token as char (`C`)" advanced="true"/>
-				<option value="3" title="RFU" advanced="true"/>
+			<field type="radios" id="tpleydso4n_reg0004_khxezgy" title="Add a Card Type Token to the output stream?" name="Card Type Token" bitmap="03">
+				<option value="0" title="Do not add a Card Type Token"/>
+				<option value="1" title="Add Card Type Token in hex (`79`)"/>
+				<option value="2" title="Add Card Type Token as char (`C`)"/>
+				<option value="3" title="RFU"/>
 			</field>
 		</register>
 		<register id="0002" size="8" default="">
